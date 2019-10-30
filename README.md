@@ -17,7 +17,7 @@ https://docs.google.com/spreadsheets/d/1oa3t7seEsTh60JEOmgY0olRsSnVOR4yWjhi9Btae
 사진첨부
 
 ## 스토리보드
-https://ovenapp.io/view/0cfkdzwIuDlmqYGthcuu1NjEm7xhigGA#3iEnY
+https://ovenapp.io/project/hKvMbC0yC39KtGR1roYrgapndSSj1CnW#dDV85
 
 ## 설계
 링크 또는 사진 첨부
