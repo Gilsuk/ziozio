@@ -14,7 +14,7 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 [요구사항 명세서](https://docs.google.com/spreadsheets/d/1oa3t7seEsTh60JEOmgY0olRsSnVOR4yWjhi9Btae1Qk/edit#gid=1204896733)
 
 ## 유즈케이스
-![visitor](http://drive.google.com/uc?export=view&id=1Qqh40-xFEec66m6QNjosMOexpOgEzQy4)
+![visitor](http://drive.google.com/uc?export=view&id=1yo2mr718HFiGfdQbzMbkvu7v8pg5t21S)
 ![member](http://drive.google.com/uc?export=view&id=1h4f690xuFhG_OnC77VpyLM-p5cOygQjl)
 ![manager](http://drive.google.com/uc?export=view&id=141fIidlSihQ5OSxoCPHNitjKyRdlbc0V)
 
