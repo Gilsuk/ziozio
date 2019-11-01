@@ -14,10 +14,12 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 [요구사항 명세서](https://docs.google.com/spreadsheets/d/1oa3t7seEsTh60JEOmgY0olRsSnVOR4yWjhi9Btae1Qk/edit#gid=1204896733)
 
 ## 유즈케이스
-![Alt text](https://github.com/Gilsuk/ziozio/blob/develop/ziozio-useCase.png)
+![visitor](http://drive.google.com/uc?export=view&id=1UDjMzwnexaWFZ2SB-ErA8Rux6bRgI5ta)
+![visitor](http://drive.google.com/uc?export=view&id=1h4f690xuFhG_OnC77VpyLM-p5cOygQjl)
+![visitor](http://drive.google.com/uc?export=view&id=141fIidlSihQ5OSxoCPHNitjKyRdlbc0V)
 
 ## 스토리보드
-[스토리보드](https://ovenapp.io/project/hKvMbC0yC39KtGR1roYrgapndSSj1CnW#dDV85)
+링크 첨부
 
 ## 설계
 링크 또는 사진 첨부
