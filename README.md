@@ -22,4 +22,4 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 링크 첨부
 
 ## 설계
-링크 또는 사진 첨부
+![class-diagram](https://drive.google.com/file/d/18OxZHmkh-QUqCWFST2ZDNucdyqOooUuz/view?usp=sharing)
