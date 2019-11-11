@@ -1,6 +1,7 @@
 package ziozio.dao.impl;
 
 import ziozio.dao.face.UserDAO;
+import ziozio.dto.User;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -14,4 +15,14 @@ public class UserDAOImpl implements UserDAO {
     public static UserDAO getInstance() {
         return Factory.INSTANCE;
     }
+
+	@Override
+	public String selectUserpwById(String id) {
+		return null;
+	}
+
+	@Override
+	public User selectUserById(String id) {
+		return null;
+	}
 }

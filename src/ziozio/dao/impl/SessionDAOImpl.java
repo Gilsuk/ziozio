@@ -1,6 +1,7 @@
 package ziozio.dao.impl;
 
 import ziozio.dao.face.SessionDAO;
+import ziozio.dto.User;
 
 public class SessionDAOImpl implements SessionDAO {
 
@@ -18,6 +19,12 @@ public class SessionDAOImpl implements SessionDAO {
 	@Override
 	public boolean insertSessionId() {
 		return false;
+	}
+
+	@Override
+	public void insertUser(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
