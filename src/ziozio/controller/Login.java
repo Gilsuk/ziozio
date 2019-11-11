@@ -18,12 +18,13 @@ import ziozio.service.impl.StateServiceImpl;
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LoginService loginService = new LoginServiceImpl();
-	
+	private LoginService loginService = LoginServiceImpl.getInstance();
+	private StateService stateService = StateServiceImpl.getInstance();
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		StateService stateService = new StateServiceImpl(req);
-		State state = stateService.getState();
+
+		State state = stateService.getState(req);
 		if (state.isAuthenticated()) {
 			// 이미 로그인 상태인 경우
 		} else {
@@ -34,8 +35,8 @@ public class Login extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		StateService stateService = new StateServiceImpl(req);
-		State state = stateService.getState();
+
+		State state = stateService.getState(req);
 		if (state.isAuthenticated()) {
 			// 이미 로그인 상태인 경우
 		} else {

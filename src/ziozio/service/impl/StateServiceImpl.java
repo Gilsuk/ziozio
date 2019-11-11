@@ -7,17 +7,21 @@ import ziozio.service.face.StateService;
 
 public class StateServiceImpl implements StateService {
 	
-	HttpServletRequest request;
-	State state;
-
-	public StateServiceImpl(HttpServletRequest req) {
-		this.request = req;
-		this.state = new State();
-	}
+    private StateServiceImpl() {
+    }
+ 
+    private static class Factory {
+        public static final StateService INSTANCE = new StateServiceImpl();
+    }
+ 
+    public static StateService getInstance() {
+        return Factory.INSTANCE;
+    }
 
 	@Override
-	public State getState() {
-		return this.state;
+	public State getState(HttpServletRequest req) {
+		return null;
 	}
+
 
 }

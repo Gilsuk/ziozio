@@ -11,16 +11,24 @@ import ziozio.service.face.LoginService;
 
 public class LoginServiceImpl implements LoginService {
 
-	private SessionDAO sDao = new SessionDAOImpl();
-	private CookieDAO cDao = new CookieDAOImpl();
+	private SessionDAO sDao = SessionDAOImpl.getInstance();
+	private CookieDAO cDao = CookieDAOImpl.getInstance();
+
+    private LoginServiceImpl() {
+    }
+ 
+    private static class Factory {
+        public static final LoginService INSTANCE = new LoginServiceImpl();
+    }
+ 
+    public static LoginService getInstance() {
+        return Factory.INSTANCE;
+    }
 
 	@Override
 	public boolean login(HttpServletRequest req, HttpServletResponse resp) {
-		
-		sDao.insertSessionId();
-		cDao.insertCookieId();
-		
 		return false;
 	}
-
 }
+
+

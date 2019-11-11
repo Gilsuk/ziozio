@@ -12,9 +12,36 @@
 
 
 <style type="text/css">
-img {
-	width: 500px;
-	height: 300px;
+
+@media (min-width: 576px) { 
+	div {
+		background-color: red;
+	}
+
+}
+
+@media (min-width: 768px) {
+/* Medium devices (tablets, 768px and up) */
+	div {
+		background-color: green;
+	}
+
+}
+
+@media (min-width: 992px) {
+/* Large devices (desktops, 992px and up) */
+	div {
+		background-color: blue;
+	}
+
+}
+
+@media (min-width: 1200px) {
+/* Extra large devices (large desktops, 1200px and up) */
+	div {
+		background-color: yellow;
+	}
+
 }
 
 </style>
