@@ -11,4 +11,6 @@ public interface UserDAO {
 
 	State selectUserByUserno(int userno);
 
+	void insertUser(String id, String pw);
+
 }

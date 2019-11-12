@@ -31,4 +31,8 @@ public class UserDAOImpl implements UserDAO {
 	public State selectUserByUserno(int userno) {
 		return null;
 	}
+
+	@Override
+	public void insertUser(String id, String pw) {
+	}
 }
