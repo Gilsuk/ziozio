@@ -8,4 +8,6 @@ public interface CookieDAO {
 
 	void insertUser(User user);
 
+	int selectUsernoByCID(String parameter);
+
 }
