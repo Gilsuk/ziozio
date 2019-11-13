@@ -2,10 +2,20 @@ package ziozio.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
+import ziozio.dao.face.CookieDAO;
+import ziozio.dao.face.SessionDAO;
+import ziozio.dao.face.UserDAO;
+import ziozio.dao.impl.CookieDAOImpl;
+import ziozio.dao.impl.SessionDAOImpl;
+import ziozio.dao.impl.UserDAOImpl;
 import ziozio.dto.State;
 import ziozio.service.face.StateService;
 
 public class StateServiceImpl implements StateService {
+	
+	private CookieDAO cDao = CookieDAOImpl.getInstance();
+	private SessionDAO sDao = SessionDAOImpl.getInstance();
+	private UserDAO uDao = UserDAOImpl.getInstance();
 	
     private StateServiceImpl() {
     }
@@ -20,7 +30,14 @@ public class StateServiceImpl implements StateService {
 
 	@Override
 	public State getState(HttpServletRequest req) {
-		return null;
+		State state = new State();
+		int userno = -1;
+		userno = cDao.selectUsernoByCID(req.getParameter("CID"));
+		userno = userno > 0 ? userno : sDao.selectUsernoBySID(req.getParameter("SID"));
+
+		if (userno < 0) return state;
+
+		return uDao.selectUserByUserno(userno);
 	}
 
 

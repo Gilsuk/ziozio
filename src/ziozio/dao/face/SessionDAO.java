@@ -8,4 +8,6 @@ public interface SessionDAO {
 
 	void insertUser(User user);
 
+	int selectUsernoBySID(String parameter);
+
 }

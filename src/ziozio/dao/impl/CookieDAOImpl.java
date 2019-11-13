@@ -26,4 +26,9 @@ public class CookieDAOImpl implements CookieDAO {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int selectUsernoByCID(String parameter) {
+		return 0;
+	}
 }

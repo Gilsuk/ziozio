@@ -27,4 +27,9 @@ public class SessionDAOImpl implements SessionDAO {
 		
 	}
 
+	@Override
+	public int selectUsernoBySID(String parameter) {
+		return 0;
+	}
+
 }
