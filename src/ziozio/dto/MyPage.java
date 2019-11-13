@@ -1,6 +1,5 @@
 package ziozio.dto;
 
-public class User {
-
+public class MyPage {
 
 }
