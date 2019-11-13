@@ -24,12 +24,12 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
 		State state = stateService.getState(req);
 		if (state.isAuthenticated()) {
 			// 이미 로그인 상태인 경우
 		} else {
 			// 비 로그인 상태일 때 로그인 페이지로 연결
-			req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
 		}
 	}
 	
