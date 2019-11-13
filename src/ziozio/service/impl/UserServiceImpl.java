@@ -1,5 +1,7 @@
 package ziozio.service.impl;
 
+import javax.servlet.http.HttpServletRequest;
+
 import ziozio.dao.face.MyPageDAO;
 import ziozio.dao.impl.MyPageDAOImpl;
 import ziozio.dto.MyPage;
@@ -18,6 +20,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public MyPage getMyPage(User user) {
 
+		return null;
+	}
+
+	@Override
+	public String getUserMail(HttpServletRequest req) {
 		return null;
 	}
 }
