@@ -76,7 +76,7 @@
 			
 				<a href="/findpw">
 				<center>
-				<input  style="background: #F0E378;" type="submit" class="btn btn-primary btn-lg" value="다음" />
+				<input  style="background: #F0E378; border: #E6A400; color: black; " type="submit" class="btn btn-primary btn-lg" value="다음" />
 				</center>
 				</a>
 				

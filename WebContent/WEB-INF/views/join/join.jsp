@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 
+
+
+<title>회원가입 화면</title>
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -20,10 +23,10 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<title>회원가입 화면</title>
-
-
 <style type="text/css">
+
+
+
 
 </style>
 
@@ -92,7 +95,7 @@
 					aria-expanded="false">메뉴<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li class="active"><a href="/login">로그인</a></li>
-					<li><a href="/join">회원가입</a></li>
+					<li><a href="/findpw">비밀번호 찾기</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -156,18 +159,18 @@
 				</div>
 				<div class="form-group" style="text-align: center;">
 					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary active" style="background: #F0E378; border-color: #F0E378">
+						<label class="btn btn-primary active" style="background: #F0E378; border-color: #F0E378; color: black;">
 							<input type="radio" name="userGender" autocomplete="off" value="남자" checked />남자
 						</label>
-						<label class="btn btn-primary" style="background: #F0E378; border-color: #F0E378">
+						<label class="btn btn-primary" style="background: #F0E378; border-color: #F0E378; color: black;">
 							<input type="radio" name="userGender" autocomplete="off" value="여자" checked />여자
 						</label>
-						<label class="btn btn-primary" style="background: #F0E378; border-color: #F0E378">
+						<label class="btn btn-primary" style="background: #F0E378; border-color: #F0E378; color: black;">
 							<input type="radio" name="userGender" autocomplete="off" value="중성" checked />중성
 						</label>
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group" >
 					<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="회원 가입하기">
 				</div>
 			</form>

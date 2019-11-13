@@ -72,8 +72,8 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">메뉴<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li class="active"><a href="/login">로그인</a></li>
-					<li><a href="/join">회원가입</a></li>
+					<li class="active"><a href="/join">회원가입</a></li>
+					<li><a href="/findpw">비밀번호 찾기</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -97,7 +97,7 @@
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20"/>
 				</div>
-				<div class="form-group" >
+				<div class="form-group" id="btn">
 				<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="로그인">
 				</div>
 		
