@@ -9,6 +9,7 @@ import ziozio.dao.face.UserDAO;
 import ziozio.dao.impl.CookieDAOImpl;
 import ziozio.dao.impl.SessionDAOImpl;
 import ziozio.dao.impl.UserDAOImpl;
+import ziozio.dto.User;
 import ziozio.service.face.LoginService;
 
 public class LoginServiceImpl implements LoginService {
@@ -33,17 +34,18 @@ public class LoginServiceImpl implements LoginService {
 		
 		String id = req.getParameter("userid");
 		String pw = req.getParameter("userpw");
-		String sid = req.getSession().getId();
-		String isUsingCookie = req.getParameter("keeplogin");
+		boolean shouldKeepLogin = Boolean.parseBoolean(req.getParameter("keeplogin"));
 		
-		int userno = null;
-		if (uDao.verifyIDandPW(id, pw)) {
-			
-		} else {
-			return false;
-		}
+		String userpw = uDao.selectUserpwById(id);
+		
+		if (!pw.equals(userpw)) return false;
+		
+		User user = uDao.selectUserById(id);
+		
+		sDao.insertUser(user);
+		
+		if (shouldKeepLogin) cDao.insertUser(user); 
 
-		sDao.insertSid(sid, id);
 		return false;
 	}
 }
