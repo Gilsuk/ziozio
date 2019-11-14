@@ -1,34 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
 
-
-
-<title>회원가입 화면</title>
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<style type="text/css">
-
-
-
-
-</style>
+<jsp:include page="/layout/header.jsp" /> 
 
 <script type="text/javascript">
 
@@ -73,36 +46,13 @@
         }
     }
 
-
 </script>
-</head>
+
 
 <body>
 
-<nav class="navbar navbar-default">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="main.jsp">ZIOZIO</a>
-	</div>
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav">
-			<li><a href="/main.jsp">메인</a></li>
-			<li><a href="/.jsp">게시판</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">메뉴<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li class="active"><a href="/login">로그인</a></li>
-					<li><a href="/findpw">비밀번호 찾기</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</nav>
 <!-- 이미지 -->
-<div style="margin: 0 auto; width: fit-content; ">
+<div class="a">
     <img src='/resources/img/ZIOZIO.png'  >
 </div>
 
@@ -110,9 +60,9 @@
 <div class="container">
 	<div class="clo-lg-12"></div>
 	<div class="clo-lg-12">
-		<div class="jumbotron" style="padding-top: 20px;">
+		<div class="jumbotron a1" >
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
-				<h3 style="text-align: center;">회원가입 화면</h3>
+				<h3 class="a2">회원가입 화면</h3>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20"/>
 				</div>
@@ -125,12 +75,11 @@
 				<div class="form-group">
 					<div class="form-inline" name="useBirth">
 						<div class="form-group">
-							<label class="sr-only" for="bir_yy"></label>
-							<input style="width: 120px;" type="text" id="bir_yy" placeholder="년(4자)" class="form-control" maxlength="4"/>
+							<input  type="text"  placeholder="년(4자)" class="form-control z" maxlength="4"/>
 						</div>
 						<div class="form-group">
 							<label class="sr-only" for="bir_mm"></label>
-							<select id="bir_mm" class="form-control" style="width: 120px;" >
+							<select id="bir_mm" class="form-control z"  >
 								<option value="01">01</option>
 								<option value="02">02</option>
 								<option value="03">03</option>
@@ -146,8 +95,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label class="sr-only" for="bir_dd"></label>
-							<input style="width: 120px;" type="text" id="bir_dd" placeholder="일"  class="form-control" maxlength="2"/>
+							<input  type="text" id="bir_dd" placeholder="일"  class="form-control z" maxlength="2"/>
 						</div>
 					</div>
 				</div>
@@ -157,26 +105,27 @@
 				<div class="form-group">
 					<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50"/>
 				</div>
-				<div class="form-group" style="text-align: center;">
+				<div class="form-group a2" >
 					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary active" style="background: #F0E378; border-color: #F0E378; color: black;">
+						<label class="btn btn-primary active abc" >
 							<input type="radio" name="userGender" autocomplete="off" value="남자" checked />남자
 						</label>
-						<label class="btn btn-primary" style="background: #F0E378; border-color: #F0E378; color: black;">
+						<label class="btn btn-primary active abc" >
 							<input type="radio" name="userGender" autocomplete="off" value="여자" checked />여자
 						</label>
-						<label class="btn btn-primary" style="background: #F0E378; border-color: #F0E378; color: black;">
+						<label class="btn btn-primary active abc" >
 							<input type="radio" name="userGender" autocomplete="off" value="중성" checked />중성
 						</label>
 					</div>
 				</div>
-				<div class="form-group" >
-					<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="회원 가입하기">
+
+				<div class="form-group">
+					<input type="submit" class="btn btn-primory form-control abc" value="회원 가입하기">
 				</div>
 			</form>
 			<div class="form-group">
 				<a href="/main">
-					<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="가입취소">
+					<input type="submit" class="btn btn-primory form-control abc" value="가입취소">
 				</a>
 			</div>
 		</div>	
@@ -185,10 +134,5 @@
 </div>
 </div>
 
-
-
-   
-
-</body>
-</html>
+<jsp:include page="/layout/footer.jsp" />
 

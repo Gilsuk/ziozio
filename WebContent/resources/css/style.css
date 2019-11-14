@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.a{
+	margin: 0 auto; width: fit-content;
+}
+
+.a1{
+	padding-top: 20px;	
+}
+
+.a2{
+	text-align: center;
+}
+
+.abc{
+	background-color: #F0E378 !important;
+	border-color: #F0E378 !important;
+	color: black !important;
+} 
+
+.z{
+	width: 120px !important;
+}
