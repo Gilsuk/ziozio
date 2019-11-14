@@ -8,13 +8,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dao.face.UserDAO;
+import ziozio.dao.impl.UserDAOImpl;
+import ziozio.service.face.EmailService;
+import ziozio.service.face.UserService;
+import ziozio.service.impl.EmailServiceImpl;
+import ziozio.service.impl.UserServiceImpl;
+
 
 @WebServlet("/findpw")
 public class FindPw extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UserService userService = UserServiceImpl.getInstance();
+	private EmailService emailService = EmailServiceImpl.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String email = userService.getUserMail(req);
+		emailService.sendLinkForPW(email);
+
+		
 		req.getRequestDispatcher("/WEB-INF/views/findpw/findpw.jsp").forward(req, resp);
 	}
 	
