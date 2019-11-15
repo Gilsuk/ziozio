@@ -22,4 +22,5 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 링크 첨부
 
 ## 설계
-[클래스 다이어그램](https://drive.google.com/file/d/18OxZHmkh-QUqCWFST2ZDNucdyqOooUuz/view?usp=sharing)
+[클래스 다이어그램](https://www.draw.io/?state=%7B%22ids%22:%5B%221REHZqw83wSpMwfWqOtHbWFYzI6dvh_42%22%5D,%22action%22:%22open%22,%22userId%22:%22112892481326909512500%22%7D#G1REHZqw83wSpMwfWqOtHbWFYzI6dvh_42)
+[ERD](https://www.erdcloud.com/d/F7wreMfCbCMhmc2H5)
