@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dao.face.CookieDAO;
 import ziozio.dao.face.SessionDAO;
-import ziozio.dao.face.UserDAO;
+import ziozio.dao.face.JoinDAO;
 import ziozio.dao.impl.CookieDAOImpl;
 import ziozio.dao.impl.SessionDAOImpl;
-import ziozio.dao.impl.UserDAOImpl;
+import ziozio.dao.impl.JoinDAOImpl;
 import ziozio.dto.User;
 import ziozio.service.face.LoginService;
 
@@ -16,7 +16,7 @@ public class LoginServiceImpl implements LoginService {
 
 	private SessionDAO sDao = SessionDAOImpl.getInstance();
 	private CookieDAO cDao = CookieDAOImpl.getInstance();
-	private UserDAO uDao = UserDAOImpl.getInstance();
+	private JoinDAO uDao = JoinDAOImpl.getInstance();
 
     private LoginServiceImpl() {
     }

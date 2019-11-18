@@ -4,10 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.face.CookieDAO;
 import ziozio.dao.face.SessionDAO;
-import ziozio.dao.face.UserDAO;
+import ziozio.dao.face.JoinDAO;
 import ziozio.dao.impl.CookieDAOImpl;
 import ziozio.dao.impl.SessionDAOImpl;
-import ziozio.dao.impl.UserDAOImpl;
+import ziozio.dao.impl.JoinDAOImpl;
 import ziozio.dto.State;
 import ziozio.service.face.StateService;
 
@@ -15,7 +15,7 @@ public class StateServiceImpl implements StateService {
 	
 	private CookieDAO cDao = CookieDAOImpl.getInstance();
 	private SessionDAO sDao = SessionDAOImpl.getInstance();
-	private UserDAO uDao = UserDAOImpl.getInstance();
+	private JoinDAO uDao = JoinDAOImpl.getInstance();
 	
     private StateServiceImpl() {
     }

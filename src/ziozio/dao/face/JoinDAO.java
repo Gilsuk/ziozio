@@ -3,7 +3,7 @@ package ziozio.dao.face;
 import ziozio.dto.State;
 import ziozio.dto.User;
 
-public interface UserDAO {
+public interface JoinDAO {
 
 	String selectUserpwById(String id);
 
@@ -11,6 +11,8 @@ public interface UserDAO {
 
 	State selectUserByUserno(int userno);
 
-	void insertUser(String id, String pw);
+	
+	
+	public void insertUser(User user);
 
 }

@@ -9,7 +9,7 @@
 
 
 <!-- 이미지 -->
-<div class="a">
+<div class="marginauto">
     <img src='/resources/img/ZIOZIO.png'  >
 </div>
 
@@ -17,9 +17,9 @@
 <div class="container">
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
-		<div class="jumbotron a1" >
+		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/findPw" onsubmit="return checkValue()">
-				<h3 class="a2">비밀번호 찾기</h3>
+				<h3 class="center">비밀번호 찾기</h3>
 				<div class="form-group">
 					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" name="userEmail" maxlength="50"/>
 				</div>
@@ -28,7 +28,7 @@
 			<div class="form-group">	
 				<a href="/findpw">
 
-					<input type="submit" class="btn btn-primory form-control abc" value="다음">
+					<input type="submit" class="btn btn-primory form-control input color" value="다음">
 
 				</a>
 			</div>	

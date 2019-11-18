@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ziozio.dao.face.UserDAO;
-import ziozio.dao.impl.UserDAOImpl;
+import ziozio.dao.face.JoinDAO;
+import ziozio.dao.impl.JoinDAOImpl;
 import ziozio.service.face.EmailService;
 import ziozio.service.face.UserService;
 import ziozio.service.impl.EmailServiceImpl;

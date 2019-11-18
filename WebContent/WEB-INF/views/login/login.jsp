@@ -10,16 +10,16 @@
     function checkValue()
     {
         inputForm = eval("document.loginInfo");
-        if(!inputForm.userID.value)
+        if(!inputForm.userId.value)
         {
             alert("아이디를 입력하세요");    
-            inputForm.userID.focus();
+            inputForm.userId.focus();
             return false;
         }
-        if(!inputForm.userPassword.value)
+        if(!inputForm.userPw.value)
         {
             alert("비밀번호를 입력하세요");    
-            inputForm.userPassword.focus();
+            inputForm.userPw.focus();
             return false;
         }
     }
@@ -30,7 +30,7 @@
 <body>
 
 <!-- 이미지 -->
-<div class="a">
+<div class="marginauto">
     <img src='/resources/img/ZIOZIO.png'  >
 </div>
 
@@ -38,26 +38,26 @@
 <div class="container ">
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
-		<div class="jumbotron a1" >
+		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
-				<h3 class="a2">로그인 화면</h3>
+				<h3 class="center">로그인 화면</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="아이디" name="userId" maxlength="20"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="userPw" maxlength="20"/>
 				</div>
 				<div class="form-group" >
-				<input  type="submit" class="btn btn-primory form-control abc" value="로그인">
+				<input  type="submit" class="btn btn-primory form-control input color" value="로그인">
 				</div>
 		
 			</form>
 			<a href="/join">
-				<input  type="submit" class="btn btn-primory form-control abc" value="회원가입">
+				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입">
 			</a>
 			<br><br>
 			<a href="/findpw">
-				<input  type="submit" class="btn btn-primory form-control abc" value="비밀번호 찾기">
+				<input  type="submit" class="btn btn-primory form-control input color" value="비밀번호 찾기">
 			</a>
 		</div>	
 	</div>

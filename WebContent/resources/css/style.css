@@ -1,23 +1,32 @@
 @charset "UTF-8";
 
-.a{
+.marginauto{
 	margin: 0 auto; width: fit-content;
 }
 
-.a1{
+
+
+
+.padding{
 	padding-top: 20px;	
 }
 
-.a2{
+.center{
 	text-align: center;
 }
 
-.abc{
+.input{
 	background-color: #F0E378 ;
 	border-color: #F0E378 ;
-	color: black ;
+	
 } 
 
-.z{
+.color{
+	
+	color: black ;
+}
+
+
+.width{
 	width: 120px !important;
 }
