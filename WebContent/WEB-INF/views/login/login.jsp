@@ -36,8 +36,8 @@
 
 <div id="wrap">
 <div class="container ">
-	<div class="col-lg-12 "></div>
-	<div class="col-lg-12 ">
+	<div class="col-lg-3 "></div>
+	<div class="col-lg-6 ">
 		<div class="jumbotron a1" >
 			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
 				<h3 class="a2">로그인 화면</h3>
@@ -61,7 +61,7 @@
 			</a>
 		</div>	
 	</div>
-	<div class="col-lg-12"></div>
+	<div class="col-lg-3"></div>
 </div>
 </div>
 

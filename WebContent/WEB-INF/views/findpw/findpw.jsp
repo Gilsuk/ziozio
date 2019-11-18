@@ -15,8 +15,8 @@
 
 <div id="wrap">
 <div class="container">
-	<div class="col-lg-12 "></div>
-	<div class="col-lg-12 ">
+	<div class="col-lg-3 "></div>
+	<div class="col-lg-6 ">
 		<div class="jumbotron a1" >
 			<form name="loginInfo" method="post" action="/findPw" onsubmit="return checkValue()">
 				<h3 class="a2">비밀번호 찾기</h3>
@@ -37,7 +37,7 @@
 			
 		</div>	
 	</div>
-	<div class="col-lg-12"></div>
+	<div class="col-lg-3"></div>
 </div>
 </div>
 

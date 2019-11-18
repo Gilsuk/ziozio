@@ -58,8 +58,8 @@
 
 <div id="wrap">
 <div class="container">
-	<div class="clo-lg-12"></div>
-	<div class="clo-lg-12">
+	<div class="clo-lg-3"></div>
+	<div class="clo-lg-6">
 		<div class="jumbotron a1" >
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
 				<h3 class="a2">회원가입 화면</h3>
@@ -107,13 +107,13 @@
 				</div>
 				<div class="form-group a2" >
 					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary active abc" >
+						<label class="btn abc" >
 							<input type="radio" name="userGender" autocomplete="off" value="남자" checked />남자
 						</label>
-						<label class="btn btn-primary active abc" >
+						<label class="btn abc" >
 							<input type="radio" name="userGender" autocomplete="off" value="여자" checked />여자
 						</label>
-						<label class="btn btn-primary active abc" >
+						<label class="btn abc" >
 							<input type="radio" name="userGender" autocomplete="off" value="중성" checked />중성
 						</label>
 					</div>
@@ -130,7 +130,7 @@
 			</div>
 		</div>	
 	</div>
-	<div class="col-lg-12"></div>
+	<div class="col-lg-3"></div>
 </div>
 </div>
 
