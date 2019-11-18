@@ -7,48 +7,59 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import web.dto.Member;
 import ziozio.dto.State;
-import ziozio.service.face.LoginService;
+import ziozio.dto.User;
 import ziozio.service.face.StateService;
-import ziozio.service.impl.LoginServiceImpl;
+import ziozio.service.face.UserService;
 import ziozio.service.impl.StateServiceImpl;
+import ziozio.service.impl.UserServiceImpl;
 
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LoginService loginService = LoginServiceImpl.getInstance();
 	private StateService stateService = StateServiceImpl.getInstance();
-
+	private UserService userService = new UserServiceImpl();
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
-		State state = stateService.getState(req);
-		if (state.isAuthenticated()) {
-			// 이미 로그인 상태인 경우
-		} else {
-			// 비 로그인 상태일 때 로그인 페이지로 연결
-		}
+		
+	
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		State state = stateService.getState(req);
-		if (state.isAuthenticated()) {
-			// 이미 로그인 상태인 경우
+		User user = userService.getLoginParam(req);
+		
+		
+		
+		boolean result = userService.login(user);
+
+		HttpSession session = null;
+		session = req.getSession();
+
+		if(result) {
+			
+			User u = userService.getMemberByUserid(user);
+			
+			//로그인 성공
+			session.setAttribute("login", true);//세션 정보 저장
+			session.setAttribute("userid", u.getUserid());//세션 정보 저장
+			session.setAttribute("usernick", u.getUsernick());//세션 정보 저장
+			
+			resp.sendRedirect("/main");
+
 		} else {
-			// 비 로그인 상태일 때 로그인 처리
-			if (loginService.login(req, resp)) {
-				// 로그인 성공시
-			} else {
-				// 로그인 실패
-			}
+			req.setAttribute("result", result);
 			req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
 		}
-		
-	}
 
+	}
 }

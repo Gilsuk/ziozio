@@ -114,15 +114,15 @@
 				<div class="form-group">
 					<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50"/>
 				</div>
-				<div class="form-group a2" >
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn abc" >
+				<div class="form-group center" >
+					<div class="btn-group " data-toggle="buttons">
+						<label class="btn input" >
 							<input type="radio" name="userGender" autocomplete="off" value="남자" checked />남자
 						</label>
-						<label class="btn abc" >
+						<label class="btn input" >
 							<input type="radio" name="userGender" autocomplete="off" value="여자" checked />여자
 						</label>
-						<label class="btn abc" >
+						<label class="btn input" >
 							<input type="radio" name="userGender" autocomplete="off" value="중성" checked />중성
 						</label>
 					</div>
