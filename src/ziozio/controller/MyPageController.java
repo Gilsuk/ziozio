@@ -19,7 +19,7 @@ import ziozio.service.impl.UserServiceImpl;
 /**
  * Servlet implementation class MyPageController
  */
-@WebServlet("/mypage")
+@WebServlet("/mypageimsi")
 public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private StateService stateService = StateServiceImpl.getInstance();
