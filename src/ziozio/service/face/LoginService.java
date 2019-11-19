@@ -26,6 +26,6 @@ public interface LoginService {
 	 * @param user
 	 * @return
 	 */
-	public User getUserByUserid(User user);
+	public User getLoginByUserid(User user);
 	
 }

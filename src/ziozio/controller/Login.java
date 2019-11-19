@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
 
 		if(result) {
 			
-			User u = loginService.getUserByUserid(user);
+			User u = loginService.getLoginByUserid(user);
 			
 			//로그인 성공
 			session.setAttribute("login", true);//세션 정보 저장

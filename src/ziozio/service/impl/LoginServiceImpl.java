@@ -2,7 +2,8 @@ package ziozio.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dao.LoginDAO;
+
+import ziozio.dao.face.LoginDAO;
 import ziozio.dao.impl.LoginDAOImpl;
 import ziozio.dto.User;
 import ziozio.service.face.LoginService;
@@ -14,20 +15,41 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public User getLoginParam(HttpServletRequest req) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		//전달 파라미터 얻기
+		String userid = req.getParameter("userId");
+		String userpw = req.getParameter("userPw");
+		
+		//전달 파라미터를 DTO(모델)에 담기
+		User user = new User();
+		user.setUserid(userid);
+		user.setUserpw(userpw);
+		
+		//객체 반환		
+		
+		return user;
 	}
 
 	@Override
 	public boolean login(User user) {
-		// TODO Auto-generated method stub
-		return false;
+
+		int cnt = 0;
+		cnt = loginDao.selectCntLoginByUserid(user);
+		
+		System.out.println("cnt : " + cnt);
+		
+		//존재하면 true반환
+		//아니면 false반환
+		if(cnt==1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public User getUserByUserid(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getLoginByUserid(User user) {
+		return loginDao.selectLoginByUserid(user);
 	}
 }
 
