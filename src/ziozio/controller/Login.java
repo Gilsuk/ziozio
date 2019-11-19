@@ -9,20 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import web.dto.Member;
-import ziozio.dto.State;
 import ziozio.dto.User;
-import ziozio.service.face.StateService;
-import ziozio.service.face.UserService;
-import ziozio.service.impl.StateServiceImpl;
-import ziozio.service.impl.UserServiceImpl;
+import ziozio.service.face.LoginService;
+import ziozio.service.impl.LoginServiceImpl;
 
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private StateService stateService = StateServiceImpl.getInstance();
-	private UserService userService = new UserServiceImpl();
+	
+	private LoginService loginService = new LoginServiceImpl();
 	
 	
 	@Override
@@ -36,18 +32,16 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		User user = userService.getLoginParam(req);
+		User user = loginService.getLoginParam(req);
 		
-		
-		
-		boolean result = userService.login(user);
+		boolean result = loginService.login(user);
 
 		HttpSession session = null;
 		session = req.getSession();
 
 		if(result) {
 			
-			User u = userService.getMemberByUserid(user);
+			User u = loginService.getUserByUserid(user);
 			
 			//로그인 성공
 			session.setAttribute("login", true);//세션 정보 저장
