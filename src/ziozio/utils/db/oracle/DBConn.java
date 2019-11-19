@@ -1,4 +1,4 @@
-package ziozio.dbutil;
+package ziozio.utils.db.oracle;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ziozio.dao.face.JoinDAO;
-import ziozio.dbutil.DBConn;
 import ziozio.dto.State;
 import ziozio.dto.User;
+import ziozio.utils.db.oracle.DBConn;
 
 public class JoinDAOImpl implements JoinDAO {
 
