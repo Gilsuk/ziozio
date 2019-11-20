@@ -1,5 +1,7 @@
 package ziozio.dto;
 
-public class MyPage {
+import ziozio.dto.face.DTO;
+
+public class MyPage implements DTO<MyPage> {
 
 }
