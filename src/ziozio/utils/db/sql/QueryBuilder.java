@@ -16,48 +16,33 @@ public class QueryBuilder {
 	/*
 	 * method
 	 */
-	public void setInt(int index, int input) {
-		this.inputs[index - 1] = String.valueOf(input);
-	}
-	
-	public void setLong(int index, long input) {
-		this.inputs[index - 1] = String.valueOf(input);
-	}
-
-	public void setFloat(int index, float input) {
-		this.inputs[index - 1] = String.valueOf(input);
-	}
-
-	public void setDouble(int index, double input) {
-		this.inputs[index - 1] = String.valueOf(input);
-	}
-	
-	public void setChar(int index, char input) {
-		this.inputs[index - 1] = buildStringTypeQuery(input);
-	}
-	private <T extends String> String buildStringTypeQuery(T input) {
+	@Override
+	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append('\'').append(input).append('\'');
+		
+		for (int i = 0; i < inputs.length; i++) 
+			if (inputs[i] == null) throw new QueryNotCompletedException();
+
+		for (int i = 0; i < query.length; i++)
+			sb.append(query[i]).append(inputs[i]);
+
 		return sb.toString();
 	}
-
-	public void setString(int index, String input) {
-		this.inputs[index - 1] = input;
+	public <T extends Number> void setNumber(int index, T input) {
+		inputs[index - 1] = String.valueOf(input);
 	}
-
+	public void setString(int index, String input) {
+		inputs[index - 1] = new StringBuilder("'")
+				.append(input).append('\'').toString();
+	}
 //	public void setDate(int index, float input) {
 //		this.inputs[index - 1] = String.valueOf(input);
 //	}
-
-	public String[] build() {
-		return query;
+	public void setNull(int index) {
+		inputs[index - 1] = "null";
 	}
-
-	public String buildQuery() {
-		StringBuilder sb = new StringBuilder();
-		for (String partedQuery : query) {
-			
-		}
-		return null;
+	public void setAllToNullIfNotSet() {
+		for (int i = 0; i < inputs.length; i++) 
+			if (inputs[i] == null) inputs[i] = "null";
 	}
 }
