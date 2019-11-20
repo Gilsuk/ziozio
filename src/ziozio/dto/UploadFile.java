@@ -4,9 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ziozio.dto.face.DTO;
-import ziozio.dto.face.SupportResultSet;
+import ziozio.dto.face.Selectable;
 
-public class UploadFile implements DTO<UploadFile>, SupportResultSet<UploadFile> {
+public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile> {
 	
 	int fileno;
 	long filesize;
@@ -72,6 +72,14 @@ public class UploadFile implements DTO<UploadFile>, SupportResultSet<UploadFile>
 	}
 	@Override
 	public UploadFile setFieldFromResultSet(ResultSet rs) throws SQLException {
+		this.fileno = rs.getInt("fileno");
+		this.filename = rs.getString("filename");
+		this.storedFileName = rs.getString("storedname");
+		this.filesize = rs.getLong("size");
+		this.uploaderIp = rs.getString("uploader_ip");
+		this.year = rs.getInt("year");
+		this.month = rs.getInt("month");
+		this.day = rs.getInt("day");
 
 		return this;
 	}
