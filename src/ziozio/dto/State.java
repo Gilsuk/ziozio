@@ -1,6 +1,8 @@
 package ziozio.dto;
 
-public class State {
+import ziozio.dto.face.DTO;
+
+public class State implements DTO<State> {
 	
 	private boolean authenticated;
 	private User user;
@@ -17,5 +19,4 @@ public class State {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }

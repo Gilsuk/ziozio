@@ -1,6 +1,8 @@
 package ziozio.dto;
 
-public class User {
+import ziozio.dto.face.DTO;
+
+public class User implements DTO<User> {
 
 	private String userid;
 	private String userpw;
@@ -99,7 +101,5 @@ public class User {
 	public void setUsergender(String usergender) {
 		this.usergender = usergender;
 	}
-	
-	
 	
 }
