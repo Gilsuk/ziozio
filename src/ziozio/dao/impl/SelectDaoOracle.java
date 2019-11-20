@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ziozio.dto.face.DTO;
-import ziozio.dto.face.SupportResultSet;
+import ziozio.dto.face.Selectable;
 import ziozio.utils.db.oracle.DBConn;
 
-public class SelectDaoOracle <T extends DTO<T> & SupportResultSet<T>>{
+public class SelectDaoOracle <T extends DTO<T> & Selectable<T>>{
 	private Connection conn = DBConn.getConnection();
 	
 	public List<T> select(String sql, Class<T> type) {
