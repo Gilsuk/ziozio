@@ -46,8 +46,13 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">메뉴<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li class="active"><a href="/login">로그인</a></li>
+					<c:if test="${!login }">
+					<li><a href="/login">로그인</a></li>
+					</c:if>
 					<li><a href="/join">회원가입</a></li>
+					<c:if test="${login }">
+					<li><a href="/join">로그아웃</a></li>
+					</c:if>
 				</ul>
 			</li>
 		</ul>
