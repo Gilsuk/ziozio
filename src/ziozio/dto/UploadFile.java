@@ -4,9 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ziozio.dto.face.DTO;
+import ziozio.dto.face.Insertable;
 import ziozio.dto.face.Selectable;
+import ziozio.utils.db.sql.QueryBuilder;
 
-public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile> {
+public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile>, Insertable<UploadFile> {
 	
 	int fileno;
 	long filesize;
@@ -82,5 +84,25 @@ public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile> {
 		this.day = rs.getInt("day");
 
 		return this;
+	}
+	@Override
+	public String getInsertQuery() {
+		String sql = "";
+		sql += "INSERT INTO uploadfile";
+		sql += " (fileno, filename, storedfilename, filesize, uploaderip, year, month, day)";
+		sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		QueryBuilder qb = new QueryBuilder(sql);
+		qb.setNumber(1, this.fileno);
+		qb.setString(2, this.filename);
+		qb.setString(3, this.storedFileName);
+		qb.setNumber(4, this.filesize);
+		qb.setString(5, this.uploaderIp);
+		qb.setNumber(6, this.year);
+		qb.setNumber(7, this.month);
+		qb.setNumber(8, this.day);
+		qb.setAllToNullIfNotSet();
+
+		return qb.toString();
 	}
 }
