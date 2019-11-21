@@ -3,12 +3,14 @@ package ziozio.dto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import ziozio.dao.exception.PrimeKeyNotSetException;
 import ziozio.dto.face.DTO;
 import ziozio.dto.face.Insertable;
 import ziozio.dto.face.Selectable;
+import ziozio.dto.face.Updatable;
 import ziozio.utils.db.sql.QueryBuilder;
 
-public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile>, Insertable<UploadFile> {
+public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile>, Insertable<UploadFile>, Updatable<UploadFile> {
 	
 	int fileno;
 	long filesize;
@@ -104,5 +106,80 @@ public class UploadFile implements DTO<UploadFile>, Selectable<UploadFile>, Inse
 		qb.setAllToNullIfNotSet();
 
 		return qb.toString();
+	}
+	@Override
+	public String getUpdateQuery(String[] colnames) {
+		
+		try {
+			if (this.fileno <= 0) throw new PrimeKeyNotSetException();
+		} catch (PrimeKeyNotSetException e) { e.printStackTrace(); }
+
+		StringBuilder query = new StringBuilder();
+		query.append("UPDATE uploadfile SET ");
+		for (int i = 0; i < colnames.length; i++) {
+			if (i != 0) query.append(", ");
+			query.append(colnames[i]).append(" = ?");
+		}
+		query.append(" WHERE fileno = ").append(this.fileno);
+		
+		QueryBuilder qb = new QueryBuilder(query.toString());
+		
+		for (int i = 0; i < colnames.length; i++)
+			UpdateByField.valueOf(colnames[i].toUpperCase()).setValue(this, qb, i);
+
+		return qb.toString();
+	}
+	enum UpdateByField {
+		
+		FILENO {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setNumber(index, uploadFile.getFileno());
+			}
+		},
+		FILESIZE {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setNumber(index, uploadFile.getFilesize());
+			}
+		},
+		FILENAME {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setString(index, uploadFile.getFilename());
+			}
+		},
+		STOREDFILENAME {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setString(index, uploadFile.getStoredFileName());
+			}
+		},
+		UPLOADERIP {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setString(index, uploadFile.getuploaderIp());
+			}
+		},
+		YEAR {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setNumber(index, uploadFile.getYear());
+			}
+		},
+		MONTH {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setNumber(index, uploadFile.getMonth());
+			}
+		},
+		DAY {
+			@Override
+			void setValue(UploadFile uploadFile, QueryBuilder qb, int index) {
+				qb.setNumber(index, uploadFile.getDay());
+			}
+		};
+
+		abstract void setValue(UploadFile uploadFile, QueryBuilder qb, int index);
 	}
 }
