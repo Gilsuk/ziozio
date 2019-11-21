@@ -74,9 +74,9 @@ public class LoginDAOImpl implements LoginDAO {
 			//SQL 수행결과 처리
 			while(rs.next()) {
 				
-				user2.setUserid(rs.getString("userId"));
-				user2.setUserpw(rs.getString("userPw"));
-				user2.setUsernick(rs.getString("userNick"));
+				user2.setUserid(rs.getString("userid"));
+				user2.setUserpw(rs.getString("userpw"));
+				user2.setUsernick(rs.getString("usernick"));
 				
 			}
 			
