@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
+    
 <jsp:include page="/layout/header.jsp" />    
 
 <title>로그인 화면</title>
@@ -10,16 +13,16 @@
     function checkValue()
     {
         inputForm = eval("document.loginInfo");
-        if(!inputForm.userId.value)
+        if(!inputForm.userid.value)
         {
             alert("아이디를 입력하세요");    
-            inputForm.userId.focus();
+            inputForm.userid.focus();
             return false;
         }
-        if(!inputForm.userPw.value)
+        if(!inputForm.userpw.value)
         {
             alert("비밀번호를 입력하세요");    
-            inputForm.userPw.focus();
+            inputForm.userpw.focus();
             return false;
         }
     }
@@ -42,11 +45,14 @@
 			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
 				<h3 class="center">로그인 화면</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userId" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="아이디" name="userid" maxlength="20"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userPw" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
 				</div>
+				<c:if test="${!empty result && !result }">
+					<div style="color: red;">로그인 실패</div>
+				</c:if>
 				<div class="form-group" >
 				<input  type="submit" class="btn btn-primory form-control input color" value="로그인">
 				</div>

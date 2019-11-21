@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>    
 
 <jsp:include page="/layout/header.jsp" /> 
 
@@ -8,46 +11,46 @@
     function checkValue()
     {
         inputForm = eval("document.loginInfo");
-        if(!inputForm.userId.value)
+        if(!inputForm.userid.value)
         {
             alert("아이디를 입력하세요");    
-            inputForm.userId.focus();
+            inputForm.userid.focus();
             return false;
         }
-        if(!inputForm.userPw.value)
+        if(!inputForm.userpw.value)
         {
             alert("비밀번호를 입력하세요");    
-            inputForm.userPw.focus();
+            inputForm.userpw.focus();
             return false;
         }
-        if(!inputForm.userName.value)
+        if(!inputForm.username.value)
         {
             alert("이름을 입력하세요");    
-            inputForm.userName.focus();
+            inputForm.username.focus();
             return false;
         }
-        if(!inputForm.userNick.value)
+        if(!inputForm.usernick.value)
         {
             alert("닉네임을 입력하세요");    
-            inputForm.userNick.focus();
+            inputForm.usernick.focus();
             return false;
         }
-        if(!inputForm.userBirth.value)
+        if(!inputForm.userbirth.value)
         {
             alert("생년월일을 입력하세요");    
-            inputForm.userBbirth.focus();
+            inputForm.userbirth.focus();
             return false;
         }
-        if(!inputForm.userPhone.value)
+        if(!inputForm.userphone.value)
         {
             alert("전화번호를 입력하세요");    
-            inputForm.userPhone.focus();
+            inputForm.userphone.focus();
             return false;
         }
-        if(!inputForm.userEmail.value)
+        if(!inputForm.useremail.value)
         {
             alert("이메일을 입력하세요");    
-            inputForm.userEmail.focus();
+            inputForm.useremail.focus();
             return false;
         }
     }
@@ -70,19 +73,19 @@
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userId" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="아이디" name="userid" maxlength="20"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userPw" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="이름" name="userName" maxlength="10"/>
+					<input type="text" class="form-control" placeholder="이름" name="username" maxlength="10"/>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="닉네임" name="userNick" maxlength="10"/>
+					<input type="text" class="form-control" placeholder="닉네임" name="usernick" maxlength="10"/>
 				</div>
 				<div class="form-group">
-					<div class="form-inline" name="userBirth">
+					<div class="form-inline" name="userbirth">
 						<div class="form-group">
 							<input  type="text"  placeholder="년(4자)" class="form-control width" maxlength="4"/>
 						</div>
@@ -109,21 +112,21 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="전화번호 입력" name="userPhone" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="전화번호 입력" name="userphone" maxlength="20"/>
 				</div>
 				<div class="form-group">
-					<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50"/>
+					<input type="email" class="form-control" placeholder="이메일" name="useremail" maxlength="50"/>
 				</div>
 				<div class="form-group center" >
 					<div class="btn-group " data-toggle="buttons">
 						<label class="btn input" >
-							<input type="radio" name="userGender" autocomplete="off" value="남자" checked />남자
+							<input type="radio" name="usergender" autocomplete="off" value="남자" checked />남자
 						</label>
 						<label class="btn input" >
-							<input type="radio" name="userGender" autocomplete="off" value="여자" checked />여자
+							<input type="radio" name="usergender" autocomplete="off" value="여자" checked />여자
 						</label>
 						<label class="btn input" >
-							<input type="radio" name="userGender" autocomplete="off" value="중성" checked />중성
+							<input type="radio" name="usergender" autocomplete="off" value="중성" checked />중성
 						</label>
 					</div>
 				</div>
