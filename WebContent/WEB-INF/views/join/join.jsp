@@ -70,8 +70,8 @@
 
 <div id="wrap">
 <div class="container">
-	<div class="clo-lg-3"></div>
-	<div class="clo-lg-6">
+	<div class="clo-lg-4"></div>
+	<div class="clo-lg-4">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
 				<h3 class="center">회원가입</h3>
@@ -145,7 +145,7 @@
 			</div>
 		</div>	
 	</div>
-	<div class="col-lg-3"></div>
+	<div class="col-lg-4"></div>
 </div>
 </div>
 

@@ -46,7 +46,7 @@
 	<div class="col-lg-6 ">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
-				<h3 class="center">로그인 화면</h3>
+				<h3 class="center">로그인</h3>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="아이디" name="userid" maxlength="20"/>
 				</div>
@@ -59,7 +59,6 @@
 				<div class="form-group" >
 				<input  type="submit" class="btn btn-primory form-control input color" value="로그인">
 				</div>
-		
 			</form>
 			<a href="/join">
 				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입">
