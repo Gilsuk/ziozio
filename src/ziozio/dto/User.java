@@ -4,6 +4,7 @@ import ziozio.dto.face.DTO;
 
 public class User implements DTO<User> {
 
+	private int userno;
 	private String userid;
 	private String userpw;
 	private String username;
@@ -12,14 +13,24 @@ public class User implements DTO<User> {
 	private String userphone;
 	private String useremail;
 	private String usergender;
-	
+
 	
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", usernick=" + usernick
-				+ ", userbirth=" + userbirth + ", userphone=" + userphone + ", useremail=" + useremail + ", usergender="
-				+ usergender + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "User [userno=" + userno + ", userid=" + userid + ", userpw=" + userpw + ", username=" + username
+				+ ", usernick=" + usernick + ", userbirth=" + userbirth + ", userphone=" + userphone + ", useremail="
+				+ useremail + ", usergender=" + usergender + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+
+
+	public int getUserno() {
+		return userno;
+	}
+
+
+	public void setUserno(int userno) {
+		this.userno = userno;
 	}
 
 
@@ -101,5 +112,8 @@ public class User implements DTO<User> {
 	public void setUsergender(String usergender) {
 		this.usergender = usergender;
 	}
+	
+
+	
 	
 }

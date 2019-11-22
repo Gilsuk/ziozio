@@ -12,7 +12,8 @@ public interface JoinDAO {
 	State selectUserByUserno(int userno);
 
 	
-	
 	public void insertUser(User user);
 
+	
+	public int selectNextUserno();
 }

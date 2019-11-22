@@ -20,6 +20,8 @@ public class Join extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private JoinService joinService = JoinServiceImpl.getInstance();
 	
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -29,7 +31,7 @@ public class Join extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		User user = joinService.getInsertParam(req);
+		User user = joinService.getJoinParam(req);
 		
 		joinService.join(user);
 

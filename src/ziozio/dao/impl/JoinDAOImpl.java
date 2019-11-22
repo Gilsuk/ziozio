@@ -24,24 +24,7 @@ public class JoinDAOImpl implements JoinDAO {
         public static final JoinDAO INSTANCE = new JoinDAOImpl();
     }
  
-    public static JoinDAO getInstance() {
-        return Factory.INSTANCE;
-    }
 
-	@Override
-	public String selectUserpwById(String id) {
-		return null;
-	}
-
-	@Override
-	public User selectUserById(String id) {
-		return null;
-	}
-
-	@Override
-	public State selectUserByUserno(int userno) {
-		return null;
-	}
 
 	@Override
 	public void insertUser(User user) {
@@ -65,14 +48,85 @@ public class JoinDAOImpl implements JoinDAO {
 			ps.executeUpdate();
 			
 		}catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			try {
 				if(ps!=null)	ps.close();
 			}catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	
 	}
+
+	@Override
+	public int selectNextUserno() {
+
+		conn = DBConn.getConnection();
+		
+		String sql = "SELECT user_seq.nextval userno FROM dual";
+				
+		int nextval = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);//쿼리 수행 객체
+			rs = ps.executeQuery(); //쿼리 수행 select니까 rs를 씀
+			
+//			rs.next();
+			
+//			System.out.println(rs.getInt("nextval"));
+//			System.out.println(rs.getInt(1)); //위와 같은 값
+			
+			while(rs.next()) {
+				
+				nextval=rs.getInt("userno");
+				
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return nextval;
+	}
+
+
+	@Override
+	public String selectUserpwById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public User selectUserById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public State selectUserByUserno(int userno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public static JoinDAO getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }
