@@ -46,12 +46,33 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">메뉴<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li class="active"><a href="/login">로그인</a></li>
-					<li><a href="/join">회원가입</a></li>
+				<c:choose>
+					<c:when test="${login }">
+					WELCOME ${usernick }님 ! 
+						<li><a href="/mypage">마이페이지</a></li>
+						<li><a href="/board">게시판</a></li>
+						<li><a href="/column"></a>column</li>
+						<li><a href="/qna"></a>QnA</li>
+						<li><a href="/logout">로그아웃</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="/join">회원가입</a></li>
+						<li><a href="/login">로그인</a></li>
+						<li><a href="/findpw">비밀번호 찾기</a></li>
+						<li><a href="/board">게시판</a></li>
+						<li><a href="/column">column</a></li>
+					</c:otherwise>
+					</c:choose>
 				</ul>
 			</li>
 		</ul>
 	</div>
 </nav>
 </div>
+
+
+
+
+
+
 
