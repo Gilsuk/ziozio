@@ -24,7 +24,7 @@ public class LoginDAOImpl implements LoginDAO {
 		conn = DBConn.getConnection();	//DB 연결
 		//수행할 SQL 쿼리
 		String sql = "";
-		sql += "SELECT userid FROM user";
+		sql += "SELECT useremail FROM account";
 		sql += " WHERE userpw = ?";
 		int cnt = 0;
 		
@@ -37,7 +37,7 @@ public class LoginDAOImpl implements LoginDAO {
 			while(rs.next()) {
 				
 				//아이디 비밀번호 일치 검사
-				if(rs.getString(1).equals(user.getUserid()))
+				if(rs.getString(1).equals(user.getUseremail()))
 				cnt++;
 
 			}
@@ -63,7 +63,7 @@ public class LoginDAOImpl implements LoginDAO {
 		User user2 = new User();		//각 행을 처리할 DTO
 		//수행할 SQL 쿼리
 		String sql = "";
-		sql += "SELECT * FROM user";
+		sql += "SELECT * FROM account";
 		sql += " WHERE userpw = ?";
 		
 		try {
@@ -74,7 +74,7 @@ public class LoginDAOImpl implements LoginDAO {
 			//SQL 수행결과 처리
 			while(rs.next()) {
 				
-				user2.setUserid(rs.getString("userid"));
+				user2.setUseremail(rs.getString("useremail"));
 				user2.setUserpw(rs.getString("userpw"));
 				user2.setUsernick(rs.getString("usernick"));
 				
@@ -101,11 +101,11 @@ public class LoginDAOImpl implements LoginDAO {
 		conn = DBConn.getConnection();	//DB 연결
 		
 		String sql = "";
-		sql += "INSERT into user values (?, ?, ?)";
+		sql += "INSERT into account values (?, ?, ?)";
 
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, user.getUserid());
+			ps.setString(1, user.getUseremail());
 			ps.setString(2, user.getUserpw());
 			ps.setString(3, user.getUsernick());
 			

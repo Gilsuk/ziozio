@@ -76,7 +76,7 @@
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userid" maxlength="20"/>
+					<input type="email" class="form-control" placeholder="이메일" name="useremail" maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
@@ -88,13 +88,13 @@
 					<input type="text" class="form-control" placeholder="닉네임" name="usernick" maxlength="10"/>
 				</div>
 				<div class="form-group">
-					<div class="form-inline" name="userbirth">
+					<div class="form-inline" >
 						<div class="form-group">
-							<input  type="text"  placeholder="년(4자)" class="form-control width" maxlength="4"/>
+							<input name="userbirth" type="text"  placeholder="년(4자)" class="form-control width" maxlength="4"/>
 						</div>
 						<div class="form-group">
 							<label class="sr-only" for="bir_mm"></label>
-							<select id="bir_mm" class="form-control width"  >
+							<select name="bir_mm" id="bir_mm" class="form-control width"  >
 								<option value="01">01</option>
 								<option value="02">02</option>
 								<option value="03">03</option>
@@ -110,15 +110,12 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<input  type="text" id="bir_dd" placeholder="일"  class="form-control width" maxlength="2"/>
+							<input name="bir_dd" type="text"  placeholder="일"  class="form-control width" maxlength="2"/>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="전화번호 입력" name="userphone" maxlength="20"/>
-				</div>
-				<div class="form-group">
-					<input type="email" class="form-control" placeholder="이메일" name="useremail" maxlength="50"/>
 				</div>
 				<div class="form-group center" >
 					<div class="btn-group " data-toggle="buttons">

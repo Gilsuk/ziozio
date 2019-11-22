@@ -32,17 +32,18 @@ public class JoinDAOImpl implements JoinDAO {
 		conn = DBConn.getConnection();	//DB 연결
 		
 		String sql = "";
-		sql += "INSERT into user values (?, ?, ?, ?, ?, ?, ?, ?)";
-
+		sql += "INSERT into account values (?, ?, ?, ?, ?, ?, ?, ?)";
+System.out.println(user);
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, user.getUserid());
+			
+			
+			ps.setString(7, user.getUseremail());
 			ps.setString(2, user.getUserpw());
 			ps.setString(3, user.getUsername());
 			ps.setString(4, user.getUsernick());
 			ps.setString(5, user.getUserbirth());
 			ps.setString(6, user.getUserphone());
-			ps.setString(7, user.getUseremail());
 			ps.setString(8, user.getUsergender());
 			
 			ps.executeUpdate();
@@ -64,7 +65,7 @@ public class JoinDAOImpl implements JoinDAO {
 
 		conn = DBConn.getConnection();
 		
-		String sql = "SELECT user_seq.nextval userno FROM dual";
+		String sql = "SELECT account_seq.nextval userno FROM dual";
 				
 		int nextval = 0;
 		

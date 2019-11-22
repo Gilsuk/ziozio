@@ -51,8 +51,8 @@
 					WELCOME ${usernick }님 ! 
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board">게시판</a></li>
-						<li><a href="/column"></a>column</li>
-						<li><a href="/qna"></a>QnA</li>
+						<li><a href="/column">column</a></li>
+						<li><a href="/qna">QnA</a></li>
 						<li><a href="/logout">로그아웃</a></li>
 					</c:when>
 					<c:otherwise>

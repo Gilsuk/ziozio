@@ -25,6 +25,8 @@ public class FindPw extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
+		
 		String email = userService.getUserMail(req);
 		emailService.sendLinkForPW(email);
 
@@ -32,4 +34,11 @@ public class FindPw extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/views/findpw/findpw.jsp").forward(req, resp);
 	}
 	
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	
+		
+	}
 }
