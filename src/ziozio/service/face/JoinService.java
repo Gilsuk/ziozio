@@ -19,6 +19,6 @@ public interface JoinService {
 	 * @param req
 	 * @return
 	 */
-	public User getInsertParam(HttpServletRequest req);
+	public User getJoinParam(HttpServletRequest req);
 	
 }

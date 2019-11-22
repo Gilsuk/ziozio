@@ -25,13 +25,18 @@ public class JoinServiceImpl implements JoinService {
 	@Override
 	public void join(User user) {
 	
+		int nextval = joinDao.selectNextUserno();
+
+		user.setUserno(nextval);
+		
 		joinDao.insertUser(user);
+	
 	}
 
 
 
 	@Override
-	public User getInsertParam(HttpServletRequest req) {
+	public User getJoinParam(HttpServletRequest req) {
 
 		String userid = req.getParameter("userid");
 		String userpw = req.getParameter("userpw");
