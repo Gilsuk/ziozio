@@ -45,10 +45,10 @@
 				<a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">메뉴<span class="caret"></span></a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" style="width: 200px;" >
 				<c:choose>
 					<c:when test="${login }">
-					WELCOME ${usernick }님 ! 
+					WELCOME ${usernick}님<hr>
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board">게시판</a></li>
 						<li><a href="/column">column</a></li>
