@@ -32,6 +32,8 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+	
+		
 		User user = loginService.getLoginParam(req);
 		
 		boolean result = loginService.login(user);
@@ -45,7 +47,7 @@ public class Login extends HttpServlet {
 			
 			//로그인 성공
 			session.setAttribute("login", true);//세션 정보 저장
-			session.setAttribute("userid", u.getUserid());//세션 정보 저장
+			session.setAttribute("useremail", u.getUseremail());//세션 정보 저장
 			session.setAttribute("usernick", u.getUsernick());//세션 정보 저장
 			
 			resp.sendRedirect("/main");

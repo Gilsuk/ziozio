@@ -18,6 +18,8 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 	
+		
+		
 		//세션 객체 얻기
 		HttpSession session = req.getSession();
 								
@@ -29,5 +31,11 @@ public class Logout extends HttpServlet {
 			
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	
+	
+	}
 	
 }

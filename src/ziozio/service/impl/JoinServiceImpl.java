@@ -38,24 +38,24 @@ public class JoinServiceImpl implements JoinService {
 	@Override
 	public User getJoinParam(HttpServletRequest req) {
 
-		String userid = req.getParameter("userid");
+		
+		String useremail = req.getParameter("useremail");
 		String userpw = req.getParameter("userpw");
 		String username = req.getParameter("username");
 		String usernick = req.getParameter("usernick");
 		String userbirth = req.getParameter("userbirth");
 		String userphone = req.getParameter("userphone");
-		String useremail = req.getParameter("useremail");
 		String usergender = req.getParameter("usergender");
 		
 		
 		User user = new User();
-		user.setUserid(userid);
+		
+		user.setUseremail(useremail);
 		user.setUserpw(userpw);
 		user.setUsername(username);
 		user.setUsernick(usernick);
 		user.setUserbirth(userbirth);
 		user.setUserphone(userphone);
-		user.setUseremail(useremail);
 		user.setUsergender(usergender);
 		
 		
