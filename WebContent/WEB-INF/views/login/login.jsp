@@ -48,13 +48,15 @@
 			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
 				<h3 class="center">로그인</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userid" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="아이디(email)" name="useremail" maxlength="100"/>
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
 				</div>
-				<c:if test="${!empty result && !result }">
-					<div style="color: red;">로그인 실패</div>
+
+				<c:if test="${!empty result && !result}"> 
+ 					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
+
 				</c:if>
 				<div class="form-group" >
 				<input  type="submit" class="btn btn-primory form-control input color" value="로그인">
@@ -74,22 +76,5 @@
 </div>
 
 
-
-<div>
-<% 
-	String msg=request.getParameter("msg");
-	
-	if(msg!=null && msg.equals("0")) 
-	{
-	    out.println("<br>");
-	    out.println("<font color='red' size='5'>비밀번호를 확인해 주세요.</font>");
-	}
-	else if(msg!=null && msg.equals("-1"))
-	{    
-	    out.println("<br>");
-	    out.println("<font color='red' size='5'>아이디를 확인해 주세요.</font>");
-	}
-%>    
-</div>    
 
 <jsp:include page="/layout/footer.jsp" />

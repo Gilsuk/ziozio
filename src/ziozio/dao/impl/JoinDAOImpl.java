@@ -32,19 +32,21 @@ public class JoinDAOImpl implements JoinDAO {
 		conn = DBConn.getConnection();	//DB 연결
 		
 		String sql = "";
-		sql += "INSERT into account values (?, ?, ?, ?, ?, ?, ?, ?)";
-System.out.println(user);
+		sql += "INSERT into account values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 		try {
 			ps = conn.prepareStatement(sql);
 			
 			
-			ps.setString(7, user.getUseremail());
+			ps.setString(1, user.getUseremail());
 			ps.setString(2, user.getUserpw());
 			ps.setString(3, user.getUsername());
 			ps.setString(4, user.getUsernick());
-			ps.setString(5, user.getUserbirth());
-			ps.setString(6, user.getUserphone());
-			ps.setString(8, user.getUsergender());
+			ps.setString(5, user.getUserbirth_year());
+			ps.setString(6, user.getUserbirth_mon());
+			ps.setString(7, user.getUserbirth_day());
+			ps.setString(8, user.getUserphone());
+			ps.setString(9, user.getUsergender());
 			
 			ps.executeUpdate();
 			
@@ -72,7 +74,7 @@ System.out.println(user);
 		try {
 			ps = conn.prepareStatement(sql);//쿼리 수행 객체
 			rs = ps.executeQuery(); //쿼리 수행 select니까 rs를 씀
-			
+			 
 //			rs.next();
 			
 //			System.out.println(rs.getInt("nextval"));

@@ -14,10 +14,11 @@
     function checkValue()
     {
         inputForm = eval("document.loginInfo");
-        if(!inputForm.userid.value)
+    
+        if(!inputForm.useremail.value)
         {
-            alert("아이디를 입력하세요");    
-            inputForm.userid.focus();
+            alert("이메일을 입력하세요");    
+            inputForm.useremail.focus();
             return false;
         }
         if(!inputForm.userpw.value)
@@ -38,10 +39,22 @@
             inputForm.usernick.focus();
             return false;
         }
-        if(!inputForm.userbirth.value)
+        if(!inputForm.userbirth_year.value)
         {
-            alert("생년월일을 입력하세요");    
-            inputForm.userbirth.focus();
+            alert("생년을 입력하세요");    
+            inputForm.userbirth_year.focus();
+            return false;
+        }
+        if(!inputForm.userbirth_mon.value)
+        {
+            alert("월일 입력하세요");    
+            inputForm.userbirth_mon.focus();
+            return false;
+        }
+        if(!inputForm.userbirth_day.value)
+        {
+            alert("일을 입력하세요");    
+            inputForm.userbirth_day.focus();
             return false;
         }
         if(!inputForm.userphone.value)
@@ -50,12 +63,14 @@
             inputForm.userphone.focus();
             return false;
         }
-        if(!inputForm.useremail.value)
+        if(!inputForm.usergender.value)
         {
-            alert("이메일을 입력하세요");    
-            inputForm.useremail.focus();
+            alert("성별을 입력하세요");    
+            inputForm.usergender.focus();
             return false;
         }
+   
+
     }
 
 </script>
@@ -70,31 +85,31 @@
 
 <div id="wrap">
 <div class="container">
-	<div class="clo-lg-4"></div>
-	<div class="clo-lg-4">
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
-					<input type="email" class="form-control" placeholder="이메일" name="useremail" maxlength="50"/>
+					<input type="email" class="form-control" placeholder="아이디(이메일)" name="useremail" id="useremail" maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" id="userpw" maxlength="50"/>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="이름" name="username" maxlength="10"/>
+					<input type="text" class="form-control" placeholder="이름" name="username" id="username" maxlength="50"/>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="닉네임" name="usernick" maxlength="10"/>
+					<input type="text" class="form-control" placeholder="닉네임" name="usernick" id="usernick" maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<div class="form-inline" >
 						<div class="form-group">
-							<input name="userbirth" type="text"  placeholder="년(4자)" class="form-control width" maxlength="4"/>
+							<input name="userbirth_year" type="text"  placeholder="년(4자)" class="form-control width" maxlength="4"/>
 						</div>
 						<div class="form-group">
-							<label class="sr-only" for="bir_mm"></label>
-							<select name="bir_mm" id="bir_mm" class="form-control width"  >
+							<label class="sr-only" for="userbirth_mon"></label>
+							<select name="userbirth_mon" id="userbirth_mon" class="form-control width"  >
 								<option value="01">01</option>
 								<option value="02">02</option>
 								<option value="03">03</option>
@@ -110,12 +125,12 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<input name="bir_dd" type="text"  placeholder="일"  class="form-control width" maxlength="2"/>
+							<input name="userbirth_day" type="text"  placeholder="일"  class="form-control width" maxlength="2"/>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="전화번호 입력" name="userphone" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="전화번호 입력" name="userphone" id="userphone" maxlength="50"/>
 				</div>
 				<div class="form-group center" >
 					<div class="btn-group " data-toggle="buttons">
@@ -130,7 +145,7 @@
 						</label>
 					</div>
 				</div>
-
+				
 				<div class="form-group">
 					<input type="submit" class="btn btn-primory form-control input color" value="회원 가입하기">
 				</div>
@@ -142,7 +157,7 @@
 			</div>
 		</div>	
 	</div>
-	<div class="col-lg-4"></div>
+	<div class="col-lg-3"></div>
 </div>
 </div>
 
