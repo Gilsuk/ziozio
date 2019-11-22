@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 			User u = loginService.getLoginByUserid(user);
 			
 			//로그인 성공
-			session.setAttribute("login", result);//세션 정보 저장
+			session.setAttribute("login", true);//세션 정보 저장
 			session.setAttribute("useremail", u.getUseremail());//세션 정보 저장
 			session.setAttribute("usernick", u.getUsernick());//세션 정보 저장
 			
