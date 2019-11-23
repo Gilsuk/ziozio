@@ -1,7 +1,6 @@
 package ziozio.service.face;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.User;
 

@@ -1,8 +1,6 @@
 package ziozio.dto;
 
-import ziozio.dto.face.DTO;
-
-public class User implements DTO<User> {
+public class User implements DTO {
 
 	private int userno;
 	private String useremail;
