@@ -32,14 +32,15 @@ public class JoinDAOImpl implements JoinDAO {
 		conn = DBConn.getConnection();	//DB 연결
 		
 		String sql = "";
-		sql += "INSERT into account values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		sql += "INSERT into account values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			ps = conn.prepareStatement(sql);
 			
 			
 			ps.setString(1, user.getUseremail());
-			ps.setString(2, user.getUserpw());
+			ps.setString(2, user.getUserpw1());
+			ps.setString(2, user.getUserpw2());
 			ps.setString(3, user.getUsername());
 			ps.setString(4, user.getUsernick());
 			ps.setString(5, user.getUserbirth_year());
@@ -130,6 +131,41 @@ public class JoinDAOImpl implements JoinDAO {
 		return null;
 	}
 
+	@Override
+	public int joinCheck(String useremail) {
 
+		conn = DBConn.getConnection();
+		
+		String sql = "SELECT * FROM account WHERE useremail = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, useremail);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return 0;
+			}else {
+				return 1;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+	
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+			e.printStackTrace();
+			}
+	
+		}
+		
+	return -1;
+
+	}
 
 }

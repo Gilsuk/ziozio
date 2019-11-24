@@ -6,7 +6,8 @@ public class User implements DTO<User> {
 
 	private int userno;
 	private String useremail;
-	private String userpw;
+	private String userpw1;
+	private String userpw2;
 	private String username;
 	private String usernick;
 	private String userbirth_year;
@@ -16,9 +17,10 @@ public class User implements DTO<User> {
 	private String usergender;
 	@Override
 	public String toString() {
-		return "User [userno=" + userno + ", useremail=" + useremail + ", userpw=" + userpw + ", username=" + username
-				+ ", usernick=" + usernick + ", userbirth_year=" + userbirth_year + ", userbirth_mon=" + userbirth_mon
-				+ ", userbirth_day=" + userbirth_day + ", userphone=" + userphone + ", usergender=" + usergender + "]";
+		return "User [userno=" + userno + ", useremail=" + useremail + ", userpw1=" + userpw1 + ", userpw2=" + userpw2
+				+ ", username=" + username + ", usernick=" + usernick + ", userbirth_year=" + userbirth_year
+				+ ", userbirth_mon=" + userbirth_mon + ", userbirth_day=" + userbirth_day + ", userphone=" + userphone
+				+ ", usergender=" + usergender + "]";
 	}
 	public int getUserno() {
 		return userno;
@@ -32,11 +34,17 @@ public class User implements DTO<User> {
 	public void setUseremail(String useremail) {
 		this.useremail = useremail;
 	}
-	public String getUserpw() {
-		return userpw;
+	public String getUserpw1() {
+		return userpw1;
 	}
-	public void setUserpw(String userpw) {
-		this.userpw = userpw;
+	public void setUserpw1(String userpw1) {
+		this.userpw1 = userpw1;
+	}
+	public String getUserpw2() {
+		return userpw2;
+	}
+	public void setUserpw2(String userpw2) {
+		this.userpw2 = userpw2;
 	}
 	public String getUsername() {
 		return username;
@@ -80,7 +88,6 @@ public class User implements DTO<User> {
 	public void setUsergender(String usergender) {
 		this.usergender = usergender;
 	}
-	
 
 	
 

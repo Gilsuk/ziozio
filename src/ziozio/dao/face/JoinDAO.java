@@ -16,4 +16,7 @@ public interface JoinDAO {
 
 	
 	public int selectNextUserno();
+	
+	public int joinCheck(String useremail);
+	
 }
