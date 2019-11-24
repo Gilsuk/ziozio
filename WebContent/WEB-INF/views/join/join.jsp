@@ -81,7 +81,7 @@
     	var useremail = $("#useremail").val();
     	$.ajax({
     		type: "POST",
-    		url: "./Join",
+    		url: "./join",
     		data: {useremail: useremail},
     		success: function(result) {
     			if(result == 1) {
@@ -132,6 +132,7 @@
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="userpw2" id="userpw2" maxlength="50"/>
+				<h5 style="color: red;" id="pwCheckMessage"></h5> 
 				</div>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="이름" name="username" id="username" maxlength="50"/>
@@ -186,7 +187,7 @@
 				
 				<div class="form-group">
 					<input type="submit" class="btn btn-primory form-control input color" value="회원 가입하기">
-					<h5 style="color: red;" id="pwCheckMessage"></h5> 
+					
 				</div>
 			</form>
 			<div class="form-group">
@@ -211,15 +212,40 @@
 	}
 	if(messageContent != null) {
 		
-	}
-		
 	
 %>
-
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div class="modal-content" <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">$times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						<%= messageType %>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<%= messageContent %>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$("#messageModal").modal("show");
+</script>
 <%
 	session.removeAttribute("messageContent");
-	session.removeAttribute("messageType");
+	session.removeAttribute("messageType");	
+	}
 %>
+
 
 <div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="trye">
 	<div class="vertical-alignment-helper">
@@ -227,7 +253,8 @@
 			<div class="modal-content panel-info %>">
 				<div class="modal-header panel-heading">
 					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">close</span>
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">close</span>
 					</button>
 					<h4 class="modal-title">
 						확인 메세지
