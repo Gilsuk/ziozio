@@ -6,42 +6,31 @@ import java.sql.SQLException;
 
 public class DBConn {
 
-	//DB 연결 정보
 	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver"; 
 	private static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
 	private static final String USERNAME = "scott";
 	private static final String PASSWORD = "tiger";
 	
-	//DB연결 객체
-	
-	private static Connection conn = null;
+	private final Connection conn;
 	
 	//private 생성자
-	private DBConn() { }
-	
-	//Connection 객체 반환 - Singleton Pattern
-	public static Connection getConnection() {
-		
-		if( conn == null ) {
-			try {
-				
-				Class.forName(DRIVER); //드라이버 로드
-				
-				//DB연결객체 생성
-				conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-				
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return conn; //DB연결 객체 반환
+	private DBConn() {
+		try { Class.forName(DRIVER); }
+		catch (ClassNotFoundException e) { e.printStackTrace(); }
+
+		Connection tmpConn = null;
+		try { tmpConn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		conn = tmpConn;
 	}
 	
-	
-	
-	
-	
+    private static class Factory {
+    	public static final Connection CONN = new DBConn().conn;
+    }
+
+    public static Connection getConnection() {
+        return Factory.CONN;
+    }
+    
 }
