@@ -21,10 +21,16 @@
             inputForm.useremail.focus();
             return false;
         }
-        if(!inputForm.userpw.value)
+        if(!inputForm.userpw1.value)
         {
             alert("비밀번호를 입력하세요");    
-            inputForm.userpw.focus();
+            inputForm.userpw1.focus();
+            return false;
+        }
+        if(!inputForm.userpw2.value)
+        {
+            alert("비밀번호를 입력하세요");    
+            inputForm.userpw2.focus();
             return false;
         }
         if(!inputForm.username.value)
@@ -69,10 +75,37 @@
             inputForm.usergender.focus();
             return false;
         }
-   
-
     }
 
+    function joinCheckFunction() {
+    	var useremail = $("#useremail").val();
+    	$.ajax({
+    		type: "POST",
+    		url: "./join",
+    		data: {useremail: useremail},
+    		success: function(result) {
+    			if(result == 1) {
+    				$("#checkMessage").html("사용할 수 있는 아이디입니다.");
+    				$("#checkType").attr("class", "modal-content");
+    			}
+    			else {
+    				$("#checkMessage").html("사용할 수 없는 아이디입니다.");
+    				$("#checkType").attr("class", "modal-warning");
+    			}
+    			$("#checkModal").modal("show");
+    		}
+    	})
+    }
+    function pwCheckFunction() {
+    	var userpw1 = $("#userpw1").val();
+    	var userpw2 = $("#userpw2").val();
+    	if(userpw1 != userpw2) {
+    		$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
+    	} else {
+    		$("#pwCheckMessage").html("");
+    	}
+    }
+    
 </script>
 
 
@@ -92,15 +125,21 @@
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
 					<input type="email" class="form-control" placeholder="아이디(이메일)" name="useremail" id="useremail" maxlength="100"/>
+					<button class="btn tn-primary" onclick="joinCheckFunction();" type="button">중복체크</button>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" id="userpw" maxlength="50"/>
+					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="userpw1" id="userpw1" maxlength="50"/>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="userpw2" id="userpw2" maxlength="50"/>
+				<h5 style="color: red;" id="pwCheckMessage"></h5> 
 				</div>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="이름" name="username" id="username" maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="닉네임" name="usernick" id="usernick" maxlength="50"/>
+					<button class="btn tn-primary" onclick="joinCheckFunction();" type="button">중복체크</button>
 				</div>
 				<div class="form-group">
 					<div class="form-inline" >
@@ -148,6 +187,7 @@
 				
 				<div class="form-group">
 					<input type="submit" class="btn btn-primory form-control input color" value="회원 가입하기">
+					
 				</div>
 			</form>
 			<div class="form-group">
@@ -161,5 +201,73 @@
 </div>
 </div>
 
+<% 
+	String messageContent = null;
+	if(session.getAttribute("messageContent") != null) {
+		messageContent = (String) session.getAttribute("messageContent");
+	}
+	String messageType = null;
+	if(session.getAttribute("messageType") != null) {
+		messageType = (String) session.getAttribute("messageType");
+	}
+	if(messageContent != null) {
+		
+	
+%>
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div class="modal-content" <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">$times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						<%= messageType %>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<%= messageContent %>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$("#messageModal").modal("show");
+</script>
+<%
+	session.removeAttribute("messageContent");
+	session.removeAttribute("messageType");	
+	}
+%>
+
+
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="trye">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div class="modal-content panel-info %>">
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						확인 메세지
+					</h4>
+				</div>
+				<div class="modal-body" id="checkMessage">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <jsp:include page="/layout/footer.jsp" />
 

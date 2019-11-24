@@ -25,12 +25,12 @@ public class LoginDAOImpl implements LoginDAO {
 		//수행할 SQL 쿼리
 		String sql = "";
 		sql += "SELECT useremail FROM account";
-		sql += " WHERE userpw = ?";
+		sql += " WHERE userpw1 = ?";
 		int cnt = 0;
 		
 		try {
 			ps = conn.prepareStatement(sql);	//수행 객체 얻기
-			ps.setString(1, user.getUserpw());	//SQL쿼리의 ? 채우기
+			ps.setString(1, user.getUserpw1());	//SQL쿼리의 ? 채우기
 			rs = ps.executeQuery();				//SQL 수행 결과 얻기
 			
 			//SQL 수행결과 처리
@@ -64,18 +64,18 @@ public class LoginDAOImpl implements LoginDAO {
 		//수행할 SQL 쿼리
 		String sql = "";
 		sql += "SELECT * FROM account";
-		sql += " WHERE userpw = ?";
+		sql += " WHERE userpw1 = ?";
 		
 		try {
 			ps = conn.prepareStatement(sql);	//수행 객체 얻기
-			ps.setString(1, user.getUserpw());		//SQL쿼리의 ? 채우기
+			ps.setString(1, user.getUserpw1());		//SQL쿼리의 ? 채우기
 			rs = ps.executeQuery();				//SQL 수행 결과 얻기
 			
 			//SQL 수행결과 처리
 			while(rs.next()) {
 				
 				user2.setUseremail(rs.getString("useremail"));
-				user2.setUserpw(rs.getString("userpw"));
+				user2.setUserpw1(rs.getString("userpw1"));
 				user2.setUsernick(rs.getString("usernick"));
 				
 			}
@@ -106,7 +106,7 @@ public class LoginDAOImpl implements LoginDAO {
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUseremail());
-			ps.setString(2, user.getUserpw());
+			ps.setString(2, user.getUserpw1());
 			ps.setString(3, user.getUsernick());
 			
 			ps.executeUpdate();

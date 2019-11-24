@@ -16,16 +16,16 @@
     function checkValue()
     {
         inputForm = eval("document.loginInfo");
-        if(!inputForm.userid.value)
+        if(!inputForm.useremail.value)
         {
             alert("아이디를 입력하세요");    
-            inputForm.userid.focus();
+            inputForm.useremail.focus();
             return false;
         }
-        if(!inputForm.userpw.value)
+        if(!inputForm.userpw1.value)
         {
             alert("비밀번호를 입력하세요");    
-            inputForm.userpw.focus();
+            inputForm.userpw1.focus();
             return false;
         }
     }
@@ -51,7 +51,7 @@
 					<input type="text" class="form-control" placeholder="아이디(email)" name="useremail" maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="userpw1" maxlength="20"/>
 				</div>
 
 				<c:if test="${!empty result && !result}"> 

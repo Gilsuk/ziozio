@@ -18,12 +18,12 @@ public class LoginServiceImpl implements LoginService {
 	
 		//전달 파라미터 얻기
 		String useremail = req.getParameter("useremail");
-		String userpw = req.getParameter("userpw");
+		String userpw1 = req.getParameter("userpw1");
 		
 		//전달 파라미터를 DTO(모델)에 담기
 		User user = new User();
 		user.setUseremail(useremail);
-		user.setUserpw(userpw);
+		user.setUserpw1(userpw1);
 		
 		//객체 반환		
 		

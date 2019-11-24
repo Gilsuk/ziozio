@@ -40,7 +40,8 @@ public class JoinServiceImpl implements JoinService {
 
 		
 		String useremail = req.getParameter("useremail");
-		String userpw = req.getParameter("userpw");
+		String userpw1 = req.getParameter("userpw1");
+		String userpw2 = req.getParameter("userpw2");
 		String username = req.getParameter("username");
 		String usernick = req.getParameter("usernick");
 		String userbirth_year = req.getParameter("userbirth_year");
@@ -54,7 +55,8 @@ public class JoinServiceImpl implements JoinService {
 		User user = new User();
 		
 		user.setUseremail(useremail);
-		user.setUserpw(userpw);
+		user.setUserpw1(userpw1);
+		user.setUserpw2(userpw2);
 		user.setUsername(username);
 		user.setUsernick(usernick);
 		user.setUserbirth_year(userbirth_year);

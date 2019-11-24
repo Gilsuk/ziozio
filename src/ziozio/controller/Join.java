@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dao.impl.JoinDAOImpl;
 import ziozio.dto.User;
 import ziozio.service.face.JoinService;
 import ziozio.service.impl.JoinServiceImpl;
@@ -33,10 +34,15 @@ public class Join extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		
+		String useremail = req.getParameter("useremail");
+		resp.getWriter().write(new JoinDAOImpl().joinCheck(useremail) + "");
+		
 		User user = joinService.getJoinParam(req);
 		
 		joinService.join(user);
 
+		
+		
 		resp.sendRedirect("/main");
 	}
 
