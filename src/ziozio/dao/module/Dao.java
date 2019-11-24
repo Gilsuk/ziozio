@@ -9,16 +9,17 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
+import ziozio.dto.DTO;
 import ziozio.utils.db.oracle.DBConn;
 
-public class DaoUtils<T> {
+public class Dao {
 	
-	private Connection conn = DBConn.getConnection();
-	
-	public T select(
+	public static <T extends DTO> T select(
 			String sql, T dto,
 			BiConsumer<PreparedStatement, T> stateSetter,
 			Function<ResultSet, T> dtoGetter) {
+		
+		Connection conn = DBConn.getConnection();
 		
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
 			stateSetter.accept(ps, dto);
@@ -31,11 +32,13 @@ public class DaoUtils<T> {
 		return null;
 	}
 
-	public List<T> selectList(
+	public static <T extends DTO> List<T> selectList(
 			String sql, T dto,
 			BiConsumer<PreparedStatement, T> stateSetter,
 			Function<ResultSet, T> dtoGetter) {
 		
+		Connection conn = DBConn.getConnection();
+
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
 			stateSetter.accept(ps, dto);
 			ResultSet rs = ps.executeQuery();
@@ -49,5 +52,40 @@ public class DaoUtils<T> {
 		} catch (SQLException e) { e.printStackTrace(); }
 
 		return null;
+	}
+
+	public static <T extends DTO> int update(
+			String sql, T dto,
+			BiConsumer<PreparedStatement, T> stateSetter) {
+		
+		Connection conn = DBConn.getConnection();
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			stateSetter.accept(ps, dto);
+			return ps.executeUpdate();
+			
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		return 0;
+	}
+
+	public static <T extends DTO> int massUpdate(
+			String sql, List<T> dtoList,
+			BiConsumer<PreparedStatement, T> stateSetter) {
+		
+		Connection conn = DBConn.getConnection();
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			
+			int count = 0;
+			for (T dto : dtoList) {
+				stateSetter.accept(ps, dto);
+				count += ps.executeUpdate();
+			}
+			return count;
+			
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		return 0;
 	}
 }
