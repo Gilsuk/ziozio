@@ -1,4 +1,4 @@
-package ziozio.dao.module;
+package ziozio.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
