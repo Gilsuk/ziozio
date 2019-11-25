@@ -12,4 +12,4 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 - [요구사항 명세서](https://docs.google.com/spreadsheets/d/1oa3t7seEsTh60JEOmgY0olRsSnVOR4yWjhi9Btae1Qk/edit#gid=1204896733)
 - [클래스 다이어그램](https://www.draw.io/?state=%7B%22ids%22:%5B%221REHZqw83wSpMwfWqOtHbWFYzI6dvh_42%22%5D,%22action%22:%22open%22,%22userId%22:%22112892481326909512500%22%7D#G1REHZqw83wSpMwfWqOtHbWFYzI6dvh_42)
 - [ERD](https://www.erdcloud.com/d/F7wreMfCbCMhmc2H5)
-- 스토리보드
+- [스토리보드](https://docs.google.com/presentation/d/1nyAoGdxpssrEMZWDgQZHmT5UBk-hUczQGKG47H1k50o/edit#slide=id.p)
