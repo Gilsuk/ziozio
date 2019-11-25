@@ -17,6 +17,10 @@ public interface JoinDAO {
 	
 	public int selectNextUserno();
 	
-	public int joinCheck(String useremail);
+	
+	public int emailCheck(String useremail);
+	
+	
+	public int nickCheck(String usernick);
 	
 }
