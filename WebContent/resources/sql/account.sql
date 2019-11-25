@@ -5,7 +5,7 @@ DROP TABLE ACCOUNT;
 CREATE TABLE ACCOUNT (
 
 	account_no NUMBER PRIMARY KEY,
-	account_email VARCHAR2(100) NOT NULL,
+	account_email VARCHAR2(100) UNIQUE NOT NULL,
 	account_pw CHAR(64) NOT NULL,
 	account_nick VARCHAR2(30) UNIQUE NOT NULL,
 	account_gender CHAR(1) NOT NULL,
