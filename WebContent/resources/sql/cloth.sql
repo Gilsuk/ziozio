@@ -4,7 +4,7 @@ CREATE TABLE cloth (
 	cloth_name VARCHAR2(50),		--옷 이름
 	cloth_description VARCHAR2(255),--옷관련 설명(?)
 	cloth_links VARCHAR2(255),		--연결되는 사이트링크
-	cloth_gender VARCHAR2(50)		--성별(여성,중성,남성)
+	cloth_gender NUMBER				--성별(여성,중성,남성)
 );
 
 SELECT * FROM cloth;
