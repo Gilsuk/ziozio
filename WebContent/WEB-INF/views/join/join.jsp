@@ -17,85 +17,133 @@
     
         if(!inputForm.useremail.value)
         {
-            alert("이메일을 입력하세요");    
+        	$("#checkMessage").html("이메일을 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");  
             inputForm.useremail.focus();
             return false;
         }
         if(!inputForm.userpw1.value)
         {
-            alert("비밀번호를 입력하세요");    
-            inputForm.userpw1.focus();
+        	$("#checkMessage").html("비밀번호를 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.userpw1.focus();
             return false;
         }
         if(!inputForm.userpw2.value)
         {
-            alert("비밀번호를 입력하세요");    
+        	$("#checkMessage").html("비밀번호를 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");  
             inputForm.userpw2.focus();
             return false;
         }
         if(!inputForm.username.value)
         {
-            alert("이름을 입력하세요");    
-            inputForm.username.focus();
-            return false;
+        	$("#checkMessage").html("이름을 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.username.focus();
+			return false;
         }
         if(!inputForm.usernick.value)
         {
-            alert("닉네임을 입력하세요");    
-            inputForm.usernick.focus();
+        	$("#checkMessage").html("닉네임을 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.usernick.focus();
             return false;
         }
         if(!inputForm.userbirth_year.value)
         {
-            alert("생년을 입력하세요");    
-            inputForm.userbirth_year.focus();
+        	$("#checkMessage").html("태어난 년도를 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.userbirth_year.focus();
             return false;
         }
         if(!inputForm.userbirth_mon.value)
         {
-            alert("월일 입력하세요");    
-            inputForm.userbirth_mon.focus();
+        	$("#checkMessage").html("태어난 월을 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.userbirth_mon.focus();
             return false;
         }
         if(!inputForm.userbirth_day.value)
         {
-            alert("일을 입력하세요");    
-            inputForm.userbirth_day.focus();
+        	$("#checkMessage").html("태어난 일을 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.userbirth_day.focus();
             return false;
         }
         if(!inputForm.userphone.value)
         {
-            alert("전화번호를 입력하세요");    
-            inputForm.userphone.focus();
+        	$("#checkMessage").html("전화번호를 입력하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.userphone.focus();
             return false;
         }
         if(!inputForm.usergender.value)
         {
-            alert("성별을 입력하세요");    
-            inputForm.usergender.focus();
+        	$("#checkMessage").html("성별을 체크 하세요.");
+			$("#checkType").attr("class", "modal-content panel-warning");
+			$("#checkModal").modal("show");
+			inputForm.usergender.focus();
             return false;
         }
-    }
+        
+    } 
 
-    function joinCheckFunction() {
+    function emailCheckFunction() {
     	var useremail = $("#useremail").val();
     	$.ajax({
-    		type: "POST",
-    		url: "./join",
+    		type: "GET",
+    		url: "/emailcheck",
     		data: {useremail: useremail},
     		success: function(result) {
+    			
+    			console.log(result)
+    			
     			if(result == 1) {
-    				$("#checkMessage").html("사용할 수 있는 아이디입니다.");
-    				$("#checkType").attr("class", "modal-content");
+    				$("#checkMessage").html("사용할 수 있는 email입니다.");
+    				$("#checkType").attr("class", "modal-content panel-success");
     			}
     			else {
-    				$("#checkMessage").html("사용할 수 없는 아이디입니다.");
-    				$("#checkType").attr("class", "modal-warning");
+    				$("#checkMessage").html("사용할 수 없는 email입니다.");
+    				$("#checkType").attr("class", "modal-content panel-warning");
     			}
     			$("#checkModal").modal("show");
     		}
     	})
     }
+    
+    function nickCheckFunction() {
+    	var usernick = $("#usernick").val();
+    	$.ajax({
+    		type: "GET",
+    		url: "/nickcheck",
+    		data: {usernick: usernick},
+    		success: function(result) {
+    			
+    			console.log(result)
+    			
+    			if(result == 1) {
+    				$("#checkMessage").html("사용할 수 있는 닉네임입니다.");
+    				$("#checkType").attr("class", "modal-content panel-success");
+    			}
+    			else {
+    				$("#checkMessage").html("사용할 수 없는 닉네임입니다.");
+    				$("#checkType").attr("class", "modal-content panel-warning");
+    			}
+    			$("#checkModal").modal("show");
+    		}
+    	})
+    }
+    
     function pwCheckFunction() {
     	var userpw1 = $("#userpw1").val();
     	var userpw2 = $("#userpw2").val();
@@ -124,8 +172,10 @@
 			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
-					<input type="email" class="form-control" placeholder="아이디(이메일)" name="useremail" id="useremail" maxlength="100"/>
-					<button class="btn tn-primary" onclick="joinCheckFunction();" type="button">중복체크</button>
+					<div class="form-inline" >
+						<input type="email" class="form-control" style="width: 330px;" placeholder="아이디(이메일)" name="useremail" id="useremail" maxlength="100"/>
+						<button class="btn tn-primary input" onclick="emailCheckFunction();" type="button">중복체크</button>
+					</div>
 				</div>
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="userpw1" id="userpw1" maxlength="50"/>
@@ -138,8 +188,10 @@
 					<input type="text" class="form-control" placeholder="이름" name="username" id="username" maxlength="50"/>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="닉네임" name="usernick" id="usernick" maxlength="50"/>
-					<button class="btn tn-primary" onclick="joinCheckFunction();" type="button">중복체크</button>
+					<div class="form-inline" >
+						<input type="text" class="form-control" style="width: 330px;" placeholder="닉네임" name="usernick" id="usernick" maxlength="50"/>
+						<button class="btn tn-primary input" onclick="nickCheckFunction();" type="button">중복체크</button>
+					</div>
 				</div>
 				<div class="form-group">
 					<div class="form-inline" >
@@ -149,6 +201,7 @@
 						<div class="form-group">
 							<label class="sr-only" for="userbirth_mon"></label>
 							<select name="userbirth_mon" id="userbirth_mon" class="form-control width"  >
+								<option value=""></option>
 								<option value="01">01</option>
 								<option value="02">02</option>
 								<option value="03">03</option>
@@ -220,7 +273,7 @@
 			<div class="modal-content" <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
 				<div class="modal-header panel-heading">
 					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">$times;</span>
+						<span aria-hidden="true">&times;</span>
 						<span class="sr-only">close</span>
 					</button>
 					<h4 class="modal-title">
@@ -247,10 +300,10 @@
 %>
 
 
-<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="trye">
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="vertical-alignment-helper">
 		<div class="modal-dialog vertical-align-center">
-			<div class="modal-content panel-info %>">
+			<div id="checkType" class="modal-content panel-info">
 				<div class="modal-header panel-heading">
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span>
@@ -262,6 +315,7 @@
 				</div>
 				<div class="modal-body" id="checkMessage">
 				</div>
+				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
 				</div>

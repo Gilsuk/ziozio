@@ -132,10 +132,11 @@ public class JoinDAOImpl implements JoinDAO {
 	}
 
 	@Override
-	public int joinCheck(String useremail) {
+	public int emailCheck(String useremail) { //중복 이메일(아이디) 확인
 
 		conn = DBConn.getConnection();
 		
+		System.out.println(useremail);
 		String sql = "SELECT * FROM account WHERE useremail = ?";
 		
 		try {
@@ -144,9 +145,11 @@ public class JoinDAOImpl implements JoinDAO {
 			ps.setString(1, useremail);
 			
 			rs = ps.executeQuery();
-			if(rs.next()) {
+			if(rs.next()) { 
+//				System.out.println(rs.getString(1));
 				return 0; //이미존재하는 회원
 			}else {
+//				System.out.println("none");
 				return 1; //가입가능한 회원
 			}
 			
@@ -167,5 +170,45 @@ public class JoinDAOImpl implements JoinDAO {
 	return -1; // 데이터베이스 오류
 
 	}
+
+	@Override
+	public int nickCheck(String usernick) { //중복 닉네임 확인
+		conn = DBConn.getConnection();
+		
+		System.out.println(usernick);
+		String sql = "SELECT * FROM account WHERE usernick = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, usernick);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) { 
+//				System.out.println(rs.getString(1));
+				return 0; //이미존재하는 닉네임
+			}else {
+//				System.out.println("none");
+				return 1; //가입가능한 닉네임
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+	
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+			e.printStackTrace();
+			}
+	
+		}
+		
+	return -1; // 데이터베이스 오류
+
+	}
+	
 
 }

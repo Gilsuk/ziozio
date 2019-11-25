@@ -9,39 +9,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dao.impl.JoinDAOImpl;
-import ziozio.dto.User;
-import ziozio.service.face.JoinService;
-import ziozio.service.impl.JoinServiceImpl;
 
 /**
- * Servlet implementation class Join
+ * Servlet implementation class EmailCheck
  */
-@WebServlet("/join")
-public class Join extends HttpServlet {
+@WebServlet("/emailcheck")
+public class EmailCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private JoinService joinService = JoinServiceImpl.getInstance();
-	
-	
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		//중복 이메일(아이디) 확인
+		
+		String useremail = req.getParameter("useremail");
+		resp.getWriter().write(new JoinDAOImpl().emailCheck(useremail) + "");
+		
 
-		req.getRequestDispatcher("/WEB-INF/views/join/join.jsp").forward(req, resp);
+	
 	}
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		req.setCharacterEncoding("UTF-8");
-		
-		
-		User user = joinService.getJoinParam(req);
-		
-		joinService.join(user);
-
-		
-		
-		resp.sendRedirect("/main");
 	}
-
+	
 }

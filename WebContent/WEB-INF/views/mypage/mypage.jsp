@@ -27,6 +27,7 @@
 						<li class="side-nav__item "><a href="">내 옷장</a></li>
 						<li class="side-nav__item"><a href="">선호하는 패션</a></li>
 						<li class="side-nav__item"><a href="">옷 커스텀 하기</a></li>
+						<li class="side-nav__item"><a href="">회원탈퇴</a></li>
 					</ul>
 				</nav>
 			</div>
