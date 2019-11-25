@@ -1,3 +1,4 @@
+
 DROP TRIGGER account_on_insert_trg;
 DROP SEQUENCE account_seq;
 DROP TABLE ACCOUNT;
@@ -94,4 +95,5 @@ INSERT INTO account (
 
 -- 생성 화인
 SELECT * FROM account;
+
 
