@@ -9,7 +9,7 @@ CREATE TABLE ACCOUNT (
 	account_pw CHAR(64) NOT NULL,
 	account_nick VARCHAR2(30) UNIQUE NOT NULL,
 	account_gender CHAR(1) NOT NULL,
-	account_signed_date DATE DEFAULT SYSDATE,
+	account_signed_date DATE DEFAULT SYSDATE NOT NULL,
 	account_verified CHAR(1) DEFAULT 'F' NOT NULL,
 	account_grade_code NUMBER NOT NULL,
 
