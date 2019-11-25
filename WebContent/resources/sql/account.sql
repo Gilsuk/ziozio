@@ -94,3 +94,4 @@ INSERT INTO account (
 
 -- 생성 화인
 SELECT * FROM account;
+
