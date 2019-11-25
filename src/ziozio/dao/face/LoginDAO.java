@@ -16,5 +16,5 @@ public interface LoginDAO {
 	public User selectLoginByUserid(User user);
 	
 	
-	public void insert(User user);
+
 }

@@ -8,6 +8,9 @@
 
 <jsp:include page="/layout/header.jsp" /> 
 
+
+
+
 <div class="container ">
 	<div class="marginauto ">
   		<img src='/resources/img/ZIOZIO.png' >
@@ -25,6 +28,7 @@
 		<a class="btn btn-default input" href="/join" role="button">회원가입</a>
 	</div>
 </c:if>
+
 
 
 <jsp:include page="/layout/footer.jsp" />

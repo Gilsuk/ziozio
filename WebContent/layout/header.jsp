@@ -29,6 +29,8 @@
  <link rel="stylesheet" href="/resources/css/style.css">
  </head>
  
+
+ 
 <body>
  <div id="header" >
 <nav class="navbar navbar-default">

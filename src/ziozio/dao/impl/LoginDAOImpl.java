@@ -95,30 +95,6 @@ public class LoginDAOImpl implements LoginDAO {
 		
 
 
-	@Override
-	public void insert(User user) {
 
-		conn = DBConn.getConnection();	//DB 연결
-		
-		String sql = "";
-		sql += "INSERT into account values (?, ?, ?)";
-
-		try {
-			ps = conn.prepareStatement(sql);
-			ps.setString(1, user.getUseremail());
-			ps.setString(2, user.getUserpw());
-			ps.setString(3, user.getUsernick());
-			
-			ps.executeUpdate();
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(ps!=null)	ps.close();
-			}catch (Exception e) {
-			}
-		}		
-	}
 
 }

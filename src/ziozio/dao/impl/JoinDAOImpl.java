@@ -63,7 +63,7 @@ public class JoinDAOImpl implements JoinDAO {
 	}
 
 	@Override
-	public int selectNextUserno() {
+	public int selectNextUserno() { // 회원가입시 userno 자동 생성
 
 		conn = DBConn.getConnection();
 		
@@ -144,7 +144,7 @@ public class JoinDAOImpl implements JoinDAO {
 			ps.setString(1, useremail);
 			
 			rs = ps.executeQuery();
-			if(rs.next()) { 
+			if(rs.next() || useremail.equals("")) { 
 //				System.out.println(rs.getString(1));
 				return 0; //이미존재하는 회원
 			}else {
@@ -183,7 +183,7 @@ public class JoinDAOImpl implements JoinDAO {
 			ps.setString(1, usernick);
 			
 			rs = ps.executeQuery();
-			if(rs.next()) { 
+			if(rs.next() || usernick.equals("")) { 
 //				System.out.println(rs.getString(1));
 				return 0; //이미존재하는 닉네임
 			}else {
