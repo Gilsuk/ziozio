@@ -17,6 +17,7 @@ CREATE TABLE cookie (
 	
 );
 
+-- 테스트 데이터 삽입
 INSERT INTO cookie (
 	cookie_id, cookie_ip,
 	account_no
@@ -25,4 +26,5 @@ INSERT INTO cookie (
 	1
 );
 
+-- 데이터 확인
 SELECT * FROM cookie;
