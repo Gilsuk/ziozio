@@ -1,3 +1,5 @@
+DROP TABLE weather_info;
+
 CREATE TABLE weather_info (
 	weather_info_date date PRIMARY KEY,
 	local_code NUMBER,

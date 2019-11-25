@@ -1,3 +1,5 @@
+DROP TABLE cloth;
+
 CREATE TABLE cloth (
 	cloth_code NUMBER primary key,	--옷코드(외투,상의,하의)
 	cloth_category_code NUMBER,		--카테고리코드(상의-블라우스, 면티,...)
