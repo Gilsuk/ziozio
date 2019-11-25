@@ -1,3 +1,4 @@
+
 DROP TRIGGER account_on_insert_trg;
 DROP SEQUENCE account_seq;
 DROP TABLE ACCOUNT;
@@ -5,11 +6,11 @@ DROP TABLE ACCOUNT;
 CREATE TABLE ACCOUNT (
 
 	account_no NUMBER PRIMARY KEY,
-	account_email VARCHAR2(100) NOT NULL,
+	account_email VARCHAR2(100) UNIQUE NOT NULL,
 	account_pw CHAR(64) NOT NULL,
 	account_nick VARCHAR2(30) UNIQUE NOT NULL,
 	account_gender CHAR(1) NOT NULL,
-	account_signed_date DATE DEFAULT SYSDATE,
+	account_signed_date DATE DEFAULT SYSDATE NOT NULL,
 	account_verified CHAR(1) DEFAULT 'F' NOT NULL,
 	account_grade_code NUMBER NOT NULL,
 
@@ -94,4 +95,5 @@ INSERT INTO account (
 
 -- 생성 화인
 SELECT * FROM account;
+
 
