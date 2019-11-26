@@ -33,7 +33,28 @@ public class Dao {
 		} catch (SQLException e) { throw e; }
 
 	}
+	
+	public static <T extends DTO, U extends DTO> U select(
+			String sql, T inDto, Class<U> outDto,
+			BiConsumerForSQL<T> stateSetter,
+			Function<ResultSet, U> dtoGetter) throws SQLException, TooManyResultException, NoResultException {
+		
+		Connection conn = DBConn.getConnection();
+		
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			stateSetter.accept(ps, inDto);
+			ResultSet rs = ps.executeQuery();
+			
+			int size = rs.getFetchSize();
+			
+			if (size == 1) { rs.next(); return dtoGetter.apply(rs); }
+			else if (size == 0) { throw new NoResultException(); }
+			else { throw new TooManyResultException(); }
 
+		} catch (SQLException e) { throw e; }
+
+	}
+	
 	public static <T extends DTO> List<T> selectList(
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter,
@@ -54,7 +75,28 @@ public class Dao {
 		} catch (SQLException e) { throw e; }
 
 	}
+	
+	public static <T extends DTO, U extends DTO> List<U> selectList(
+			String sql, T inDto, Class<U> outDto,
+			BiConsumerForSQL<T> stateSetter,
+			Function<ResultSet, U> dtoGetter) throws SQLException {
+		
+		Connection conn = DBConn.getConnection();
 
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			stateSetter.accept(ps, inDto);
+			ResultSet rs = ps.executeQuery();
+			
+			List<U> list = new ArrayList<>();
+			while (rs.next())
+				list.add(dtoGetter.apply(rs));
+			
+			return list;
+
+		} catch (SQLException e) { throw e; }
+
+	}
+	
 	public static <T extends DTO> int update (
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter) throws SQLException{
