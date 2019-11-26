@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.MyPageDAO;
 import ziozio.dao.impl.MyPageDAOImpl;
 import ziozio.dto.MyPage;
-import ziozio.dto.User;
+import ziozio.dto.Account;
 import ziozio.service.face.UserService;
 
 public class UserServiceImpl implements UserService {
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     public static UserService getInstance() { return Factory.INSTANCE; }
 
 	@Override
-	public MyPage getMyPage(User user) {
+	public MyPage getMyPage(Account account) {
 
 		return null;
 	}

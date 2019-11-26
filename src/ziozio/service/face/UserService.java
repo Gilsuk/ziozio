@@ -3,11 +3,11 @@ package ziozio.service.face;
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dto.MyPage;
-import ziozio.dto.User;
+import ziozio.dto.Account;
 
 public interface UserService {
 
-	MyPage getMyPage(User user);
+	MyPage getMyPage(Account account);
 
 	String getUserMail(HttpServletRequest req);
 
