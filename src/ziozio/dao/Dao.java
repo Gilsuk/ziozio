@@ -16,7 +16,7 @@ public class Dao {
 	public static <T extends DTO> T select(
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter,
-			Function<ResultSet, T> dtoGetter) throws SQLException {
+			Function<ResultSet, T> dtoGetter) throws SQLException, TooManyResultException, NoResultException {
 		
 		Connection conn = DBConn.getConnection();
 		
@@ -24,7 +24,11 @@ public class Dao {
 			stateSetter.accept(ps, dto);
 			ResultSet rs = ps.executeQuery();
 			
-			return dtoGetter.apply(rs);
+			int size = rs.getFetchSize();
+			
+			if (size == 1) { rs.next(); return dtoGetter.apply(rs); }
+			else if (size == 0) { throw new NoResultException(); }
+			else { throw new TooManyResultException(); }
 
 		} catch (SQLException e) { throw e; }
 
