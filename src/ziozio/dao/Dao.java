@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+import ziozio.dao.exception.NoResultException;
+import ziozio.dao.exception.TooManyResultException;
 import ziozio.dto.DTO;
 import ziozio.utils.db.oracle.DBConn;
 
