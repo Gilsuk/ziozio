@@ -67,10 +67,10 @@ public class AccountDAOImpl implements AccountDAO {
 		sql.append(" VALUES (?, ?, ?, ?)");
  
 		Dao.<AccountWithPw>update(sql.toString(), account, (t, u) -> {
-				t.setString(1, u.getAccount_email());
-				t.setString(2, u.getAccount_pw());
-				t.setString(3, u.getAccount_nick());
-				t.setString(4, String.valueOf(u.getAccount_gender()));
+			t.setString(1, u.getAccount_email());
+			t.setString(2, u.getAccount_pw());
+			t.setString(3, u.getAccount_nick());
+			t.setString(4, String.valueOf(u.getAccount_gender()));
 		});
 	}
 
@@ -80,24 +80,10 @@ public class AccountDAOImpl implements AccountDAO {
 		sql.append("SELECT count(*) FROM account");
 		sql.append(" WHERE account_email = ?");
 		
-		try {
-			return
-			Dao.<Account, Count>select(sql.toString(), account, Count.class, (t, u) -> {
-				t.setString(1, u.getAccount_email());
-			},this::getCountFromResultSet);
-		} catch (SQLException | TooManyResultException | NoResultException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	private Count getCountFromResultSet(ResultSet rs) {
-		Count count = new Count();
-		
-		try { count.setCount(rs.getInt(1));
-		} catch (SQLException e) { e.printStackTrace(); }
-
-		return count;
+		return
+		Dao.<Account>selectCount(sql.toString(), account, (t, u) -> {
+			t.setString(1, u.getAccount_email());
+		});
 	}
 
 	@Override
@@ -106,14 +92,9 @@ public class AccountDAOImpl implements AccountDAO {
 		sql.append("SELECT count(*) FROM account");
 		sql.append(" WHERE account_nick = ?");
 		
-		try {
-			return
-			Dao.<Account, Count>select(sql.toString(), account, Count.class, (t, u) -> {
-				t.setString(1, u.getAccount_nick());
-			},this::getCountFromResultSet);
-		} catch (SQLException | TooManyResultException | NoResultException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return
+		Dao.<Account>selectCount(sql.toString(), account, (t, u) -> {
+			t.setString(1, u.getAccount_nick());
+		});
 	}
 }
