@@ -1,4 +1,4 @@
-package ziozio.utils.paramparser;
+package ziozio.utils.param;
 
 import java.util.Map;
 

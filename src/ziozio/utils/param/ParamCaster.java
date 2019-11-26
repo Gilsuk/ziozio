@@ -1,4 +1,6 @@
-package ziozio.utils.paramparser;
+package ziozio.utils.param;
+
+import ziozio.utils.param.exception.InvalidParamException;
 
 public class ParamCaster {
 	

@@ -1,6 +1,8 @@
-package ziozio.utils.paramparser;
+package ziozio.utils.param.checker;
 
 import java.util.regex.Pattern;
+
+import ziozio.utils.param.exception.InvalidEmailParamException;
 
 public class EmailParamChecker implements ParamChecker<String> {
 	

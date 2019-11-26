@@ -12,8 +12,8 @@ import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
 import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
-import ziozio.utils.paramparser.InvalidParamException;
-import ziozio.utils.paramparser.ParamCaster;
+import ziozio.utils.param.ParamCaster;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public class LoginServiceImpl implements LoginService {
 

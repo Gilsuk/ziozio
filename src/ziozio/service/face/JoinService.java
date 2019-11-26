@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.utils.paramparser.InvalidParamException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public interface JoinService {
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.service.face.DuplicateCheckService;
 import ziozio.service.impl.NickCheckService;
-import ziozio.utils.paramparser.InvalidParamException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 /**
  * Servlet implementation class NickCheck

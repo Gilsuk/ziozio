@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ziozio.utils.paramparser.InvalidParamException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public interface DuplicateCheckService {
 

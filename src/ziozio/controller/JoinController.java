@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.service.face.JoinService;
 import ziozio.service.impl.JoinServiceImpl;
-import ziozio.utils.paramparser.InvalidParamException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 /**
  * Servlet implementation class Join

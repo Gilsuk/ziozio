@@ -1,4 +1,4 @@
-package ziozio.utils.paramparser;
+package ziozio.utils.param.exception;
 
 public class InvalidEmailParamException extends InvalidParamException {
 

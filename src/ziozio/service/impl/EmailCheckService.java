@@ -10,7 +10,7 @@ import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.Count;
 import ziozio.service.face.DuplicateCheckService;
-import ziozio.utils.paramparser.InvalidEmailParamException;
+import ziozio.utils.param.exception.InvalidEmailParamException;
 
 public class EmailCheckService implements DuplicateCheckService {
 	/*

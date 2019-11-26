@@ -2,10 +2,10 @@ package ziozio.dto;
 
 import java.util.Date;
 
-import ziozio.utils.paramparser.EmailParamChecker;
-import ziozio.utils.paramparser.GenderParamChecker;
-import ziozio.utils.paramparser.InvalidEmailParamException;
-import ziozio.utils.paramparser.InvalidGenderParamException;
+import ziozio.utils.param.checker.EmailParamChecker;
+import ziozio.utils.param.checker.GenderParamChecker;
+import ziozio.utils.param.exception.InvalidEmailParamException;
+import ziozio.utils.param.exception.InvalidGenderParamException;
 
 public class Account implements DTO {
 

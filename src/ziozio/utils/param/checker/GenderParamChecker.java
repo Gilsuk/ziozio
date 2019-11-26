@@ -1,4 +1,6 @@
-package ziozio.utils.paramparser;
+package ziozio.utils.param.checker;
+
+import ziozio.utils.param.exception.InvalidGenderParamException;
 
 public class GenderParamChecker implements ParamChecker<Character> {
 	

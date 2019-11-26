@@ -10,8 +10,8 @@ import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
 import ziozio.dto.Count;
-import ziozio.utils.paramparser.InvalidEmailParamException;
-import ziozio.utils.paramparser.InvalidGenderParamException;
+import ziozio.utils.param.exception.InvalidEmailParamException;
+import ziozio.utils.param.exception.InvalidGenderParamException;
 
 public class AccountDAOImpl implements AccountDAO {
 	

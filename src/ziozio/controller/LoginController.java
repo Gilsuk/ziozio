@@ -14,7 +14,7 @@ import ziozio.dao.exception.TooManyResultException;
 import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
-import ziozio.utils.paramparser.InvalidParamException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 
 @WebServlet("/login")
