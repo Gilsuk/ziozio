@@ -14,6 +14,7 @@ public class Account implements DTO {
 	private String account_nick;
 	private char account_gender;
 	private Date account_signed_date;
+	private boolean account_verified;
 	private int account_grade_code;
 	@Override
 	public String toString() {
@@ -50,6 +51,12 @@ public class Account implements DTO {
 	}
 	public void setAccount_signed_date(Date account_signed_date) {
 		this.account_signed_date = account_signed_date;
+	}
+	public boolean isAccount_verified() {
+		return account_verified;
+	}
+	public void setAccount_verified(boolean account_verified) {
+		this.account_verified = account_verified;
 	}
 	public int getAccount_grade_code() {
 		return account_grade_code;
