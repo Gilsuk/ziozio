@@ -2,7 +2,7 @@ package ziozio.dto;
 
 import ziozio.utils.hash.SHA256;
 
-public class AccountWithPW extends Account {
+public class AccountWithPw extends Account {
 
 	private String account_pw;
 
