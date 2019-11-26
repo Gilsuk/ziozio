@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import ziozio.dto.DTO;
@@ -16,7 +15,7 @@ public class Dao {
 	
 	public static <T extends DTO> T select(
 			String sql, T dto,
-			BiConsumer<PreparedStatement, T> stateSetter,
+			BiConsumerForSQL<T> stateSetter,
 			Function<ResultSet, T> dtoGetter) throws SQLException {
 		
 		Connection conn = DBConn.getConnection();
@@ -33,7 +32,7 @@ public class Dao {
 
 	public static <T extends DTO> List<T> selectList(
 			String sql, T dto,
-			BiConsumer<PreparedStatement, T> stateSetter,
+			BiConsumerForSQL<T> stateSetter,
 			Function<ResultSet, T> dtoGetter) throws SQLException {
 		
 		Connection conn = DBConn.getConnection();
@@ -54,7 +53,7 @@ public class Dao {
 
 	public static <T extends DTO> int update (
 			String sql, T dto,
-			BiConsumer<PreparedStatement, T> stateSetter) throws SQLException{
+			BiConsumerForSQL<T> stateSetter) throws SQLException{
 		
 		Connection conn = DBConn.getConnection();
 
@@ -65,10 +64,9 @@ public class Dao {
 		} catch (SQLException e) { throw e; }
 
 	}
-
 	public static <T extends DTO> int massUpdate(
 			String sql, List<T> dtoList,
-			BiConsumer<PreparedStatement, T> stateSetter) throws SQLException {
+			BiConsumerForSQL<T> stateSetter) throws SQLException {
 		
 		Connection conn = DBConn.getConnection();
 
