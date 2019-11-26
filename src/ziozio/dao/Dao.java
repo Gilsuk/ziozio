@@ -10,6 +10,7 @@ import java.util.function.Function;
 
 import ziozio.dao.exception.NoResultException;
 import ziozio.dao.exception.TooManyResultException;
+import ziozio.dto.Count;
 import ziozio.dto.DTO;
 import ziozio.utils.db.oracle.DBConn;
 
@@ -99,6 +100,26 @@ public class Dao {
 
 	}
 	
+	public static <T extends DTO> Count selectCount(
+			String sql, T dto,
+			BiConsumerForSQL<T> stateSetter) {
+		
+		Connection conn = DBConn.getConnection();
+		
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			stateSetter.accept(ps, dto);
+			ResultSet rs = ps.executeQuery();
+
+			rs.next();
+			Count count = new Count();
+			count.setCount(rs.getInt(1));
+
+			return count;
+
+		} catch (SQLException e) { e.printStackTrace(); return null; }
+
+	}
+
 	public static <T extends DTO> int update (
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter) throws SQLException{
