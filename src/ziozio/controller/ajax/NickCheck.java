@@ -1,4 +1,4 @@
-package ziozio.controller;
+package ziozio.controller.ajax;
 
 import java.io.IOException;
 
@@ -11,28 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import ziozio.dao.impl.JoinDAOImpl;
 
 /**
- * Servlet implementation class EmailCheck
+ * Servlet implementation class NickCheck
  */
-@WebServlet("/emailcheck")
-public class EmailCheck extends HttpServlet {
+@WebServlet("/nickcheck")
+public class NickCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-		//중복 이메일(아이디) 확인
-		
-		String useremail = req.getParameter("useremail");
-		resp.getWriter().write(new JoinDAOImpl().emailCheck(useremail) + "");
-		
 
-	
+		String usernick = req.getParameter("usernick");
+		resp.getWriter().write(new JoinDAOImpl().nickCheck(usernick) + "");
+		
 	}
-	
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	}
-	
 }
