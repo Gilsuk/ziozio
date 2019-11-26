@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ziozio.dto.User;
+import ziozio.dto.Account;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
 
 
 @WebServlet("/login")
-public class Login extends HttpServlet {
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private LoginService loginService = new LoginServiceImpl();
@@ -34,7 +34,8 @@ public class Login extends HttpServlet {
 
 	
 		
-		User user = loginService.getLoginParam(req);
+		
+		Account user = loginService.getLoginParam(req);
 		
 		boolean result = loginService.login(user);
 
@@ -43,7 +44,7 @@ public class Login extends HttpServlet {
 
 		if(result) {
 			
-			User u = loginService.getLoginByUserid(user);
+			Account u = loginService.getLoginByUserid(user);
 			
 			//로그인 성공
 			session.setAttribute("login", true);//세션 정보 저장
