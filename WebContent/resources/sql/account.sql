@@ -27,6 +27,10 @@ CREATE TABLE ACCOUNT (
 	CHECK (account_verified IN('0', '1'))
 );
 
+-- 기본 계정 등급 102(일반 유저)
+ALTER TABLE account
+MODIFY account_grade_code DEFAULT 102;
+
 CREATE SEQUENCE account_seq;
 
 -- 아래 트리거 생성 코드는 이클립스에서 실행 안됨
