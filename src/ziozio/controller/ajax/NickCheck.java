@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ziozio.dao.impl.JoinDAOImpl;
+import ziozio.service.face.DuplicateCheckService;
+import ziozio.service.impl.NickCheckService;
+import ziozio.utils.paramparser.InvalidParamException;
 
 /**
  * Servlet implementation class NickCheck
@@ -17,13 +19,17 @@ import ziozio.dao.impl.JoinDAOImpl;
 public class NickCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private DuplicateCheckService checker = NickCheckService.getInstance();
 	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		String usernick = req.getParameter("usernick");
-		resp.getWriter().write(new JoinDAOImpl().nickCheck(usernick) + "");
-		
+		try {
+			boolean isDuplicated = checker.isDuplicated(req);
+			if (isDuplicated) checker.sendErrorMessage(resp);
+			else checker.sendOkMessage(resp);
+		} catch (InvalidParamException e) {
+			checker.sendErrorMessage(resp);
+		}
 	}
 }

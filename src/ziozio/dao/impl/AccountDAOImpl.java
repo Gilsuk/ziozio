@@ -9,6 +9,7 @@ import ziozio.dao.exception.TooManyResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
+import ziozio.dto.Count;
 import ziozio.utils.paramparser.InvalidEmailParamException;
 import ziozio.utils.paramparser.InvalidGenderParamException;
 
@@ -71,5 +72,48 @@ public class AccountDAOImpl implements AccountDAO {
 				t.setString(3, u.getAccount_nick());
 				t.setString(4, String.valueOf(u.getAccount_gender()));
 		});
+	}
+
+	@Override
+	public Count selectCountByEmail(Account account) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT count(*) FROM account");
+		sql.append(" WHERE account_email = ?");
+		
+		try {
+			return
+			Dao.<Account, Count>select(sql.toString(), account, Count.class, (t, u) -> {
+				t.setString(1, u.getAccount_email());
+			},this::getCountFromResultSet);
+		} catch (SQLException | TooManyResultException | NoResultException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	private Count getCountFromResultSet(ResultSet rs) {
+		Count count = new Count();
+		
+		try { count.setCount(rs.getInt(1));
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		return count;
+	}
+
+	@Override
+	public Count selectCountByNick(Account account) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT count(*) FROM account");
+		sql.append(" WHERE account_nick = ?");
+		
+		try {
+			return
+			Dao.<Account, Count>select(sql.toString(), account, Count.class, (t, u) -> {
+				t.setString(1, u.getAccount_nick());
+			},this::getCountFromResultSet);
+		} catch (SQLException | TooManyResultException | NoResultException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
