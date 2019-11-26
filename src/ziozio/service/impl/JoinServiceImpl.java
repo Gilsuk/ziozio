@@ -4,8 +4,8 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dao.face.JoinDAO;
-import ziozio.dao.impl.JoinDAOImpl;
+import ziozio.dao.face.AccountDAO;
+import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.AccountWithPw;
 import ziozio.service.face.JoinService;
 import ziozio.utils.paramparser.InvalidParamException;
@@ -13,7 +13,7 @@ import ziozio.utils.paramparser.ParamCaster;
 
 public class JoinServiceImpl implements JoinService {
 	
-	private JoinDAO joinDao = JoinDAOImpl.getInstance();
+	private AccountDAO accountDao = AccountDAOImpl.getInstance();
 	
 	private JoinServiceImpl() { }
     private static class Factory {
@@ -24,7 +24,7 @@ public class JoinServiceImpl implements JoinService {
 	@Override
 	public void join(HttpServletRequest req) throws InvalidParamException, SQLException {
 		AccountWithPw account = getAccountWithPwFromParams(req);
-		joinDao.insert(account);
+		accountDao.insert(account);
 	}
 
 	private AccountWithPw getAccountWithPwFromParams(

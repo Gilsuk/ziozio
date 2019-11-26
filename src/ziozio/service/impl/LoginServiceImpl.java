@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.exception.NoResultException;
 import ziozio.dao.exception.TooManyResultException;
-import ziozio.dao.face.LoginDAO;
-import ziozio.dao.impl.LoginDAOImpl;
+import ziozio.dao.face.AccountDAO;
+import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
 import ziozio.service.exception.AccountNotVerifiedException;
@@ -20,7 +20,7 @@ public class LoginServiceImpl implements LoginService {
 	/*
 	 * Fields
 	 */
-	private LoginDAO loginDao = LoginDAOImpl.getInstance();
+	private AccountDAO accountDao = AccountDAOImpl.getInstance();
 
 	/*
 	 * Singleton Constructor
@@ -37,7 +37,7 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public void login(HttpServletRequest req) throws InvalidParamException, SQLException, TooManyResultException, NoResultException, AccountNotVerifiedException {
 		AccountWithPw accountWithPw = getAccountWithPwFromParams(req);
-		Account account = loginDao.select(accountWithPw);
+		Account account = accountDao.select(accountWithPw);
 		
 		if (!account.isAccount_verified()) throw new AccountNotVerifiedException();
 		
