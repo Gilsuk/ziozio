@@ -18,7 +18,7 @@
 </div>
 
 <c:if test="${login }">
-	<div class="text-center"><h1>${usernick } 님, 로그인되었습니다.</h1></div>
+	<div class="text-center"><h1>${account_nick } 님 로그인되었습니다.</h1></div>
 </c:if>
 
 

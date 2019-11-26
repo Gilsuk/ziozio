@@ -26,7 +26,7 @@
 			<form name="loginInfo" method="post" action="/findPw" onsubmit="return checkValue()">
 				<h3 class="center">비밀번호 찾기</h3>
 				<div class="form-group">
-					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" name="useremail" maxlength="50"/>
+					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" name="account_email" maxlength="50"/>
 				</div>
 				
 			</form>
