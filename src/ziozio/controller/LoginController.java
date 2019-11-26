@@ -1,62 +1,47 @@
 package ziozio.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import ziozio.dto.Account;
+import ziozio.dao.exception.NoResultException;
+import ziozio.dao.exception.TooManyResultException;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
+import ziozio.utils.paramparser.AccountNotVerifiedException;
+import ziozio.utils.paramparser.InvalidParamException;
 
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private LoginService loginService = new LoginServiceImpl();
-	
+	private LoginService loginService = LoginServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
-		
-	
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-	
-		
-		
-		Account user = loginService.getLoginParam(req);
-		
-		boolean result = loginService.login(user);
-
-		HttpSession session = null;
-		session = req.getSession();
-
-		if(result) {
-			
-			Account u = loginService.getLoginByUserid(user);
-			
-			//로그인 성공
-			session.setAttribute("login", true);//세션 정보 저장
-			session.setAttribute("useremail", u.getUseremail());//세션 정보 저장
-			session.setAttribute("usernick", u.getUsernick());//세션 정보 저장
-			
-			resp.sendRedirect("/main");
-
-		} else {
-			req.setAttribute("result", result);
-			req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
+		try {
+			loginService.login(req);
+		} catch (InvalidParamException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (TooManyResultException e) {
+			e.printStackTrace();
+		} catch (NoResultException e) {
+			e.printStackTrace();
+		} catch (AccountNotVerifiedException e) {
+			e.printStackTrace();
 		}
-
 	}
 }
