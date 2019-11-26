@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.face.JoinDAO;
 import ziozio.dao.impl.JoinDAOImpl;
-import ziozio.dto.AccountIncludeAuthInfo;
+import ziozio.dto.AccountWithPw;
 import ziozio.service.face.JoinService;
 import ziozio.utils.paramparser.InvalidParamException;
 import ziozio.utils.paramparser.ParamCaster;
@@ -23,14 +23,14 @@ public class JoinServiceImpl implements JoinService {
 
 	@Override
 	public void join(HttpServletRequest req) throws InvalidParamException, SQLException {
-		AccountIncludeAuthInfo account = getAccountIncludeAuthInfoFromParams(req);
+		AccountWithPw account = getAccountWithPwFromParams(req);
 		joinDao.insert(account);
 	}
 
-	private AccountIncludeAuthInfo getAccountIncludeAuthInfoFromParams(
+	private AccountWithPw getAccountWithPwFromParams(
 			HttpServletRequest req) throws InvalidParamException {
 		
-		AccountIncludeAuthInfo account = new AccountIncludeAuthInfo();
+		AccountWithPw account = new AccountWithPw();
 		
 		account.setAccount_email(req.getParameter("account_email"));
 		account.setAccount_gender(ParamCaster.toChar(req.getParameter("account_gender")));

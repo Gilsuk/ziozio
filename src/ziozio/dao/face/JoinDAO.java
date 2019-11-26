@@ -2,7 +2,7 @@ package ziozio.dao.face;
 
 import java.sql.SQLException;
 
-import ziozio.dto.AccountIncludeAuthInfo;
+import ziozio.dto.AccountWithPw;
 
 public interface JoinDAO {
 
@@ -24,6 +24,6 @@ public interface JoinDAO {
 //	
 //	public int nickCheck(String usernick);
 
-	void insert(AccountIncludeAuthInfo account) throws SQLException;
+	void insert(AccountWithPw account) throws SQLException;
 	
 }
