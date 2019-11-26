@@ -2,6 +2,11 @@ package ziozio.dto;
 
 import java.util.Date;
 
+import ziozio.utils.paramparser.EmailParamChecker;
+import ziozio.utils.paramparser.GenderParamChecker;
+import ziozio.utils.paramparser.InvalidEmailParamException;
+import ziozio.utils.paramparser.InvalidGenderParamException;
+
 public class Account implements DTO {
 
 	private int account_no;
@@ -9,12 +14,12 @@ public class Account implements DTO {
 	private String account_nick;
 	private char account_gender;
 	private Date account_signed_date;
-	private int account_grade;
+	private int account_grade_code;
 	@Override
 	public String toString() {
-		return "User [account_no=" + account_no + ", account_email=" + account_email + ", account_nick=" + account_nick
-				+ ", account_gender=" + account_gender + ", account_signed_date=" + account_signed_date
-				+ ", account_grade=" + account_grade + "]";
+		return "Account [account_no=" + account_no + ", account_email=" + account_email + ", account_nick="
+				+ account_nick + ", account_gender=" + account_gender + ", account_signed_date=" + account_signed_date
+				+ ", account_grade_code=" + account_grade_code + "]";
 	}
 	public int getAccount_no() {
 		return account_no;
@@ -25,8 +30,8 @@ public class Account implements DTO {
 	public String getAccount_email() {
 		return account_email;
 	}
-	public void setAccount_email(String account_email) {
-		this.account_email = account_email;
+	public void setAccount_email(String account_email) throws InvalidEmailParamException {
+		this.account_email = new EmailParamChecker(account_email).check();
 	}
 	public String getAccount_nick() {
 		return account_nick;
@@ -37,8 +42,8 @@ public class Account implements DTO {
 	public char getAccount_gender() {
 		return account_gender;
 	}
-	public void setAccount_gender(char account_gender) {
-		this.account_gender = account_gender;
+	public void setAccount_gender(char account_gender) throws InvalidGenderParamException {
+		this.account_gender = new GenderParamChecker(account_gender).check();
 	}
 	public Date getAccount_signed_date() {
 		return account_signed_date;
@@ -46,10 +51,10 @@ public class Account implements DTO {
 	public void setAccount_signed_date(Date account_signed_date) {
 		this.account_signed_date = account_signed_date;
 	}
-	public int getAccount_grade() {
-		return account_grade;
+	public int getAccount_grade_code() {
+		return account_grade_code;
 	}
-	public void setAccount_grade(int account_grade) {
-		this.account_grade = account_grade;
+	public void setAccount_grade_code(int account_grade_code) {
+		this.account_grade_code = account_grade_code;
 	}
 }
