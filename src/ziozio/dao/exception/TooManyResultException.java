@@ -1,4 +1,4 @@
-package ziozio.dao;
+package ziozio.dao.exception;
 
 public class TooManyResultException extends Exception {
 
