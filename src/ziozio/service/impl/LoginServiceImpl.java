@@ -1,56 +1,61 @@
 package ziozio.service.impl;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
-
-import ziozio.dao.face.LoginDAO;
-import ziozio.dao.impl.LoginDAOImpl;
-import ziozio.dto.User;
+import ziozio.dao.exception.NoResultException;
+import ziozio.dao.exception.TooManyResultException;
+import ziozio.dao.face.AccountDAO;
+import ziozio.dao.impl.AccountDAOImpl;
+import ziozio.dto.Account;
+import ziozio.dto.AccountWithPw;
+import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
+import ziozio.utils.paramparser.InvalidParamException;
+import ziozio.utils.paramparser.ParamCaster;
 
 public class LoginServiceImpl implements LoginService {
 
-	private LoginDAO loginDao = new LoginDAOImpl();
+	/*
+	 * Fields
+	 */
+	private AccountDAO accountDao = AccountDAOImpl.getInstance();
 
+	/*
+	 * Singleton Constructor
+	 */
+    private LoginServiceImpl() { }
+    private static class Factory {
+        public static final LoginService INSTANCE = new LoginServiceImpl();
+    }
+    public static LoginService getInstance() { return Factory.INSTANCE; }
 
+    /*
+     * implements
+     */
 	@Override
-	public User getLoginParam(HttpServletRequest req) {
-	
-		//전달 파라미터 얻기
-		String useremail = req.getParameter("useremail");
-		String userpw = req.getParameter("userpw");
+	public void login(HttpServletRequest req) throws InvalidParamException, SQLException, TooManyResultException, NoResultException, AccountNotVerifiedException {
+		AccountWithPw accountWithPw = getAccountWithPwFromParams(req);
+		Account account = accountDao.select(accountWithPw);
 		
-		//전달 파라미터를 DTO(모델)에 담기
-		User user = new User();
-		user.setUseremail(useremail);
-		user.setUserpw(userpw);
+		if (!account.isAccount_verified()) throw new AccountNotVerifiedException();
 		
-		//객체 반환		
-		
-		return user;
+		req.getSession().setAttribute("account", account);
 	}
 
-	@Override
-	public boolean login(User user) {
+	private AccountWithPw getAccountWithPwFromParams(
+			HttpServletRequest req) throws InvalidParamException {
+		
+		AccountWithPw account = new AccountWithPw();
+		
+		account.setAccount_email(req.getParameter("account_email"));
+		account.setAccount_gender(ParamCaster.toChar(req.getParameter("account_gender")));
+		account.setAccount_nick(req.getParameter("account_nick"));
+		account.setAccount_pw(req.getParameter("account_pw"));
 
-		int cnt = 0;
-		cnt = loginDao.selectCntLoginByUserid(user);
+		return account;
 		
-		System.out.println("cnt : " + cnt);
-		
-		//존재하면 true반환
-		//아니면 false반환
-		if(cnt==1) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
-	@Override
-	public User getLoginByUserid(User user) {
-		return loginDao.selectLoginByUserid(user);
-	}
 }
-
-

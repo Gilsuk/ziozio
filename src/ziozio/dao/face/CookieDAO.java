@@ -1,12 +1,12 @@
 package ziozio.dao.face;
 
-import ziozio.dto.User;
+import ziozio.dto.Account;
 
 public interface CookieDAO {
 
 	void insertCookieId();
 
-	void insertUser(User user);
+	void insertUser(Account account);
 
 	int selectUsernoByCID(String parameter);
 
