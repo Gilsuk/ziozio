@@ -17,7 +17,7 @@ public class Dao {
 	public static <T extends DTO> T select(
 			String sql, T dto,
 			BiConsumer<PreparedStatement, T> stateSetter,
-			Function<ResultSet, T> dtoGetter) {
+			Function<ResultSet, T> dtoGetter) throws SQLException {
 		
 		Connection conn = DBConn.getConnection();
 		
@@ -27,15 +27,14 @@ public class Dao {
 			
 			return dtoGetter.apply(rs);
 
-		} catch (SQLException e) { e.printStackTrace(); }
+		} catch (SQLException e) { throw e; }
 
-		return null;
 	}
 
 	public static <T extends DTO> List<T> selectList(
 			String sql, T dto,
 			BiConsumer<PreparedStatement, T> stateSetter,
-			Function<ResultSet, T> dtoGetter) {
+			Function<ResultSet, T> dtoGetter) throws SQLException {
 		
 		Connection conn = DBConn.getConnection();
 
@@ -49,14 +48,13 @@ public class Dao {
 			
 			return list;
 
-		} catch (SQLException e) { e.printStackTrace(); }
+		} catch (SQLException e) { throw e; }
 
-		return null;
 	}
 
-	public static <T extends DTO> int update(
+	public static <T extends DTO> int update (
 			String sql, T dto,
-			BiConsumer<PreparedStatement, T> stateSetter) {
+			BiConsumer<PreparedStatement, T> stateSetter) throws SQLException{
 		
 		Connection conn = DBConn.getConnection();
 
@@ -64,14 +62,13 @@ public class Dao {
 			stateSetter.accept(ps, dto);
 			return ps.executeUpdate();
 			
-		} catch (SQLException e) { e.printStackTrace(); }
+		} catch (SQLException e) { throw e; }
 
-		return 0;
 	}
 
 	public static <T extends DTO> int massUpdate(
 			String sql, List<T> dtoList,
-			BiConsumer<PreparedStatement, T> stateSetter) {
+			BiConsumer<PreparedStatement, T> stateSetter) throws SQLException {
 		
 		Connection conn = DBConn.getConnection();
 
@@ -84,8 +81,7 @@ public class Dao {
 			}
 			return count;
 			
-		} catch (SQLException e) { e.printStackTrace(); }
+		} catch (SQLException e) { throw e; }
 
-		return 0;
 	}
 }
