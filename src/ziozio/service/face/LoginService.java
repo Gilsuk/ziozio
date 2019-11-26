@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.exception.NoResultException;
 import ziozio.dao.exception.TooManyResultException;
-import ziozio.utils.paramparser.AccountNotVerifiedException;
+import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.utils.paramparser.InvalidParamException;
 
 public interface LoginService {

@@ -1,4 +1,4 @@
-package ziozio.utils.paramparser;
+package ziozio.service.exception;
 
 public class AccountNotVerifiedException extends Exception {
 

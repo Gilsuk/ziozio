@@ -10,8 +10,8 @@ import ziozio.dao.face.LoginDAO;
 import ziozio.dao.impl.LoginDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
+import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
-import ziozio.utils.paramparser.AccountNotVerifiedException;
 import ziozio.utils.paramparser.InvalidParamException;
 import ziozio.utils.paramparser.ParamCaster;
 

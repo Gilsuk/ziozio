@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dao.exception.NoResultException;
 import ziozio.dao.exception.TooManyResultException;
+import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
-import ziozio.utils.paramparser.AccountNotVerifiedException;
 import ziozio.utils.paramparser.InvalidParamException;
 
 
