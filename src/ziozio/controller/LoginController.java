@@ -1,7 +1,6 @@
 package ziozio.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ziozio.dao.exception.NoResultException;
-import ziozio.dao.exception.TooManyResultException;
 import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
@@ -34,15 +31,12 @@ public class LoginController extends HttpServlet {
 			loginService.login(req);
 			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (TooManyResultException e) {
-			e.printStackTrace();
-		} catch (NoResultException e) {
-			e.printStackTrace();
+			// 사용자가 입력한 값이 잘못됐을 때 처리
+			System.out.println("잘못된 값을 입력함");
 		} catch (AccountNotVerifiedException e) {
-			e.printStackTrace();
+			// 계정이 미인증된 상태일 때 처리
+			resp.setCharacterEncoding("utf-8");
+			resp.getWriter().println("인증되지 않은 사용자");
 		}
 	}
 }
