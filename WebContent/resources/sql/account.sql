@@ -93,7 +93,7 @@ INSERT INTO account (
 	101
 );
 
--- 생성 화인
+-- 생성 확인
 SELECT * FROM account;
 
 
