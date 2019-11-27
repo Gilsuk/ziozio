@@ -32,6 +32,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			loginService.login(req);
+			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

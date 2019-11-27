@@ -50,8 +50,6 @@ public class LoginServiceImpl implements LoginService {
 		AccountWithPw account = new AccountWithPw();
 		
 		account.setAccount_email(req.getParameter("account_email"));
-		account.setAccount_gender(ParamCaster.toChar(req.getParameter("account_gender")));
-		account.setAccount_nick(req.getParameter("account_nick"));
 		account.setAccount_pw(req.getParameter("account_pw"));
 
 		return account;

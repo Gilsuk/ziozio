@@ -43,14 +43,15 @@ public class Dao {
 			Function<ResultSet, U> dtoGetter) throws SQLException, TooManyResultException, NoResultException {
 		
 		Connection conn = DBConn.getConnection();
-		
-		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+		try (PreparedStatement ps = conn.prepareStatement(sql,
+			ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
 			stateSetter.accept(ps, inDto);
 			ResultSet rs = ps.executeQuery();
 			
-			int size = rs.getFetchSize();
+			rs.last();
+			int size = rs.getRow();
 			
-			if (size == 1) { rs.next(); return dtoGetter.apply(rs); }
+			if (size == 1) { return dtoGetter.apply(rs); }
 			else if (size == 0) { throw new NoResultException(); }
 			else { throw new TooManyResultException(); }
 
