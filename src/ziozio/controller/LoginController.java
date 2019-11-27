@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			loginService.login(req);
+			// 로그인 성공시 처리
 			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
 			// 사용자가 입력한 값이 잘못됐을 때 처리
