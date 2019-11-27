@@ -1,7 +1,6 @@
 package ziozio.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ziozio.dao.exception.NoResultException;
-import ziozio.dao.exception.TooManyResultException;
+import ziozio.dao.exception.SelectResultException;
 import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
@@ -32,17 +30,17 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			loginService.login(req);
+			// 로그인 성공시 처리
 			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (TooManyResultException e) {
-			e.printStackTrace();
-		} catch (NoResultException e) {
-			e.printStackTrace();
+			// 사용자가 입력한 값이 잘못됐을 때 처리
+			resp.getWriter().println("Invalid Param");
+		} catch (SelectResultException e) {
+			// ID & PW가 일치하지 않을 때 처리
+			resp.getWriter().println("Id or Pw not match");
 		} catch (AccountNotVerifiedException e) {
-			req.getRequestDispatcher("/WEB-INF/views/login/notverified.jsp").forward(req, resp);
+			// 계정이 미인증된 상태일 때 처리
+			resp.getWriter().println("Not email-verified user");
 		}
 	}
 }

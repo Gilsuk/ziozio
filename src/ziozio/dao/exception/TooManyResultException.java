@@ -1,6 +1,6 @@
 package ziozio.dao.exception;
 
-public class TooManyResultException extends Exception {
+public class TooManyResultException extends SelectResultException {
 
 	/**
 	 * 

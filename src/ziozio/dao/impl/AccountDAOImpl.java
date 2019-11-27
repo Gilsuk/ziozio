@@ -1,17 +1,16 @@
 package ziozio.dao.impl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ziozio.dao.Dao;
-import ziozio.dao.exception.NoResultException;
-import ziozio.dao.exception.TooManyResultException;
+import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
 import ziozio.dto.Count;
-import ziozio.utils.param.exception.InvalidEmailParamException;
-import ziozio.utils.param.exception.InvalidGenderParamException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public class AccountDAOImpl implements AccountDAO {
 	
@@ -28,17 +27,22 @@ public class AccountDAOImpl implements AccountDAO {
      * implements
      */
 	@Override
-	public Account select(AccountWithPw account) throws SQLException, TooManyResultException, NoResultException {
+	public Account select(AccountWithPw account) throws SelectResultException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM account");
 		sql.append(" WHERE account_email = ? AND account_pw = ?");
 		
 		return
-		Dao.<AccountWithPw, Account>select(sql.toString(), account, Account.class, (t, u) -> {
-			t.setString(1, u.getAccount_email());
-			t.setString(2, u.getAccount_pw());
-		},this::getAccountFromResultSet);
+		Dao.<AccountWithPw, Account>select(sql.toString(), account, Account.class,
+				this::completeStateFromAccountWithPw, this::getAccountFromResultSet);
 
+	}
+	
+	private void completeStateFromAccountWithPw(PreparedStatement ps, AccountWithPw account) {
+		try {
+			ps.setString(1, account.getAccount_email());
+			ps.setString(2, account.getAccount_pw());
+		} catch (SQLException e) { e.printStackTrace(); }
 	}
 	
 	private Account getAccountFromResultSet(ResultSet rs) {
@@ -52,9 +56,8 @@ public class AccountDAOImpl implements AccountDAO {
 			account.setAccount_no(rs.getInt("account_no"));
 			account.setAccount_signed_date(rs.getDate("account_signed_date"));
 			account.setAccount_verified(rs.getBoolean("account_verified"));
-		} catch (SQLException | InvalidGenderParamException | InvalidEmailParamException e) {
-			e.printStackTrace();
-		}
+		} catch (SQLException e) { e.printStackTrace();
+		} catch (InvalidParamException e) { e.printStackTrace(); }
 		
 		return account;
 	}
