@@ -47,13 +47,13 @@ tr td:not(:first-child), tr th:not(:first-child) {
 					<tr>
 						<th style="width: 10%">글번호</th>
 						<th style="width: 50%">제목</th>
-						<th style="width: 20%">아이디</th>
+						<th style="width: 20%">닉네임</th>
 						<th style="width: 20%">작성일</th>
 					</tr>
 					<c:forEach items="${list }" var="board">
 					<tr>
 						<td>${board.boardno }</td>
-						<td><a href="/board/view?boardno=${board.boardno }">${board.title }</a></td>
+						<td><a href="/qnaview?boardno=${board.boardno }">${board.title }</a></td>
 						<td>${board.id }</td>
 						<td><fmt:formatDate value="${board.writtendate }" pattern="yyyy-MM-dd"/></td>
 					</tr>
@@ -65,7 +65,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 					</div>
 				</div>
 				
-				<jsp:include page="/WEB-INF/views/layout/paging.jsp" />
+				<jsp:include page="/WEB-INF/views/layout/qnapaging.jsp" />
 				
 				<div class="form-inline right" id="btnBox" >
 					<a href="/qnaview"><button class="btn btn-Warning input1" type="submit">글쓰기</button></a>
@@ -77,11 +77,3 @@ tr td:not(:first-child), tr th:not(:first-child) {
 		<div class="col-lg-1"></div>
 	</div>	
 </div>
-
-	
-	
-
-
-
-
-<jsp:include page="/WEB-INF/views/layout/footer.jsp" />

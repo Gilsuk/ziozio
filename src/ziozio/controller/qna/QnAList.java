@@ -1,6 +1,7 @@
 package ziozio.controller.qna;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.service.face.QnAService;
 import ziozio.service.impl.QnAServiceImpl;
+import ziozio.utils.board.Paging;
 
 @WebServlet("/qnalist")
 public class QnAList extends HttpServlet {
@@ -21,11 +23,14 @@ public class QnAList extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//		Paging paing = qnaService.getPaging(req);
-//		
-//		req.setAttribute("paging", paging);
+		Paging paging = qnaService.getPaging(req);
+		System.out.println("QnAList - " + paging);
 		
+		req.setAttribute("paging", paging);
 		
+		List list = qnaService.getList(paging);
+		
+		req.setAttribute("list", list);
 		
 		
 		req.getRequestDispatcher("/WEB-INF/views/qna/qnalist.jsp")
