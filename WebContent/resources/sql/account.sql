@@ -94,7 +94,7 @@ INSERT INTO account (
 	'F'
 );
 
--- 생성 화인
+-- 생성 확인
 SELECT * FROM account;
 
 commit;

@@ -15,9 +15,7 @@ CREATE TABLE cloth (
     CONSTRAINT cloth_gender_ck
 	CHECK (cloth_gender IN('N', 'M', 'F'))
     
-    
 );
-
 
 INSERT INTO CLOTH (cloth_code, cloth_category_code, cloth_name, cloth_description, cloth_links, cloth_gender)
 VALUES (1, 1, 'nameA', 'descriptionA', 'linksA', 'F');
