@@ -7,7 +7,7 @@ CREATE TABLE cookie (
 	account_no NUMBER NOT NULL,
 	cookie_date DATE DEFAULT SYSDATE NOT NULL,
 
-	-- 쿠키와 ip를 복수 기본키로 지정
+	-- cookie_id, cookie_ip를 복수 기본키로 지정
 	CONSTRAINT cookie_pk PRIMARY KEY (cookie_id, cookie_ip),
 
 	-- account 테이블과 외래키 연결
