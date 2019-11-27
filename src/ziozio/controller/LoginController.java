@@ -33,16 +33,13 @@ public class LoginController extends HttpServlet {
 			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
 			// 사용자가 입력한 값이 잘못됐을 때 처리
-			resp.setCharacterEncoding("utf-8");
-			resp.getWriter().println("올바른 값을 입력하세요");
+			resp.getWriter().println("Invalid Param");
 		} catch (SelectResultException e) {
 			// ID & PW가 일치하지 않을 때 처리
-			resp.setCharacterEncoding("utf-8");
-			resp.getWriter().println("틀렸습니다.");
+			resp.getWriter().println("Id or Pw not match");
 		} catch (AccountNotVerifiedException e) {
 			// 계정이 미인증된 상태일 때 처리
-			resp.setCharacterEncoding("utf-8");
-			resp.getWriter().println("인증되지 않은 사용자");
+			resp.getWriter().println("Not email-verified user");
 		}
 	}
 }
