@@ -4,8 +4,8 @@
 ## 해야할 일 (TODO)
 1. 공지사항 게시판에 로그아웃 상태로 글 쓸 수 있음.(지오는 해결하시오)
 2. 공지사항 게시판, 공지사항 댓글, 공지사항 파일업로드 테이블 생성 SQL 문을 /resources/sql/.. 에 추가
-3. 이모
-4. 저모
+3. 쿠키 로그인 세션 유지
+4. 이메일 계정 인증 & 계정 찾기
 
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css
