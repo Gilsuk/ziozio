@@ -1,4 +1,4 @@
-package ziozio.utils.board;
+package ziozio.dto;
 
 public class Paging {
 	private int curPage; // 현재 페이지 번호(브라우저에서 선택한 페이지 번호)

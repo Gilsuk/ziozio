@@ -5,8 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dto.BoardFile;
+import ziozio.dto.Paging;
 import ziozio.dto.QnA;
-import ziozio.utils.board.Paging;
 
 
 

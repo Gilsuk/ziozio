@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Paging;
 import ziozio.service.face.QnAService;
 import ziozio.service.impl.QnAServiceImpl;
-import ziozio.utils.board.Paging;
 
 @WebServlet("/qnalist")
 public class QnAList extends HttpServlet {

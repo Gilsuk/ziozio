@@ -2,8 +2,8 @@ package ziozio.dao.face;
 
 import java.util.List;
 
+import ziozio.dto.Paging;
 import ziozio.dto.QnA;
-import ziozio.utils.board.Paging;
 
 
 

@@ -20,8 +20,8 @@ import ziozio.dao.impl.CommentDaoImpl;
 import ziozio.dto.Board;
 import ziozio.dto.BoardFile;
 import ziozio.dto.Comment;
+import ziozio.dto.Paging;
 import ziozio.service.face.BoardService;
-import ziozio.utils.board.Paging;
 
 public class BoardServiceImpl implements BoardService {
 

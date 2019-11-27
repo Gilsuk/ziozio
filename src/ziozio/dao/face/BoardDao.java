@@ -4,7 +4,7 @@ import java.util.List;
 
 import ziozio.dto.Board;
 import ziozio.dto.BoardFile;
-import ziozio.utils.board.Paging;
+import ziozio.dto.Paging;
 
 public interface BoardDao { //face 이니까 interface
 

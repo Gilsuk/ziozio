@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Paging;
 import ziozio.service.face.BoardService;
 import ziozio.service.impl.BoardServiceImpl;
-import ziozio.utils.board.Paging;
 
 @WebServlet("/board/list")
 public class BoardListController extends HttpServlet {

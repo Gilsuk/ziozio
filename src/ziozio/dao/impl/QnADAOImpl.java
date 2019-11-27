@@ -3,8 +3,8 @@ package ziozio.dao.impl;
 import java.util.List;
 
 import ziozio.dao.face.QnADAO;
+import ziozio.dto.Paging;
 import ziozio.dto.QnA;
-import ziozio.utils.board.Paging;
 
 public class QnADAOImpl implements QnADAO{
 

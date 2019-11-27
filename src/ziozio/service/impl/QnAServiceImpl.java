@@ -9,10 +9,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import ziozio.dao.face.QnADAO;
 import ziozio.dao.impl.QnADAOImpl;
-
+import ziozio.dto.Paging;
 import ziozio.dto.QnA;
 import ziozio.service.face.QnAService;
-import ziozio.utils.board.Paging;
 
 public class QnAServiceImpl implements QnAService {
 

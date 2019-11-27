@@ -10,7 +10,7 @@ import java.util.List;
 import ziozio.dao.face.BoardDao;
 import ziozio.dto.Board;
 import ziozio.dto.BoardFile;
-import ziozio.utils.board.Paging;
+import ziozio.dto.Paging;
 import ziozio.utils.db.oracle.DBConn;
 
 public class BoardDaoImpl implements BoardDao {
