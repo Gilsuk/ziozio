@@ -63,53 +63,48 @@
     		url: "/emailcheck",
     		data: {account_email: account_email},
     		success: function(result) {
-    			
-    			if(result == 1) {
-    				$("#checkMessage").html("사용할 수 있는 email입니다.");
-    				$("#checkType").attr("class", "modal-content panel-success");
-    			}
-    			else {
-    				$("#checkMessage").html("사용할 수 없는 email입니다.");
-    				$("#checkType").attr("class", "modal-content panel-warning");
-    			}
-    			$("#checkModal").modal("show");
-    		}
-    	})
-    }
-    
-    function nickCheckFunction() {
-    	var account_nick = $("#account_nick").val();
-    	$.ajax({
-    		type: "GET",
-    		url: "/nickcheck",
-    		data: {account_nick: account_nick},
-    		success: function(result) {
-    			
-    			console.log(result)
-    			
-    			if(result == 1) {
-    				$("#checkMessage").html("사용할 수 있는 닉네임입니다.");
-    				$("#checkType").attr("class", "modal-content panel-success");
-    			}
-    			else {
-    				$("#checkMessage").html("사용할 수 없는 닉네임입니다.");
-    				$("#checkType").attr("class", "modal-content panel-warning");
-    			}
-    			$("#checkModal").modal("show");
-    		}
-    	})
-    }
-    
-    function pwCheckFunction() {
-    	var account_pw = $("#account_pw").val();
-    	var account_pw2 = $("#account_pw2").val();
-    	if(account_pw != account_pw2) {
-    		$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
-    	} else {
-    		$("#pwCheckMessage").html("");
-    	}
-    }
-    
+				$("#checkMessage").html(result);
+				$("#checkType").attr("class", "modal-content panel-success");
+				$("#checkModal").modal("show");
+			}
+		})
+	}
+
+	function nickCheckFunction() {
+		var account_nick = $("#account_nick").val();
+		$.ajax({
+			type : "GET",
+			url : "/nickcheck",
+			data : {
+				account_nick : account_nick
+			},
+			success : function(result) {
+
+				console.log(result)
+
+				if (result == 1) {
+					$("#checkMessage").html("사용할 수 있는 닉네임입니다.");
+					$("#checkType")
+							.attr("class", "modal-content panel-success");
+				} else {
+					$("#checkMessage").html("사용할 수 없는 닉네임입니다.");
+					$("#checkType")
+							.attr("class", "modal-content panel-warning");
+				}
+				$("#checkModal").modal("show");
+			}
+		})
+	}
+
+	function pwCheckFunction() {
+		var account_pw = $("#account_pw").val();
+		var account_pw2 = $("#account_pw2").val();
+		if (account_pw != account_pw2) {
+			$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
+		} else {
+			$("#pwCheckMessage").html("");
+		}
+	}
 </script>
 
 
