@@ -2,6 +2,7 @@ package ziozio.service.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
+import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
@@ -30,7 +31,7 @@ public class LoginServiceImpl implements LoginService {
      * implements
      */
 	@Override
-	public void login(HttpServletRequest req) throws InvalidParamException, AccountNotVerifiedException {
+	public void login(HttpServletRequest req) throws InvalidParamException, AccountNotVerifiedException, SelectResultException {
 		AccountWithPw accountWithPw = getAccountWithPwFromParams(req);
 		Account account = accountDao.select(accountWithPw);
 		

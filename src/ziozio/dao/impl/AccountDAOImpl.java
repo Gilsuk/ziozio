@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ziozio.dao.Dao;
+import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
@@ -26,7 +27,7 @@ public class AccountDAOImpl implements AccountDAO {
      * implements
      */
 	@Override
-	public Account select(AccountWithPw account) {
+	public Account select(AccountWithPw account) throws SelectResultException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM account");
 		sql.append(" WHERE account_email = ? AND account_pw = ?");

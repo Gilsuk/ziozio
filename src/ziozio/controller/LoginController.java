@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dao.exception.SelectResultException;
 import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.LoginService;
 import ziozio.service.impl.LoginServiceImpl;
@@ -32,7 +33,12 @@ public class LoginController extends HttpServlet {
 			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
 			// 사용자가 입력한 값이 잘못됐을 때 처리
-			System.out.println("잘못된 값을 입력함");
+			resp.setCharacterEncoding("utf-8");
+			resp.getWriter().println("올바른 값을 입력하세요");
+		} catch (SelectResultException e) {
+			// ID & PW가 일치하지 않을 때 처리
+			resp.setCharacterEncoding("utf-8");
+			resp.getWriter().println("틀렸습니다.");
 		} catch (AccountNotVerifiedException e) {
 			// 계정이 미인증된 상태일 때 처리
 			resp.setCharacterEncoding("utf-8");
