@@ -8,13 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/findpw")
-public class FindPw extends HttpServlet {
+@WebServlet("/qna")
+public class QnA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/findpw/findpw.jsp").forward(req, resp);
+
+	
+		req.getRequestDispatcher("/WEB-INF/views/qna/qna.jsp")
+			.forward(req, resp);
+	
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	
+	
+	}
+	
 }

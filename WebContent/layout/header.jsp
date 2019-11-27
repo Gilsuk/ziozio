@@ -26,7 +26,7 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
- <link rel="stylesheet" href="/resources/css/style.css">
+ <link rel="stylesheet" href="/resources/css/style.css" />
  </head>
  
 
@@ -50,7 +50,7 @@
 				<ul class="dropdown-menu" style="width: 200px;" >
 				<c:choose>
 					<c:when test="${login }">
-					WELCOME ${usernick}님<hr>
+					WELCOME ${account_nick}님<hr>
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board">게시판</a></li>
 						<li><a href="/column">column</a></li>

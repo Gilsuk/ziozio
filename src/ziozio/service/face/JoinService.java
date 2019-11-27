@@ -1,24 +1,13 @@
 package ziozio.service.face;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dto.User;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public interface JoinService {
 
-	
-	/**
-	 * 회원가입
-	 * @param user
-	 */
-	public void join(User user);
-	
-	
-	/**
-	 * 파라미터 얻기
-	 * @param req
-	 * @return
-	 */
-	public User getJoinParam(HttpServletRequest req);
+	public void join(HttpServletRequest req) throws InvalidParamException, SQLException;
 	
 }

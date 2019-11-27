@@ -13,95 +13,55 @@
     {
         inputForm = eval("document.loginInfo"); {
     
-	        if(!inputForm.useremail.value)
+	        if(!inputForm.account_email.value)
 	        {
 	        	$("#checkMessage").html("이메일을 입력하세요.");
 				$("#checkType").attr("class", "modal-content panel-warning");
 				$("#checkModal").modal("show");  
-	            inputForm.useremail.focus();
+	            inputForm.account_email.focus();
 	            return false;
 	        }
-	        if(!inputForm.userpw.value)
+	        if(!inputForm.account_pw.value)
 	        {
 	        	$("#checkMessage").html("비밀번호를 입력하세요.");
 				$("#checkType").attr("class", "modal-content panel-warning");
 				$("#checkModal").modal("show");
-				inputForm.userpw.focus();
+				inputForm.account_pw.focus();
 	            return false;
 	        }
-	        if(!inputForm.userpw2.value)
+	        if(!inputForm.account_pw2.value)
 	        {
 	        	$("#checkMessage").html("비밀번호를 입력하세요.");
 				$("#checkType").attr("class", "modal-content panel-warning");
 				$("#checkModal").modal("show");  
-	            inputForm.userpw2.focus();
+	            inputForm.account_pw2.focus();
 	            return false;
 	        }
-	        if(!inputForm.username.value)
-	        {
-	        	$("#checkMessage").html("이름을 입력하세요.");
-				$("#checkType").attr("class", "modal-content panel-warning");
-				$("#checkModal").modal("show");
-				inputForm.username.focus();
-				return false;
-	        }
-	        if(!inputForm.usernick.value)
+	        if(!inputForm.account_nick.value)
 	        {
 	        	$("#checkMessage").html("닉네임을 입력하세요.");
 				$("#checkType").attr("class", "modal-content panel-warning");
 				$("#checkModal").modal("show");
-				inputForm.usernick.focus();
+				inputForm.account_nick.focus();
 	            return false;
 	        }
-	        if(!inputForm.userbirth_year.value)
-	        {
-	        	$("#checkMessage").html("태어난 년도를 입력하세요.");
-				$("#checkType").attr("class", "modal-content panel-warning");
-				$("#checkModal").modal("show");
-				inputForm.userbirth_year.focus();
-	            return false;
-	        }
-	        if(!inputForm.userbirth_mon.value)
-	        {
-	        	$("#checkMessage").html("태어난 월을 입력하세요.");
-				$("#checkType").attr("class", "modal-content panel-warning");
-				$("#checkModal").modal("show");
-				inputForm.userbirth_mon.focus();
-	            return false;
-	        }
-	        if(!inputForm.userbirth_day.value)
-	        {
-	        	$("#checkMessage").html("태어난 일을 입력하세요.");
-				$("#checkType").attr("class", "modal-content panel-warning");
-				$("#checkModal").modal("show");
-				inputForm.userbirth_day.focus();
-	            return false;
-	        }
-	        if(!inputForm.userphone.value)
-	        {
-	        	$("#checkMessage").html("전화번호를 입력하세요.");
-				$("#checkType").attr("class", "modal-content panel-warning");
-				$("#checkModal").modal("show");
-				inputForm.userphone.focus();
-	            return false;
-	        }
-	        if(!inputForm.usergender.value)
+	        if(!inputForm.account_gender.value)
 	        {
 	        	$("#checkMessage").html("성별을 체크 하세요.");
 				$("#checkType").attr("class", "modal-content panel-warning");
 				$("#checkModal").modal("show");
-				inputForm.usergender.focus();
+				inputForm.account_gender.focus();
 	            return false;
 	        }
         }
     } 
 
     function emailCheckFunction() {
-    	var useremail = $("#useremail").val();
+    	var account_email = $("#account_email").val();
     	$.ajax({
     		type: "GET",
     		url: "/emailcheck",
-    		data: {useremail: useremail},
+    		data: {account_email: account_email},
     		success: function(result) {
     			
     			if(result == 1) {
@@ -118,11 +78,11 @@
     }
     
     function nickCheckFunction() {
-    	var usernick = $("#usernick").val();
+    	var account_nick = $("#account_nick").val();
     	$.ajax({
     		type: "GET",
     		url: "/nickcheck",
-    		data: {usernick: usernick},
+    		data: {account_nick: account_nick},
     		success: function(result) {
     			
     			console.log(result)
@@ -141,9 +101,9 @@
     }
     
     function pwCheckFunction() {
-    	var userpw = $("#userpw").val();
-    	var userpw2 = $("#userpw2").val();
-    	if(userpw != userpw2) {
+    	var account_pw = $("#account_pw").val();
+    	var account_pw2 = $("#account_pw2").val();
+    	if(account_pw != account_pw2) {
     		$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
     	} else {
     		$("#pwCheckMessage").html("");
@@ -169,79 +129,45 @@
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
 					<div class="form-inline" >
-						<input type="email" class="form-control" style="width: 330px;" placeholder="아이디(이메일)" name="useremail" id="useremail" maxlength="100"/>
+						<input type="email" class="form-control" style="width: 330px;" placeholder="아이디(이메일)" name="account_email" id="account_email" maxlength="100"/>
 						<button class="btn tn-primary input" onclick="emailCheckFunction();" type="button">중복체크</button>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="userpw" id="userpw" maxlength="50"/>
+					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw" id="account_pw" maxlength="50"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="userpw2" id="userpw2" maxlength="50"/>
+					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw2" id="account_pw2" maxlength="50"/>
 				<h5 style="color: red;" id="pwCheckMessage"></h5> 
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="이름" name="username" id="username" maxlength="50"/>
-				</div>
-				<div class="form-group">
 					<div class="form-inline" >
-						<input type="text" class="form-control" style="width: 330px;" placeholder="닉네임" name="usernick" id="usernick" maxlength="50"/>
+						<input type="text" class="form-control" style="width: 330px;" placeholder="닉네임" name="account_nick" id="account_nick" maxlength="50"/>
 						<button class="btn tn-primary input" onclick="nickCheckFunction();" type="button">중복체크</button>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="form-inline" >
-						<div class="form-group">
-							<input name="userbirth_year" type="text"  placeholder="년(4자)" class="form-control width" maxlength="4"/>
-						</div>
-						<div class="form-group">
-							<label class="sr-only" for="userbirth_mon"></label>
-							<select name="userbirth_mon" id="userbirth_mon" class="form-control width"  >
-								<option value=""></option>
-								<option value="01">01</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-								<option value="07">07</option>
-								<option value="08">08</option>
-								<option value="09">09</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<input name="userbirth_day" type="text"  placeholder="일"  class="form-control width" maxlength="2"/>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="전화번호 입력" name="userphone" id="userphone" maxlength="50"/>
 				</div>
 				<div class="form-group center" >
 					<div class="btn-group " data-toggle="buttons">
 						<label class="btn active input" >
-							<input type="radio" name="usergender"  autocomplete="off" value="남자" checked />남자
+							<input type="radio" name="account_gender"  autocomplete="off" value="남자" checked />남자
 						</label>
 						<label class="btn  input" >
-							<input type="radio" name="usergender"  autocomplete="off" value="여자" />여자
+							<input type="radio" name="account_gender"  autocomplete="off" value="여자" />여자
 						</label>
 						<label class="btn  input" >
-							<input type="radio" name="usergender"  autocomplete="off" value="중성"  />중성
+							<input type="radio" name="account_gender"  autocomplete="off" value="중성"  />중성
 						</label>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<input type="submit" class="btn btn-primory form-control input color"  value="회원 가입하기">
+					<input type="submit" class="btn btn-primory form-control input color"  value="회원 가입하기" />
 					
 				</div>
 			</form>
 			<div class="form-group">
 				<a href="/main">
-					<input type="submit" class="btn btn-primory form-control input color" value="가입취소">
+					<input type="submit" class="btn btn-primory form-control input color" value="가입취소" />
 				</a>
 			</div>
 		</div>	
@@ -319,5 +245,6 @@
 		</div>
 	</div>
 </div>
+
 <jsp:include page="/layout/footer.jsp" />
 

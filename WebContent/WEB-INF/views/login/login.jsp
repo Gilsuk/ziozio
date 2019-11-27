@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 
-    function checkValue()
+/*     function checkValue()
     {
         inputForm = eval("document.loginInfo");
         if(!inputForm.useremail.value)
@@ -25,8 +25,31 @@
             inputForm.userpw.focus();
             return false;
         }
+    } */
+    
+
+    function checkValue()
+    {
+        inputForm = eval("document.loginInfo"); {
+    
+	        if(!inputForm.account_email.value)
+	        {
+	        	$("#checkMessage").html("이메일을 입력하세요.");
+				$("#checkType").attr("class", "modal-content panel-warning");
+				$("#checkModal").modal("show");  
+	            inputForm.account_email.focus();
+	            return false;
+	        }
+	        if(!inputForm.account_pw.value)
+	        {
+	        	$("#checkMessage").html("비밀번호를 입력하세요.");
+				$("#checkType").attr("class", "modal-content panel-warning");
+				$("#checkModal").modal("show");
+				inputForm.account_pw.focus();
+	            return false;
+	        }
+        }
     }
-  
 </script>
 
 
@@ -45,10 +68,10 @@
 			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
 				<h3 class="center">로그인</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디(email)" name="useremail" maxlength="100"/>
+					<input type="text" class="form-control" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userpw" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
 				</div>
 
 				<c:if test="${!empty result && !result}"> 
@@ -56,15 +79,15 @@
 
 				</c:if>
 				<div class="form-group" >
-				<input  type="submit" class="btn btn-primory form-control input color" value="로그인">
+				<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
 				</div>
 			</form>
 			<a href="/join">
-				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입">
+				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입" />
 			</a>
 			<br><br>
 			<a href="/findpw">
-				<input  type="submit" class="btn btn-primory form-control input color" value="비밀번호 찾기">
+				<input  type="submit" class="btn btn-primory form-control input color" value="비밀번호 찾기" />
 			</a>
 		</div>	
 	</div>
@@ -72,6 +95,74 @@
 </div>
 </div>
 
+<% 
+	String messageContent = null;
+	if(session.getAttribute("messageContent") != null) {
+		messageContent = (String) session.getAttribute("messageContent");
+	}
+	String messageType = null;
+	if(session.getAttribute("messageType") != null) {
+		messageType = (String) session.getAttribute("messageType");
+	}
+	if(messageContent != null) {
+		
+	
+%>
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div class="modal-content" <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						<%= messageType %>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<%= messageContent %>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$("#messageModal").modal("show");
+</script>
+<%
+	session.removeAttribute("messageContent");
+	session.removeAttribute("messageType");	
+	}
+%>
 
+
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div id="checkType" class="modal-content panel-info">
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						확인 메세지
+					</h4>
+				</div>
+				<div class="modal-body" id="checkMessage">
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <jsp:include page="/layout/footer.jsp" />

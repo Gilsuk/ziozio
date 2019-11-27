@@ -2,29 +2,10 @@ package ziozio.service.face;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dto.User;
+import ziozio.dao.exception.SelectResultException;
+import ziozio.service.exception.AccountNotVerifiedException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public interface LoginService {
-
-	/**
-	 * 요청 파라미터 얻기
-	 * @param req
-	 * @return
-	 */
-	public User getLoginParam(HttpServletRequest req);
-	
-	/**
-	 * 로그인 수행
-	 * @param user
-	 * @return - 성공/실패
-	 */
-	boolean login(User user);
-
-	/**
-	 * 유저의 아이디 구하기
-	 * @param user
-	 * @return
-	 */
-	public User getLoginByUserid(User user);
-	
+	void login(HttpServletRequest req) throws InvalidParamException, AccountNotVerifiedException, SelectResultException;
 }
