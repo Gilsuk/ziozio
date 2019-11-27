@@ -10,7 +10,7 @@ CREATE TABLE ACCOUNT (
 	account_nick VARCHAR2(30) UNIQUE NOT NULL,
 	account_gender CHAR(1) NOT NULL,
 	account_signed_date DATE DEFAULT SYSDATE NOT NULL,
-	account_verified CHAR(1) DEFAULT '0' NOT NULL,
+	account_verified NUMBER DEFAULT 0 NOT NULL,
 	account_grade_code NUMBER NOT NULL,
 
 	-- account_grade 테이블과 외래키 연결
@@ -24,7 +24,7 @@ CREATE TABLE ACCOUNT (
 	
 	-- 계정 인증 완료 열에 0, 1만 입력가능
 	CONSTRAINT account_verified_ck
-	CHECK (account_verified IN('0', '1'))
+	CHECK (account_verified IN(0, 1))
 );
 
 -- 기본 계정 등급 102(일반 유저)
@@ -61,7 +61,7 @@ INSERT INTO account (
 	'GM',
 	'N',
 	1,
-	'1'
+	1
 );
 
 -- 유저 계정 id:user@ziozio.com pw:1234
@@ -78,7 +78,7 @@ INSERT INTO account (
 	'user',
 	'F',
 	101,
-	'1'
+	1
 );
 
 -- 미인증 유저계정 id:unvalid@ziozio.com pw:1234
@@ -86,15 +86,15 @@ INSERT INTO account (
 	account_email,
 	account_pw,
 	account_nick,
-	account_gender,
-	account_grade_code
+	account_gender
 ) VALUES (
 	'unvalid@ziozio.com',
 	'03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4',
 	'unvalidUser',
-	'F',
-	101
+	'F'
 );
 
 -- 생성 화인
 SELECT * FROM account;
+
+commit;
