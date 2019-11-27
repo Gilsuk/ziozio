@@ -125,7 +125,7 @@
 	<div class="col-lg-3"></div>
 	<div class="col-lg-6">
 		<div class="jumbotron padding" >
-			<form name="loginInfo" method="post" action="/join" onsubmit="return checkValue()">
+			<form name="loginInfo" method="post" action="/join" onsubmit="Freturn checkValue()">
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
 					<div class="form-inline" >

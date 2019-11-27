@@ -74,10 +74,10 @@
 					<input type="password" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
 				</div>
 
-				<c:if test="${!empty result && !result}"> 
+			 	<c:if test="${!empty result && !result}"> 
  					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
 
-				</c:if>
+				</c:if> 
 				<div class="form-group" >
 				<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
 				</div>
