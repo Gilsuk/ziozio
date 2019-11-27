@@ -9,6 +9,7 @@
 <html>
 <head>
 <link rel="shortcut icon" type="image⁄x-icon" href="">
+<link rel="stylesheet" href="/resources/css/style.css" />
 <meta charset="UTF-8">
 <title>ZIOZIO</title>
 
@@ -26,7 +27,6 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
- <link rel="stylesheet" href="/resources/css/style.css" />
  </head>
  
 
@@ -35,7 +35,7 @@
  <div id="header" >
 <nav class="navbar navbar-default">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="main.jsp">ZIOZIO</a>
+		<a class="navbar-brand" href="/">ZIOZIO</a>
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">

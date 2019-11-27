@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/")
+@WebServlet("/main")
 public class MainPageControlloer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
