@@ -47,11 +47,13 @@ public class NickCheckService implements DuplicateCheckService {
 
 	@Override
 	public void sendErrorMessage(HttpServletResponse resp) throws IOException {
+		resp.setCharacterEncoding("utf-8");
 		resp.getWriter().println("이미 가입된 별명 입니다.");
 	}
 
 	@Override
 	public void sendOkMessage(HttpServletResponse resp) throws IOException {
+		resp.setCharacterEncoding("utf-8");
 		resp.getWriter().println("사용할 수 있습니다.");
 	}
 

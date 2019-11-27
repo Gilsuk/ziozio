@@ -15,7 +15,7 @@ import ziozio.utils.param.exception.InvalidParamException;
 /**
  * Servlet implementation class EmailCheck
  */
-@WebServlet("/emailcheck")
+@WebServlet("/account/duplicatecheck/email")
 public class EmailCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DuplicateCheckService checker = EmailCheckService.getInstance();

@@ -15,7 +15,7 @@ import ziozio.utils.param.exception.InvalidParamException;
 /**
  * Servlet implementation class NickCheck
  */
-@WebServlet("/nickcheck")
+@WebServlet("/account/duplicatecheck/nick")
 public class NickCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

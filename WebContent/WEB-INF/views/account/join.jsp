@@ -60,7 +60,7 @@
     	var account_email = $("#account_email").val();
     	$.ajax({
     		type: "GET",
-    		url: "/emailcheck",
+    		url: "/account/duplicatecheck/email",
     		data: {account_email: account_email},
     		success: function(result) {
 				$("#checkMessage").html(result);
@@ -74,23 +74,13 @@
 		var account_nick = $("#account_nick").val();
 		$.ajax({
 			type : "GET",
-			url : "/nickcheck",
+			url : "/account/duplicatecheck/nick",
 			data : {
 				account_nick : account_nick
 			},
 			success : function(result) {
-
-				console.log(result)
-
-				if (result == 1) {
-					$("#checkMessage").html("사용할 수 있는 닉네임입니다.");
-					$("#checkType")
-							.attr("class", "modal-content panel-success");
-				} else {
-					$("#checkMessage").html("사용할 수 없는 닉네임입니다.");
-					$("#checkType")
-							.attr("class", "modal-content panel-warning");
-				}
+				$("#checkMessage").html(result);
+				$("#checkType").attr("class", "modal-content panel-success");
 				$("#checkModal").modal("show");
 			}
 		})
