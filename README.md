@@ -1,6 +1,12 @@
 # ziozio
 똑똑한 의상 추천 플랫폼 (semi-project)
 
+## 해야할 일 (TODO)
+1. 이것
+2. 저것
+3. 이모
+4. 저모
+
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css
 
