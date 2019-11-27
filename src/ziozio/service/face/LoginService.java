@@ -1,10 +1,14 @@
 package ziozio.service.face;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import ziozio.dao.exception.NoResultException;
+import ziozio.dao.exception.TooManyResultException;
+import ziozio.service.exception.AccountNotVerifiedException;
+import ziozio.utils.param.exception.InvalidParamException;
 
 public interface LoginService {
-
-	boolean login(HttpServletRequest req, HttpServletResponse resp);
-
+	void login(HttpServletRequest req) throws InvalidParamException, SQLException, TooManyResultException, NoResultException, AccountNotVerifiedException;
 }

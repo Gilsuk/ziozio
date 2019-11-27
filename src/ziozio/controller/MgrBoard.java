@@ -22,5 +22,4 @@ public class MgrBoard extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

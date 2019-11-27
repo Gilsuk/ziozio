@@ -1,156 +1,168 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
     
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<jsp:include page="/layout/header.jsp" />    
+
 <title>로그인 화면</title>
 
+<script type="text/javascript">
 
-<style type="text/css">
-img {
-	width: 500px;
-	height: 300px;
-}
-input[type="text, password" ] {
-	width: 120px;
-	height: 100px;
-}
-</style>
-    <script type="text/javascript">
-    
-        function checkValue()
+/*     function checkValue()
+    {
+        inputForm = eval("document.loginInfo");
+        if(!inputForm.useremail.value)
         {
-            inputForm = eval("document.loginInfo");
-            if(!inputForm.userID.value)
-            {
-                alert("아이디를 입력하세요");    
-                inputForm.userID.focus();
-                return false;
-            }
-            if(!inputForm.userPassword.value)
-            {
-                alert("비밀번호를 입력하세요");    
-                inputForm.userPassword.focus();
-                return false;
-            }
+            alert("아이디를 입력하세요");    
+            inputForm.useremail.focus();
+            return false;
         }
+        if(!inputForm.userpw.value)
+        {
+            alert("비밀번호를 입력하세요");    
+            inputForm.userpw.focus();
+            return false;
+        }
+    } */
     
-        // 회원가입 버튼 클릭시 회원가입 화면으로 이동
-        function goJoinForm() {
-            location.href=".jsp";
-        }    
-    </script>
-</head>
+
+    function checkValue()
+    {
+        inputForm = eval("document.loginInfo"); {
+    
+	        if(!inputForm.account_email.value)
+	        {
+	        	$("#checkMessage").html("이메일을 입력하세요.");
+				$("#checkType").attr("class", "modal-content panel-warning");
+				$("#checkModal").modal("show");  
+	            inputForm.account_email.focus();
+	            return false;
+	        }
+	        if(!inputForm.account_pw.value)
+	        {
+	        	$("#checkMessage").html("비밀번호를 입력하세요.");
+				$("#checkType").attr("class", "modal-content panel-warning");
+				$("#checkModal").modal("show");
+				inputForm.account_pw.focus();
+	            return false;
+	        }
+        }
+    }
+</script>
+
 
 <body>
 
-<nav class="navbar navbar-default">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="main.jsp">ZIOZIO</a>
-	</div>
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav">
-			<li><a href="main.jsp">메인</a>
-			<li><a href="main.jsp">게시판</a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">메뉴<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li class="active"><a href="login.jsp">로그인</a></li>
-					<li><a href="./join.jsp">회원가입</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</nav>
 <!-- 이미지 -->
-<div style="margin: 0 auto; width: fit-content; ">
+<div class="marginauto">
     <img src='/resources/img/ZIOZIO.png'  >
 </div>
 
 <div id="wrap">
-<div class="container">
-	<div class="clo-lg-4"></div>
-	<div class="clo-lg-4">
-		<div class="jumbotron" style="padding-top: 20px;">
-			<form name="loginInfo" method="post" action="LoginAtion.jsp" onsubmit="return checkValue()">
-				<h3 style="text-align: center;">로그인 화면</h3>
+<div class="container ">
+	<div class="col-lg-3 "></div>
+	<div class="col-lg-6 ">
+		<div class="jumbotron padding" >
+			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
+				<h3 class="center">로그인</h3>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20"/>
+					<input type="text" class="form-control" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20"/>
+					<input type="password" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
 				</div>
-				<div class="form-group">
-				<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="로그인">
+
+				<c:if test="${!empty result && !result}"> 
+ 					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
+
+				</c:if>
+				<div class="form-group" >
+				<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
 				</div>
-		
 			</form>
-			<a href="./join.jsp">
-				<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="회원가입">
+			<a href="/join">
+				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입" />
 			</a>
 			<br><br>
-			<a href="./.jsp">
-				<input style="background: #F0E378;" type="submit" class="btn btn-primory form-control" value="아이디/비밀번호 찾기">
+			<a href="/findpw">
+				<input  type="submit" class="btn btn-primory form-control input color" value="비밀번호 찾기" />
 			</a>
 		</div>	
 	</div>
-	<div class="col-lg-4"></div>
+	<div class="col-lg-3"></div>
 </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-
-<div>
-        
 <% 
-	String msg=request.getParameter("msg");
+	String messageContent = null;
+	if(session.getAttribute("messageContent") != null) {
+		messageContent = (String) session.getAttribute("messageContent");
+	}
+	String messageType = null;
+	if(session.getAttribute("messageType") != null) {
+		messageType = (String) session.getAttribute("messageType");
+	}
+	if(messageContent != null) {
+		
 	
-	if(msg!=null && msg.equals("0")) 
-	{
-	    out.println("<br>");
-	    out.println("<font color='red' size='5'>비밀번호를 확인해 주세요.</font>");
+%>
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div class="modal-content" <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						<%= messageType %>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<%= messageContent %>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$("#messageModal").modal("show");
+</script>
+<%
+	session.removeAttribute("messageContent");
+	session.removeAttribute("messageType");	
 	}
-	else if(msg!=null && msg.equals("-1"))
-	{    
-	    out.println("<br>");
-	    out.println("<font color='red' size='5'>아이디를 확인해 주세요.</font>");
-	}
-%>    
-</div>    
-
-</body>
-</html>
+%>
 
 
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="vertical-alignment-helper">
+		<div class="modal-dialog vertical-align-center">
+			<div id="checkType" class="modal-content panel-info">
+				<div class="modal-header panel-heading">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">close</span>
+					</button>
+					<h4 class="modal-title">
+						확인 메세지
+					</h4>
+				</div>
+				<div class="modal-body" id="checkMessage">
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-
-
-<!-- <div id="wrap"> -->
-<!-- 	<form> -->
-
-<!-- 		<table> -->
-<!-- 			<tr> -->
-<!-- 				<td>아이디</td> -->
-<!--                 <td><input type="text" name="id" maxlength="30"></td> -->
-<!--             </tr> -->
-<!--             <tr> -->
-<!--                 <td>비밀번호</td> -->
-<!--                 <td><input type="password" name="password" maxlength="30"></td> -->
-<!--             </tr> -->
-<!--         </table> -->
-<!--         <br> -->
-<!-- <input type="submit" value="로그인"/> -->
-<!-- <input type="button" value="회원가입" onclick="goJoinForm()" /> -->
-
-<!--     </form> -->
+<jsp:include page="/layout/footer.jsp" />
