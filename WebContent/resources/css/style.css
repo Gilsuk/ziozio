@@ -3,10 +3,6 @@
 .marginauto{
 	margin: 0 auto; width: fit-content;
 }
-
-
-
-
 .padding{
 	padding-top: 20px;	
 }
@@ -14,51 +10,50 @@
 .center{
 	text-align: center;
 }
-
-
 .right{
 	text-align: right;
 }
-
 .input{
-	background-color: #F0E378 ;
-	border-color: #F0E378 ;
-
-
+	background-color: #F0E378 !important;
+	border-color: #F0E378 !important;
 } 
-
 .color{
-	
 	color: black ;
 }
 
-
-
+.textcolor{
+	text-color: black;
+}
 .width{
 	width: 120px !important;
 }
 .width1{
 	width: 200px !important;
 }
-.width2{
-	width: 330px !important;
+.widtha{
+	width: 600px !important;
+	align: center !important;
 }
 
+/* 오류or메세지창 */
 .vertical-alignment-helper {
 	display: table;
 	height: 100%;
 	width: 100%;
 }
-
 .vertical-align-center {
 	display: table-cell;
 	vertical-align: middle;
 	pointer-events: none;
 }
-
 .modal-content {
 	width: inherit;
 	height: inherit;
 	margin: 0 auto;
 	pointer-events: none;
 }
+
+
+
+
+                                                

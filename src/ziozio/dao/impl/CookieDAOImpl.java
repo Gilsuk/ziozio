@@ -1,7 +1,7 @@
 package ziozio.dao.impl;
 
 import ziozio.dao.face.CookieDAO;
-import ziozio.dto.User;
+import ziozio.dto.Account;
 
 public class CookieDAOImpl implements CookieDAO {
 
@@ -22,7 +22,7 @@ public class CookieDAOImpl implements CookieDAO {
 	}
 
 	@Override
-	public void insertUser(User user) {
+	public void insertUser(Account account) {
 		// TODO Auto-generated method stub
 		
 	}
