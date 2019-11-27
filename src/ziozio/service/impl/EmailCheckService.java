@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
-import ziozio.dto.Count;
 import ziozio.service.face.DuplicateCheckService;
 import ziozio.utils.param.exception.InvalidEmailParamException;
 
@@ -33,9 +32,9 @@ public class EmailCheckService implements DuplicateCheckService {
 	@Override
 	public boolean isDuplicated(HttpServletRequest req) throws InvalidEmailParamException {
 		Account account = getAccountByReqEmailParam(req);
-		Count count = accountDao.selectCountByEmail(account);
+		int count = accountDao.selectCountByEmail(account);
 
-		if (count.getCount() == 1) return true;
+		if (count >= 1) return true;
 		return false;
 	}
 

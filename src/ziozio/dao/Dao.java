@@ -11,7 +11,6 @@ import java.util.function.Function;
 import ziozio.dao.exception.NoResultException;
 import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.exception.TooManyResultException;
-import ziozio.dto.Count;
 import ziozio.dto.DTO;
 import ziozio.utils.db.oracle.DBConn;
 
@@ -84,22 +83,20 @@ public class Dao {
 	
 	}
 
-	public static <T extends DTO> Count selectCount (
+	public static <T extends DTO> int count (
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter) {
 		
 		Connection conn = DBConn.getConnection();
 		
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+
 			ResultSet rs = completeStatement(ps, dto, stateSetter);
-	
 			rs.next();
-			Count count = new Count();
-			count.setCount(rs.getInt(1));
+
+			return rs.getInt(1);
 	
-			return count;
-	
-		} catch (SQLException e) { e.printStackTrace(); return null; }
+		} catch (SQLException e) { e.printStackTrace(); return 0; }
 	
 	}
 

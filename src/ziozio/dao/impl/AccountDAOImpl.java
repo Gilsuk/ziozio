@@ -9,7 +9,6 @@ import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
-import ziozio.dto.Count;
 import ziozio.utils.param.exception.InvalidParamException;
 
 public class AccountDAOImpl implements AccountDAO {
@@ -78,25 +77,25 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public Count selectCountByEmail(Account account) {
+	public int selectCountByEmail(Account account) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT count(*) FROM account");
 		sql.append(" WHERE account_email = ?");
 		
 		return
-		Dao.<Account>selectCount(sql.toString(), account, (t, u) -> {
+		Dao.<Account>count(sql.toString(), account, (t, u) -> {
 			t.setString(1, u.getAccount_email());
 		});
 	}
 
 	@Override
-	public Count selectCountByNick(Account account) {
+	public int selectCountByNick(Account account) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT count(*) FROM account");
 		sql.append(" WHERE account_nick = ?");
 		
 		return
-		Dao.<Account>selectCount(sql.toString(), account, (t, u) -> {
+		Dao.<Account>count(sql.toString(), account, (t, u) -> {
 			t.setString(1, u.getAccount_nick());
 		});
 	}

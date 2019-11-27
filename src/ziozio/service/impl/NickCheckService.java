@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
-import ziozio.dto.Count;
 import ziozio.service.face.DuplicateCheckService;
 
 public class NickCheckService implements DuplicateCheckService {
@@ -33,9 +32,9 @@ public class NickCheckService implements DuplicateCheckService {
 	@Override
 	public boolean isDuplicated(HttpServletRequest req) {
 		Account account = getAccountByReqNickParam(req);
-		Count count = accountDao.selectCountByNick(account);
+		int count = accountDao.selectCountByNick(account);
 
-		if (count.getCount() == 1) return true;
+		if (count == 1) return true;
 		return false;
 	}
 
