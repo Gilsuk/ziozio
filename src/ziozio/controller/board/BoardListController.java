@@ -1,4 +1,4 @@
-package web.controller;
+package ziozio.controller.board;
 //컨트롤러는 무조건 서블릿으로 만든다~
 
 import java.io.IOException;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import util.Paging;
-import web.service.face.BoardService;
-import web.service.impl.BoardServiceImpl;
+import ziozio.service.face.BoardService;
+import ziozio.service.impl.BoardServiceImpl;
+import ziozio.utils.board.Paging;
 
 @WebServlet("/board/list")
 public class BoardListController extends HttpServlet {

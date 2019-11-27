@@ -1,4 +1,4 @@
-package web.dao.impl;
+package ziozio.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import util.Paging;
-import web.dao.face.BoardDao;
-import web.dto.Board;
-import web.dto.BoardFile;
+import ziozio.dao.face.BoardDao;
+import ziozio.dto.Board;
+import ziozio.dto.BoardFile;
+import ziozio.utils.board.Paging;
 import ziozio.utils.db.oracle.DBConn;
 
 public class BoardDaoImpl implements BoardDao {
@@ -273,8 +273,7 @@ public class BoardDaoImpl implements BoardDao {
 		sql += "	, content";
 		sql += "	, hit";
 		sql += "	, writtendate";
-		sql += "	, (SELECT count(*) FROM recommend R WHERE R.boardno=B.boardno) AS recommend";
-		sql += " FROM board B";
+		sql += " FROM board";
 		sql += " WHERE boardno = ?";
 
 		try {
@@ -292,7 +291,6 @@ public class BoardDaoImpl implements BoardDao {
 				viewBoard.setContent(rs.getString("content"));
 				viewBoard.setHit(rs.getInt("hit"));
 				viewBoard.setWrittendate(rs.getDate("writtendate"));
-				viewBoard.setRecommend(rs.getInt("recommend"));
 
 			}
 

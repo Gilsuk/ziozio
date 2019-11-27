@@ -1,14 +1,13 @@
-package web.service.face;
+package ziozio.service.face;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import util.Paging;
-import web.dto.Board;
-import web.dto.BoardFile;
-import web.dto.Comment;
-import web.dto.Recommend;
+import ziozio.dto.Board;
+import ziozio.dto.BoardFile;
+import ziozio.dto.Comment;
+import ziozio.utils.board.Paging;
 
 public interface BoardService {
 
@@ -101,38 +100,6 @@ public interface BoardService {
 	 * @param board - 삭제할 게시글 번호를 가진 객체
 	 */
 	public void delete(Board board);
-	
-	/**
-	 * 게시글 추천 상태 조회
-	 * 
-	 * @param recommend - 추천 상태 체크 객체
-	 * @return boolean - true:추천했음, false:추천하지않았음
-	 */
-	public boolean isRecommend(Recommend recommend);
-	
-	/**
-	 * 추천 정보 파라미터 얻기
-	 * 
-	 * @param req - 요청 정보 객체
-	 * @return Recommend - 추천 정보 객체
-	 */
-	public Recommend getRecommend(HttpServletRequest req);
-	
-	/**
-	 * 추천 토글
-	 * 
-	 * @param recommend - 추천 정보 객체
-	 * @return boolean - true:추천 성공, false:추천취소 성공
-	 */
-	public boolean recommend(Recommend recommend);
-	
-	/**
-	 * 게시글의 총 추천 수 구하기
-	 * 
-	 * @param board - 해당 게시글
-	 * @return int - 총 추천 수
-	 */
-	public int getTotalCntRecommend(Recommend recommend);
 	
 	/**
 	 * 댓글 전달파라미터 꺼내기

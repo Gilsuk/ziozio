@@ -1,4 +1,4 @@
-package web.dao.impl;
+package ziozio.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import web.dao.face.CommentDao;
-import web.dto.Board;
-import web.dto.Comment;
+import ziozio.dao.face.CommentDao;
+import ziozio.dto.Board;
+import ziozio.dto.Comment;
 import ziozio.utils.db.oracle.DBConn;
 
 public class CommentDaoImpl implements CommentDao {

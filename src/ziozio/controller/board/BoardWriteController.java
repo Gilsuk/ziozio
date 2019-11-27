@@ -1,4 +1,4 @@
-package web.controller;
+package ziozio.controller.board;
 
 import java.io.IOException;
 
@@ -8,30 +8,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.Comment;
-import web.service.face.BoardService;
-import web.service.impl.BoardServiceImpl;
+import ziozio.service.face.BoardService;
+import ziozio.service.impl.BoardServiceImpl;
 
-/**
- * Servlet implementation class CommentInserController
- */
-@WebServlet("/comment/insert")
-public class CommentInserController extends HttpServlet {
+@WebServlet("/board/write")
+public class BoardWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	//BoardService 객체
 	private BoardService boardService = new BoardServiceImpl();
 
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
+		
+		//VIEW 지정
+		req.getRequestDispatcher("/WEB-INF/views/board/write.jsp")
+			.forward(req, resp);
+		
 	}
-
+	
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		Comment comment = boardService.getComment(req);
-
-		boardService.insertComment(comment);
-
-		resp.sendRedirect("/board/view?boardno="+comment.getBoardNo());
+		
+		//작성글 삽입
+		boardService.write(req);
+		
+		//목록으로 리다이렉션
+		resp.sendRedirect("/board/list");
+		
 	}
-
+	
 }
+

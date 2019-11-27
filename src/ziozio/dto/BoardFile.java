@@ -1,8 +1,8 @@
-package web.dto;
+package ziozio.dto;
 
 import java.util.Date;
 
-public class BoardFile {
+public class BoardFile implements DTO {
 	private int fileno;
 	private int boardno;
 	private String originName;

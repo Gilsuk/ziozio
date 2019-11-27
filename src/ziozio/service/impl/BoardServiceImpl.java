@@ -1,4 +1,4 @@
-package web.service.impl;
+package ziozio.service.impl;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -13,23 +13,19 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import util.Paging;
-import web.dao.face.BoardDao;
-import web.dao.face.CommentDao;
-import web.dao.face.RecommendDao;
-import web.dao.impl.BoardDaoImpl;
-import web.dao.impl.CommentDaoImpl;
-import web.dao.impl.RecommendDaoImpl;
-import web.dto.Board;
-import web.dto.BoardFile;
-import web.dto.Comment;
-import web.dto.Recommend;
-import web.service.face.BoardService;
+import ziozio.dao.face.BoardDao;
+import ziozio.dao.face.CommentDao;
+import ziozio.dao.impl.BoardDaoImpl;
+import ziozio.dao.impl.CommentDaoImpl;
+import ziozio.dto.Board;
+import ziozio.dto.BoardFile;
+import ziozio.dto.Comment;
+import ziozio.service.face.BoardService;
+import ziozio.utils.board.Paging;
 
 public class BoardServiceImpl implements BoardService {
 
 	private BoardDao boardDao = new BoardDaoImpl();
-	private RecommendDao recommendDao = new RecommendDaoImpl();
 	private CommentDao commentDao = new CommentDaoImpl();
 
 	@Override
@@ -390,59 +386,12 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 	
-	@Override
-	public boolean isRecommend(Recommend recommend) {
-		int cnt = recommendDao.selectCntRecommend(recommend);
-		
-		if(cnt > 0) { //추천했음
-			return true;
-			
-		} else { //추천하지 않았음
-			return false;
-			
-		}
-	}
 
-	@Override
-	public Recommend getRecommend(HttpServletRequest req) {
-		
-		//전달파라미터 파싱
-		int boardno = 0;
-		String param = req.getParameter("boardno");
-		if( param!=null && !"".equals(param) ) {
-			boardno = Integer.parseInt(param);
-		}
-		
-		//로그인한 아이디
-		String userid = (String) req.getSession().getAttribute("userid");
-		
-		Recommend recommend = new Recommend();
-		recommend.setBoardno(boardno);
-		recommend.setUserid(userid);
-		
-		return recommend;
-	}
+
 	
-	@Override
-	public boolean recommend(Recommend recommend) {
-		if( isRecommend(recommend) ) { //추천한 상태
-			recommendDao.deleteRecommend(recommend);
-			
-			return false;
-			
-		} else { //추천하지 않은 상태
-			recommendDao.insertRecommend(recommend);
-			
-			return true;
-			
-		}
-		
-	}
+
 	
-	@Override
-	public int getTotalCntRecommend(Recommend recommend) {
-		return recommendDao.selectTotalCntRecommend(recommend);
-	}
+
 	
 	@Override
 	public Comment getComment(HttpServletRequest req) {

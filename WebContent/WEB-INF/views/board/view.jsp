@@ -116,7 +116,7 @@ function deleteComment(commentNo) {
 
 <tr>
 <td class="info">아이디</td><td>${viewBoard.id }</td>
-<td class="info">닉네임</td><td>${nick }</td>
+<td class="info">닉네임</td><td>${account.account_nick }</td>
 </tr>
 
 <tr>
@@ -137,7 +137,7 @@ function deleteComment(commentNo) {
 
 <div class="text-center">	
 	<button id="btnList" class="btn btn-primary">목록</button>
-	<c:if test="${userid eq viewBoard.id }">
+	<c:if test="${account.account_email eq viewBoard.id }">
 	<button id="btnUpdate" class="btn btn-info">수정</button>
 	<button id="btnDelete" class="btn btn-danger">삭제</button>
 	</c:if>
@@ -146,7 +146,7 @@ function deleteComment(commentNo) {
 <hr>
 <!-- 댓글 작성 -->
 <div class="form-inline text-center">
-	<input type="text" size="10" class="form-control" id="commentWriter" value="${usernick }" readonly="readonly"/>
+	<input type="text" size="10" class="form-control" id="commentWriter" value="${account.account_nick }" readonly="readonly"/>
 	<input type="text" class="form-control" style="width:600px;" id="commentContent" name="commentContent" placeholder="댓글입력">
 	<button id="btnCommInsert" class="btn">입력</button>
 </div>

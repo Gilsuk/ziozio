@@ -1,4 +1,4 @@
-package web.controller;
+package ziozio.controller.board;
 //컨트롤러는 무조건 서블릿으로 만든다~
 
 
@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.Board;
-import web.dto.BoardFile;
-import web.dto.Comment;
-import web.dto.Recommend;
-import web.service.face.BoardService;
-import web.service.impl.BoardServiceImpl;
+import ziozio.dto.Board;
+import ziozio.dto.BoardFile;
+import ziozio.dto.Comment;
+import ziozio.service.face.BoardService;
+import ziozio.service.impl.BoardServiceImpl;
 
 @WebServlet("/board/view")
 public class BoardViewController extends HttpServlet {
@@ -52,13 +51,7 @@ public class BoardViewController extends HttpServlet {
 
 
 
-		//추천 상태 전달
-		Recommend recommend = new Recommend();
-		recommend.setBoardno(viewBoard.getBoardno()); //게시글 번호
-		recommend.setUserid((String)req.getSession().getAttribute("userid")); //로그인한 아이디
 
-		boolean isRecommend = boardService.isRecommend(recommend);
-		req.setAttribute("isRecommend", isRecommend);
 		
 
 		//댓글 리스트 전달

@@ -1,4 +1,4 @@
-package web.controller;
+package ziozio.controller.board;
 
 import java.io.IOException;
 
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dto.Board;
-import web.dto.BoardFile;
-import web.service.face.BoardService;
-import web.service.impl.BoardServiceImpl;
+import ziozio.dto.Board;
+import ziozio.dto.BoardFile;
+import ziozio.service.face.BoardService;
+import ziozio.service.impl.BoardServiceImpl;
 
 @WebServlet("/board/update")
 public class BoardUpdateController extends HttpServlet {

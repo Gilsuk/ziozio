@@ -1,9 +1,9 @@
-package web.dao.face;
+package ziozio.dao.face;
 
 import java.util.List;
 
-import web.dto.Board;
-import web.dto.Comment;
+import ziozio.dto.Board;
+import ziozio.dto.Comment;
 
 public interface CommentDao {
 	

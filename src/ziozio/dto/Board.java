@@ -1,10 +1,10 @@
-package web.dto;
+package ziozio.dto;
 
 // dto는 클래스로 만들어여~~
 
 import java.util.Date;
 
-public class Board {
+public class Board implements DTO {
 	private int boardno;
 	private String title;
 	private String id;
@@ -12,12 +12,10 @@ public class Board {
 	private int hit;
 	private Date writtendate;
 	
-	private int recommend;
-
 	@Override
 	public String toString() {
 		return "Board [boardno=" + boardno + ", title=" + title + ", id=" + id + ", content=" + content + ", hit=" + hit
-				+ ", writtendate=" + writtendate + ", recommend=" + recommend + "]";
+				+ ", writtendate=" + writtendate + "]";
 	}
 
 	public int getBoardno() {
@@ -66,14 +64,6 @@ public class Board {
 
 	public void setWrittendate(Date writtendate) {
 		this.writtendate = writtendate;
-	}
-
-	public int getRecommend() {
-		return recommend;
-	}
-
-	public void setRecommend(int recommend) {
-		this.recommend = recommend;
 	}
 
 }

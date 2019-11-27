@@ -1,8 +1,8 @@
-package web.dto;
+package ziozio.dto;
 
 import java.util.Date;
 
-public class Comment {
+public class Comment implements DTO {
 	private int rnum;
 	private int commentNo;
 	private int boardNo;

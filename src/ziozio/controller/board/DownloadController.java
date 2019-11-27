@@ -1,4 +1,4 @@
-package web.controller;
+package ziozio.controller.board;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
-import web.dao.face.BoardDao;
-import web.dao.impl.BoardDaoImpl;
-import web.dto.BoardFile;
+import ziozio.dao.face.BoardDao;
+import ziozio.dao.impl.BoardDaoImpl;
+import ziozio.dto.BoardFile;
 
 /**
  * Servlet implementation class DownloadController

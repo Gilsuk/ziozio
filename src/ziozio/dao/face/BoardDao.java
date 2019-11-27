@@ -1,10 +1,10 @@
-package web.dao.face;
+package ziozio.dao.face;
 
 import java.util.List;
 
-import util.Paging;
-import web.dto.Board;
-import web.dto.BoardFile;
+import ziozio.dto.Board;
+import ziozio.dto.BoardFile;
+import ziozio.utils.board.Paging;
 
 public interface BoardDao { //face 이니까 interface
 
