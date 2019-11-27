@@ -16,10 +16,10 @@ import ziozio.utils.db.oracle.DBConn;
 
 public class Dao {
 	
-	public static <T extends DTO> T select(
+	public static <T extends DTO> T select (
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter,
-			Function<ResultSet, T> dtoGetter) throws SQLException, TooManyResultException, NoResultException {
+			Function<ResultSet, T> dtoGetter) {
 		
 		Connection conn = DBConn.getConnection();
 		
@@ -33,14 +33,14 @@ public class Dao {
 			else if (size == 0) { throw new NoResultException(); }
 			else { throw new TooManyResultException(); }
 
-		} catch (SQLException e) { throw e; }
+		} catch (SQLException e) { e.printStackTrace(); return null; }
 
 	}
 	
-	public static <T extends DTO, U extends DTO> U select(
+	public static <T extends DTO, U extends DTO> U select (
 			String sql, T inDto, Class<U> outDto,
 			BiConsumerForSQL<T> stateSetter,
-			Function<ResultSet, U> dtoGetter) throws SQLException, TooManyResultException, NoResultException {
+			Function<ResultSet, U> dtoGetter) {
 		
 		Connection conn = DBConn.getConnection();
 		try (PreparedStatement ps = conn.prepareStatement(sql,
@@ -55,14 +55,14 @@ public class Dao {
 			else if (size == 0) { throw new NoResultException(); }
 			else { throw new TooManyResultException(); }
 
-		} catch (SQLException e) { throw e; }
+		} catch (SQLException e) { e.printStackTrace(); return null;  }
 
 	}
 	
-	public static <T extends DTO> List<T> selectList(
+	public static <T extends DTO> List<T> selectList (
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter,
-			Function<ResultSet, T> dtoGetter) throws SQLException {
+			Function<ResultSet, T> dtoGetter) {
 		
 		Connection conn = DBConn.getConnection();
 
@@ -76,14 +76,14 @@ public class Dao {
 			
 			return list;
 
-		} catch (SQLException e) { throw e; }
+		} catch (SQLException e) { e.printStackTrace(); return null;  }
 
 	}
 	
-	public static <T extends DTO, U extends DTO> List<U> selectList(
+	public static <T extends DTO, U extends DTO> List<U> selectList (
 			String sql, T inDto, Class<U> outDto,
 			BiConsumerForSQL<T> stateSetter,
-			Function<ResultSet, U> dtoGetter) throws SQLException {
+			Function<ResultSet, U> dtoGetter) {
 		
 		Connection conn = DBConn.getConnection();
 
@@ -97,11 +97,11 @@ public class Dao {
 			
 			return list;
 
-		} catch (SQLException e) { throw e; }
+		} catch (SQLException e) { e.printStackTrace(); return null;  }
 
 	}
 	
-	public static <T extends DTO> Count selectCount(
+	public static <T extends DTO> Count selectCount (
 			String sql, T dto,
 			BiConsumerForSQL<T> stateSetter) {
 		
@@ -134,7 +134,7 @@ public class Dao {
 		} catch (SQLException e) { throw e; }
 
 	}
-	public static <T extends DTO> int massUpdate(
+	public static <T extends DTO> int massUpdate (
 			String sql, List<T> dtoList,
 			BiConsumerForSQL<T> stateSetter) throws SQLException {
 		
