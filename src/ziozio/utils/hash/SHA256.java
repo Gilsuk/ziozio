@@ -31,8 +31,4 @@ public class SHA256 implements HashConverter {
         return builder.toString();
     }
     
-    public static void main(String[] args) {
-    	System.out.println(new SHA256("1234").toHash());
-		
-	}
 }
