@@ -1,6 +1,6 @@
 package ziozio.dao.exception;
 
-public class NoResultException extends Exception {
+public class NoResultException extends SelectResultException {
 
 	/**
 	 * 
