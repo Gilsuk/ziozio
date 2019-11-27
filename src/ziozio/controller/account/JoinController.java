@@ -33,11 +33,11 @@ public class JoinController extends HttpServlet {
 		try {
 			joinService.join(req);
 		} catch (InvalidParamException e) {
-			// 인풋 파라미터가 유효하지 않을 때 처리(email 값을 이상한 것으로 넘긴다던지...)
-			e.printStackTrace();
+			// 인풋 파라미터가 유효하지 않을 때 처리(email 값을 이상한 것으로 넘긴다던지 패스워드가 너무 짧을 때 등)
+			resp.getWriter().println("invalid parameter");
 		} catch (SQLException e) {
 			// DB에 저장이 안될 때 처리(email, nick 중복, 등)
-			e.printStackTrace();
+			resp.getWriter().println("duplicate");
 		}
 	}
 
