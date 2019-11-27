@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 		} catch (NoResultException e) {
 			e.printStackTrace();
 		} catch (AccountNotVerifiedException e) {
-			e.printStackTrace();
+			req.getRequestDispatcher("/WEB-INF/views/login/notverified.jsp").forward(req, resp);
 		}
 	}
 }
