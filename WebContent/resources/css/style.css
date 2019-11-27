@@ -16,14 +16,23 @@
 .input{
 	background-color: #F0E378 !important;
 	border-color: #F0E378 !important;
-} 
+}
+
+.input1{
+	background-color: #F0E378 !important;
+	border-color: #F0E378 !important;
+	color: black !important;
+	width:100px;
+	height:40px;
+}	
+
 .color{
 	color: black ;
 }
 
 .textcolor{
 	text-color: black;
-}
+}http://localhost:8888/qnaview
 .width{
 	width: 120px !important;
 }
