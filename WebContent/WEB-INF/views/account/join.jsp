@@ -5,7 +5,7 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>    
 
 
-<jsp:include page="/layout/header.jsp" /> 
+<jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
 <script type="text/javascript">
 
@@ -125,7 +125,7 @@
 	<div class="col-lg-3"></div>
 	<div class="col-lg-6">
 		<div class="jumbotron padding" >
-			<form name="loginInfo" method="post" action="/join" onsubmit="Freturn checkValue()">
+			<form name="loginInfo" method="post" action="/account/join" onsubmit="Freturn checkValue()">
 				<h3 class="center">회원가입</h3>
 				<div class="form-group">
 					<div class="form-inline" >
@@ -166,7 +166,7 @@
 				</div>
 			</form>
 			<div class="form-group">
-				<a href="/main">
+				<a href="/">
 					<input type="submit" class="btn btn-primory form-control input color" value="가입취소" />
 				</a>
 			</div>
@@ -246,5 +246,5 @@
 	</div>
 </div>
 
-<jsp:include page="/layout/footer.jsp" />
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 

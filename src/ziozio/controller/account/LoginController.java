@@ -1,4 +1,4 @@
-package ziozio.controller;
+package ziozio.controller.account;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import ziozio.service.impl.LoginServiceImpl;
 import ziozio.utils.param.exception.InvalidParamException;
 
 
-@WebServlet("/login")
+@WebServlet("/account/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -23,7 +23,7 @@ public class LoginController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/account/login.jsp").forward(req, resp);
 	}
 	
 	@Override

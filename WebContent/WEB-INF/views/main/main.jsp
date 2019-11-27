@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
-<jsp:include page="/layout/header.jsp" /> 
+<jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
 
 
@@ -24,11 +24,11 @@
 
 <c:if test="${empty account }">
 	<div class="text-center"><br>
-		<a class="btn btn-default input" href="/login" role="button">로그인</a>
-		<a class="btn btn-default input" href="/join" role="button">회원가입</a>
+		<a class="btn btn-default input" href="/account/login" role="button">로그인</a>
+		<a class="btn btn-default input" href="/account/join" role="button">회원가입</a>
 	</div>
 </c:if>
 
 
 
-<jsp:include page="/layout/footer.jsp" />
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />

@@ -109,4 +109,4 @@
 
 
 
-<jsp:include page="/layout/footer.jsp" />
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />

@@ -4,7 +4,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
     
-<jsp:include page="/layout/header.jsp" />    
+<jsp:include page="/WEB-INF/views/layout/header.jsp" />    
 
 <title>로그인 화면</title>
 
@@ -65,7 +65,7 @@
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
 		<div class="jumbotron padding" >
-			<form name="loginInfo" method="post" action="/login" onsubmit="return checkValue()">
+			<form name="loginInfo" method="post" action="/account/login" onsubmit="return checkValue()">
 				<h3 class="center">로그인</h3>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
@@ -82,11 +82,11 @@
 				<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
 				</div>
 			</form>
-			<a href="/join">
+			<a href="/account/join">
 				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입" />
 			</a>
 			<br><br>
-			<a href="/findpw">
+			<a href="/account/find">
 				<input  type="submit" class="btn btn-primory form-control input color" value="비밀번호 찾기" />
 			</a>
 		</div>	
@@ -165,4 +165,4 @@
 	</div>
 </div>
 
-<jsp:include page="/layout/footer.jsp" />
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />

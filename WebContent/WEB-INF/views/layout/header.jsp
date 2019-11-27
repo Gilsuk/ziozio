@@ -39,7 +39,7 @@
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="/main">메인</a></li>
+			<li><a href="/">메인</a></li>
 			<li><a href="/">게시판</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
@@ -55,12 +55,12 @@
 						<li><a href="/board">게시판</a></li>
 						<li><a href="/column">column</a></li>
 						<li><a href="/qna">QnA</a></li>
-						<li><a href="/logout">로그아웃</a></li>
+						<li><a href="/account/logout">로그아웃</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="/join">회원가입</a></li>
-						<li><a href="/login">로그인</a></li>
-						<li><a href="/findpw">비밀번호 찾기</a></li>
+						<li><a href="/account/join">회원가입</a></li>
+						<li><a href="/account/login">로그인</a></li>
+						<li><a href="/account/find">비밀번호 찾기</a></li>
 						<li><a href="/board">게시판</a></li>
 						<li><a href="/column">column</a></li>
 					</c:otherwise>

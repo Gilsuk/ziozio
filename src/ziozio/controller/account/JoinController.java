@@ -1,4 +1,4 @@
-package ziozio.controller;
+package ziozio.controller.account;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,14 +16,14 @@ import ziozio.utils.param.exception.InvalidParamException;
 /**
  * Servlet implementation class Join
  */
-@WebServlet("/join")
+@WebServlet("/account/join")
 public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private JoinService joinService = JoinServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/join/join.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/account/join.jsp").forward(req, resp);
 	}
 	
 	@Override

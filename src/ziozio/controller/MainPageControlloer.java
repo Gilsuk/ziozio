@@ -8,27 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class VerifyMail
- */
-@WebServlet("/verify")
-public class VerifyMail extends HttpServlet {
+
+@WebServlet("/")
+public class MainPageControlloer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		req.getRequestDispatcher("/WEB-INF/views/main/main.jsp").forward(req, resp);
 	}
-
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-	
-	
-		
-	}
-	
 }
