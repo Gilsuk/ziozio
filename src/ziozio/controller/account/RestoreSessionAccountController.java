@@ -27,8 +27,10 @@ public class RestoreSessionAccountController extends HttpServlet {
 			cookieServ.restoreSessionAccount(req, resp);
 		} catch (CookieNotFoundException e) {
 			// 클라이언트가 쿠키값을 가지고 있지 않음
+			resp.sendRedirect("/account/login");
 		} catch (SelectResultException e) {
 			// 클라이언트가 쿠키를 가지고 있지만 만료됨
+			resp.sendRedirect("/account/login");
 		}
 	}
 

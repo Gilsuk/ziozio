@@ -28,6 +28,11 @@ public class LoginController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		if (loginService.isLoggedIn(req)) {
+			// 이미 로그인된 경우
+			resp.sendRedirect("/main");
+			return;
+		}
 		try {
 			loginService.login(req, resp);
 			// 로그인 성공시 처리

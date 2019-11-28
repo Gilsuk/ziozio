@@ -81,18 +81,35 @@ public class CookieServiceImpl implements CookieService {
 		cookie.setAccount_no(account.getAccount_no());
 		cookieDao.update(cookie);
 		
-		sendCookieToClient(resp, cookie);
+		sendCookieToClient(resp, "cookie_id", cookie.getCookie_id(), 86400);
 	}
 	
 
-	private void sendCookieToClient(HttpServletResponse resp, ziozio.dto.Cookie cookie) {
-		Cookie newCookie = new Cookie("cookie_id", cookie.getCookie_id());
-		resp.addCookie(newCookie);
+	private void sendCookieToClient(HttpServletResponse resp, String cookieName, String cookieValue, int expire) {
+		Cookie cookie = new Cookie(cookieName, cookieValue);
+		cookie.setMaxAge(expire);
+		cookie.setPath("/");
+		resp.addCookie(cookie);
 	}
 
 	private String getRandomCookieId() {
 		UUID randomUUID = UUID.randomUUID();
 		String cookie_id = randomUUID.toString().split("-")[0];
 		return cookie_id;
+	}
+
+	@Override
+	public void removeLoginCookie(HttpServletRequest req, HttpServletResponse resp) {
+		String cookie_id;
+		try {
+			cookie_id = getCookieValue(req, "cookie_id");
+		} catch (CookieNotFoundException e) { return; }
+
+		ziozio.dto.Cookie cookie = getCookieWithPrimaryKeys(req, cookie_id);
+		cookieDao.delete(cookie);
+		
+		sendCookieToClient(resp, "cookie_id", "", 0);
+		
+		
 	}
 }

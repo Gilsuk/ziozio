@@ -9,4 +9,6 @@ import ziozio.utils.param.exception.InvalidParamException;
 
 public interface LoginService {
 	void login(HttpServletRequest req, HttpServletResponse resp) throws InvalidParamException, AccountNotVerifiedException, SelectResultException;
+
+	boolean isLoggedIn(HttpServletRequest req);
 }
