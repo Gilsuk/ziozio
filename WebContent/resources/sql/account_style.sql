@@ -19,10 +19,9 @@ INSERT INTO ACCOUNT_STYLE (account_no, style_code)
 VALUES (1, 1);
 
 INSERT INTO ACCOUNT_STYLE (account_no, style_code)
-VALUES (2, 2);
-
-INSERT INTO ACCOUNT_STYLE (account_no, style_code)
 VALUES (3, 3);
 
+INSERT INTO ACCOUNT_STYLE (account_no, style_code)
+VALUES (4, 2);
 
 SELECT * FROM account_style;
