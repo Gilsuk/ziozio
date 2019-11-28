@@ -92,7 +92,7 @@ public interface QnADAO {
 	 * @param board - id를 가진 객체
 	 * @return String - nick
 	 */
-	public String selectAccount_nickByAccount_Email(QnA qna);
+	public String selectAccount_nickByAccount_Nick(QnA qna);
 	
 	/**
 	 * 게시글 삭제
@@ -115,11 +115,6 @@ public interface QnADAO {
 	 */
 	public void deleteQnaFileList(String names);
 	
-	/**
-	 * 리스트에서 게시글 삭제하기
-	 * 
-	 * @param names - 삭제한 게시글 번호 목록들 문자열
-	 */
-	public void deleteBoardList(String names);
+
 	
 }

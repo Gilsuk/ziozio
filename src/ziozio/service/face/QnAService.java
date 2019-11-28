@@ -43,7 +43,7 @@ public interface QnAService {
 	 * @param req - 요청 정보 객체
 	 * @return Board - 게시글 번호를 가진 객체
 	 */
-	public QnA getQnAno(HttpServletRequest req);
+	public QnA getQna_no(HttpServletRequest req);
 	
 	/**
 	 * 상세보기 게시글 조회
@@ -73,6 +73,15 @@ public interface QnAService {
 	 */
 //	public BoardFile viewFile(QnA qna);
 	
+	
+	/**
+	 * 글 작성자인지 판단하기
+	 * 
+	 * @param req - 요청 정보 객체
+	 * @return boolean - true : 로그인한 사람이 글 작성자
+	 */
+	public boolean checkNick(HttpServletRequest req);
+
 
 
 	/**
@@ -82,6 +91,9 @@ public interface QnAService {
 	 */
 	public void update(HttpServletRequest req);
 
+	
+	
+	
 	/**
 	 * ID를 통해 닉네임얻기
 	 * 
