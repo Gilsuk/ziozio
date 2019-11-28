@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dto.Board;
 import ziozio.dto.BoardFile;
 import ziozio.dto.Comment;
-import ziozio.utils.board.Paging;
+import ziozio.dto.Paging;
 
 public interface BoardService {
 

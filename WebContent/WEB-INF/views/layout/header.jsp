@@ -54,7 +54,7 @@
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/column">column</a></li>
-						<li><a href="/qna">QnA</a></li>
+						<li><a href="/qnalist">QnA</a></li>
 						<li><a href="/account/logout">로그아웃</a></li>
 					</c:when>
 					<c:otherwise>

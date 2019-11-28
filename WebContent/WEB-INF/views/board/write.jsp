@@ -70,8 +70,8 @@ $(document).ready(function() {
 </div>
 
 <div class="text-center">	
-	<button type="button" id="btnWrite" class="btn btn-info">작성</button>
-	<button type="button" id="btnCancel" class="btn btn-danger">취소</button>
+	<button type="button" id="btnWrite" class="btn btn-warning">작성</button>
+	<button type="button" id="btnCancel" class="btn btn-warning">취소</button>
 </div>
 </div>
 

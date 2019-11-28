@@ -13,22 +13,44 @@
 .right{
 	text-align: right;
 }
+
+
+
 .input{
 	background-color: #F0E378 !important;
 	border-color: #F0E378 !important;
-} 
+}
+
+.input1{
+	background-color: #F0E378 !important;
+	border-color: #F0E378 !important;
+	color: black !important;
+	width:100px;
+	height:40px;
+}	
+
+
+.input2{
+	background-color: #FFFAB1;
+}
+
 .color{
 	color: black ;
 }
 
+
+
 .textcolor{
 	text-color: black;
-}
+}http://localhost:8888/qnaview
 .width{
 	width: 120px !important;
 }
 .width1{
 	width: 200px !important;
+}
+.width2{
+	width: 300px !important;
 }
 .widtha{
 	width: 600px !important;

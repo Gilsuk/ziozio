@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Paging;
 import ziozio.service.face.BoardService;
 import ziozio.service.impl.BoardServiceImpl;
-import ziozio.utils.board.Paging;
 
 @WebServlet("/board/list")
 public class BoardListController extends HttpServlet {
@@ -26,7 +26,7 @@ public class BoardListController extends HttpServlet {
 
 		//요청파라미터에서 curPage를 구하고 Paging 객체 반환
 		Paging paging = boardService.getPaging(req);
-		System.out.println("BoardListController - " + paging);
+//		System.out.println("BoardListController - " + paging);
 
 		//Paging 객체를 MODEL값으로 지정
 		req.setAttribute("paging", paging);

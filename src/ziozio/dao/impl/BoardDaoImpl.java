@@ -10,7 +10,7 @@ import java.util.List;
 import ziozio.dao.face.BoardDao;
 import ziozio.dto.Board;
 import ziozio.dto.BoardFile;
-import ziozio.utils.board.Paging;
+import ziozio.dto.Paging;
 import ziozio.utils.db.oracle.DBConn;
 
 public class BoardDaoImpl implements BoardDao {
@@ -261,7 +261,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public Board selectBoardByBoardno(Board viewBoard) {
-
+System.out.println(viewBoard);
 		conn = DBConn.getConnection(); // DB 연결
 
 		// 게시글 조회쿼리

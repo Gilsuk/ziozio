@@ -17,11 +17,12 @@ import ziozio.dao.face.BoardDao;
 import ziozio.dao.face.CommentDao;
 import ziozio.dao.impl.BoardDaoImpl;
 import ziozio.dao.impl.CommentDaoImpl;
+import ziozio.dto.Account;
 import ziozio.dto.Board;
 import ziozio.dto.BoardFile;
 import ziozio.dto.Comment;
+import ziozio.dto.Paging;
 import ziozio.service.face.BoardService;
-import ziozio.utils.board.Paging;
 
 public class BoardServiceImpl implements BoardService {
 
@@ -174,7 +175,7 @@ public class BoardServiceImpl implements BoardService {
 				}
 				
 				//작성자id 처리
-				board.setId((String) req.getSession().getAttribute("userid"));
+				board.setId(((Account) req.getSession().getAttribute("account")).getAccount_nick());
 				
 			} else { //파일 처리
 				UUID uuid = UUID.randomUUID();
@@ -237,9 +238,9 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public boolean checkId(HttpServletRequest req) {
-		
+
 		//로그인한 세션 ID 얻기
-		String loginId = (String) req.getSession().getAttribute("userid");
+		String loginId = (((Account) req.getSession().getAttribute("account")).getAccount_nick());
 
 		//작성한 게시글 번호 얻기
 		Board board = getBoardno(req);
@@ -265,9 +266,9 @@ public class BoardServiceImpl implements BoardService {
 		if(!isMultipart) {
 			//파일 첨부가 없을 경우
 			board = new Board();
-			
+
 			board.setTitle(req.getParameter("title"));
-			board.setId((String) req.getSession().getAttribute("userid"));
+			board.setId(((Account) req.getSession().getAttribute("account")).getAccount_nick());
 			board.setContent(req.getParameter("content"));
 			
 		} else {
@@ -322,8 +323,8 @@ public class BoardServiceImpl implements BoardService {
 						if( "content".equals( item.getFieldName() ) ) {
 							board.setContent( item.getString("utf-8") );
 						}
-						
-						board.setId((String) req.getSession().getAttribute("writer"));
+
+						board.setId(((Account) req.getSession().getAttribute("Account")).getAccount_nick());
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
