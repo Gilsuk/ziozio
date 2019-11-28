@@ -111,7 +111,7 @@
 	<div class="col-lg-6">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/join" onsubmit="Freturn checkValue()">
-				<h3 class="center">회원가입</h3>
+				<h3 class="center">회원가입</h3><br>
 				<div class="form-group">
 					<div class="form-inline" >
 						<input type="email" class="form-control" style="width: 330px;" placeholder="아이디(이메일)" name="account_email" id="account_email" maxlength="100"/>

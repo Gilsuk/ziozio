@@ -13,6 +13,9 @@
 .right{
 	text-align: right;
 }
+
+
+
 .input{
 	background-color: #F0E378 !important;
 	border-color: #F0E378 !important;
@@ -26,9 +29,16 @@
 	height:40px;
 }	
 
+
+.input2{
+	background-color: #FFFAB1;
+}
+
 .color{
 	color: black ;
 }
+
+
 
 .textcolor{
 	text-color: black;
@@ -38,6 +48,9 @@
 }
 .width1{
 	width: 200px !important;
+}
+.width2{
+	width: 300px !important;
 }
 .widtha{
 	width: 600px !important;
