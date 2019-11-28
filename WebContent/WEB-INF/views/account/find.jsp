@@ -6,8 +6,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
     
-<jsp:include page="/WEB-INF/views/layout/header.jsp" />   
+<jsp:include page="/WEB-INF/views/layout/header.jsp" />  
 
+ 
 <title>비밀번호 찾기</title>
 
 <body>
