@@ -13,4 +13,6 @@ public interface CookieService {
 
 	void setNewCookie(HttpServletRequest req, HttpServletResponse resp, Account account);
 
+	void removeLoginCookie(HttpServletRequest req, HttpServletResponse resp);
+
 }

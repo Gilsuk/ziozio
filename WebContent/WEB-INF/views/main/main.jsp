@@ -24,7 +24,7 @@
 
 <c:if test="${empty account }">
 	<div class="text-center"><br>
-		<a class="btn btn-default input" href="/account/login" role="button">로그인</a>
+		<a class="btn btn-default input" href="/account/restoresession" role="button">로그인</a>
 		<a class="btn btn-default input" href="/account/join" role="button">회원가입</a>
 	</div>
 </c:if>

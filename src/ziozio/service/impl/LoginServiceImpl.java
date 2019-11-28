@@ -68,5 +68,11 @@ public class LoginServiceImpl implements LoginService {
 		return true;
 	}
 
+	@Override
+	public boolean isLoggedIn(HttpServletRequest req) {
+		Object account = req.getSession().getAttribute("account");
+		return account == null ? false : true;
+	}
+
 
 }
