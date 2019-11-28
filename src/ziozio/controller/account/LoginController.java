@@ -29,7 +29,7 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			loginService.login(req);
+			loginService.login(req, resp);
 			// 로그인 성공시 처리
 			resp.sendRedirect("/main");
 		} catch (InvalidParamException e) {
