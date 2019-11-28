@@ -25,6 +25,7 @@ public class RestoreSessionAccountController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			cookieServ.restoreSessionAccount(req, resp);
+			resp.sendRedirect("/main");
 		} catch (CookieNotFoundException e) {
 			// 클라이언트가 쿠키값을 가지고 있지 않음
 			resp.sendRedirect("/account/login");
