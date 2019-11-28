@@ -1,5 +1,7 @@
 package ziozio.service.impl;
 
+import java.util.UUID;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +49,8 @@ public class CookieServiceImpl implements CookieService {
 		Account account = cookieDao.selectUserByCookie(cookie);
 		
 		// 유효한 객체가 반환되면, DB의 마지막 접속 기록을 갱신한다.
-		cookieDao.renewLastLoginDate(cookie);
+		cookie.setAccount_no(account.getAccount_no());
+		cookieDao.update(cookie);
 		
 		// 세션에 로그인 정보(Account)를 전달한다.
 		req.getSession().setAttribute("account", account);
@@ -70,4 +73,26 @@ public class CookieServiceImpl implements CookieService {
 		throw new CookieNotFoundException();
 	}
 
+	@Override
+	public void setNewCookie(HttpServletRequest req, HttpServletResponse resp, Account account) {
+		String cookie_id = getRandomCookieId();
+		ziozio.dto.Cookie cookie = getCookieWithPrimaryKeys(req, cookie_id);
+
+		cookie.setAccount_no(account.getAccount_no());
+		cookieDao.update(cookie);
+		
+		sendCookieToClient(resp, cookie);
+	}
+	
+
+	private void sendCookieToClient(HttpServletResponse resp, ziozio.dto.Cookie cookie) {
+		Cookie newCookie = new Cookie("cookie_id", cookie.getCookie_id());
+		resp.addCookie(newCookie);
+	}
+
+	private String getRandomCookieId() {
+		UUID randomUUID = UUID.randomUUID();
+		String cookie_id = randomUUID.toString().split("-")[0];
+		return cookie_id;
+	}
 }

@@ -7,5 +7,5 @@ import ziozio.dto.Cookie;
 public interface CookieDAO {
 	Account selectUserByCookie(Cookie cookie) throws SelectResultException;
 
-	int renewLastLoginDate(Cookie cookie);
+	int update(Cookie cookie);
 }

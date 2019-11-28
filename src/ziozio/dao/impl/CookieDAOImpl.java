@@ -67,17 +67,31 @@ public class CookieDAOImpl implements CookieDAO {
 	}
 
 	@Override
-	public int renewLastLoginDate(Cookie cookie) {
+	public int update(Cookie cookie) {
 
 		StringBuilder sql = new StringBuilder();
-		sql.append("UPDATE cookie");
-		sql.append(" SET cookie_last_login = sysdate");
-		sql.append(" WHERE cookie_id = ?");
-		sql.append(" AND cookie_ip = ?");
+		
+		sql.append("MERGE INTO cookie USING DUAL");
+		sql.append("ON cookie_id = ? AND cookie_ip = ?");
+		sql.append("WHEN MATCHED THEN");
+		sql.append("UPDATE SET cookie_last_login = sysdate");
+		sql.append("WHEN NOT MATCHED THEN");
+		sql.append("INSERT (cookie_id, cookie_ip, account_no)");
+		sql.append("VALUES (?, ?, ?)");
 		
 		try {
 			return
-			Dao.<Cookie>update(sql.toString(), cookie, this::completeStateFromCookie);
+			Dao.<Cookie>update(sql.toString(), cookie, this::completeUpdateStateFromCookie);
 		} catch (SQLException e) {e.printStackTrace(); return 0; }
+	}
+
+	private void completeUpdateStateFromCookie(PreparedStatement ps, Cookie cookie) {
+		try {
+			ps.setString(1, cookie.getCookie_id());
+			ps.setString(2, cookie.getCookie_ip());
+			ps.setString(3, cookie.getCookie_id());
+			ps.setString(4, cookie.getCookie_ip());
+			ps.setInt(5, cookie.getAccount_no());
+		} catch (SQLException e) { e.printStackTrace(); }
 	}
 }
