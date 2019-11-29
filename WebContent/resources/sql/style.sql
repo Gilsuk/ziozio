@@ -19,5 +19,7 @@ VALUES (4, 'dandy');
 
 INSERT INTO style (style_code, style_name)
 VALUES (5, 'dandy');
+--페미닌 시크 댄디
+--비즈니스 캐주얼 
 
 SELECT * FROM style;

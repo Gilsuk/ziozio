@@ -11,7 +11,7 @@ INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)
 VALUES (1, '상의');
 
 INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)
-VALUES (2, '하의');
+VALUES (2, '하의');ㄴ
 
 INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)
 VALUES (3, '외투');
