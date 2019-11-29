@@ -108,9 +108,9 @@
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 			<div class="thumbnail">
-				<a href="/account/join"><img src="/resources/img/test8.jpg" style="height: 160px;" alt="..."></a>
+				<a href="/withdrawal"><img src="/resources/img/test8.jpg" style="height: 160px;" alt="..."></a>
 			<div class="caption">
-				<h3><a href="/withdrawal.jsp">회원 탈퇴</a></h3>
+				<h3><a href="/withdrawal">회원 탈퇴</a></h3>
 			</div>
 			</div>
 		</div>
