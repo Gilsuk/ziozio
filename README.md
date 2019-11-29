@@ -30,20 +30,21 @@ sql문 완성된 테이블은 (*) 마크를 붙임
 
 ### weather
 1. location*
-2. weather*
-3. temperature_grade*
+2. weather
+3. temperature_grade
 4. weather_info*
 
 ### cloth
 1. cloth_category
 2. cloth
 3. style
-4. cloth_combined
+4. color
+5. cloth_combined
 
-### 아래 테이블들은 순서 없이 작동 가능
+### 아래 테이블들은 위 작업 이후 순서 없이 작동 가능
 - cloth_style
 - cloth_weather
-- cloth_weather_grade
+- cloth_temperature_grade
 - account_style
 - account_library
 - account_like
