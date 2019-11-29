@@ -6,12 +6,44 @@
 - 공지사항 게시판, 공지사항 댓글, 공지사항 파일업로드 테이블 생성 SQL 문을 /resources/sql/.. 에 추가
 - 소셜 로그인
 - 이메일 계정 인증 & 계정 찾기
-- 날씨 정보 가져오기(ajax)
-- 미세먼지 가져오기(ajax)
+- 날씨 정보 가져오기(ajax) (날씨 페이지)
+- 미세먼지 가져오기(ajax) (미세먼지 페이지)
 - 의상추천 알고리즘
 - 좋아요
-- 마이페이지
+- 마이페이지 (개인정보 수정 (닉네임, 비밀번호 변경))
+- 마이페이지 ( 내옷장, 선호하는 패션, 옷커스텀 페이지(컨트롤러)
+- 회원가입에 정규식 만들기
+- 프로필사진 업로드
+- 개인정보 처리 방침, 이용약관페이지 / 동의
+- 회원탈퇴 기능
+- 메세지 알림기능(표시, 읽음, 안읽음 기능)
 
+## sql 쿼리 작동 순서
+
+### account
+1. account_grade
+2. account
+3. cookie
+
+### weather
+1. location
+2. weather
+3. temperature_grade
+4. weather_info
+
+### cloth
+1. cloth_category
+2. cloth
+3. style
+4. cloth_combined
+
+### 아래 테이블들은 순서 없이 작동 가능
+- cloth_style
+- cloth_weather
+- cloth_weather_grade
+- account_style
+- account_library
+- account_like
 
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css
