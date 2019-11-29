@@ -20,17 +20,18 @@
 - 메세지 알림기능(표시, 읽음, 안읽음 기능)
 
 ## sql 쿼리 작동 순서
+sql문 완성된 테이블은 (*) 마크를 붙임
 
 ### account
-1. account_grade
-2. account
-3. cookie
+1. account_grade*
+2. account*
+3. cookie*
 
 ### weather
-1. location
-2. weather
-3. temperature_grade
-4. weather_info
+1. location*
+2. weather*
+3. temperature_grade*
+4. weather_info*
 
 ### cloth
 1. cloth_category
