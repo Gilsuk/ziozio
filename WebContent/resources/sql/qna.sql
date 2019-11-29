@@ -27,6 +27,15 @@ BEGIN
 END;
 /
 
+
+
+
 commit;
 
 select * from qna;
+
+-- account 테이블과 qna테이블 JOIN
+SELECT * FROM account A, qna Q
+WHERE A.account_no = Q.account_no
+ORDER BY qna_no DESC;
+

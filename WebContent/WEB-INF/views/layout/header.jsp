@@ -53,16 +53,16 @@
 					WELCOME ${account.account_nick}님<hr>
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board/list">게시판</a></li>
-						<li><a href="/column">column</a></li>
+						<li><a href="/awarded">column</a></li>
 						<li><a href="/qnalist">QnA</a></li>
 						<li><a href="/account/logout">로그아웃</a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="/account/join">회원가입</a></li>
-						<li><a href="/account/login">로그인</a></li>
+						<li><a href="/account/restoresession">로그인</a></li>
 						<li><a href="/account/find">비밀번호 찾기</a></li>
 						<li><a href="/board/list">게시판</a></li>
-						<li><a href="/column">column</a></li>
+						<li><a href="/awarded">column</a></li>
 					</c:otherwise>
 				</c:choose>
 

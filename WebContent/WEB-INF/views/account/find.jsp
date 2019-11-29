@@ -6,8 +6,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
     
-<jsp:include page="/WEB-INF/views/layout/header.jsp" />   
+<jsp:include page="/WEB-INF/views/layout/header.jsp" />  
 
+ 
 <title>비밀번호 찾기</title>
 
 <body>
@@ -24,7 +25,7 @@
 	<div class="col-lg-6 ">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/find" onsubmit="return checkValue()">
-				<h3 class="center">비밀번호 찾기</h3>
+				<h3 class="center">비밀번호 찾기</h3><br>
 				<div class="form-group">
 					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" name="account_email" maxlength="50"/>
 				</div>

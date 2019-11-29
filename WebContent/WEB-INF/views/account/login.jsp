@@ -66,22 +66,29 @@
 	<div class="col-lg-6 ">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/login" onsubmit="return checkValue()">
-				<h3 class="center">로그인</h3>
+				<h3 class="center">로그인</h3><br>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
+					<input type="pas0sword" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
 				</div>
+				 <div class="checkbox">
+    				<label>
+     					 <input type="checkbox" name="keep_login" value="true"> Remember
+   					 </label>
+   				 </div>
 
-			 	<c:if test="${!empty result && !result}"> 
+              <%--	<c:if test="${!empty result && !result}"> 
  					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
-
-				</c:if> 
+				</c:if>  --%>
+				
 				<div class="form-group" >
-				<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
+					<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
 				</div>
+			
 			</form>
+			
 			<a href="/account/join">
 				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입" />
 			</a>

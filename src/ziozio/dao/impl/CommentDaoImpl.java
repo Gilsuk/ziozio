@@ -24,6 +24,8 @@ public class CommentDaoImpl implements CommentDao {
 	@Override
 	public List selectComment(Board board) {
 
+		System.out.println(board);
+		
 		conn = DBConn.getConnection();
 
 		String sql
