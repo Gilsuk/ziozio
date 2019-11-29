@@ -20,6 +20,8 @@
   <span>
       <img src="/resources/img/identification_photo/aaa.png" style="width: 400px; height:400px;"  >
   </span>
+  
+ </div>
 
 
 <div>
@@ -47,5 +49,5 @@
 
 </sapn>
 
-</div>
+
 <hr>
