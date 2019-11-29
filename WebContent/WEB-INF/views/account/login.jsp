@@ -71,7 +71,7 @@
 					<input type="text" class="form-control" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
+					<input type="pas0sword" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
 				</div>
 				 <div class="checkbox">
     				<label>
