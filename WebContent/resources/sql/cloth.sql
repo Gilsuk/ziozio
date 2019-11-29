@@ -1,8 +1,8 @@
 DROP TABLE cloth;
 
 CREATE TABLE cloth (
-	cloth_code NUMBER primary key,	--옷코드(외투,상의,하의)
-	cloth_category_code NUMBER NOT NULL,		--카테고리코드(상의-블라우스, 면티,...)
+	cloth_code NUMBER primary key,			--옷코드(외투1,상의2,하의3)
+	cloth_category_code NUMBER NOT NULL,	--카테고리코드(상의-블라우스101, 면티,...)
 	cloth_name VARCHAR2(50) NOT NULL,		--옷 이름
 	cloth_description VARCHAR2(255) NOT NULL,--옷관련 설명(?)
 	cloth_links VARCHAR2(255) NOT NULL,		--연결되는 사이트링크
@@ -18,10 +18,10 @@ CREATE TABLE cloth (
 );
 
 INSERT INTO CLOTH (cloth_code, cloth_category_code, cloth_name, cloth_description, cloth_links, cloth_gender)
-VALUES (1, 1, 'nameA', 'descriptionA', 'linksA', 'F');
+VALUES (1, 101, 'nameA', 'descriptionA', 'linksA', 'F');
 
 INSERT INTO CLOTH (cloth_code, cloth_category_code, cloth_name, cloth_description, cloth_links, cloth_gender)
-VALUES (2, 2, 'nameB', 'descriptionB', 'linksA', 'M');
+VALUES (2, 201, 'nameB', 'descriptionB', 'linksA', 'M');
 
 INSERT INTO CLOTH (cloth_code, cloth_category_code, cloth_name, cloth_description, cloth_links, cloth_gender)
 VALUES (3, 3, 'nameC', 'descriptionC', 'linksA', 'N');
