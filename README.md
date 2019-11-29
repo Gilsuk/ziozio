@@ -17,6 +17,33 @@
 - 개인정보 처리 방침, 이용약관페이지 / 동의
 - 회원탈퇴 기능
 
+## sql 쿼리 작동 순서
+
+### account
+1. account_grade
+2. account
+3. cookie
+
+### weather
+1. location
+2. weather
+3. temperature_grade
+4. weather_info
+
+### cloth
+1. cloth_category
+2. cloth
+3. style
+4. cloth_combined
+
+### 아래 테이블들은 순서 없이 작동 가능
+- cloth_style
+- cloth_weather
+- cloth_weather_grade
+- account_style
+- account_library
+- account_like
+
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css
 
