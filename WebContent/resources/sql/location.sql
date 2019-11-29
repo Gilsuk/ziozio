@@ -2,7 +2,7 @@ DROP TABLE location;
 
 CREATE TABLE location (
 	location_code NUMBER PRIMARY KEY,
-	location_name VARCHAR2(255) NOT NULL
+	location_name VARCHAR2(255) UNIQUE NOT NULL
 );
 
 commit;
