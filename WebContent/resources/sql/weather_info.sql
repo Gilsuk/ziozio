@@ -2,11 +2,11 @@ DROP TABLE weather_info;
 
 CREATE TABLE weather_info (
 	weather_info_date date DEFAULT SYSDATE NOT NULL PRIMARY KEY,
-	location_code NUMBER NOT NULL,
-	weather_code NUMBER NOT NULL,
-	temperature_grade_code NUMBER NOT NULL,
-	weather_info_temperature NUMBER NOT NULL,
-	weather_info_finedust NUMBER NOT NULL,
+	location_code NUMBER NOT NULL,--행정코드
+	weather_code NUMBER NOT NULL,--날씨정보
+	temperature_grade_code NUMBER NOT NULL,--온도등급
+	weather_info_temperature NUMBER NOT NULL,--현재 온도
+	weather_info_finedust NUMBER NOT NULL,--현재 미세먼지
     
     CONSTRAINT weather_info_to_location_co_fk
 	FOREIGN KEY ( location_code )

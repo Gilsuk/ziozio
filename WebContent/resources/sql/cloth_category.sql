@@ -8,12 +8,12 @@ CREATE TABLE cloth_category (
 );
 
 INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)
-VALUES (101, '리본블라우스');
+VALUES (1, '상의');
 
 INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)
-VALUES (201, 'nameB');
+VALUES (2, '하의');
 
 INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)
-VALUES (301, '롱패딩');
+VALUES (3, '외투');
 
 SELECT * FROM cloth_category;

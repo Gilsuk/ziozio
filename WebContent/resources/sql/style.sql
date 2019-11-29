@@ -14,4 +14,10 @@ VALUES (2, 'chic');
 INSERT INTO style (style_code, style_name)
 VALUES (3, 'dandy');
 
+INSERT INTO style (style_code, style_name)
+VALUES (4, 'dandy');
+
+INSERT INTO style (style_code, style_name)
+VALUES (5, 'dandy');
+
 SELECT * FROM style;
