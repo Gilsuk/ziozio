@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
@@ -18,33 +16,24 @@ div#sliderbox {
  	overflow: hidden; /* div영역을 벗어난 부분을 안보이게 처리 */  
 /*   overflow: visible;  div영역을 전부 보이게 처리   */
 	margin: 0 auto; /* div영역을 중앙으로 정렬(외부 정렬) */
-	
-	
 }
-
-
 ul#slider {
 	/* ul태그의 기본 스타일 없애기 */
 	padding: 0; /*내부여백 삭제*/
 	margin: 0; /*외부여백 삭제*/
 	list-style: none; /*리스트스타일 없음 */
-	
 	position: relative;
 }
-
 ul#slider li {
 	position: absolute;
 }
-
 ul#slider li img {
 	width: 600px;
 	height: 500px;
 }
-
 </style>
 
 <script type="text/javascript">
-
 $(document).ready(function() {
 	//모든 이미지 리스트
 	var $slider_list = $("ul#slider li");
@@ -91,7 +80,6 @@ $(document).ready(function() {
  	},2000);
  	
 });
-
 </script>
 
 <div class="container ">
@@ -125,8 +113,8 @@ $(document).ready(function() {
 
 <c:if test="${empty account }">
 	<div class="text-center"><br>
-		<a class="btn btn-default input" href="/account/restoresession" role="button">로그인</a>
-		<a class="btn btn-default input" href="/account/join" role="button">회원가입</a>
+		<a class="btn btn-warning" href="/account/restoresession" role="button">로그인</a>
+		<a class="btn btn-warning " href="/account/join" role="button">회원가입</a>
 	</div>
 </c:if>
 
