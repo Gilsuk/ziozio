@@ -59,7 +59,7 @@
 					</c:when>
 					<c:otherwise>
 						<li><a href="/account/join">회원가입</a></li>
-						<li><a href="/account/login">로그인</a></li>
+						<li><a href="/account/restoresession">로그인</a></li>
 						<li><a href="/account/find">비밀번호 찾기</a></li>
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/column">column</a></li>

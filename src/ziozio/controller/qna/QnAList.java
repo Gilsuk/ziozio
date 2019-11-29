@@ -24,7 +24,7 @@ public class QnAList extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Paging paging = qnaService.getPaging(req);
-		System.out.println("QnAList - " + paging);
+//		System.out.println("QnAList - " + paging);
 		
 		req.setAttribute("paging", paging);
 		

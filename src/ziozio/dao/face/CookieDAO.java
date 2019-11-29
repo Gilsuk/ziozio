@@ -1,13 +1,13 @@
 package ziozio.dao.face;
 
+import ziozio.dao.exception.SelectResultException;
 import ziozio.dto.Account;
+import ziozio.dto.Cookie;
 
 public interface CookieDAO {
+	Account selectUserByCookie(Cookie cookie) throws SelectResultException;
 
-	void insertCookieId();
+	int update(Cookie cookie);
 
-	void insertUser(Account account);
-
-	int selectUsernoByCID(String parameter);
-
+	int delete(Cookie cookie);
 }

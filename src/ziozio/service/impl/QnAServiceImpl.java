@@ -9,6 +9,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import ziozio.dao.face.QnADAO;
 import ziozio.dao.impl.QnADAOImpl;
+import ziozio.dto.Account;
+import ziozio.dto.Board;
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
 import ziozio.service.face.QnAService;
@@ -42,7 +44,7 @@ public class QnAServiceImpl implements QnAService {
 		int totalCount = qnaDAO.selectCntAll(); // DB는 쿼리스트링형태?
 		
 		// Paging 객체 생성 
-		Paging paging = new Paging(totalCount, curPage);
+		Paging paging = new Paging(totalCount, curPage, 20);
 		
 
 
@@ -50,7 +52,7 @@ public class QnAServiceImpl implements QnAService {
 	}
 
 	@Override
-	public QnA getQnAno(HttpServletRequest req) {
+	public QnA getQna_no(HttpServletRequest req) {
 	
 		//요청파라미터 boardno를 파싱한다
 		String param = req.getParameter("qna_no");
@@ -76,15 +78,15 @@ public class QnAServiceImpl implements QnAService {
 	@Override
 	public void write(HttpServletRequest req) {
 		
-		QnA qna = null;
-//		QnAFile qnaFile = null;
-		
-		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
-		
-		if(!isMultipart) {
-			System.out.println("[ERROR multipart/form-fata 형식이 아님]");
-			return;
-		}
+//		QnA qna = null;
+////		QnAFile qnaFile = null;
+//		
+//		boolean isMultipart = ServletFileUpload.isMultipartContent(req);
+//		
+//		if(!isMultipart) {
+//			System.out.println("[ERROR multipart/form-fata 형식이 아님]");
+//			return;
+//		}
 		
 	}
 
@@ -102,7 +104,7 @@ public class QnAServiceImpl implements QnAService {
 
 	@Override
 	public String getNick(QnA qna) {
-		return qnaDAO.selectAccount_nickByAccount_Email(qna);
+		return qnaDAO.selectAccount_nickByAccount_Nick(qna);
 	}
 
 	@Override
@@ -112,6 +114,28 @@ public class QnAServiceImpl implements QnAService {
 
 		qnaDAO.delete(qna);
 	}
+
+	@Override
+	public boolean checkNick(HttpServletRequest req) {
+
+		//로그인한 세션 ID 얻기
+		String loginNick = (((Account) req.getSession().getAttribute("account")).getAccount_nick());
+
+		//작성한 게시글 번호 얻기
+		QnA qna = getQna_no(req);
+		
+		//게시글 얻어오기
+		qna = qnaDAO.selectQnaByQna_no(qna);
+
+		//게시글의 작성자와 로그인 아이디 비교
+		if( !loginNick.equals(qna.getAccount_nick()) ) {
+			return false;
+		}
+		
+		return true;
+
+	}
+
 
 
 
