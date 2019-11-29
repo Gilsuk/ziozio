@@ -11,7 +11,10 @@
 - 의상추천 알고리즘
 - 좋아요
 - 마이페이지
-
+- 회원가입에 정규식 만들기
+- 프로필사진 업로드
+- 개인정보 처리 방침, 이용약관페이지 / 동의
+- 회원탈퇴 기능
 
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css
