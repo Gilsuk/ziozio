@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Paging;
 import ziozio.service.face.BoardService;
+import ziozio.service.face.ClothService;
 import ziozio.service.impl.BoardServiceImpl;
+import ziozio.service.impl.ClothServiceImpl;
 
 
 @WebServlet("/account/library")
@@ -19,11 +21,14 @@ public class AccountLibrary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardService boardService = new BoardServiceImpl();
-	
+	private ClothService clothService = new ClothServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		
+		
+		
 		//요청파라미터에서 curPage를 구하고 Paging 객체 반환
 		Paging paging = boardService.getPaging(req);
 //		System.out.println("BoardListController - " + paging);
