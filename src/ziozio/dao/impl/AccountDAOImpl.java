@@ -27,16 +27,13 @@ public class AccountDAOImpl implements AccountDAO {
      */
 	@Override
 	public Account select(AccountWithPw account) throws SelectResultException {
-//		StringBuilder sql = new StringBuilder();
-//		sql.append("SELECT * FROM account");
-//		sql.append(" WHERE account_email = ? AND account_pw = ?");
-//		
-//		return
-//		Dao.<AccountWithPw, Account>select(sql.toString(), account, Account.class,
-//				this::completeStateFromAccountWithPw, this::getAccountFromResultSet);
-		Account account2 = new Account();
-		account2.setAccount_no(1);
-		return account2;
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM account");
+		sql.append(" WHERE account_email = ? AND account_pw = ?");
+		
+		return
+		Dao.<AccountWithPw, Account>select(sql.toString(), account, Account.class,
+				this::completeStateFromAccountWithPw, this::getAccountFromResultSet);
 
 	}
 	
