@@ -6,15 +6,17 @@ CREATE TABLE weather (
 );
 
 INSERT INTO WEATHER (weather_code, weather_name)
-VALUES (1, 'sunny');
+VALUES (1, '맑음');
 
 INSERT INTO WEATHER (weather_code, weather_name)
-VALUES (2, 'cloudy');
+VALUES (2, '흐림');
 
 INSERT INTO WEATHER (weather_code, weather_name)
-VALUES (3, 'rainy');
+VALUES (3, '비');
 
 INSERT INTO WEATHER (weather_code, weather_name)
-VALUES (4, 'snowy');
+VALUES (4, '눈');
+
+commit;
 
 SELECT * FROM weather;
