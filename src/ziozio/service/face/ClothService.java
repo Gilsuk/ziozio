@@ -19,4 +19,6 @@ public interface ClothService {
 	
 	List<List<Cloth>> getClothSetsByAccountLike(Account account, int count);
 
+	
+	
 }
