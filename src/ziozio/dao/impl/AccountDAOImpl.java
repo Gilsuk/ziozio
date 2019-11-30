@@ -34,7 +34,6 @@ public class AccountDAOImpl implements AccountDAO {
 		return
 		Dao.<AccountWithPw, Account>select(sql.toString(), account, Account.class,
 				this::completeStateFromAccountWithPw, this::getAccountFromResultSet);
-
 	}
 	
 	private void completeStateFromAccountWithPw(PreparedStatement ps, AccountWithPw account) {

@@ -66,18 +66,11 @@ tr td:not(:first-child), tr th:not(:first-child) {
 				<option value="1">제목</option>
 				<option value="2">내용</option>
 				<option value="3">제목  + 내용</option>
-				
-				
 			</select>
-			
-			
    			<input type="text" class="form-control" style="width:300px;" name="search" placeholder="공지사항 검색">
 	    	<button type="submit" class="btn btn-default">검색</button>
-	
-	    	
 		</div>
-    
-  </div>
+	</div>
 	</form>
 </div>
 

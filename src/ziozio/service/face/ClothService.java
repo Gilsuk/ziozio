@@ -20,4 +20,6 @@ public interface ClothService {
 	
 	List<List<Cloth>> getClothSetsByAccountLike(Account account, Paging paging);
 
+	
+	
 }

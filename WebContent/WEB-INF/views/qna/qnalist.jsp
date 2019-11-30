@@ -65,7 +65,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 					</div>
 				</div>
 				
-				<jsp:include page="/WEB-INF/views/layout/qnapaging.jsp" />
+				<jsp:include page="/WEB-INF/views/layout/paging_qna.jsp" />
 				
 				<div class="form-inline right" id="btnBox" >
 					<a href="/qnawrite"><button class="btn btn-Warning input1" type="submit">글쓰기</button></a>

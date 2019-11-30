@@ -37,7 +37,7 @@ public class QnAUpdate extends HttpServlet {
 //		QnAFile qnaFile = qnaService.viewFile(viewQna);
 //		req.setAttribute("qnaFile", qnaFile);
 		
-		req.getRequestDispatcher("/WEB-INF/views/qnaupdate.jsp").forward(req,resp);
+		req.getRequestDispatcher("/WEB-INF/views/qna/qnaupdate.jsp").forward(req,resp);
 		
 	}
 	

@@ -31,7 +31,8 @@ public class QnAList extends HttpServlet {
 		List list = qnaService.getList(paging);
 		
 		req.setAttribute("list", list);
-		
+		req.setAttribute("search", paging.getSearch());
+		req.setAttribute("category", paging.getCategory());
 		
 		req.getRequestDispatcher("/WEB-INF/views/qna/qnalist.jsp")
 			.forward(req, resp);
