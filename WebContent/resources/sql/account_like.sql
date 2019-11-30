@@ -1,4 +1,4 @@
-DROP TABLE account_like;
+DROP TABLE account_like;--하트모음옷장
 
 CREATE TABLE account_like (
 	account_no NUMBER NOT NULL,

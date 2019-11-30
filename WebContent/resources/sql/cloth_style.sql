@@ -25,3 +25,4 @@ INSERT INTO CLOTH_STYLE (cloth_code, style_code)
 VALUES (3, 3);
 
 SELECT * FROM cloth_style;
+--면티= 캐주얼, 비즈니스, (무제한연결가능, 혹은 연결안해도 무방)

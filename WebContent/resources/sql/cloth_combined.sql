@@ -1,4 +1,4 @@
-DROP TABLE cloth_combined;
+DROP TABLE cloth_combined;--세트 조합(세개가 아니라 원피스?하나일수도)
 
 CREATE TABLE cloth_combined (
 	cloth_combined_no NUMBER primary key,
