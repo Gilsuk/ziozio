@@ -15,6 +15,7 @@ import ziozio.dto.Account;
 import ziozio.dto.Cloth;
 
 import ziozio.dto.Paging;
+import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
 import ziozio.service.face.ClothService;
 import ziozio.service.impl.AccountServiceImpl;
@@ -28,7 +29,7 @@ public class AccountLibrary extends HttpServlet {
 
 
 	private ClothService clothService = new ClothServiceImpl();
-	private AccountService accountService = new AccountServiceImpl();
+	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,7 +39,12 @@ public class AccountLibrary extends HttpServlet {
 		// 로그인한 유저가 누구인지 식별하는것은 AccountService가 할 일이다.
 		// 현재 해당 메소드가 미구현상태 이므로 null이 반환될 것이다.
 		// 때문에 테스트 하려면 임시 객체를 만들 필요가 있다.
-		Account account = accountService.getLoggedInAccount(req);
+		Account account;
+		try {
+			account = accountService.getLoggedInAccount(req);
+		} catch (AccountNotFountException e) {
+			e.printStackTrace();
+		}
 		
 		// 임시 account 객체
 		account = new Account();

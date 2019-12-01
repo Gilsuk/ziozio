@@ -3,10 +3,11 @@ package ziozio.service.face;
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dto.Account;
+import ziozio.service.exception.AccountNotFountException;
 
 public interface AccountService {
 
-	Account getAccountByAccountno(Account account);
+	Account getAccountByAccountno(Account account) throws AccountNotFountException;
 	
-	Account getLoggedInAccount(HttpServletRequest req);
+	Account getLoggedInAccount(HttpServletRequest req) throws AccountNotFountException;
 }
