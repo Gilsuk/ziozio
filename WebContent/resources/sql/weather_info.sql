@@ -23,11 +23,14 @@ CREATE TABLE weather_info (
     
 );
 
+-- 프라임 키 설정
 ALTER TABLE weather_info
 ADD PRIMARY KEY (weather_info_date, location_code);
 
+-- insert또는 update 발생시 temperature_grade_code 열을 자동으로 삽입해주는 트리거,
+-- 따라서 데이터 삽입시 temperature_grade_code를 별도로 입력하지 말것
 CREATE OR REPLACE TRIGGER weather_info_on_insert_trg
-	BEFORE INSERT ON weather_info
+	BEFORE INSERT OR UPDATE ON weather_info
 	FOR EACH ROW
 DECLARE
 	tmpgrd NUMBER;
