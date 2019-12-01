@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.AccountWithPw;
+import ziozio.service.exception.AccountDuplicateException;
 import ziozio.service.face.JoinService;
 import ziozio.utils.param.ParamCaster;
 import ziozio.utils.param.exception.InvalidParamException;
@@ -22,9 +23,11 @@ public class JoinServiceImpl implements JoinService {
     public static JoinService getInstance() { return Factory.INSTANCE; }
 
 	@Override
-	public void join(HttpServletRequest req) throws InvalidParamException, SQLException {
+	public void join(HttpServletRequest req) throws InvalidParamException, AccountDuplicateException {
 		AccountWithPw account = getAccountWithPwFromParams(req);
-		accountDao.insert(account);
+		try {
+			accountDao.insert(account);
+		} catch (SQLException e) { throw new AccountDuplicateException(); }
 	}
 
 	private AccountWithPw getAccountWithPwFromParams(
