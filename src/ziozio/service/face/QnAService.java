@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dto.BoardFile;
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
+import ziozio.dto.QnAFile;
 
 
 
@@ -41,7 +41,7 @@ public interface QnAService {
 	 * 요청 파라미터 게시글 번호 파싱
 	 * 
 	 * @param req - 요청 정보 객체
-	 * @return Board - 게시글 번호를 가진 객체
+	 * @return QnA - 게시글 번호를 가진 객체
 	 */
 	public QnA getQna_no(HttpServletRequest req);
 	
@@ -50,9 +50,19 @@ public interface QnAService {
 	 * 조회수 업데이트
 	 * 
 	 * @param viewBoard - 상세보기할 boardno를 가진 객체
-	 * @return Board - 상세보기할 게시글 조회 결과
+	 * @return QnA - 상세보기할 게시글 조회 결과
 	 */
 	public QnA view(QnA viewQna);
+	
+	/**
+	 * 첨부파일 얻기
+	 * 
+	 * @param qna - 첨부파일을 조회할 게시글 번호 객체
+	 * @return QnAFile - 게시글에 첨부된 파일 정보
+	 */
+	public QnAFile viewFile(QnA qna);	
+	
+	
 	
 	/**
 	 * 게시글 작성
@@ -68,8 +78,8 @@ public interface QnAService {
 	/**
 	 * 첨부파일 얻기
 	 * 
-	 * @param board - 첨부파일을 조회할 게시글 번호 객체
-	 * @return BoardFile - 게시글에 첨부된 파일 정보
+	 * @param qna - 첨부파일을 조회할 게시글 번호 객체
+	 * @return QnAFile - 게시글에 첨부된 파일 정보
 	 */
 //	public BoardFile viewFile(QnA qna);
 	
@@ -97,7 +107,7 @@ public interface QnAService {
 	/**
 	 * ID를 통해 닉네임얻기
 	 * 
-	 * @param board - id를 가진 board 객체
+	 * @param qna - id를 가진 qna 객체
 	 * @return String - 닉네임
 	 */
 	public String getNick(QnA qna);
@@ -105,7 +115,7 @@ public interface QnAService {
 	/**
 	 * 게시글 삭제
 	 * 
-	 * @param board - 삭제할 게시글 번호를 가진 객체
+	 * @param qna - 삭제할 게시글 번호를 가진 객체
 	 */
 	public void delete(QnA qna);
 	

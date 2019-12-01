@@ -9,8 +9,10 @@ import java.util.List;
 
 
 import ziozio.dao.face.QnADAO;
+
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
+import ziozio.dto.QnAFile;
 import ziozio.utils.db.oracle.DBConn;
 
 public class QnADAOImpl implements QnADAO{
@@ -432,16 +434,176 @@ public class QnADAOImpl implements QnADAO{
 
 	@Override
 	public void deleteFile(QnA qna) {
-		// TODO Auto-generated method stub
 		
+		conn = DBConn.getConnection(); // DB 연결
+
+		// 다음 게시글 번호 조회 쿼리
+		String sql = "";
+		sql += "DELETE qnafile";
+		sql += " WHERE qna_no = ?";
+
+		// DB 객체
+		PreparedStatement ps = null;
+
+		try {
+			// DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, qna.getQna_no());
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				// DB객체 닫기
+				if (ps != null)
+					ps.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
+
+
 
 	@Override
-	public void deleteQnaFileList(String names) {
-		// TODO Auto-generated method stub
-		
+	public void insertFile(QnAFile qnaFile) {
+
+		conn = DBConn.getConnection(); // DB 연결
+
+		// 다음 게시글 번호 조회 쿼리
+		String sql = "";
+		sql += "INSERT INTO qnaFile(qnafile_no, qna_no, originname, storedname, filesize) ";
+		sql += " VALUES (boardfile_seq.nextval, ?, ?, ?, ?)";
+
+		try {
+			// DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, qnaFile.getQna_no());
+			ps.setString(2, qnaFile.getOriginName());
+			ps.setString(3, qnaFile.getStoredName());
+			ps.setLong(4, qnaFile.getFilesize());
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// DB객체 닫기
+				if (ps != null)
+					ps.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
+
+	@Override
+	public QnAFile selectFile(QnA qna) {
+
+		conn = DBConn.getConnection(); // DB 연결
+
+		// 다음 게시글 번호 조회 쿼리
+		String sql = "";
+		sql += "SELECT * FROM qnafile";
+		sql += " WHERE qna_no = ?";
+
+		QnAFile qnaFile = new QnAFile();
+
+		try {
+			// DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, qna.getQna_no());
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				qnaFile.setQnafile_no(rs.getInt("qnafile_no"));
+				qnaFile.setQna_no(rs.getInt("qna_no"));
+				qnaFile.setOriginName(rs.getString("originname"));
+				qnaFile.setStoredName(rs.getString("storedname"));
+				qnaFile.setFilesize(rs.getLong("filesize"));
+				qnaFile.setWriteDate(rs.getDate("writedate"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// DB객체 닫기
+				if (ps != null)
+					ps.close();
+				if (rs != null)
+					rs.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return qnaFile;
+	}
+
+
+	@Override
+	public QnAFile selectByFileno(int fileno) {
+	
+		conn = DBConn.getConnection(); // DB 연결
+
+		// 다음 게시글 번호 조회 쿼리
+		String sql = "";
+		sql += "SELECT * FROM qnafile";
+		sql += " WHERE qnafile_no = ?";
+
+		// DB 객체
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		QnAFile qnaFile = new QnAFile();
+
+		try {
+			// DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, fileno);
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				qnaFile.setQnafile_no(rs.getInt("qnafile_no"));
+				qnaFile.setQna_no(rs.getInt("qna_no"));
+				qnaFile.setOriginName(rs.getString("originname"));
+				qnaFile.setStoredName(rs.getString("storedname"));
+				qnaFile.setFilesize(rs.getLong("filesize"));
+				qnaFile.setWriteDate(rs.getDate("writedate"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				// DB객체 닫기
+				if (ps != null)
+					ps.close();
+				if (rs != null)
+					rs.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return qnaFile;
+	}
 
 
 
