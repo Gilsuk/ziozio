@@ -2,6 +2,8 @@ package ziozio.service.face;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import ziozio.dto.Account;
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
@@ -20,6 +22,6 @@ public interface ClothService {
 	
 	List<List<Cloth>> getClothSetsByAccountLike(Account account, Paging paging);
 
-	
-	
+	Paging getPagingByAccount(HttpServletRequest req, Account account);
+
 }

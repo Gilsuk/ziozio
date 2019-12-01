@@ -2,6 +2,8 @@ package ziozio.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import ziozio.dto.Account;
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
@@ -36,6 +38,11 @@ public class ClothServiceImpl implements ClothService{
 
 	@Override
 	public List<List<Cloth>> getClothSetsByAccountLike(Account account, Paging paging) {
+		return null;
+	}
+
+	@Override
+	public Paging getPagingByAccount(HttpServletRequest req, Account account) {
 		return null;
 	}
 
