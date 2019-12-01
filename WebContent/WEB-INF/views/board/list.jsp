@@ -78,9 +78,11 @@ tr td:not(:first-child), tr th:not(:first-child) {
 
 
 
-<div id="btnBox" class="text-right">
-	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
-</div>
+<c:if test="${account.account_grade_code == 1 }">
+	<div id="btnBox" class="text-right">
+		<button id="btnWrite" class="btn btn-primary">글쓰기</button>
+	</div>
+</c:if>
 
 </div><!-- .container -->
 

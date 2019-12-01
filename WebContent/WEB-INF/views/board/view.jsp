@@ -50,7 +50,7 @@ $(document).ready(function() {
 			$("<input>").attr({
 				type:"hidden",
 				name:"userid",
-				value:"${sessionScope.userid }"
+				value:"${sessionScope.account.account_nick }"
 			})
 		).append(
 			$("<textarea>")
@@ -173,7 +173,7 @@ function deleteComment(commentNo) {
 	<td>${comment.rnum }</td>
 	<td>${comment.userid }</td><!-- 닉네임으로 해도 좋음 -->
 	<td>${comment.content }</td>
-	<td><fmt:formatDate value="${comment.writtenDate }" pattern="yy-MM-dd hh:mm:ss" /></td>
+	<td><fmt:formatDate value="${comment.writtenDate }" pattern="yy-MM-dd" /></td>
 	<td>
 		<c:if test="${sessionScope.userid eq comment.userid }">
 		<button class="btn btn-default btn-xs"

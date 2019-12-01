@@ -9,6 +9,7 @@ import ziozio.dto.AccountWithPw;
 public interface AccountDAO {
 	void insert(AccountWithPw account) throws SQLException;
 	Account select(AccountWithPw account) throws SelectResultException;
+	Account select(Account account) throws SelectResultException;
 	int selectCountByEmail(Account account);
 	int selectCountByNick(Account account);
 }
