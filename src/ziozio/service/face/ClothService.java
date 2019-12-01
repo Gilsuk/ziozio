@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dto.Account;
-import ziozio.dto.Board;
+
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
 
