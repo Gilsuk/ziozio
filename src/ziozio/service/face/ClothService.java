@@ -11,6 +11,7 @@ import ziozio.dto.Paging;
 
 public interface ClothService {
 	
+	// TODO - 유사한 메소드가 많아서 클래스 분리가 필요함
 	List<Cloth> getClothesByWeather(String weather, String category, Paging paging);
 	
 	List<Cloth> getClothesByTemperatureGrade(int tempGrade, String category, Paging paging);
