@@ -2,6 +2,7 @@ package ziozio.dao.face;
 
 import java.util.List;
 
+import ziozio.dto.Account;
 import ziozio.dto.Style;
 
 public interface StyleDAO {
@@ -18,7 +19,7 @@ public interface StyleDAO {
 	 * 
 	 * @return List - 사용자 선호 스타일 목록
 	 */
-	public List<Style> accountSelectAll();
+	public List<Style> accountSelectAll(Account account);
 	
 
 }

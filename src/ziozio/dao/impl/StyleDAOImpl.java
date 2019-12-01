@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ziozio.dao.face.StyleDAO;
+import ziozio.dto.Account;
 import ziozio.dto.Style;
 import ziozio.utils.db.oracle.DBConn;
 
@@ -94,7 +95,7 @@ public class StyleDAOImpl implements StyleDAO {
 	}
 
 	@Override
-	public List<Style> accountSelectAll() {
+	public List<Style> accountSelectAll(Account account) {
 		
 		
 		conn = DBConn.getConnection(); // DB 연결
@@ -102,9 +103,51 @@ public class StyleDAOImpl implements StyleDAO {
 		// 수행할 SQL
 		String sql = "";
 		sql += "SELECT";
+		sql += "	style_code";
+		sql += "	,style_name";
+		sql += "	FROM style ST";
+		sql += "	, account_style AST";
+		sql += "	WHERE st.style_code";
+		sql += "	= ast.style_code";
+		sql += "	AND ast.account_no = ?";
+		sql += "	ORDER BY style_code";
+	
+//		// 최종 결과를 저장할 List
+		List<Style> list = new ArrayList<Style>();
+//
+		try {
+			// SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, account.getAccount_no());
+
+			// SQL 수행 및 결과 저장
+			rs = ps.executeQuery();		
+
+			// SQL 수행 결과 처리
+			while (rs.next()) {
+				Style style = new Style();
+
+				style.setStyle_code(rs.getInt("style_code"));
+				style.setStyle_name(rs.getString("style_name"));								
+
+				list.add(style);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
-		
-		return null;
+		return list;
 		
 	}
 
