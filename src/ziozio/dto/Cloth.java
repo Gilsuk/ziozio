@@ -1,6 +1,6 @@
 package ziozio.dto;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Cloth implements DTO {
 	
@@ -9,16 +9,15 @@ public class Cloth implements DTO {
 	private String cloth_name;
 	private String cloth_link_url;
 	private char cloth_gender;
-	private String[] style_name;
-	private int[] temperature_grade_code;
-	private int[] cloth_weather;
-
+	private List<String> style_name;
+	private List<Integer> temperature_grade_code;
+	private List<String> weather_name;
 	@Override
 	public String toString() {
 		return "Cloth [cloth_code=" + cloth_code + ", cloth_category_code=" + cloth_category_code + ", cloth_name="
 				+ cloth_name + ", cloth_link_url=" + cloth_link_url + ", cloth_gender=" + cloth_gender + ", style_name="
-				+ Arrays.toString(style_name) + ", temperature_grade_code=" + Arrays.toString(temperature_grade_code)
-				+ ", cloth_weather=" + Arrays.toString(cloth_weather) + "]";
+				+ style_name + ", temperature_grade_code=" + temperature_grade_code + ", weather_name=" + weather_name
+				+ "]";
 	}
 	public int getCloth_code() {
 		return cloth_code;
@@ -50,22 +49,22 @@ public class Cloth implements DTO {
 	public void setCloth_gender(char cloth_gender) {
 		this.cloth_gender = cloth_gender;
 	}
-	public String[] getStyle_name() {
+	public List<String> getStyle_name() {
 		return style_name;
 	}
-	public void setStyle_name(String[] style_name) {
+	public void setStyle_name(List<String> style_name) {
 		this.style_name = style_name;
 	}
-	public int[] getTemperature_grade_code() {
+	public List<Integer> getTemperature_grade_code() {
 		return temperature_grade_code;
 	}
-	public void setTemperature_grade_code(int[] temperature_grade_code) {
+	public void setTemperature_grade_code(List<Integer> temperature_grade_code) {
 		this.temperature_grade_code = temperature_grade_code;
 	}
-	public int[] getCloth_weather() {
-		return cloth_weather;
+	public List<String> getWeather_name() {
+		return weather_name;
 	}
-	public void setCloth_weather(int[] cloth_weather) {
-		this.cloth_weather = cloth_weather;
+	public void setWeather_name(List<String> weather_name) {
+		this.weather_name = weather_name;
 	}
 }

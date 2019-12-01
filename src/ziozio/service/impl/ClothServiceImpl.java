@@ -15,55 +15,52 @@ public class ClothServiceImpl implements ClothService{
 
 	@Override
 	public List<Cloth> getClothesByWeather(String weather, String category, Paging paging) {
-		// TODO Auto-generated method stub
+
+
 		return null;
 	}
 
 	@Override
 	public List<Cloth> getClothesByTemperatureGrade(int tempGrade, String category, Paging paging) {
-		// TODO Auto-generated method stub
+
+
 		return null;
 	}
 
 	@Override
 	public List<Cloth> getClothesByStyle(String style, String category, Paging paging) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public List<Cloth> getClothesByGender(char gender, String category, Paging paging) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public List<Cloth> getClothesByAccountLibrary(Account account, String category, Paging paging) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public List<List<Cloth>> getClothSetsByAccountLike(Account account, Paging paging) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public List<Cloth> getClothesByAccountLibrary() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Paging getPaging(HttpServletRequest req) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
 
 	@Override
-	public Board cloth_code(HttpServletRequest req) {
-		// TODO Auto-generated method stub
+	public Paging getPagingByAccount(HttpServletRequest req, Account account) {
 		return null;
 	}
 

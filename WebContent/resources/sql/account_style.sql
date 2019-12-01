@@ -1,27 +1,32 @@
 DROP TABLE account_style;
 
 CREATE TABLE account_style (
-	account_no NUMBER NOT NULL,
-	style_code  NUMBER NOT NULL,
+	account_no NUMBER,
+	style_code  NUMBER,
     
     -- account, style 테이블과 외래키 연결
-	CONSTRAINT account_style_to_account_no_fk
+	CONSTRAINT account_style_to_account_fk
 	FOREIGN KEY ( account_no )
 	REFERENCES account ( account_no ),
     
-    CONSTRAINT account_style_to_style_code_fk
+    CONSTRAINT account_style_to_style_fk
 	FOREIGN KEY ( style_code )
 	REFERENCES style ( style_code )
     
 );
 
-INSERT INTO ACCOUNT_STYLE (account_no, style_code)
-VALUES (1, 1);
+ALTER TABLE account_style
+ADD PRIMARY KEY (account_no, style_code);
 
 INSERT INTO ACCOUNT_STYLE (account_no, style_code)
-VALUES (3, 3);
+VALUES (1, 1); -- 1번 유저(manager@ziozio.com)은 페미닌(스타일코드1)을 좋아함
 
 INSERT INTO ACCOUNT_STYLE (account_no, style_code)
-VALUES (4, 2);
+VALUES (1, 3); -- 1번 유저는 댄디(3)를 좋아함
+
+INSERT INTO ACCOUNT_STYLE (account_no, style_code)
+VALUES (2, 2); -- 2번 유저는 시크(2)를 좋아함
+
+commit;
 
 SELECT * FROM account_style;

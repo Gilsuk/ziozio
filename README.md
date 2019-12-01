@@ -30,24 +30,24 @@ sql문 완성된 테이블은 (*) 마크를 붙임
 
 ### weather
 1. location*
-2. weather
-3. temperature_grade
-4. weather_info*
+2. weather*
+3. temperature_grade*
+4. weather_info* (더미데이터 필요)
 
 ### cloth
-1. cloth_category
-2. cloth
-3. style
-4. color
-5. cloth_combined
+1. cloth_category*
+2. style* (데이터 필요)
+3. cloth* (데이터 필요)
+4. color* (데이터 필요)
+5. cloth_set* (데이터 필요)
 
 ### 아래 테이블들은 위 작업 이후 순서 없이 작동 가능
-- cloth_style
-- cloth_weather
-- cloth_temperature_grade
-- account_style
-- account_library
-- account_like
+- cloth_style* (데이터)
+- cloth_weather* (need more datas)
+- cloth_temperature_grade* (데이터 부족)
+- account_style*
+- account_library*
+- account_like*
 
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css

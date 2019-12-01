@@ -22,6 +22,8 @@ INSERT INTO cookie (
     'ake49dj2', '127.0.0.1', 1
 );
 
+commit;
+
 SELECT
 A.account_no no, A.account_email email, A.account_nick nick,
 A.account_gender gender, A.account_signed_date signed_date,

@@ -94,7 +94,8 @@ INSERT INTO account (
 	'F'
 );
 
+commit;
+
 -- 생성 확인
 SELECT * FROM account;
 
-commit;

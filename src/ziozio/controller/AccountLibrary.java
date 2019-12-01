@@ -10,9 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Account;
+
+
+import ziozio.dto.Cloth;
+
 import ziozio.dto.Paging;
+import ziozio.service.face.AccountService;
 import ziozio.service.face.ClothService;
+import ziozio.service.impl.AccountServiceImpl;
 import ziozio.service.impl.ClothServiceImpl;
+import ziozio.utils.param.exception.InvalidParamException;
 
 
 @WebServlet("/account/library")
@@ -21,27 +28,40 @@ public class AccountLibrary extends HttpServlet {
 
 
 	private ClothService clothService = new ClothServiceImpl();
+	private AccountService accountService = new AccountServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//요청파라미터에서 curPage를 구하고 Paging 객체 반환
-
-		Paging paging = clothService.getPaging(req);
+	
+		// 로그인한 유저를 가져온다.
+		// 로그인한 유저가 누구인지 식별하는것은 AccountService가 할 일이다.
+		// 현재 해당 메소드가 미구현상태 이므로 null이 반환될 것이다.
+		// 때문에 테스트 하려면 임시 객체를 만들 필요가 있다.
+		Account account = accountService.getLoggedInAccount(req);
 		
-//		System.out.println("BoardListController - " + paging);
-
-		//Paging 객체를 MODEL값으로 지정
-
-		req.setAttribute("paging", paging);
+		// 임시 account 객체
+		account = new Account();
+		account.setAccount_no(1);
+		try {
+			account.setAccount_email("asd@asd.com");
+			account.setAccount_gender('N');
+			account.setAccount_grade_code(1);
+			account.setAccount_nick("noname");
+			account.setAccount_verified(true);
+		} catch (InvalidParamException e) { e.printStackTrace(); }
 		
-		//사진 목록 조회
-//		List list = clothService.getClothesByAccountLibrary(account, category, paging);
-
-		//게시글 목록을 MODEL값으로 지정
-//		req.setAttribute("list", list);		
-		req.setAttribute("search", paging.getSearch());
-		req.setAttribute("category", paging.getCategory());
+		
+		// 로그인한 계정에 맞는 옷장 페이징을 구한다.
+		Paging paging = clothService.getPagingByAccount(req, account);
+		
+		// 조회할 옷의 카테고리르 파라미터로 부터 입력 받는다.
+		String category = req.getParameter("category");
+		
+		// 파라미터로 받은 카테고리로 옷 리스트를 조회할 수 도 있고,
+		List<Cloth> clothList = clothService.getClothesByAccountLibrary(account, category, paging);
+		// 파라미터 받지 않고, 그냥 String 을 떄려박을 수도 있다.
+		List<Cloth> clothList2 = clothService.getClothesByAccountLibrary(account, "상의", paging);
 		
 		req.getRequestDispatcher("/WEB-INF/views/mypage/library.jsp").forward(req,resp);
 		
