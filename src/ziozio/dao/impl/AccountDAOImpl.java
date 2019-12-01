@@ -61,6 +61,23 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
+	public Account select(Account account) throws SelectResultException {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM account");
+		sql.append(" WHERE account_no = ?");
+		
+		return
+		Dao.<Account, Account>select(sql.toString(), account, Account.class,
+				this::completeStateFromAccount, this::getAccountFromResultSet);
+	}
+
+	private void completeStateFromAccount(PreparedStatement ps, Account account) {
+		try {
+			ps.setInt(1, account.getAccount_no());
+		} catch (SQLException e) { e.printStackTrace(); }
+	}
+
+	@Override
 	public void insert(AccountWithPw account) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO account (");
@@ -98,4 +115,5 @@ public class AccountDAOImpl implements AccountDAO {
 			t.setString(1, u.getAccount_nick());
 		});
 	}
+
 }
