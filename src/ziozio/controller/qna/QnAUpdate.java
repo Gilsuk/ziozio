@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.QnA;
+import ziozio.dto.QnAFile;
 import ziozio.service.face.QnAService;
 import ziozio.service.impl.QnAServiceImpl;
 
@@ -27,15 +28,15 @@ public class QnAUpdate extends HttpServlet {
 			resp.sendRedirect("/qnalist");
 			return;
 		}
-	
+		//게시글 번호 파싱
 		QnA viewQna = qnaService.getQna_no(req);
-		
+		//게시글 조회
 		viewQna = qnaService.view(viewQna);
-		
+		//MODEL로 게시글 전달
 		req.setAttribute("viewQna", viewQna);
 		
-//		QnAFile qnaFile = qnaService.viewFile(viewQna);
-//		req.setAttribute("qnaFile", qnaFile);
+		QnAFile qnaFile = qnaService.viewFile(viewQna);
+		req.setAttribute("qnaFile", qnaFile);
 		
 		req.getRequestDispatcher("/WEB-INF/views/qna/qnaupdate.jsp").forward(req,resp);
 		

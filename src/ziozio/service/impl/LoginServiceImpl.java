@@ -8,6 +8,7 @@ import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
+import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.exception.AccountNotVerifiedException;
 import ziozio.service.face.CookieService;
 import ziozio.service.face.LoginService;
@@ -37,9 +38,12 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public void login(HttpServletRequest req, HttpServletResponse resp)
-			throws InvalidParamException, AccountNotVerifiedException, SelectResultException {
+			throws InvalidParamException, AccountNotVerifiedException, AccountNotFountException {
 		AccountWithPw accountWithPw = getAccountWithPwFromParams(req);
-		Account account = accountDao.select(accountWithPw);
+		Account account;
+		try {
+			account = accountDao.select(accountWithPw);
+		} catch (SelectResultException e) { throw new AccountNotFountException(); }
 		
 		if (!account.isAccount_verified()) throw new AccountNotVerifiedException();
 		

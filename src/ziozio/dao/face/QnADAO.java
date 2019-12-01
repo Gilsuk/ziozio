@@ -4,6 +4,7 @@ import java.util.List;
 
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
+import ziozio.dto.QnAFile;
 
 
 
@@ -59,25 +60,25 @@ public interface QnADAO {
 	/**
 	 * 첨부파일 입력
 	 * 
-	 * @param boardFile - 업로드 된 첨부파일 내용
+	 * @param qnaFile - 업로드 된 첨부파일 내용
 	 */
-//	public void insertFile(QnAFile qnaFile);
+	public void insertFile(QnAFile qnaFile);
 	
 	/**
 	 * 첨부파일 조회
 	 * 
-	 * @param board - 첨부파일을 조회할 게시글 객체
-	 * @return BoardFile - 조회된 첨부파일
+	 * @param qna - 첨부파일을 조회할 게시글 객체
+	 * @return QnaFile - 조회된 첨부파일
 	 */
-//	public QnAFile selectFile(QnA qna);
+	public QnAFile selectFile(QnA qna);
 
 	/**
 	 * 파일번호로 첨부파일 정보 조회
 	 * 
 	 * @param fileno - 조회할 첨부파일의 번호
-	 * @return BoardFile - 조회된 첨부파일
+	 * @return QnaFile - 조회된 첨부파일
 	 */
-//	public QnAFile selectByFileno(int fileno);
+	public QnAFile selectByFileno(int fileno);
 	
 	/**
 	 * 게시글 수정 
@@ -108,12 +109,7 @@ public interface QnADAO {
 	 */
 	public void deleteFile(QnA qna);
 	
-	/**
-	 * 리스트에서 게시글의 첨부파일 삭제하기
-	 * 
-	 * @param names - 삭제한 게시글 번호 목록들 문자열
-	 */
-	public void deleteQnaFileList(String names);
+
 	
 
 	

@@ -3,6 +3,7 @@ package ziozio.dto;
 import java.util.List;
 
 public class Cloth implements DTO {
+	
 	private int cloth_code;
 	private int cloth_category_code;
 	private String cloth_name;

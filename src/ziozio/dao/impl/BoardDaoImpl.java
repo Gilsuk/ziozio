@@ -16,7 +16,6 @@ import ziozio.utils.db.oracle.DBConn;
 public class BoardDaoImpl implements BoardDao {
 
 	private Connection conn = null;
-
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 

@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Account;
+
+
 import ziozio.dto.Cloth;
+
 import ziozio.dto.Paging;
+import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
 import ziozio.service.face.ClothService;
 import ziozio.service.impl.AccountServiceImpl;
@@ -25,34 +29,22 @@ public class AccountLibrary extends HttpServlet {
 
 
 	private ClothService clothService = new ClothServiceImpl();
-	private AccountService accountService = new AccountServiceImpl();
+	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 	
-		
-		
-		//요청파라미터에서 curPage를 구하고 Paging 객체 반환
-//		Paging paging = clothService.getPaging(req);
-//		System.out.println("BoardListController - " + paging);
-
-		//Paging 객체를 MODEL값으로 지정
-//		req.setAttribute("paging", paging);
-//		
-//		//사진 목록 조회
-//		List list = clothService.getClothesByAccountLibrary(paging);
-//
-//		//게시글 목록을 MODEL값으로 지정
-//		req.setAttribute("list", list);		
-//		req.setAttribute("search", paging.getSearch());
-//		req.setAttribute("category", paging.getCategory());
-		
 		// 로그인한 유저를 가져온다.
 		// 로그인한 유저가 누구인지 식별하는것은 AccountService가 할 일이다.
 		// 현재 해당 메소드가 미구현상태 이므로 null이 반환될 것이다.
 		// 때문에 테스트 하려면 임시 객체를 만들 필요가 있다.
-		Account account = accountService.getLoggedInAccount(req);
+		Account account;
+		try {
+			account = accountService.getLoggedInAccount(req);
+		} catch (AccountNotFountException e) {
+			e.printStackTrace();
+		}
 		
 		// 임시 account 객체
 		account = new Account();
