@@ -4,12 +4,12 @@ import java.util.List;
 
 import ziozio.dto.Style;
 
-public interface ClothDAO {
+public interface StyleDAO {
 	
 	/**
-	 * 전체 옷 목록 조회
+	 * 전체 스타일 목록 조회
 	 * 
-	 * @return List - 조회된 옷 목록
+	 * @return List - 전체 스타일 목록
 	 */
 	public List<Style> selectAll();
 	

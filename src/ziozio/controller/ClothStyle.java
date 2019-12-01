@@ -23,14 +23,14 @@ public class ClothStyle extends HttpServlet {
 	private StyleService styleService = new StyleServiceImpl();
 	
 	@Override
-		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		System.out.println("접속확인");
 		List<Style> list = styleService.getAllStyles();
-//		System.out.println(list);
-				
-		req.getRequestDispatcher("/WEB-INF/views/cloth/style.jsp");
-		
-		}
+		//		System.out.println(list);
+
+		req.getRequestDispatcher("/WEB-INF/views/cloth/style.jsp").forward(req, resp);;
+
+	}
 
 }

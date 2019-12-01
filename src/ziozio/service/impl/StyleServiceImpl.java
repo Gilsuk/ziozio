@@ -4,31 +4,29 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dao.face.ClothDAO;
-import ziozio.dao.impl.ClothDAOImpl;
+import ziozio.dao.face.StyleDAO;
+import ziozio.dao.impl.StyleDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.Style;
 import ziozio.service.face.StyleService;
 
 public class StyleServiceImpl implements StyleService {
 	
-	private ClothDAO clothDao = new ClothDAOImpl();
+	private StyleDAO styleDao = new StyleDAOImpl();
 
 	@Override
 	public List<Style> getAllStyles() {
 		
-		return clothDao.selectAll();
+		return styleDao.selectAll();
 	}
 
 	@Override
 	public List<Style> getStylesByAccount(Account account) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Style> getStyles(HttpServletRequest req) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
