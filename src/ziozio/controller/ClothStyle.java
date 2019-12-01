@@ -25,9 +25,11 @@ public class ClothStyle extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println("접속확인");
+//		System.out.println("접속확인");
+		
 		List<Style> list = styleService.getAllStyles();
-		//		System.out.println(list);
+		
+//		System.out.println(list); // 전체 스타일 목록 확인
 
 		req.getRequestDispatcher("/WEB-INF/views/cloth/style.jsp").forward(req, resp);;
 
