@@ -9,9 +9,9 @@ import java.util.List;
 
 import ziozio.dao.face.ClothDAO;
 import ziozio.dto.Account;
-import ziozio.dto.Board;
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
+import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
 
 public class ClothDAOImpl implements ClothDAO{
@@ -76,12 +76,10 @@ public class ClothDAOImpl implements ClothDAO{
 		return list;
 	}
 
-	@Override
-	public List<Cloth> selectAll(Account account, String category, Paging paging) {
 
+	@Override
+	public List<Cloth> selectAll(Account account, ClothCategory category, Paging paging) {
 		conn = DBConn.getConnection(); // DB 연결
-		
-		
 		return null;
 	}
 
