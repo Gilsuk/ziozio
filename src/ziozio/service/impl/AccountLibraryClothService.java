@@ -7,32 +7,32 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.ClothDAO;
 import ziozio.dao.impl.ClothDAOImpl;
 import ziozio.dto.Account;
-import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.face.ClothService;
 
-public class AccountLibraryClothService implements ClothService<Account> {
+public class AccountLibraryClothService implements ClothService<Account, ClothWithColor> {
 
 	private ClothDAO clothDao = new ClothDAOImpl();
 	
 	@Override
-	public List<Cloth> getClothes(Account account) {
+	public List<ClothWithColor> getClothes(Account account) {
 		return clothDao.selectAll();
 	}
 
 	@Override
-	public List<Cloth> getClothes(Account account, ClothCategory category) {
+	public List<ClothWithColor> getClothes(Account account, ClothCategory category) {
 		return null;
 	}
 
 	@Override
-	public List<Cloth> getClothes(Account account, Paging paging) {
+	public List<ClothWithColor> getClothes(Account account, Paging paging) {
 		return null;
 	}
 
 	@Override
-	public List<Cloth> getClothes(Account account, ClothCategory category, Paging paging) {
+	public List<ClothWithColor> getClothes(Account account, ClothCategory category, Paging paging) {
 		return clothDao.selectAll(account, category, paging);
 	}
 
