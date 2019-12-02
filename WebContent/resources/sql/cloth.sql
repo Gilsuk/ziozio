@@ -6,8 +6,9 @@ CREATE TABLE cloth (
 	cloth_code NUMBER primary key,
 	cloth_category_code NUMBER NOT NULL,
 	cloth_name VARCHAR2(50) NOT NULL,
-	cloth_links VARCHAR2(255) NOT NULL,
+	cloth_link_url VARCHAR2(255) NOT NULL,
 	cloth_gender CHAR(1) NOT NULL,
+	cloth_img VARCHAR2(255) DEFAULT '/resource/img/clothes/default.png' NOT NULL,
     
     CONSTRAINT cloth_to_cloth_category_fk
 	FOREIGN KEY ( cloth_category_code )
@@ -31,13 +32,13 @@ END;
 
 commit;
 
-INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_links, cloth_gender)
+INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_link_url, cloth_gender)
 VALUES (1, '티셔츠', 'link', 'N'); -- 1(상의)
 
-INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_links, cloth_gender)
-VALUES (1, '블라우스', 'link', 'F'); -- 2(하의)
+INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_link_url, cloth_gender)
+VALUES (2, '블라우스', 'link', 'F'); -- 2(하의)
 
-INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_links, cloth_gender)
+INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_link_url, cloth_gender)
 VALUES (3, '롱패딩', 'link', 'N'); -- 3(외투)
 
 commit;

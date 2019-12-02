@@ -8,11 +8,14 @@ import ziozio.dao.face.StyleDAO;
 import ziozio.dao.impl.StyleDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.Style;
+import ziozio.service.exception.AccountNotFountException;
+import ziozio.service.face.AccountService;
 import ziozio.service.face.StyleService;
 
 public class StyleServiceImpl implements StyleService {
 	
 	private StyleDAO styleDao = new StyleDAOImpl();
+	private AccountService accountService = AccountServiceImpl.getInstance();
 
 	@Override
 	public List<Style> getAllStyles() {
@@ -29,7 +32,16 @@ public class StyleServiceImpl implements StyleService {
 
 	@Override
 	public List<Style> getStyles(HttpServletRequest req) {
-		return null;
+		
+		Account loggedInAccount = null;
+		try {
+			loggedInAccount = accountService.getLoggedInAccount(req);
+			return getStylesByAccount(loggedInAccount);
+			
+		} catch (AccountNotFountException e) {
+			return  getAllStyles();
+		}
+		
 	}
 
 }

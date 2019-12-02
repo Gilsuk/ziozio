@@ -8,6 +8,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 window.onload = getLocation; 
+
+var latitude, longitude;
 function getLocation(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(locationSuccess, locationError, geo_options);
@@ -16,7 +18,7 @@ function getLocation(){
     }
 };
 // getLocation
-var latitude, longitude;
+// var latitude, longitude;
 var location_si, location_gu, location_dong;
 function locationSuccess(p){
     latitude = p.coords.latitude,
@@ -34,6 +36,19 @@ function locationSuccess(p){
     		location_gu = data.results[0].address_components[2].long_name;
     		location_dong = data.results[0].address_components[1].long_name;
 			
+    		$.ajax({
+				
+				url : '/location_get',
+	
+				data : {location_si : JSON.stringify(data.results[0].address_components[3].long_name),
+						location_gu : JSON.stringify(data.results[0].address_components[2].long_name),
+						location_dong : JSON.stringify(data.results[0].address_components[1].long_name)
+						},																	
+				
+				
+				type : 'GET'
+	
+			});
 			console.log("성공")
 // 			console.log(data);
 // 			console.log(data.results[0].address_components[3].long_name);
@@ -81,16 +96,19 @@ function initialize() {
     var beachMarker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title : location_si+location_gu+location_dong
+//         title : location_si+location_gu+location_dong
 
     });
     //html 문서안에 map-canvas 엘리먼트에 맵을 그리라고 하는 것임
 }
+
+
  
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYL95BQRM_FRYkiMhmioDwpan0gQ0YqLw&callback=initMap"></script>
 </head>
 <body>
     <div id="map-canvas" style="width:800px;height:400px;"></div>
+    <button id = "a"></button>
 </body>
 </html>

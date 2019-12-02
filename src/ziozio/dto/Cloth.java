@@ -5,31 +5,27 @@ import java.util.List;
 public class Cloth implements DTO {
 	
 	private int cloth_code;
-	private int cloth_category_code;
-	private String cloth_name;
-	private String cloth_link_url;
-	private char cloth_gender;
+	private String cloth_category_name; // 상의, 하의, 외투, 우산, 마스크
+	private String cloth_name; // 옷 이름
+	private String cloth_link_url; // 쇼핑몰 주소
+	private String cloth_img; // 옷 사진 주소
+	private char cloth_gender; // 성별
 	private List<String> style_name;
-	private List<Integer> temperature_grade_code;
-	private List<String> weather_name;
-	@Override
-	public String toString() {
-		return "Cloth [cloth_code=" + cloth_code + ", cloth_category_code=" + cloth_category_code + ", cloth_name="
-				+ cloth_name + ", cloth_link_url=" + cloth_link_url + ", cloth_gender=" + cloth_gender + ", style_name="
-				+ style_name + ", temperature_grade_code=" + temperature_grade_code + ", weather_name=" + weather_name
-				+ "]";
-	}
+	private List<Integer> temperature_grade_code;//온도
+	private List<String> weather_name;//날씨
+
+	
 	public int getCloth_code() {
 		return cloth_code;
 	}
 	public void setCloth_code(int cloth_code) {
 		this.cloth_code = cloth_code;
 	}
-	public int getCloth_category_code() {
-		return cloth_category_code;
+	public String getCloth_category_name() {
+		return cloth_category_name;
 	}
-	public void setCloth_category_code(int cloth_category_code) {
-		this.cloth_category_code = cloth_category_code;
+	public void setCloth_category_name(String cloth_category_name) {
+		this.cloth_category_name = cloth_category_name;
 	}
 	public String getCloth_name() {
 		return cloth_name;
@@ -42,6 +38,12 @@ public class Cloth implements DTO {
 	}
 	public void setCloth_link_url(String cloth_link_url) {
 		this.cloth_link_url = cloth_link_url;
+	}
+	public String getCloth_img() {
+		return cloth_img;
+	}
+	public void setCloth_img(String cloth_img) {
+		this.cloth_img = cloth_img;
 	}
 	public char getCloth_gender() {
 		return cloth_gender;
@@ -67,4 +69,14 @@ public class Cloth implements DTO {
 	public void setWeather_name(List<String> weather_name) {
 		this.weather_name = weather_name;
 	}
+	@Override
+	public String toString() {
+		return "Cloth [cloth_code=" + cloth_code + ", cloth_category_name=" + cloth_category_name + ", cloth_name="
+				+ cloth_name + ", cloth_link_url=" + cloth_link_url + ", cloth_img=" + cloth_img + ", cloth_gender="
+				+ cloth_gender + ", style_name=" + style_name + ", temperature_grade_code=" + temperature_grade_code
+				+ ", weather_name=" + weather_name + "]";
+	}
+
+
+	
 }
