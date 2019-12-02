@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.ziozio{
+	width: 400px;
+	height: 250px;
+}
+
 .marginauto{
 	margin: 0 auto; width: fit-content;
 }

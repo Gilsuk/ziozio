@@ -21,7 +21,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 </style>
 
 <div class="marginauto">
-    <img src='/resources/img/ZIOZIO.png' >
+    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
 </div>
 
 

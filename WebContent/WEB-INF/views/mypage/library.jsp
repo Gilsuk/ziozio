@@ -7,7 +7,7 @@
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
 <div class="marginauto">
-    <img src='/resources/img/ZIOZIO.png' >
+    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
 </div>
 
 

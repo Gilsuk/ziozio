@@ -83,8 +83,8 @@ $(document).ready(function() {
 </script>
 
 <div class="container ">
-	<div class="marginauto ">
-  		<img src='/resources/img/ZIOZIO.png' >
+	<div class="marginauto">
+  		<img class="ziozio" src='/resources/img/ZIOZIO.png' >
   	</div>
 </div>
 
