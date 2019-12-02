@@ -50,7 +50,7 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 		int totalCount = clothDao.selectCntAll(account);
 		
 		// Paging 객체 생성 
-		Paging paging = new Paging(totalCount, curPage);
+		Paging paging = new Paging(totalCount, curPage, 5);
 		
 		return paging;
 	}
@@ -69,7 +69,7 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 		int totalCount = clothDao.selectCntAll(account, category);
 		
 		// Paging 객체 생성 
-		Paging paging = new Paging(totalCount, curPage);
+		Paging paging = new Paging(totalCount, curPage, 5);
 		
 		return paging;
 	}

@@ -176,6 +176,23 @@ public class ClothDAOImpl implements ClothDAO{
 		return list;
 	}
 
+	
+	//test
+	
+	public static void main(String[] args) {
+		ClothDAOImpl dao = new ClothDAOImpl();
+		
+		Account account = new Account();
+		account.setAccount_no(1);
+		Paging paging = new Paging(dao.selectCntAll(account));
+		List<ClothWithColor> list = dao.selectAll(account, paging);
+
+		for (ClothWithColor clothWithColor : list) {
+			System.out.println(clothWithColor);
+		}
+	}	
+	
+	
 	@Override
 	public List<ClothWithColor> selectAll(Account account, Paging paging) {
 		
@@ -188,7 +205,6 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += "        SELECT";
 		sql += "		G.cloth_category_name";
 		sql += "		, C.cloth_code";
-		sql += "		, G.cloth_category_name";
 		sql += "		, C.cloth_name";
 		sql += "		, C.cloth_link_url";
 		sql += "		, C.cloth_img";
