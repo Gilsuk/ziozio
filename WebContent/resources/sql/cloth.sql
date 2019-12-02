@@ -32,13 +32,13 @@ END;
 
 commit;
 
-INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_links, cloth_gender)
+INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_link_url, cloth_gender)
 VALUES (1, '티셔츠', 'link', 'N'); -- 1(상의)
 
-INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_links, cloth_gender)
-VALUES (1, '블라우스', 'link', 'F'); -- 2(하의)
+INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_link_url, cloth_gender)
+VALUES (2, '블라우스', 'link', 'F'); -- 2(하의)
 
-INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_links, cloth_gender)
+INSERT INTO CLOTH (cloth_category_code, cloth_name, cloth_link_url, cloth_gender)
 VALUES (3, '롱패딩', 'link', 'N'); -- 3(외투)
 
 commit;

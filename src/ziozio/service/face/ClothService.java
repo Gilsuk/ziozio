@@ -12,16 +12,16 @@ public interface ClothService<T, U extends Cloth> {
 	
 	// by weather, temp_grade, style, gender, account(library)
 	
-	List<U> getClothes(T selector);
+	public List<U> getClothes(T selector);
 
-	List<U> getClothes(T selector, ClothCategory category);
+	public List<U> getClothes(T selector, ClothCategory category);
 
-	List<U> getClothes(T selector, Paging paging);
+	public List<U> getClothes(T selector, Paging paging);
 
-	List<U> getClothes(T selector, ClothCategory category, Paging paging);
+	public List<U> getClothes(T selector, ClothCategory category, Paging paging);
 
-	Paging getPaging(T selector, HttpServletRequest req);
+	public Paging getPaging(T selector, HttpServletRequest req);
 
-	Paging getPaging(T selector, ClothCategory category, HttpServletRequest req);
+	public Paging getPaging(T selector, ClothCategory category, HttpServletRequest req);
 	
 }

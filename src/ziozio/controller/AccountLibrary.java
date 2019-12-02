@@ -37,35 +37,33 @@ public class AccountLibrary extends HttpServlet {
 		// 로그인한 유저가 누구인지 식별하는것은 AccountService가 할 일이다.
 		// 현재 해당 메소드가 미구현상태 이므로 null이 반환될 것이다.
 		// 때문에 테스트 하려면 임시 객체를 만들 필요가 있다.
-		Account account;
+		Account account = null;
 		try {
 			account = accountService.getLoggedInAccount(req);
 		} catch (AccountNotFountException e) {
 			e.printStackTrace();
 		}
-		
-		// 임시 account 객체
-		account = new Account();
-		account.setAccount_no(1);
-		try {
-			account.setAccount_email("asd@asd.com");
-			account.setAccount_gender('N');
-			account.setAccount_grade_code(1);
-			account.setAccount_nick("noname");
-			account.setAccount_verified(true);
-		} catch (InvalidParamException e) { e.printStackTrace(); }
-		
+
 		
 		// 로그인한 계정에 맞는 옷장 페이징을 구한다.
-		Paging paging = clothService.getPaging(account, req);
+		Paging pagingTop = clothService.getPaging(account, ClothCategory.TOP, req);
+		Paging pagingBottom = clothService.getPaging(account, ClothCategory.BOTTOM, req);
+		Paging pagingOuter = clothService.getPaging(account, ClothCategory.OUTER, req);
 		
 		// 조회할 옷의 카테고리르 파라미터로 부터 입력 받는다.
 		ClothCategory category = ClothCategory.valueOf(req.getParameter("category"));
 		
 		// 파라미터로 받은 카테고리로 옷 리스트를 조회할 수 도 있고,
-		List<ClothWithColor> clothList = clothService.getClothes(account, category, paging);
+//		List<ClothWithColor> clothList = clothService.getClothes(account, category, paging);
 		// 파라미터 받지 않고, 그냥 String 을 떄려박을 수도 있다.
-		List<ClothWithColor> clothList2 = clothService.getClothes(account, ClothCategory.TOP, paging);
+		List<ClothWithColor> clothListTop = clothService.getClothes(account, ClothCategory.TOP, pagingTop);
+		List<ClothWithColor> clothListBottom = clothService.getClothes(account, ClothCategory.BOTTOM, pagingBottom);
+		List<ClothWithColor> clothListOuter = clothService.getClothes(account, ClothCategory.OUTER, pagingOuter);
+		
+		
+		req.setAttribute("clothListTop", clothListTop);
+		req.setAttribute("clothListBottom", clothListBottom);
+		req.setAttribute("clothListOuter", clothListOuter);
 		
 		req.getRequestDispatcher("/WEB-INF/views/mypage/library.jsp").forward(req,resp);
 		

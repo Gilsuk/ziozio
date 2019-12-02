@@ -260,7 +260,8 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public Board selectBoardByBoardno(Board viewBoard) {
-System.out.println(viewBoard);
+
+//		System.out.println(viewBoard);
 		conn = DBConn.getConnection(); // DB 연결
 
 		// 게시글 조회쿼리
