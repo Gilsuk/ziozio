@@ -259,7 +259,7 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 //			
 //	style.setStyle_name("캐쥬얼");
 //	
-//	ClothCategory category = ClothCategory.BOTTOM;
+//	ClothCategory category = ClothCategory.TOP;
 //	
 //	int selectcntall = styleDao.selectCntAll(style, category);
 //	
@@ -326,16 +326,34 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 	
 	}
 
+	public static void main(String[] args) {
+	
+	StyleClothDAOImpl styleDao = new StyleClothDAOImpl();
+	
+	Style style = new Style();
+			
+	style.setStyle_name("캐쥬얼");
+	
+	Paging paging = new Paging(styleDao.selectCntAll(style));
+	
+	List<Cloth> selectcntall = styleDao.selectAll(style, paging);
+	
+	for (Cloth cloth : selectcntall) {
+		System.out.println(cloth);
+	}
+	
+}
+
 
 	@Override
 	public List<Cloth> selectAll(Style style, Paging paging) {
 
-conn = DBConn.getConnection(); //DB 연결
+		conn = DBConn.getConnection(); //DB 연결
 		
 		// 수행할 SQL
 		String sql = "";
 		sql += "SELECT * FROM (";
-		sql += "SELECT rownum rnum, B.* (";
+		sql += "SELECT rownum rnum, B.* FROM (";
 		sql += "SELECT";
 		sql += "	S.style_name";
 		sql += "	, C.cloth_name";
@@ -343,19 +361,18 @@ conn = DBConn.getConnection(); //DB 연결
 		sql += "	, C.cloth_gender";
 		sql += "	, C.cloth_img";
 		sql += "	FROM cloth_style CST, cloth C, style S";
-		sql += "	WHERE  CST.cloth_code =  C.cloth_code";
+		sql += "	WHERE CST.cloth_code =  C.cloth_code";
 		sql += "	AND S.style_code = CST.style_code";
 		sql += "	AND S.style_name = ?";
 		sql += "	ORDER BY C.cloth_name";
-		sql += "        ORDER BY qna_no DESC";
 		sql += "    ) B";
 		sql += "    ORDER BY rnum";
-		sql += " ) QNA";
+		sql += " ) STYLE";
 		sql += " WHERE rnum BETWEEN ? AND ?";
 		
 		
 		//최종 결과를 저장할 List
-		List list = new ArrayList();
+		List<Cloth> list = new ArrayList<Cloth>();
 		
 		try {
 			//SQL 수행 객체
@@ -370,15 +387,14 @@ conn = DBConn.getConnection(); //DB 연결
 			
 			//SQL 수행 결과 처리
 			while( rs.next() ) {
-				QnA qna = new QnA();
+				Cloth stylecloth = new Cloth();
 				
-				qna.setQna_no( rs.getInt("qna_no") );
-				qna.setQna_title( rs.getString("qna_title") );
-				qna.setAccount_nick( rs.getString("account_nick") );
-//				qna.setQna_content( rs.getString("qna_content") );
-				qna.setQna_writtendate( rs.getDate("qna_writtendate") );
-				
-				list.add(qna);
+				stylecloth.setCloth_name(rs.getString("cloth_name"));								
+				stylecloth.setCloth_link_url(rs.getString("cloth_link_url"));								
+				stylecloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
+				stylecloth.setCloth_img(rs.getString("cloth_img"));
+
+				list.add(stylecloth);
 			}
 			
 		} catch (SQLException e) {
