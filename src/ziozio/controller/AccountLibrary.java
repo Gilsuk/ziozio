@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Account;
-import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.exception.AccountNotFountException;
@@ -26,7 +26,7 @@ public class AccountLibrary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	private ClothService<Account> clothService = new AccountLibraryClothService();
+	private ClothService<Account, ClothWithColor> clothService = new AccountLibraryClothService();
 	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
@@ -63,9 +63,9 @@ public class AccountLibrary extends HttpServlet {
 		ClothCategory category = ClothCategory.valueOf(req.getParameter("category"));
 		
 		// 파라미터로 받은 카테고리로 옷 리스트를 조회할 수 도 있고,
-		List<Cloth> clothList = clothService.getClothes(account, category, paging);
+		List<ClothWithColor> clothList = clothService.getClothes(account, category, paging);
 		// 파라미터 받지 않고, 그냥 String 을 떄려박을 수도 있다.
-		List<Cloth> clothList2 = clothService.getClothes(account, ClothCategory.TOP, paging);
+		List<ClothWithColor> clothList2 = clothService.getClothes(account, ClothCategory.TOP, paging);
 		
 		req.getRequestDispatcher("/WEB-INF/views/mypage/library.jsp").forward(req,resp);
 		

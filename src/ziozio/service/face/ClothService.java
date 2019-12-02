@@ -8,17 +8,17 @@ import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
 
-public interface ClothService<T> {
+public interface ClothService<T, U extends Cloth> {
 	
 	// by weather, temp_grade, style, gender, account(library)
 	
-	List<Cloth> getClothes(T selector);
+	List<U> getClothes(T selector);
 
-	List<Cloth> getClothes(T selector, ClothCategory category);
+	List<U> getClothes(T selector, ClothCategory category);
 
-	List<Cloth> getClothes(T selector, Paging paging);
+	List<U> getClothes(T selector, Paging paging);
 
-	List<Cloth> getClothes(T selector, ClothCategory category, Paging paging);
+	List<U> getClothes(T selector, ClothCategory category, Paging paging);
 
 	Paging getPaging(T selector, HttpServletRequest req);
 
