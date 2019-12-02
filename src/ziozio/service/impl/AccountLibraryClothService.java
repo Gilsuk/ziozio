@@ -28,10 +28,7 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 
 	@Override
 	public List<ClothWithColor> getClothes(Account account, Paging paging) {
-	
-		int account_no = account.getAccount_no();
-
-		return null;
+		return clothDao.selectAll(account, paging);
 	}
 
 	@Override
@@ -41,12 +38,6 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 
 	@Override
 	public Paging getPaging(Account account, HttpServletRequest req) {
-		
-		int account_no = account.getAccount_no();
-		
-	
-		
-		
 		return null;
 	}
 

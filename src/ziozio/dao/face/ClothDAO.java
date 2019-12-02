@@ -14,6 +14,8 @@ public interface ClothDAO {
 	
 	public List<ClothWithColor> selectAll(Account account, ClothCategory category);
 	
+	public List<ClothWithColor> selectAll(Account account, Paging paging);
+	
 	public List<ClothWithColor> selectAll(Account account, ClothCategory category, Paging paging);
 	
 }

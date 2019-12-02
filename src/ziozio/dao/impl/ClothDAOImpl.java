@@ -28,15 +28,14 @@ public class ClothDAOImpl implements ClothDAO{
 		
 		String sql = "";
 		sql += "SELECT ";
-		sql += "	account_no";
-		sql += "	, cloth_code";
-		sql += "	, color_code";
-		sql += " FROM account_library";
-		sql += " ORDER BY account_no DESC";
+		sql += "	*";
+		sql += " FROM account_library A, cloth C, color R, cloth_category G";
+		sql += " WHERE  A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
+		sql += "  AND C.cloth_category_code = G.cloth_category_code";
+		sql += " ORDER BY A.account_no DESC";
 
 		// 최종 결과를 저장할 List
-		List<ClothWithColor> list = new ArrayList<>();		
-		
+		List<ClothWithColor> list = new ArrayList<ClothWithColor>();		
 		
 		try {
 			// SQL 수행 객체
@@ -76,16 +75,11 @@ public class ClothDAOImpl implements ClothDAO{
 		return list;
 	}
 
-
 	@Override
 	public List<ClothWithColor> selectAll(Account account, ClothCategory category, Paging paging) {
 		conn = DBConn.getConnection(); // DB 연결
 		return null;
 	}
-
-
-
-
 
 	@Override
 	public List<ClothWithColor> selectAll(Account account, ClothCategory category) {
@@ -94,12 +88,45 @@ public class ClothDAOImpl implements ClothDAO{
 		
 		String sql = "";
 		sql += "SELECT ";
-		sql += "	cloth_category_name";
-		sql += "	, cloth_name";
-		sql += "	, cloth_link_url";
-		sql += "	, cloth_img";
-		sql += " FROM account_library";
+		sql += "	A.account_no";
+		sql += "	, G.cloth_category_name";
+		sql += "	, C.cloth_name";
+		sql += "	, C.cloth_link_url";
+		sql += "	, C.cloth_img";
+		sql += "	, R.color_name";
+		sql += "	, R.color_hue_rotate";
+		sql += "	, R.color_saturate";
+		sql += "	, R.color_brightness";
+		sql += " FROM account_library A, cloth C, color R, cloth_category G";
+		sql += " WHERE A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
+		sql += " AND C.cloth_category_code = G.cloth_category_code";
+		sql += " AND a.account_no = ? AND g.cloth_category_name = ?";
 		sql += " ORDER BY account_no DESC";		
+		
+		List<ClothWithColor> list = new ArrayList<ClothWithColor>();
+		
+		try {
+			// SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			// SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+					
+			while (rs.next()) {
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+	@Override
+	public List<ClothWithColor> selectAll(Account account, Paging paging) {
 		return null;
 	}
 

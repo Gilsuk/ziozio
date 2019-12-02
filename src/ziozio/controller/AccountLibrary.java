@@ -65,7 +65,14 @@ public class AccountLibrary extends HttpServlet {
 		// 파라미터로 받은 카테고리로 옷 리스트를 조회할 수 도 있고,
 		List<ClothWithColor> clothList = clothService.getClothes(account, category, paging);
 		// 파라미터 받지 않고, 그냥 String 을 떄려박을 수도 있다.
-		List<ClothWithColor> clothList2 = clothService.getClothes(account, ClothCategory.TOP, paging);
+		List<ClothWithColor> clothListTop = clothService.getClothes(account, ClothCategory.TOP, paging);
+		List<ClothWithColor> clothListBottom = clothService.getClothes(account, ClothCategory.BOTTOM, paging);
+		List<ClothWithColor> clothListOuter = clothService.getClothes(account, ClothCategory.OUTER, paging);
+		
+		req.setAttribute("clothList", clothList);
+		req.setAttribute("clothListTop", clothListTop);
+		req.setAttribute("clothListBottom", clothListBottom);
+		req.setAttribute("clothListOuter", clothListOuter);
 		
 		req.getRequestDispatcher("/WEB-INF/views/mypage/library.jsp").forward(req,resp);
 		
