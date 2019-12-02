@@ -32,7 +32,11 @@ tr td:not(:first-child), tr th:not(:first-child) {
 
 </style>
 
+<div id="wrap">
 <div class="container">
+	
+	<div class="col-lg-12">
+		<div class="jumbotron padding" >
 
 <h3>공지사항     <small>게시판</small></h3>
 <hr>
@@ -73,7 +77,10 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	</div>
 	</form>
 </div>
+</div>
 
+</div>
+</div>
 
 
 
