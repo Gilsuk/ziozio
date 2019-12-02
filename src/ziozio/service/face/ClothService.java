@@ -10,8 +10,6 @@ import ziozio.dto.enumeration.ClothCategory;
 
 public interface ClothService<T, U extends Cloth> {
 	
-	// by weather, temp_grade, style, gender, account(library)
-	
 	public List<U> getClothes(T selector);
 
 	public List<U> getClothes(T selector, ClothCategory category);
