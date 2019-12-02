@@ -10,6 +10,7 @@
 <head>
 <link rel="shortcut icon" type="image⁄x-icon" href="">
 <link rel="stylesheet" href="/resources/css/style.css" />
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gothic+A1|Nanum+Myeongjo&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <title>ZIOZIO</title>
 
@@ -32,12 +33,13 @@
 
  
 <body>
- <div id="header" >
-<nav class="navbar navbar-default">
+
+ <div id="header">
+<nav class="navbar navbar-default font-dohyeon">
 	<div class="navbar-header">
 		<a class="navbar-brand" href="/">ZIOZIO</a>
 	</div>
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<div style="background-color: #FFF" class="collapse navbar-collapse font-dohyeon" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li><a href="/">메인</a></li>
 			<li><a href="/">게시판</a></li>

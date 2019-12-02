@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.ziozio{
+	width: 400px;
+	height: 250px;
+}
+
 .marginauto{
 	margin: 0 auto; width: fit-content;
 }
@@ -77,5 +82,18 @@
 
 
 
+/* 전체폰트 */
+.font-gothic{
+  font-family: 'Gothic A1', sans-serif;
+}
 
-                                                
+/* 강조폰트 */
+.font-dohyeon {
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+/* 근엄한폰트 */
+.font-nanum {
+  font-family: 'Nanum Myeongjo', serif;
+}
+                   

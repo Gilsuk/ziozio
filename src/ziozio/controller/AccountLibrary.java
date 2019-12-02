@@ -51,7 +51,7 @@ public class AccountLibrary extends HttpServlet {
 		Paging pagingOuter = clothService.getPaging(account, ClothCategory.OUTER, req);
 		
 		// 조회할 옷의 카테고리르 파라미터로 부터 입력 받는다.
-		ClothCategory category = ClothCategory.valueOf(req.getParameter("category"));
+//		ClothCategory category = ClothCategory.valueOf(req.getParameter("category"));
 		
 		// 파라미터로 받은 카테고리로 옷 리스트를 조회할 수 도 있고,
 //		List<ClothWithColor> clothList = clothService.getClothes(account, category, paging);
