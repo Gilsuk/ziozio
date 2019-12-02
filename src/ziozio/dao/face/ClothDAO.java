@@ -9,9 +9,10 @@ import ziozio.dto.enumeration.ClothCategory;
 
 public interface ClothDAO {
 
-	public List<ClothWithColor> selectAll();
+
+	public List<ClothWithColor> selectAll(Account account);
 	
-	
+	public List<ClothWithColor> selectAll(Account account, ClothCategory category);
 	
 	public List<ClothWithColor> selectAll(Account account, ClothCategory category, Paging paging);
 	

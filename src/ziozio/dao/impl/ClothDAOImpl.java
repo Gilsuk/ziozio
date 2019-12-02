@@ -22,7 +22,7 @@ public class ClothDAOImpl implements ClothDAO{
 	
 	
 	@Override
-	public List<ClothWithColor> selectAll() {
+	public List<ClothWithColor> selectAll(Account account) {
 
 		conn = DBConn.getConnection(); // DB 연결
 		
@@ -50,7 +50,7 @@ public class ClothDAOImpl implements ClothDAO{
 				ClothWithColor cloth = new ClothWithColor();
 
 				cloth.setCloth_code(rs.getInt("cloth_code"));
-				cloth.setCloth_category_code(rs.getInt("cloth_category_code"));
+				cloth.setCloth_category_name(rs.getString("cloth_category_name"));
 				cloth.setCloth_name(rs.getString("cloth_name"));
 				cloth.setCloth_link_url(rs.getString("cloth_link_url"));
 //				cloth.setCloth_gender(rs.getChar("cloth_gender"));
@@ -80,6 +80,26 @@ public class ClothDAOImpl implements ClothDAO{
 	@Override
 	public List<ClothWithColor> selectAll(Account account, ClothCategory category, Paging paging) {
 		conn = DBConn.getConnection(); // DB 연결
+		return null;
+	}
+
+
+
+
+
+	@Override
+	public List<ClothWithColor> selectAll(Account account, ClothCategory category) {
+		
+		conn = DBConn.getConnection(); // DB 연결
+		
+		String sql = "";
+		sql += "SELECT ";
+		sql += "	cloth_category_name";
+		sql += "	, cloth_name";
+		sql += "	, cloth_link_url";
+		sql += "	, cloth_img";
+		sql += " FROM account_library";
+		sql += " ORDER BY account_no DESC";		
 		return null;
 	}
 
