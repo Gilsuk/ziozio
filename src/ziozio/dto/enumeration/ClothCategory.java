@@ -2,7 +2,7 @@ package ziozio.dto.enumeration;
 
 public enum ClothCategory {
 	
-	TOP("top", "상의"), BOTTOM("bottom", "하의"), OUTER("outer", "겉옷")
+	TOP("top", "상의"), BOTTOM("bottom", "하의"), OUTER("outer", "외투")
 	, UMBRELLA("umbrella", "우산"), MASK("mask", "마스크");
 
 	private final String paramvalue;

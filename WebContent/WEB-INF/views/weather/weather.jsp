@@ -22,8 +22,8 @@
                     url: weather,
                     type: 'GET',
                        success: function(weatherResult){
-                    	   
-//                     	   console.log(weatherResult);                       
+                    	                        	  
+                    	   console.log(weatherResult);                       
 //                     	   console.log(weatherResult.main);                       
 //                     	   console.log(weatherResult.weather[0]);
                     	   
@@ -58,7 +58,11 @@
 <body>  
 
 
-<p id="message"></p>
+ 
+ 
+
+
+
 
 
    

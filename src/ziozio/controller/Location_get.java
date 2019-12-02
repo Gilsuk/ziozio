@@ -17,9 +17,11 @@ public class Location_get extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	
-		System.out.println(req.getParameter("location"));
+		System.out.println(req.getParameter("location_si"));
+		System.out.println(req.getParameter("location_gu"));
+		System.out.println(req.getParameter("location_dong"));
 		
-		System.out.println(req.getParameter("location1"));
+//		System.out.println(req.getParameter("location1"));
 		
 		
 	}

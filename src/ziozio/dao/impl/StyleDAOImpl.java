@@ -17,9 +17,23 @@ public class StyleDAOImpl implements StyleDAO {
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	
+//	public static void main(String[] args) {
+//		StyleDAOImpl styleDao = new StyleDAOImpl();
+//				
+//		List<Style> list = styleDao.selectAll();
+//		
+//		for (Style style : list) {
+//			
+//			System.out.println(style);
+//			
+//		}
+//	}
 
 	@Override
 	public List<Style> selectAll() {
+		
+		//TEST까지 완료했음
 		
 		/*
 		 * 옷(Cloth)까지 조회 하실 필요는 없고
@@ -94,23 +108,38 @@ public class StyleDAOImpl implements StyleDAO {
 		return list;
 	}
 
+//	public static void main(String[] args) {
+//		StyleDAOImpl styleDao = new StyleDAOImpl();
+//		
+//		Account account = new Account();
+//		account.setAccount_no(2);
+//		
+//		List<Style> list = styleDao.accountSelectAll(account);
+//		
+//		for (Style style : list) {
+//			System.out.println(style);
+//			
+//		}
+//	}
+	
 	@Override
 	public List<Style> accountSelectAll(Account account) {
 		
+		//TEST까지 완료했음
 		
 		conn = DBConn.getConnection(); // DB 연결
 
 		// 수행할 SQL
 		String sql = "";
 		sql += "SELECT";
-		sql += "	style_code";
-		sql += "	,style_name";
+		sql += "	ST.style_code";
+		sql += "	, ST.style_name";
 		sql += "	FROM style ST";
 		sql += "	, account_style AST";
 		sql += "	WHERE st.style_code";
 		sql += "	= ast.style_code";
-		sql += "	AND ast.account_no = ?";
-		sql += "	ORDER BY style_code";
+		sql += "	AND AST.account_no = ?";
+		sql += "	ORDER BY ST.style_code";
 	
 //		// 최종 결과를 저장할 List
 		List<Style> list = new ArrayList<Style>();

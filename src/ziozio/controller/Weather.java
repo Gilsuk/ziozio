@@ -16,7 +16,7 @@ public class Weather extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.getRequestDispatcher("/WEB-INF/views/weather.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/weather/weather.jsp").forward(req, resp);
 		
 	}
 

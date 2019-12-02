@@ -5,11 +5,11 @@ import java.util.List;
 public class Cloth implements DTO {
 	
 	private int cloth_code;
-	private String cloth_category_name;
-	private String cloth_name;
-	private String cloth_link_url;
-	private String cloth_img;
-	private char cloth_gender;
+	private String cloth_category_name; // 상의, 하의, 외투, 우산, 마스크
+	private String cloth_name; // 옷 이름
+	private String cloth_link_url; // 쇼핑몰 주소
+	private String cloth_img; // 옷 사진 주소
+	private char cloth_gender; // 성별
 	private List<String> style_name;
 	private List<Integer> temperature_grade_code;//온도
 	private List<String> weather_name;//날씨
