@@ -89,7 +89,7 @@ $(document).ready(function() {
 </div>
 
 
-<div id="sliderbox">
+<div id="sliderbox" style="border: 1px solid #FFF;">
 	<ul id="slider">
 		<li><img src="/resources/img/look/transit_coat.png" /></li>
 		<li><img src="/resources/img/look/tteokbokki_coat.png" /></li>
@@ -98,7 +98,6 @@ $(document).ready(function() {
 		<li><img src="/resources/img/look/hoodie.png" /></li>
 		<li><img src="/resources/img/look/long_padding.png" /></li>
 		<li><img src="/resources/img/look/short_padding.png" /></li>
-		<li><img src="/resources/img/look/long_padding.png" /></li>
 		<li><img src="/resources/img/look/check_muffler.png" /></li>
 		<li><img src="/resources/img/look/slacks.png" /></li>
 	</ul>
@@ -113,8 +112,8 @@ $(document).ready(function() {
 
 <c:if test="${empty account }">
 	<div class="text-center"><br>
-		<a class="btn btn-warning" href="/account/restoresession" role="button">로그인</a>
-		<a class="btn btn-warning " href="/account/join" role="button">회원가입</a>
+		<a class="btn" style="background-color: #FFF2EC" href="/account/restoresession" role="button">로그인</a>
+		<a class="btn" style="background-color: #FFF2EC" href="/account/join" role="button">회원가입</a>
 	</div>
 </c:if>
 

@@ -10,11 +10,11 @@
 
 <div class="container">
 
-	<h1>[개인정보 처리방침, 약관 ]</h1>
+	<h1 class="font-dohyeon">[개인정보 처리방침, 약관 ]</h1>
 
-	<div style="border: 1px solid #CCC; padding: 0px 15px;">
+	<div style="border: 5px solid #FBA269; padding: 0px 15px;" class="font-gothic">
 	<ul>
-
+	<br>
 		<li><h5>여러분을 환영합니다. ZIOZIO 서비스 및 제품<small>(이하 ‘서비스’)</small>을 이용해 주셔서 감사합니다. 본 약관은
 			다양한 ZIOZIO 서비스의 이용과 관련하여 ZIOZIO 서비스를 제공하는 ZIOZIO 주식회사<small>(이하 ‘ZIOZIO’)</small>와
 			이를 이용하는 ZIOZIO 서비스 회원<small>(이하 ‘회원’)</small> 과의 관계를 설명하며, 아울러 여러분의 ZIOZIO 서비스 이용에
@@ -33,16 +33,19 @@
 			회원은 언제든지 ZIOZIO 서비스 이용계약 해지를 신청하여 회원에서 탈퇴할 수 있으며, 이 경우 ZIOZIO는 관련 법령
 			등이 정하는 바에 따라 이를 지체 없이 처리하겠습니다.</h5></li>
 	<br>
+	<blockquote>
 		<h5>공지 일자: 2019년 12월 9일</h5>
 		<h5>적용 일자: 2019년 12월 9일</h5>
+	</blockquote>
+	<br>
 	</ul>
 	</div>
 	
 	<br>
 
-	<div style="border: 1px solid #CCC; padding: 0px 15px;">
+	<div style="border: 5px solid #FBA269; padding: 0px 15px;" class="font-gothic">
 
-		<h3>개인정보 보호원칙</h3>
+		<h3 class="font-dohyeon">개인정보 보호원칙</h3>
 		<h5>ZIOZIO(주) 임직원은 ZIOZIO 이용자의 개인정보 및 프라이버시 보호를 위하여 다음의 원칙을
 			준수합니다.</h5>
 
@@ -69,3 +72,4 @@
 
 	</div>
 </div>
+<br><br>

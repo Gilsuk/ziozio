@@ -4,8 +4,8 @@
 
 <footer>
 <br><br>
-<div id="footer" >
-   <div class="fotter center">      
+<div id="footer" class="font-dohyeon">
+   <div class="fotter center" style="background-color: #FFF">      
          <a href="#">서비스소개&emsp;|</a>
          <a href="#">&emsp;회원약관&emsp;|</a>
          <a href="#">&emsp;개인정보처리방침&emsp;|</a>
