@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Account;
 import ziozio.dto.Style;
 import ziozio.service.face.StyleService;
 import ziozio.service.impl.StyleServiceImpl;
@@ -25,9 +26,13 @@ public class ClothStyle extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println("접속확인");
-		List<Style> list = styleService.getAllStyles();
-		//		System.out.println(list);
+//		System.out.println("접속확인");
+		
+//		List<Style> list = styleService.getAllStyles();
+		
+//		System.out.println(list); // 전체 스타일 목록 확인
+						
+		
 
 		req.getRequestDispatcher("/WEB-INF/views/cloth/style.jsp").forward(req, resp);;
 

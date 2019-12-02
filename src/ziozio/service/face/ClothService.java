@@ -4,43 +4,24 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dto.Account;
-
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
+import ziozio.dto.enumeration.ClothCategory;
 
-public interface ClothService {
+public interface ClothService<T, U extends Cloth> {
 	
-	// TODO - 유사한 메소드가 많아서 클래스 분리가 필요함
-	public List<Cloth> getClothesByWeather(String weather, String category, Paging paging);
+	// by weather, temp_grade, style, gender, account(library)
 	
-	public List<Cloth> getClothesByTemperatureGrade(int tempGrade, String category, Paging paging);
+	List<U> getClothes(T selector);
 
-	public List<Cloth> getClothesByStyle(String style, String category, Paging paging);
+	List<U> getClothes(T selector, ClothCategory category);
 
-	public List<Cloth> getClothesByGender(char gender, String category, Paging paging);
+	List<U> getClothes(T selector, Paging paging);
+
+	List<U> getClothes(T selector, ClothCategory category, Paging paging);
+
+	Paging getPaging(T selector, HttpServletRequest req);
+
+	Paging getPaging(T selector, ClothCategory category, HttpServletRequest req);
 	
-	/**
-	 * cloth_library 목록 조회
-	 *  
-	 * @return List - 내옷장 목록
-	 */	
-	public List<Cloth> getClothesByAccountLibrary();
-
-	/**
-	 * 페이징 정보를 활용하여 보여질 cloth_library 목록만 조회
-	 *  
-	 * @param Paging - 페이징 정보
-	 * @return List - 내옷장 목록
-	 */	
-	public List<Cloth> getClothesByAccountLibrary(Account account, String category, Paging paging);
-
-	
-	
-	public List<List<Cloth>> getClothSetsByAccountLike(Account account, Paging paging);
-
-
-	public Paging getPagingByAccount(HttpServletRequest req, Account account);
-
-
 }

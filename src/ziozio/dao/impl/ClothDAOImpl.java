@@ -9,9 +9,9 @@ import java.util.List;
 
 import ziozio.dao.face.ClothDAO;
 import ziozio.dto.Account;
-import ziozio.dto.Board;
-import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
+import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
 
 public class ClothDAOImpl implements ClothDAO{
@@ -22,7 +22,7 @@ public class ClothDAOImpl implements ClothDAO{
 	
 	
 	@Override
-	public List<Cloth> selectAll() {
+	public List<ClothWithColor> selectAll() {
 
 		conn = DBConn.getConnection(); // DB 연결
 		
@@ -35,7 +35,7 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += " ORDER BY account_no DESC";
 
 		// 최종 결과를 저장할 List
-		List<Cloth> list = new ArrayList<Cloth>();		
+		List<ClothWithColor> list = new ArrayList<>();		
 		
 		
 		try {
@@ -47,7 +47,7 @@ public class ClothDAOImpl implements ClothDAO{
 
 			// SQL 수행 결과 처리
 			while (rs.next()) {
-				Cloth cloth = new Cloth();
+				ClothWithColor cloth = new ClothWithColor();
 
 				cloth.setCloth_code(rs.getInt("cloth_code"));
 				cloth.setCloth_category_code(rs.getInt("cloth_category_code"));
@@ -76,12 +76,10 @@ public class ClothDAOImpl implements ClothDAO{
 		return list;
 	}
 
-	@Override
-	public List<Cloth> selectAll(Account account, String category, Paging paging) {
 
+	@Override
+	public List<ClothWithColor> selectAll(Account account, ClothCategory category, Paging paging) {
 		conn = DBConn.getConnection(); // DB 연결
-		
-		
 		return null;
 	}
 

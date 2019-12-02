@@ -22,7 +22,9 @@ public class StyleServiceImpl implements StyleService {
 
 	@Override
 	public List<Style> getStylesByAccount(Account account) {
-		return null;
+		
+		return styleDao.accountSelectAll(account);
+	
 	}
 
 	@Override
