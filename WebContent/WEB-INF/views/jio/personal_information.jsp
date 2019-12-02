@@ -35,8 +35,10 @@
 		<h5>공지 일자: 2019년 12월 9일</h5>
 		<h5>적용 일자: 2019년 12월 9일</h5>
 	</div>
+	
 	<br>
 	<br>
+	
 	<div style="border: 1px solid #CCC; padding: 0px 15px;">
 
 		<h3>개인정보 보호원칙</h3>
