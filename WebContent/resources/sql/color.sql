@@ -10,13 +10,13 @@ CREATE TABLE color (
 	color_brightness NUMBER NOT NULL,
     
     CONSTRAINT color_hue_rotate_ck
-	CHECK (color_hue_ratate BETWEEN 0 AND 450),
+	CHECK (color_hue_rotate BETWEEN 0 AND 450),
 
     CONSTRAINT color_saturate_ck
 	CHECK (color_saturate BETWEEN 0 AND 1)
     
 );
-CREATE SEQUENCE cloth_seq;
+CREATE SEQUENCE color_seq;
 
 -- 아래 트리거 생성 코드는 이클립스에서 실행 안됨
 -- SQL Developer로 실행 할 것
@@ -28,6 +28,7 @@ BEGIN
 END;
 /
 
-INSERT INTO color VALUES ('빨강', 0, 1, 1);
+INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness)
+VALUES ('빨강', 0, 1, 1);
 
 commit;
