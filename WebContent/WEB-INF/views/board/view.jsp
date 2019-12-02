@@ -137,7 +137,7 @@ function deleteComment(commentNo) {
 
 <div class="text-center">	
 	<button id="btnList" class="btn btn-primary">목록</button>
-	<c:if test="${account.account_email eq viewBoard.id }">
+	<c:if test="${sessionScope.account.account_nick eq viewBoard.id }">
 	<button id="btnUpdate" class="btn btn-info">수정</button>
 	<button id="btnDelete" class="btn btn-danger">삭제</button>
 	</c:if>
@@ -175,7 +175,7 @@ function deleteComment(commentNo) {
 	<td>${comment.content }</td>
 	<td><fmt:formatDate value="${comment.writtenDate }" pattern="yy-MM-dd" /></td>
 	<td>
-		<c:if test="${sessionScope.userid eq comment.userid }">
+		<c:if test="${sessionScope.account.account_nick eq comment.userid }">
 		<button class="btn btn-default btn-xs"
 			onclick="deleteComment(${comment.commentNo });">삭제</button>
 		</c:if>
