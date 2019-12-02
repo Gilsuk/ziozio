@@ -45,7 +45,7 @@ public class StyleClothService implements ClothService<Style, Cloth>{
 	@Override
 	public Paging getPaging(Style style, HttpServletRequest req) {
 		
-		return styleclothDao.;
+		return null;
 		
 	}
 
