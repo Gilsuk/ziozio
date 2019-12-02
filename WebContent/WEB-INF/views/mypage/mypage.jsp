@@ -16,7 +16,7 @@
 </style>
 
 <div class="marginauto">
-    <img src='/resources/img/ZIOZIO.png' >
+    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
 </div>
 	
 <div class="wrapper">
