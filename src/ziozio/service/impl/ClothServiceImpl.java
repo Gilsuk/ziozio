@@ -67,6 +67,10 @@ public class ClothServiceImpl implements ClothService{
 
 	@Override
 	public Paging getPagingByAccount(HttpServletRequest req, Account account) {
+		
+		int account_no = account.getAccount_no();
+		
+		
 		return null;
 	}
 
