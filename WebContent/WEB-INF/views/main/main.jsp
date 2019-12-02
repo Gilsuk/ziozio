@@ -91,16 +91,16 @@ $(document).ready(function() {
 
 <div id="sliderbox">
 	<ul id="slider">
-		<li><img src="/resources/img/look/A_line_skirt.png" /></li>
-		<li><img src="/resources/img/look/Flitz_skirt.png" /></li>
-		<li><img src="/resources/img/look/H_line_skirt.png" /></li>
-		<li><img src="/resources/img/look/Knit.png" /></li>
-		<li><img src="/resources/img/look/Leggings.png" /></li>
-		<li><img src="/resources/img/look/Lightweight_long_padding.png" /></li>
-		<li><img src="/resources/img/look/Lightweight_vest_padding.png" /></li>
+		<li><img src="/resources/img/look/transit_coat.png" /></li>
+		<li><img src="/resources/img/look/tteokbokki_coat.png" /></li>
+		<li><img src="/resources/img/look/leather_jacket.png" /></li>
+		<li><img src="/resources/img/look/night_trading.png" /></li>
+		<li><img src="/resources/img/look/hoodie.png" /></li>
 		<li><img src="/resources/img/look/long_padding.png" /></li>
-		<li><img src="/resources/img/look/long_skirt.png" /></li>
-		<li><img src="/resources/img/look/Long_sleeve_shirts.png" /></li>
+		<li><img src="/resources/img/look/short_padding.png" /></li>
+		<li><img src="/resources/img/look/long_padding.png" /></li>
+		<li><img src="/resources/img/look/check_muffler.png" /></li>
+		<li><img src="/resources/img/look/slacks.png" /></li>
 	</ul>
 </div>
 
