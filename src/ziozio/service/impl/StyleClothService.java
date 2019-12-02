@@ -60,7 +60,7 @@ public class StyleClothService implements ClothService<Style, Cloth>{
 		Paging paging = new Paging(totalCount, curPage);
 		
 		return paging;
-		
+
 	}
 
 	@Override
