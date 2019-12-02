@@ -31,6 +31,18 @@ VALUES (1, 2, 1); -- 1번 유저가 블라우스(2) 빨간색(1)을 보유중
 INSERT INTO ACCOUNT_LIBRARY (account_no, cloth_code, color_code)
 VALUES (1, 3, 1); -- 1번 유저가 롱패딩(3) 빨간색(1)을 보유중
 
+INSERT INTO ACCOUNT_LIBRARY (account_no, cloth_code, color_code)
+VALUES (2, 2, 1); -- 1번 유저가 롱패딩(3) 빨간색(1)을 보유중
+
+INSERT INTO ACCOUNT_LIBRARY (account_no, cloth_code, color_code)
+VALUES (2, 3, 1); -- 1번 유저가 롱패딩(3) 빨간색(1)을 보유중
+
+INSERT INTO ACCOUNT_LIBRARY (account_no, cloth_code, color_code)
+VALUES (2, 1, 1); -- 1번 유저가 롱패딩(3) 빨간색(1)을 보유중
+
+INSERT INTO ACCOUNT_LIBRARY (account_no, cloth_code, color_code)
+VALUES (3, 3, 1); -- 1번 유저가 롱패딩(3) 빨간색(1)을 보유중
+
 commit;
 
 SELECT * FROM account_library;

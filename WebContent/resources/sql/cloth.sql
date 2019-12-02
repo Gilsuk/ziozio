@@ -6,7 +6,7 @@ CREATE TABLE cloth (
 	cloth_code NUMBER primary key,
 	cloth_category_code NUMBER NOT NULL,
 	cloth_name VARCHAR2(50) NOT NULL,
-	cloth_links VARCHAR2(255) NOT NULL,
+	cloth_link_url VARCHAR2(255) NOT NULL,
 	cloth_gender CHAR(1) NOT NULL,
 	cloth_img VARCHAR2(255) DEFAULT '/resource/img/clothes/default.png' NOT NULL,
     
