@@ -26,8 +26,8 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 //		StyleClothDAOImpl dao = new StyleClothDAOImpl();
 //		
 //		Style style = new Style();
-//		style.setStyle_code(1);
-//		style.setStyle_name("댄디");
+//		style.setStyle_code(2);
+//		style.setStyle_name("캐쥬얼");
 //		
 //		List<Cloth> list = dao.selectAll(style);
 //		
@@ -46,6 +46,7 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 		sql += "SELECT";
 		sql += "	S.style_name";
 		sql += "	, C.cloth_name";
+		sql += "	, C.cloth_code";
 		sql += "	, C.cloth_link_url";
 		sql += "	, C.cloth_gender";
 		sql += "	, C.cloth_img";
@@ -78,6 +79,7 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 				Cloth stylecloth = new Cloth();
 								
 				stylecloth.setCloth_name(rs.getString("cloth_name"));								
+				stylecloth.setCloth_code(rs.getInt("cloth_code"));								
 				stylecloth.setCloth_link_url(rs.getString("cloth_link_url"));								
 				stylecloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
 				stylecloth.setCloth_img(rs.getString("cloth_img"));
@@ -105,8 +107,8 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 //	public static void main(String[] args) {
 //		StyleClothDAOImpl styleDao = new StyleClothDAOImpl();
 //		Style style = new Style();
-//		style.setStyle_name("댄디");
-//		List<Cloth> selectAll = styleDao.selectAll(style, ClothCategory.OUTER);
+//		style.setStyle_name("캐쥬얼");
+//		List<Cloth> selectAll = styleDao.selectAll(style, ClothCategory.TOP);
 ////		styleDao.selectAll(style, ClothCategory.BOTTOM);
 //		
 //		for (Cloth cloth : selectAll) {
@@ -127,12 +129,13 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 		// 수행할 SQL
 		String sql = "";
 		sql += "SELECT";
-		sql += "	style_name";
-		sql += "	, cloth_category_name";
-		sql += "	, cloth_name";
-		sql += "	, cloth_link_url";
-		sql += "	, cloth_gender";
-		sql += "	, cloth_img";
+		sql += "	s.style_name";
+		sql += "	, clc.cloth_category_name";
+		sql += "	, c.cloth_name";
+		sql += "	, c.cloth_code";
+		sql += "	, c.cloth_link_url";
+		sql += "	, c.cloth_gender";
+		sql += "	, c.cloth_img";
 		sql += "	FROM cloth_style CST";
 		sql += "	, cloth C";
 		sql += "	, style S";
@@ -168,6 +171,7 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 				Cloth stylecloth = new Cloth();
 								
 				stylecloth.setCloth_name(rs.getString("cloth_name"));								
+				stylecloth.setCloth_code(rs.getInt("cloth_code"));								
 				stylecloth.setCloth_link_url(rs.getString("cloth_link_url"));								
 				stylecloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
 				stylecloth.setCloth_img(rs.getString("cloth_img"));
@@ -326,27 +330,29 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 	
 	}
 
-	public static void main(String[] args) {
-	
-	StyleClothDAOImpl styleDao = new StyleClothDAOImpl();
-	
-	Style style = new Style();
-			
-	style.setStyle_name("캐쥬얼");
-	
-	Paging paging = new Paging(styleDao.selectCntAll(style));
-	
-	List<Cloth> selectcntall = styleDao.selectAll(style, paging);
-	
-	for (Cloth cloth : selectcntall) {
-		System.out.println(cloth);
-	}
-	
-}
+//	public static void main(String[] args) {
+//	
+//	StyleClothDAOImpl styleDao = new StyleClothDAOImpl();
+//	
+//	Style style = new Style();
+//			
+//	style.setStyle_name("댄디");
+//	
+//	Paging paging = new Paging(styleDao.selectCntAll(style));
+//	
+//	List<Cloth> selectcntall = styleDao.selectAll(style, paging);
+//	
+//	for (Cloth cloth : selectcntall) {
+//		System.out.println(cloth);
+//	}
+//	
+//}
 
 
 	@Override
 	public List<Cloth> selectAll(Style style, Paging paging) {
+		
+		//TEST까지 했음
 
 		conn = DBConn.getConnection(); //DB 연결
 		
@@ -357,6 +363,7 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 		sql += "SELECT";
 		sql += "	S.style_name";
 		sql += "	, C.cloth_name";
+		sql += "	, C.cloth_code";
 		sql += "	, C.cloth_link_url";
 		sql += "	, C.cloth_gender";
 		sql += "	, C.cloth_img";
@@ -390,6 +397,107 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 				Cloth stylecloth = new Cloth();
 				
 				stylecloth.setCloth_name(rs.getString("cloth_name"));								
+				stylecloth.setCloth_code(rs.getInt("cloth_code"));								
+				stylecloth.setCloth_link_url(rs.getString("cloth_link_url"));								
+				stylecloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
+				stylecloth.setCloth_img(rs.getString("cloth_img"));
+
+				list.add(stylecloth);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+	}
+
+//	public static void main(String[] args) {
+//	StyleClothDAOImpl styleDao = new StyleClothDAOImpl();
+//	Style style = new Style();
+//	style.setStyle_name("댄디");
+//	
+//	Paging paging = new Paging(styleDao.selectCntAll(style));
+//	
+//	
+//	List<Cloth> selectAll = styleDao.selectAll(style, ClothCategory.OUTER, paging);
+//
+//	
+//	for (Cloth cloth : selectAll) {
+//		
+//		System.out.println(cloth);
+//		
+//	}
+//
+//}
+	
+	@Override
+	public List<Cloth> selectAll(Style style, ClothCategory category, Paging paging) {
+		
+		//TEST까지 했음
+		
+		conn = DBConn.getConnection(); // DB 연결
+
+		// 수행할 SQL
+		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "SELECT rownum rnum, B.* FROM (";
+		sql += "SELECT";
+		sql += "	s.style_name";
+		sql += "	, clc.cloth_category_name";
+		sql += "	, c.cloth_name";
+		sql += "	, c.cloth_code";
+		sql += "	, c.cloth_link_url";
+		sql += "	, c.cloth_gender";
+		sql += "	, c.cloth_img";
+		sql += "	FROM cloth_style CST";
+		sql += "	, cloth C";
+		sql += "	, style S";
+		sql += "	, cloth_category CLC";
+		sql += "	WHERE cst.cloth_code";
+		sql += "	= c.cloth_code";
+		sql += "	AND c.cloth_category_code";
+		sql += "	= clc.cloth_category_code";
+		sql += "	AND s.style_code";
+		sql += "	= cst.style_code";
+		sql += "	AND s.style_name";
+		sql += "	= ?";
+		sql += "	AND clc.cloth_category_name";
+		sql += "	= ?";
+		sql += "	ORDER BY s.style_name";
+		sql += "    ) B";
+		sql += "    ORDER BY rnum";
+		sql += " ) STYLE";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+	
+//		// 최종 결과를 저장할 List
+		List<Cloth> list = new ArrayList<Cloth>();
+		
+		try {
+			//SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, style.getStyle_name());
+			ps.setString(2, category.getDbValue());
+			ps.setInt(3, paging.getStartNo());
+			ps.setInt(4, paging.getEndNo());
+			
+			//SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+			
+			//SQL 수행 결과 처리
+			while( rs.next() ) {
+				Cloth stylecloth = new Cloth();
+				
+				stylecloth.setCloth_name(rs.getString("cloth_name"));								
+				stylecloth.setCloth_code(rs.getInt("cloth_code"));								
 				stylecloth.setCloth_link_url(rs.getString("cloth_link_url"));								
 				stylecloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
 				stylecloth.setCloth_img(rs.getString("cloth_img"));
