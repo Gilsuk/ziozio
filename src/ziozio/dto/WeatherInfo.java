@@ -3,12 +3,12 @@ package ziozio.dto;
 import java.util.Date;
 
 public class WeatherInfo implements DTO {
-	private Date weahter_info_date;
-	private String location_name;
-	private String weather_name;
-	private int temperature_grade_code;
-	private double weather_info_temperature;
-	private double weather_info_finedust;
+	private Date weahter_info_date; 		//날짜, 시간
+	private String location_name;   		//지역명
+	private String weather_name;    		//맑음, 흐림, 눈, 비
+	private int temperature_grade_code;		//온도 등급
+	private double weather_info_temperature;//숫자로 표시되는 온도(섭씨)
+	private double weather_info_finedust;	//미세먼지 농도
 	@Override
 	public String toString() {
 		return "WeatherInfo [weahter_info_date=" + weahter_info_date + ", location_name=" + location_name
