@@ -17,7 +17,7 @@
 <h2>My Room</h2><br><br>
 <div class="row">
 <div class="col-lg-12">
-	<h3>상의</h3>
+	<h3>TOP</h3>
 	<div class="form-inline">
 	<c:forEach items="${clothListTop }" var="cloth">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -27,7 +27,7 @@
 	</div>
 
     	
-	<h3>하의</h3>
+	<h3>BOTTOM</h3>
 	<div class="form-inline">
 	<c:forEach items="${clothListBottom }" var="cloth">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -37,7 +37,7 @@
 	</div>
 
 	
-	<h3>외투</h3>
+	<h3>OUTER</h3>
 	<div class="form-inline">
 	<c:forEach items="${clothListOuter }" var="cloth">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">

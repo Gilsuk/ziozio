@@ -23,11 +23,9 @@ public class TemperatureClothDAOImpl implements TemperatureClothDAO{
 	
 	//test
 //	public static void main(String[] args) {
-//		WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
-//		
+//		TemperatureClothDAOImpl dao = new TemperatureClothDAOImpl();
 //		WeatherInfo selector = new WeatherInfo();
-//	
-//		selector.setTemperature_grade_code(2);
+//		selector.setTemperature_grade_code(1);
 //		
 //		List<Cloth> list = dao.selectAll(selector);
 //		
@@ -44,6 +42,7 @@ public class TemperatureClothDAOImpl implements TemperatureClothDAO{
 		String sql = "";
 		sql += "SELECT ";
 		sql += "	C.cloth_code";
+		sql += "	, T.temperature_grade_code";
 		sql += "	, G.cloth_category_name";
 		sql += "	, C.cloth_name";
 		sql += "	, C.cloth_link_url";
@@ -97,18 +96,17 @@ public class TemperatureClothDAOImpl implements TemperatureClothDAO{
 
 	//test
 //	public static void main(String[] args) {
-//	WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
-//	WeatherInfo selector = new WeatherInfo();
-//	selector.setTemperature_grade_code(1);
-//	List<Cloth> list = dao.selectAll(selector, ClothCategory.TOP);
+//		TemperatureClothDAOImpl dao = new TemperatureClothDAOImpl();
+//		
+//		WeatherInfo selector = new WeatherInfo();
 //	
-//	System.out.println(ClothCategory.TOP.getDbValue());
-//	System.out.println(ClothCategory.BOTTOM.getDbValue());
-//	System.out.println(ClothCategory.OUTER.getDbValue());
-//	for (Cloth cloth : list) {
-//		System.out.println(cloth);
+//		selector.setTemperature_grade_code(1);
+//		List<Cloth> list = dao.selectAll(selector,ClothCategory.TOP);
+//	
+//		for (Cloth cloth : list) {
+//			System.out.println(cloth);
+//		}
 //	}
-//}
 	
 	@Override
 	public List<Cloth> selectAll(WeatherInfo selector, ClothCategory category) {
@@ -172,7 +170,7 @@ public class TemperatureClothDAOImpl implements TemperatureClothDAO{
 	
 	//test
 //	public static void main(String[] args) {
-//		WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
+//		TemperatureClothDAOImpl dao = new TemperatureClothDAOImpl();
 //		
 //		WeatherInfo selector = new WeatherInfo();
 //		selector.setTemperature_grade_code(1);
@@ -362,20 +360,7 @@ public class TemperatureClothDAOImpl implements TemperatureClothDAO{
 		return cnt;
 	}
 
-	//test
-//	public static void main(String[] args) {
-//		WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
-//		
-//		WeatherInfo selector = new WeatherInfo();
-//	
-//		selector.setWeather_name("맑음");
-//		Paging paging = new Paging(dao.selectCntAll(selector));
-//		List<Cloth> list = dao.selectAll(selector, paging);
-//	
-//		for (Cloth cloth : list) {
-//			System.out.println(cloth);
-//		}
-//	}
+
 	
 	@Override
 	public int selectCntAll(WeatherInfo selector, ClothCategory category) {

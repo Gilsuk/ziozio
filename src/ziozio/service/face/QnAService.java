@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import ziozio.dto.Account;
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
 import ziozio.dto.QnAFile;
@@ -18,7 +19,7 @@ public interface QnAService {
 	 *  
 	 * @return List - 게시글 목록
 	 */
-	public List getList();
+	public List<QnA> getListAll();
 	
 	/**
 	 * 페이징 정보를 활용하여 보여질 게시글 목록만 조회
@@ -26,8 +27,13 @@ public interface QnAService {
 	 * @param Paging - 페이징 정보
 	 * @return List - 게시글 목록
 	 */
-	public List getList(Paging paging);
+	public List<QnA> getListAll(Paging paging);
 	
+	
+	public List<QnA> getListAccount(Account account);
+
+	
+	public List<QnA> getListAccount(Account account, Paging paging);
 	/**
 	 * 요청파라미터 curPage를 파싱한다
 	 * Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
@@ -36,6 +42,10 @@ public interface QnAService {
 	 * @return Paging - 페이징 정보
 	 */
 	public Paging getPaging(HttpServletRequest req);
+	
+	
+	
+	public Paging getPaging(Account account, HttpServletRequest req);
 	
 	/**
 	 * 요청 파라미터 게시글 번호 파싱
@@ -61,8 +71,6 @@ public interface QnAService {
 	 * @return QnAFile - 게시글에 첨부된 파일 정보
 	 */
 	public QnAFile viewFile(QnA qna);	
-	
-	
 	
 	/**
 	 * 게시글 작성
@@ -92,8 +100,6 @@ public interface QnAService {
 	 */
 	public boolean checkNick(HttpServletRequest req);
 
-
-
 	/**
 	 * 게시글 수정
 	 * 
@@ -101,9 +107,6 @@ public interface QnAService {
 	 */
 	public void update(HttpServletRequest req);
 
-	
-	
-	
 	/**
 	 * ID를 통해 닉네임얻기
 	 * 
@@ -118,9 +121,6 @@ public interface QnAService {
 	 * @param qna - 삭제할 게시글 번호를 가진 객체
 	 */
 	public void delete(QnA qna);
-	
-
-	
 	
 	
 }

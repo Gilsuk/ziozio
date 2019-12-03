@@ -9,9 +9,7 @@ import java.net.URL;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import ziozio.dao.face.LocationDAO;
@@ -29,27 +27,36 @@ public class LocationServiceImpl implements LocationService {
 	public Location getLocation(HttpServletRequest req) {
 		
 		try {
-//			System.out.println(req.getParameter("latitude"));
-			double latitude = Double.parseDouble(req.getParameter(ReqParam.LATITUDE.toString()));
-			double longitude = Double.parseDouble(req.getParameter(ReqParam.LONGITUDE.toString()));			
-			return getLocation(latitude, longitude);
+			return getLocationFromParamLatAndLon(req);
 		} catch (NullPointerException e) {
-			
-		} catch (ClassCastException e) { 
-			e.printStackTrace();
-			return null;
-		}
-		
+			return getLocationFromSession(req);
+		} catch (ClassCastException e) { e.printStackTrace(); }
+
+		return null;
+	}
+
+
+
+	private Location getLocationFromSession(HttpServletRequest req) {
 		try {
 			// 세션에 저장된 Location을 반환
 			return (Location) req.getSession().getAttribute(SessionAttr.LOCATION.toString());
 		} catch (NullPointerException e) {
-			// 세션에 저장된게 없으면
-			
-		} catch (ClassCastException e) {
-			
-		}
+			return getDefaultLocation();
+		} catch (ClassCastException e) { e.printStackTrace(); }
+
 		return null;
+	}
+
+
+
+	private Location getLocationFromParamLatAndLon(HttpServletRequest req) {
+		double latitude = Double.parseDouble(req.getParameter(ReqParam.LATITUDE.toString()));
+		double longitude = Double.parseDouble(req.getParameter(ReqParam.LONGITUDE.toString()));
+		
+		Location location = getLocation(latitude, longitude);
+		setLocationToSession(req, location);
+		return location;
 	}
 
 
@@ -104,9 +111,6 @@ public class LocationServiceImpl implements LocationService {
 //		LocationServiceImpl locserv = new LocationServiceImpl();
 //		Location location = locserv.getLocation(37.4923615, 127.02928809999999);
 //		System.out.println(location);
-//		
-//		
-//		
 //	}
 		
 	/*
@@ -122,38 +126,18 @@ public class LocationServiceImpl implements LocationService {
 		
 		String json = getJSONLocation(latitude, longitude);
 		
-		
-		Gson gson = new Gson();
 		JsonElement jsonElement = JsonParser.parseString(json);
 		
-		JsonObject jsonObject = jsonElement.getAsJsonObject();
-		JsonElement element = jsonObject.get("results").getAsJsonArray().get(2)
+		JsonElement element = jsonElement.getAsJsonObject().get("results")
+				.getAsJsonArray().get(2)
 				.getAsJsonObject().get("formatted_address");
 
-		String localname = element.getAsString();
-		StringBuilder local = new StringBuilder(localname);
+		StringBuilder local = new StringBuilder(element.getAsString());
 		local.delete(0, 5);
-//		System.out.println(local);
-		
-		
-//		System.out.println(jsonElement3);
-
-//		JsonParser jsonParser = new JsonParser();
-//		JsonElement jsonElement = jsonParser.parse(json);
-//		
-//		String name = jsonElement.getAsJsonObject().get("results").toString();
-//		String name = jsonElement.getAsJsonObject().get("results").toString();
-//		System.out.println(name);
-//		Location location = new Location();
-//		System.out.println(jsonElement3.getAsString());
-//		location.setLocation_name(element.getAsString());
 		
 		return getLocation(local.toString());
 	}
 
-	/*
-	 * DB에서 localname을 통해 조회해서 Location_code를 완성하여 반환
-	 */
 	@Override
 	public Location getLocation(String localname) {
 		return locDao.select(localname);
@@ -169,7 +153,7 @@ public class LocationServiceImpl implements LocationService {
 
 	@Override
 	public void setLocationToSession(HttpServletRequest req, Location location) {
-		req.getSession().setAttribute("locatin", location);
+		req.getSession().setAttribute("location", location);
 	}
 
 }

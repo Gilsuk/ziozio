@@ -526,9 +526,6 @@ public class ClothDAOImpl implements ClothDAO{
 				e.printStackTrace();
 			}
 		}
-	
 	}
-
-
 	
 }
