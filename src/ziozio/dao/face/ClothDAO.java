@@ -7,6 +7,7 @@ import ziozio.dto.Cloth;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.Style;
+import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
 
 public interface ClothDAO {
@@ -59,4 +60,11 @@ public interface ClothDAO {
 	 * @return
 	 */
 	public int selectCntAll(Account account, ClothCategory category);
+
+	
+	public void addToLibrary(Account account, ClothWithColor cloth);
+	
+	
+	public void removeFromLibrary(Account account, ClothWithColor cloth);
+	
 }

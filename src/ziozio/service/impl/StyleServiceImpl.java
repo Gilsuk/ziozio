@@ -44,4 +44,10 @@ public class StyleServiceImpl implements StyleService {
 		
 	}
 
+	@Override
+	public Style getStyle(HttpServletRequest req) {
+		
+		return null;
+	}
+
 }

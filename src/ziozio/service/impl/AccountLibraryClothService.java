@@ -50,7 +50,7 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 		int totalCount = clothDao.selectCntAll(account);
 		
 		// Paging 객체 생성 
-		Paging paging = new Paging(totalCount, curPage);
+		Paging paging = new Paging(totalCount, curPage, 5);
 		
 		return paging;
 	}
@@ -69,9 +69,30 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 		int totalCount = clothDao.selectCntAll(account, category);
 		
 		// Paging 객체 생성 
-		Paging paging = new Paging(totalCount, curPage);
+		Paging paging = new Paging(totalCount, curPage, 5);
 		
 		return paging;
 	}
 		
+	/**
+	 * 내 옷장에 옷을 추가
+	 * 
+	 * @param account : account_no 를 활용
+	 * @param cloth : cloth_code, color_code 를 활용
+	 */
+	public void addToLibrary(Account account, ClothWithColor cloth) {
+		
+		clothDao.addToLibrary(account, cloth);
+	}
+	
+	/**
+	 * 내 옷장에서 옷을 제거
+	 * 
+	 * @param account : account_no 를 활용
+	 * @param cloth : cloth_code, color_code 를 활용
+	 */
+	public void removeFromLibrary(Account account, ClothWithColor cloth) {
+		
+		clothDao.removeFromLibrary(account, cloth);
+	}
 }

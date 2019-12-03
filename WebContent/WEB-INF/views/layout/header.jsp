@@ -28,11 +28,77 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!-- 내위치정보 -->
+<script type="text/javascript">
+window.onload = getLocation; 
+
+var lat, lon;
+function getLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
+    }else{
+        console.log("지오 로케이션 없음")
+    }
+};
+	
+function locationSuccess(p){
+    lat = p.coords.latitude,
+    lon = p.coords.longitude;
+    jQuery.ajax({
+		type: "get"
+		, url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lon+"&key=AIzaSyAYL95BQRM_FRYkiMhmioDwpan0gQ0YqLw"
+		, data: {
+			"lat": lat
+			, "lon": lon
+		}
+		, dataType: "json" 
+		, success: function(data) {
+			var $btnOk = $("<button id='btnOk'>확인</button>");
+			$("#btn").on( "click", function() {
+				alert("");
+				
+				$btnOk.prependTo($("div"));
+    		$.ajax({
+				
+				url : '/location_get',
+	
+				data : {lat : lat,
+						lon : lon
+						},																	
+				
+				
+				type : 'GET'
+	
+			})
+			});
+			console.log("성공")
+
+		}
+		, error: function() {
+			console.log("실패")
+		}
+	});
+
+}
+
+// locationSuccess
+function locationError(error){
+    var errorTypes = {
+        0 : "무슨 에러??",
+        1 : "허용 안눌렀음",
+        2 : "위치가 안잡힘",
+        3 : "응답시간 지남"
+    };
+    var errorMsg = errorTypes[error.code];
+}
+</script>
  </head>
  
 
  
 <body>
+
  <div id="header">
 <nav class="navbar navbar-default font-dohyeon">
 	<div class="navbar-header">
@@ -42,6 +108,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="/">메인</a></li>
 			<li><a href="/">게시판</a></li>
+			<li><a href="/"><button id="btn">내위치확인</button></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">

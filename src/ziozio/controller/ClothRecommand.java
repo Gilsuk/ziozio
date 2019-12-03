@@ -54,9 +54,11 @@ public class ClothRecommand extends HttpServlet {
 //		
 //		
 //		req.setAttribute("clothes", clothes);
-//		
+		
+		
+		
 
-		req.getRequestDispatcher("/WEB-INF/views/cloth/style.jsp").forward(req, resp);;
+		req.getRequestDispatcher("/WEB-INF/views/cloth/style.jsp").forward(req, resp);
 
 	}
 
