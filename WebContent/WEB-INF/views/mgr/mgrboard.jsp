@@ -8,7 +8,13 @@
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
-
+<title>관리자 게시판</title>
+div#circle { 
+	background: #f00; 
+	width: 200px; 
+	height: 200px;
+	border-radius: 50; 
+}
 
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

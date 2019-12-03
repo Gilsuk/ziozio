@@ -25,6 +25,6 @@ INSERT INTO CLOTH_TEMPERATURE_GRADE (cloth_code, temperature_grade_code)
 VALUES (2, 2); -- 블라우스(2)는 23~27도(2)에 적합
 
 INSERT INTO CLOTH_TEMPERATURE_GRADE (cloth_code, temperature_grade_code)
-VALUES (3, 3); -- 롱패딩(3)은 20~23도(3)에 적합
+VALUES (3, 3); -- 롱패딩(3)은 20~23도(3)에 적합? 진짜로?
 
 commit;
