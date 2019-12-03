@@ -74,4 +74,23 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 		return paging;
 	}
 		
+	/**
+	 * 내 옷장에 옷을 추가
+	 * 
+	 * @param account : account_no 를 활용
+	 * @param cloth : cloth_code, color_code 를 활용
+	 */
+	public void addToLibrary(Account account, ClothWithColor cloth) {
+		
+	}
+	
+	/**
+	 * 내 옷장에서 옷을 제거
+	 * 
+	 * @param account : account_no 를 활용
+	 * @param cloth : cloth_code, color_code 를 활용
+	 */
+	public void removeFromLibrary(Account account, ClothWithColor cloth) {
+		
+	}
 }

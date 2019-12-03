@@ -26,4 +26,6 @@ public interface StyleService {
 	 * 위에 구현한 두 메소드를 가져다 사용하기만 하면 된다.
 	 */
 	List<Style> getStyles(HttpServletRequest req);
+	
+	Style getStyle(HttpServletRequest req);
 }
