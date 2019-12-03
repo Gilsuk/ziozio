@@ -9,8 +9,10 @@ import java.util.List;
 
 import ziozio.dao.face.ClothDAO;
 import ziozio.dto.Account;
+import ziozio.dto.Cloth;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
+import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
 
@@ -179,18 +181,18 @@ public class ClothDAOImpl implements ClothDAO{
 	
 	//test
 	
-	public static void main(String[] args) {
-		ClothDAOImpl dao = new ClothDAOImpl();
-		
-		Account account = new Account();
-		account.setAccount_no(1);
-		Paging paging = new Paging(dao.selectCntAll(account));
-		List<ClothWithColor> list = dao.selectAll(account, paging);
-
-		for (ClothWithColor clothWithColor : list) {
-			System.out.println(clothWithColor);
-		}
-	}	
+//	public static void main(String[] args) {
+//		ClothDAOImpl dao = new ClothDAOImpl();
+//		
+//		Account account = new Account();
+//		account.setAccount_no(1);
+//		Paging paging = new Paging(dao.selectCntAll(account));
+//		List<ClothWithColor> list = dao.selectAll(account, paging);
+//
+//		for (ClothWithColor clothWithColor : list) {
+//			System.out.println(clothWithColor);
+//		}
+//	}	
 	
 	
 	@Override
@@ -433,4 +435,83 @@ public class ClothDAOImpl implements ClothDAO{
 		//최종 결과 반환
 		return cnt;
 	}
+
+	
+//	public static void main(String[] args) {
+//	ClothDAOImpl dao = new ClothDAOImpl();
+//	
+//	WeatherInfo weather = new WeatherInfo();
+//
+//	weather.setWeather_name("흐림");
+//	
+//	List<Cloth> list = dao.selectAll(weather);
+//	
+//	for (Cloth cloth : list) {
+//		System.out.println(cloth);
+//	}
+//}
+
+	@Override
+	public List<Cloth> selectAll(WeatherInfo weather) {
+		
+		//TEST까지 했음
+		
+		conn = DBConn.getConnection(); // DB 연결
+		
+		String sql = "";
+		sql += "SELECT ";
+		sql += "	W.weather_name";
+		sql += "	, C.cloth_code";
+		sql += "	, C.cloth_name";
+		sql += "	, C.cloth_link_url";
+		sql += "	, C.cloth_img";
+		sql += "	, C.cloth_gender";
+		sql += " FROM cloth_weather CW, cloth C, weather W";
+		sql += " WHERE  CW.cloth_code = C.cloth_code AND CW.weather_code = W.weather_code";
+		sql += "  AND W.weather_name = ?";
+		sql += " ORDER BY W.weather_name DESC";
+
+		// 최종 결과를 저장할 List
+		List<Cloth> list = new ArrayList<Cloth>();		
+		
+		try {
+			// SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1, weather.getWeather_name());
+			
+			// SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+
+			// SQL 수행 결과 처리
+			while (rs.next()) {
+				ClothWithColor cloth = new ClothWithColor();
+
+				cloth.setCloth_code(rs.getInt("cloth_code"));
+				cloth.setCloth_name(rs.getString("cloth_name"));
+				cloth.setCloth_link_url(rs.getString("cloth_link_url"));
+				cloth.setCloth_img(rs.getString("cloth_img"));
+				cloth.setCloth_gender((rs.getString("cloth_gender").charAt(0)));
+
+				list.add(cloth);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return list;
+	}
+	
+	
+	
 }
