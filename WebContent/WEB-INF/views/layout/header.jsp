@@ -106,8 +106,8 @@ function locationError(error){
 	</div>
 	<div style="background-color: #FFF" class="collapse navbar-collapse font-dohyeon" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="/">메인</a></li>
-			<li><a href="/">게시판</a></li>
+			<li><a href="/main">메인</a></li>
+			<li><a href="/board/list">게시판</a></li>
 			<li><a href="/"><button id="btn">내위치확인</button></a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">

@@ -9,10 +9,8 @@ import java.util.List;
 
 import ziozio.dao.face.ClothDAO;
 import ziozio.dto.Account;
-import ziozio.dto.Cloth;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
-import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
 
@@ -56,6 +54,7 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += "	, R.color_hue_rotate";
 		sql += "	, R.color_saturate";
 		sql += "	, R.color_brightness";
+		sql += "	, R.color_invert";
 		sql += " FROM account_library A, cloth C, color R, cloth_category G";
 		sql += " WHERE  A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
 		sql += " AND C.cloth_category_code = G.cloth_category_code AND A.account_no = ?";
@@ -85,8 +84,9 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_gender((rs.getString("cloth_gender").charAt(0)));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
+				cloth.setColor_invert(rs.getInt("color_invert"));
 
 				list.add(cloth);
 			}
@@ -123,6 +123,7 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += "	, R.color_hue_rotate";
 		sql += "	, R.color_saturate";
 		sql += "	, R.color_brightness";
+		sql += "	, R.color_invert";
 		sql += " FROM account_library A, cloth C, color R, cloth_category G";
 		sql += " WHERE A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
 		sql += " AND C.cloth_category_code = G.cloth_category_code";
@@ -152,8 +153,9 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_img(rs.getString("cloth_img"));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
+				cloth.setColor_invert(rs.getInt("color_invert"));
 
 				list.add(cloth);
 			}
@@ -212,6 +214,7 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += "		, R.color_hue_rotate";
 		sql += "		, R.color_saturate";
 		sql += "		, R.color_brightness";
+		sql += "		, R.color_invert";
 		sql += " 		FROM account_library A, cloth C, color R, cloth_category G";
 		sql += " 		WHERE  A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
 		sql += "  		AND C.cloth_category_code = G.cloth_category_code AND A.account_no = ?";
@@ -248,8 +251,9 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_gender((rs.getString("cloth_gender").charAt(0)));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
+				cloth.setColor_invert(rs.getInt("color_invert"));
 				
 				list.add(cloth);
 			}
@@ -285,6 +289,7 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += "		, R.color_hue_rotate";
 		sql += "		, R.color_saturate";
 		sql += "		, R.color_brightness";
+		sql += "		, R.color_invert";
 		sql += " 		FROM account_library A, cloth C, color R, cloth_category G";
 		sql += " 		WHERE A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
 		sql += " 		AND C.cloth_category_code = G.cloth_category_code";
@@ -322,8 +327,9 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_img(rs.getString("cloth_img"));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
+				cloth.setColor_invert(rs.getInt("color_invert"));
 				
 				list.add(cloth);
 			}
@@ -526,9 +532,6 @@ public class ClothDAOImpl implements ClothDAO{
 				e.printStackTrace();
 			}
 		}
-	
 	}
-
-
 	
 }

@@ -3,16 +3,16 @@ package ziozio.dto;
 public class Color implements DTO {
 	
 	private int color_code;
-	private String colot_name;
+	private String color_name;
 	private int color_hue_rotate;
 	private int color_saturate;
 	private int color_brightness;
-	private int colot_invert;
+	private int color_invert;
 	@Override
 	public String toString() {
-		return "Color [color_code=" + color_code + ", colot_name=" + colot_name + ", color_hue_rotate="
+		return "Color [color_code=" + color_code + ", colot_name=" + color_name + ", color_hue_rotate="
 				+ color_hue_rotate + ", color_saturate=" + color_saturate + ", color_brightness=" + color_brightness
-				+ ", colot_invert=" + colot_invert + "]";
+				+ ", colot_invert=" + color_invert + "]";
 	}
 	public int getColor_code() {
 		return color_code;
@@ -21,10 +21,10 @@ public class Color implements DTO {
 		this.color_code = color_code;
 	}
 	public String getColot_name() {
-		return colot_name;
+		return color_name;
 	}
 	public void setColot_name(String colot_name) {
-		this.colot_name = colot_name;
+		this.color_name = colot_name;
 	}
 	public int getColor_hue_rotate() {
 		return color_hue_rotate;
@@ -45,9 +45,9 @@ public class Color implements DTO {
 		this.color_brightness = color_brightness;
 	}
 	public int getColot_invert() {
-		return colot_invert;
+		return color_invert;
 	}
 	public void setColot_invert(int colot_invert) {
-		this.colot_invert = colot_invert;
+		this.color_invert = colot_invert;
 	}
 }
