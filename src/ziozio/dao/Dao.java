@@ -26,7 +26,8 @@ public class Dao {
 		try (PreparedStatement ps = conn.prepareStatement(sql,
 			ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
 
-			ResultSet rs = completeStatement(ps, dto, stateSetter);
+			completeStatement(ps, dto, stateSetter);
+			ResultSet rs = ps.executeQuery();
 			return getDto(dtoGetter, rs, getResultSetSize(rs));
 
 		} catch (SelectResultException e) { throw e; 
@@ -43,7 +44,8 @@ public class Dao {
 		try (PreparedStatement ps = conn.prepareStatement(sql,
 			ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
 	
-			ResultSet rs = completeStatement(ps, inDto, stateSetter);
+			completeStatement(ps, inDto, stateSetter);
+			ResultSet rs = ps.executeQuery();
 			return getDto(dtoGetter, rs, getResultSetSize(rs));
 	
 		} catch (SelectResultException e) { throw e; 
@@ -60,7 +62,8 @@ public class Dao {
 	
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
 	
-			ResultSet rs = completeStatement(ps, dto, stateSetter);
+			completeStatement(ps, dto, stateSetter);
+			ResultSet rs = ps.executeQuery();
 			return getListFromResultSet(rs, dtoGetter);
 	
 		} catch (SQLException e) { e.printStackTrace(); return null;  }
@@ -76,7 +79,8 @@ public class Dao {
 	
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
 			
-			ResultSet rs = completeStatement(ps, inDto, stateSetter);
+			completeStatement(ps, inDto, stateSetter);
+			ResultSet rs = ps.executeQuery();
 			return getListFromResultSet(rs, dtoGetter);
 	
 		} catch (SQLException e) { e.printStackTrace(); return null;  }
@@ -91,7 +95,8 @@ public class Dao {
 		
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
 
-			ResultSet rs = completeStatement(ps, dto, stateSetter);
+			completeStatement(ps, dto, stateSetter);
+			ResultSet rs = ps.executeQuery();
 			rs.next();
 
 			return rs.getInt(1);
@@ -107,7 +112,7 @@ public class Dao {
 		Connection conn = DBConn.getConnection();
 	
 		try (PreparedStatement ps = conn.prepareStatement(sql)) {
-			stateSetter.accept(ps, dto);
+			completeStatement(ps, dto, stateSetter);
 			return ps.executeUpdate();
 			
 		} catch (SQLException e) { throw e; }
@@ -124,7 +129,7 @@ public class Dao {
 			
 			int count = 0;
 			for (T dto : dtoList) {
-				stateSetter.accept(ps, dto);
+				completeStatement(ps, dto, stateSetter);
 				count += ps.executeUpdate();
 			}
 			return count;
@@ -133,10 +138,9 @@ public class Dao {
 	
 	}
 
-	private static <T extends DTO> ResultSet completeStatement(PreparedStatement ps, T dto,
+	private static <T extends DTO> void completeStatement(PreparedStatement ps, T dto,
 			BiConsumerForSQL<T> stateSetter) throws SQLException {
-		stateSetter.accept(ps, dto);
-		return ps.executeQuery();
+		if (stateSetter != null) stateSetter.accept(ps, dto);
 	}
 	
 	private static int getResultSetSize(ResultSet rs) throws SQLException {
