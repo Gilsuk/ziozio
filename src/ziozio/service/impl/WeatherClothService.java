@@ -1,11 +1,10 @@
 package ziozio.service.impl;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import ziozio.dao.face.ClothDAO;
-import ziozio.dao.impl.ClothDAOImpl;
+import ziozio.dao.face.WeatherClothDAO;
+import ziozio.dao.impl.WeatherClothDAOImpl;
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
 import ziozio.dto.WeatherInfo;
@@ -20,38 +19,64 @@ import ziozio.service.face.ClothService;
  */
 public class WeatherClothService implements ClothService<WeatherInfo, Cloth>{
 	
-	private ClothDAO clothDao = new ClothDAOImpl();
+	private WeatherClothDAO weatherclothDao = new WeatherClothDAOImpl();
+	
 
 	@Override
 	public List<Cloth> getClothes(WeatherInfo weather) {
-		
-		return clothDao.selectAll(weather);
-		
+		return weatherclothDao.selectAll(weather);
 	}
 
 	@Override
 	public List<Cloth> getClothes(WeatherInfo weather, ClothCategory category) {
-		return null;
+		return weatherclothDao.selectAll(weather, category);
 	}
 
 	@Override
 	public List<Cloth> getClothes(WeatherInfo weather, Paging paging) {
-		return null;
+		return weatherclothDao.selectAll(weather, paging);
 	}
 
 	@Override
 	public List<Cloth> getClothes(WeatherInfo weather, ClothCategory category, Paging paging) {
-		return null;
+		return weatherclothDao.selectAll(weather, category, paging);
 	}
 
 	@Override
 	public Paging getPaging(WeatherInfo weather, HttpServletRequest req) {
-		return null;
+
+		//요청파라미터 curPage를 파싱한다
+		String param = req.getParameter("curPage");
+		int curPage = 0;
+		if( param!=null && !"".equals(param) ) {
+			curPage = Integer.parseInt(param);
+		}
+		
+		//Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
+		int totalCount = weatherclothDao.selectCntAll(weather);
+		
+		// Paging 객체 생성 
+		Paging paging = new Paging(totalCount, curPage);
+		
+		return paging;
 	}
 
 	@Override
 	public Paging getPaging(WeatherInfo weather, ClothCategory category, HttpServletRequest req) {
-		return null;
-	}
 
+		//요청파라미터 curPage를 파싱한다
+		String param = req.getParameter("curPage");
+		int curPage = 0;
+		if( param!=null && !"".equals(param) ) {
+			curPage = Integer.parseInt(param);
+		}
+		
+		//Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
+		int totalCount = weatherclothDao.selectCntAll(weather, category);
+		
+		// Paging 객체 생성 
+		Paging paging = new Paging(totalCount, curPage);
+		
+		return paging;
+	}
 }
