@@ -39,7 +39,7 @@ public class StyleClothService implements ClothService<Style, Cloth>{
 
 	@Override
 	public List<Cloth> getClothes(Style style, ClothCategory category, Paging paging) {
-		return null;
+		return styleclothDao.selectAll(style, category, paging);
 	}
 
 	@Override
