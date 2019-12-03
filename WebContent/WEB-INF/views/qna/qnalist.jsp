@@ -50,11 +50,11 @@ tr td:not(:first-child), tr th:not(:first-child) {
 						<th style="width: 20%">닉네임</th>
 						<th style="width: 20%">작성일</th>
 					</tr>
-					<c:forEach items="${list }" var="qna">
+					<c:forEach items="${listAll }" var="qna">
 					<tr>
 						<td>${qna.qna_no }</td>
 						<td><a href="/qnaview?boardno=${qna.qna_no }">${qna.qna_title }</a></td>
-						<td>${qna.account_nick }</td>
+						<td>${account.account_nick }</td>
 						<td><fmt:formatDate value="${qna.qna_writtendate }" pattern="yyyy-MM-dd"/></td>
 					</tr>
 					</c:forEach>

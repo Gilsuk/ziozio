@@ -9,7 +9,7 @@ import java.util.List;
 
 
 import ziozio.dao.face.QnADAO;
-
+import ziozio.dto.Account;
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
 import ziozio.dto.QnAFile;
@@ -23,7 +23,7 @@ public class QnADAOImpl implements QnADAO{
 	
 	
 	@Override
-	public List selectAll() {
+	public List<QnA> selectAll() {
 
 		conn = DBConn.getConnection(); //DB 연결		
 		
@@ -36,7 +36,7 @@ public class QnADAOImpl implements QnADAO{
 		sql += " ORDER BY qna_no DESC";
 		
 		//최종 결과를 저장할 List
-		List list = new ArrayList();
+		List<QnA> list = new ArrayList<QnA>();
 		
 		try {
 			//SQL 수행 객체
@@ -72,9 +72,64 @@ public class QnADAOImpl implements QnADAO{
 		return list;
 	}		
 
+	@Override
+	public List<QnA> selectAccount(Account account) {
+		conn = DBConn.getConnection(); //DB 연결		
+		
+		//수행할 SQL
+		String sql = "";
+		sql += "SELECT ";
+		sql += " A.account_no";
+		sql += " , Q.qna_no";
+		sql += " , Q.qna_title";
+		sql += " , A.account_nick";
+		sql += " , Q.qna_content";
+		sql += " , Q.writtendate";
+		sql += " FROM account A, qna Q";
+		sql += " WHERE A.account_no = Q.account_no AND A.account_no = ?";
+		sql += " ORDER BY qna_no DESC";
+		
+		//최종 결과를 저장할 List
+		List<QnA> list = new ArrayList<QnA>();
+		
+		try {
+			//SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, account.getAccount_no());
+			//SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+			
+			//SQL 수행 결과 처리
+			while( rs.next() ) {
+				QnA qna = new QnA();
+				qna.setQna_no( rs.getInt("qna_no") );
+				qna.setQna_title( rs.getString("qna_title") );
+				qna.setAccount_nick( rs.getString("account_nick") );
+				qna.setQna_content( rs.getString("qna_content") );
+				qna.setQna_writtendate( rs.getDate("writtendate") );
+				
+				list.add(qna);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//최종 결과 반환
+		return list;
+	}
+	
 
 	@Override
-	public List selectAll(Paging paging) {
+	public List<QnA> selectAll(Paging paging) {
 
 		conn = DBConn.getConnection(); //DB 연결
 		
@@ -83,9 +138,9 @@ public class QnADAOImpl implements QnADAO{
 		sql += "SELECT * FROM (";
 		sql += "    SELECT rownum rnum, B.* FROM (";
 		sql += "        SELECT";
-		sql += "          q.account_no, q.qna_no, a.account_nick,  q.qna_title, q.qna_writtendate";
+		sql += "          A.account_no, Q.qna_no, A.account_nick,  Q.qna_title, Q.qna_writtendate";
 		sql += "        FROM account A, qna Q";
-		sql += " WHERE A.account_no = Q.account_no";
+		sql += " 		WHERE A.account_no = Q.account_no";
 //		if (paging.getSearch() != null) {
 //		sql += " AND";
 //			if (paging.getCategory() == 1) {
@@ -104,7 +159,7 @@ public class QnADAOImpl implements QnADAO{
 		
 		
 		//최종 결과를 저장할 List
-		List list = new ArrayList();
+		List<QnA> list = new ArrayList<QnA>();
 		
 		try {
 			//SQL 수행 객체
@@ -145,6 +200,70 @@ public class QnADAOImpl implements QnADAO{
 		return list;
 	}
 
+
+	@Override
+	public List<QnA> selectAccount(Account account, Paging paging) {
+		conn = DBConn.getConnection(); //DB 연결
+		
+		// 수행할 SQL
+		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "    SELECT rownum rnum, B.* FROM (";
+		sql += "        SELECT";
+		sql += "          Q.account_no, Q.qna_no, A.account_nick,  Q.qna_title, Q.qna_writtendate";
+		sql += "        FROM account A, qna Q";
+		sql += " 		WHERE A.account_no = Q.account_no AND Q.account_no = ?";
+		sql += "        ORDER BY qna_no DESC";
+		sql += "    ) B";
+		sql += "    ORDER BY rnum";
+		sql += " ) QNA";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+		
+		
+		//최종 결과를 저장할 List
+		List<QnA> list = new ArrayList<QnA>();
+		
+		try {
+			//SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, account.getAccount_no());
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
+			
+
+			//SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+			
+			//SQL 수행 결과 처리
+			while( rs.next() ) {
+				QnA qna = new QnA();
+				
+				qna.setQna_no( rs.getInt("qna_no") );
+				qna.setQna_title( rs.getString("qna_title") );
+				qna.setAccount_nick( rs.getString("account_nick") );
+//				qna.setQna_content( rs.getString("qna_content") );
+				qna.setQna_writtendate( rs.getDate("qna_writtendate") );
+				
+				list.add(qna);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//최종 결과 반환
+		return list;
+	}
+
+	
 	@Override
 	public int selectCntAll() {
 
@@ -185,6 +304,50 @@ public class QnADAOImpl implements QnADAO{
 		//최종 결과 반환
 		return cnt;
 	}
+	
+	@Override
+	public int selectCntAccount(Account account) {
+		conn = DBConn.getConnection(); //DB 연결
+		
+		//수행할 SQL
+		String sql = "";
+		sql += "SELECT ";
+		sql += "	count(*)";
+		sql += " FROM qna WHERE account_no = ?";
+
+		//최종 결과 변수
+		int cnt = 0;
+		
+		try {
+			//SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, account.getAccount_no());
+			
+			//SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+			
+			//SQL 수행 결과 처리
+			while( rs.next() ) {
+				cnt = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//최종 결과 반환
+		return cnt;
+	}
+	
+	
 
 	@Override
 	public QnA selectQnaByQna_no(QnA viewQna) {
@@ -194,12 +357,12 @@ public class QnADAOImpl implements QnADAO{
 		// 게시글 조회쿼리
 		String sql = "";
 		sql += "SELECT ";
-		sql += "	q.account_no";
-		sql += "	, q.qna_no";
-		sql += "	, q.qna_title";
-		sql += "	, a.account_nick";
-		sql += "	, q.qna_content";
-		sql += "	, q.qna_writtendate";
+		sql += "	A.account_no";
+		sql += "	, Q.qna_no";
+		sql += "	, Q.qna_title";
+		sql += "	, A.account_nick";
+		sql += "	, Q.qna_content";
+		sql += "	, Q.qna_writtendate";
 		sql += " FROM account A, qna Q";
 		sql += " WHERE A.account_no = Q.account_no AND qna_no = ?";
 
@@ -245,15 +408,15 @@ public class QnADAOImpl implements QnADAO{
 
 		// 다음 게시글 번호 조회 쿼리
 		String sql = "";
-		sql += "INSERT INTO qna(qna_no,qna_title,account_nick,qna_content) ";
-		sql += " VALUES (?, ?, ?, ?, 0)";
+		sql += "INSERT INTO qna(qna_no,qna_title,account_no,qna_content) ";
+		sql += " VALUES (?, ?, ?, ?)";
 
 		try {
 			// DB작업
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, qna.getQna_no());
 			ps.setString(2, qna.getQna_title());
-			ps.setString(3, qna.getAccount_nick());
+			ps.setInt(3, qna.getAccount_no());
 			ps.setString(4, qna.getQna_content());
 
 			ps.executeUpdate();
@@ -604,6 +767,12 @@ public class QnADAOImpl implements QnADAO{
 
 		return qnaFile;
 	}
+
+
+
+
+
+
 
 
 

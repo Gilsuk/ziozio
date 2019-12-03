@@ -2,6 +2,7 @@ package ziozio.dao.face;
 
 import java.util.List;
 
+import ziozio.dto.Account;
 import ziozio.dto.Paging;
 import ziozio.dto.QnA;
 import ziozio.dto.QnAFile;
@@ -15,7 +16,7 @@ public interface QnADAO {
 	 * 
 	 * @return List - 조회된 게시글 목록
 	 */
-	public List selectAll();
+	public List<QnA> selectAll();
 	
 	/**
 	 * 페이징 대상 게시글 목록 조회
@@ -23,7 +24,12 @@ public interface QnADAO {
 	 * @param Paging - 페이징 정보
 	 * @return List - 조회된 게시글 목록
 	 */
-	public List selectAll(Paging paging);
+	public List<QnA> selectAll(Paging paging);
+	
+	public List<QnA> selectAccount(Account account);
+	
+	public List<QnA> selectAccount(Account account, Paging paging);
+	
 	
 	/**
 	 * 총 게시글 수 조회
@@ -31,8 +37,10 @@ public interface QnADAO {
 	 * @return int - 총 게시글 수
 	 */
 	public int selectCntAll();
-
 	
+	
+
+	public int selectCntAccount(Account account);
 	
 	/**
 	 * 상세보기 게시글 조회

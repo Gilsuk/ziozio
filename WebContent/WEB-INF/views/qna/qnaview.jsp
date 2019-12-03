@@ -73,7 +73,7 @@ $(document).ready(function() {
 
 <div class="text-center">	
 	<button id="btnList" class="btn btn-warning">목록</button>
-	<c:if test="${account.account_email eq viewBoard.account_nick }">
+	<c:if test="${account.account_email eq Qna.account_nick }">
 	
 	<button id="btnUpdate" class="btn btn-warning">수정</button>
 	<button id="btnDelete" class="btn btn-warning">삭제</button>
