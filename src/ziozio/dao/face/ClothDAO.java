@@ -61,10 +61,10 @@ public interface ClothDAO {
 	 */
 	public int selectCntAll(Account account, ClothCategory category);
 
-	/**
-	 * 날씨에 따른 옷 목록
-	 * @param weather
-	 * @return
-	 */
-	public List<Cloth> selectAll(WeatherInfo weather);
+	
+	public void addToLibrary(Account account, ClothWithColor cloth);
+	
+	
+	public void removeFromLibrary(Account account, ClothWithColor cloth);
+	
 }
