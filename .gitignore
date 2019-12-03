@@ -172,4 +172,11 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
+# imgs
+*.png
+*.jpg
+*.bmp
+*.svg
+*.jpeg
+
 # End of https://www.gitignore.io/api/java,linux,maven,gradle,windows,eclipse,java-web
