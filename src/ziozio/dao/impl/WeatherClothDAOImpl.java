@@ -23,18 +23,18 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 
 	//test
 //	public static void main(String[] args) {
-//	WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
-//	
-//	WeatherInfo weather = new WeatherInfo();
-//
-//	weather.setWeather_name("흐림");
-//	
-//	List<Cloth> list = dao.selectAll(weather);
-//	
-//	for (Cloth cloth : list) {
-//		System.out.println(cloth);
-//	}
-//}
+	//	WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
+	//	
+	//	WeatherInfo weather = new WeatherInfo();
+	//
+	//	weather.setWeather_name("흐림");
+	//	
+	//	List<Cloth> list = dao.selectAll(weather);
+	//	
+	//	for (Cloth cloth : list) {
+	//		System.out.println(cloth);
+	//	}
+	//}
 
 	@Override
 	public List<Cloth> selectAll(WeatherInfo weather) {
@@ -99,18 +99,18 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 	
 	//test
 //	public static void main(String[] args) {
-//	WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
-//	WeatherInfo weather = new WeatherInfo();
-//	weather.setWeather_name("흐림");
-//	List<Cloth> list = dao.selectAll(weather, ClothCategory.TOP);
-//	
-//	System.out.println(ClothCategory.TOP.getDbValue());
-//	System.out.println(ClothCategory.BOTTOM.getDbValue());
-//	System.out.println(ClothCategory.OUTER.getDbValue());
-//	for (Cloth cloth : list) {
-//		System.out.println(cloth);
-//	}
-//}
+	//	WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
+	//	WeatherInfo weather = new WeatherInfo();
+	//	weather.setWeather_name("흐림");
+	//	List<Cloth> list = dao.selectAll(weather, ClothCategory.TOP);
+	//	
+	//	System.out.println(ClothCategory.TOP.getDbValue());
+	//	System.out.println(ClothCategory.BOTTOM.getDbValue());
+	//	System.out.println(ClothCategory.OUTER.getDbValue());
+	//	for (Cloth cloth : list) {
+	//		System.out.println(cloth);
+	//	}
+	//}
 
 	@Override
 	public List<Cloth> selectAll(WeatherInfo weather, ClothCategory category) {
@@ -182,16 +182,16 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 //		WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
 //		
 //		WeatherInfo weather = new WeatherInfo();
-//	
 //		weather.setWeather_name("맑음");
 //		Paging paging = new Paging(dao.selectCntAll(weather));
 //		List<Cloth> list = dao.selectAll(weather, paging);
 //	
+//
 //		for (Cloth cloth : list) {
 //			System.out.println(cloth);
 //		}
 //	}
-	
+//	
 	@Override
 	public List<Cloth> selectAll(WeatherInfo weather, Paging paging) {
 
@@ -260,6 +260,21 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 		return list;
 	}
 
+	//test
+//	public static void main(String[] args) {
+//		WeatherClothDAOImpl dao = new WeatherClothDAOImpl();
+//		
+//		WeatherInfo weather = new WeatherInfo();
+//		weather.setWeather_name("맑음");
+//		Paging paging = new Paging(dao.selectCntAll(weather));
+//		List<Cloth> list = dao.selectAll(weather, ClothCategory.TOP, paging);
+//	
+//
+//		for (Cloth cloth : list) {
+//			System.out.println(cloth);
+//		}
+//	}
+	
 	@Override
 	public List<Cloth> selectAll(WeatherInfo weather, ClothCategory category, Paging paging) {
 
@@ -296,7 +311,7 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 
 			ps.setString(1, weather.getWeather_name());
 			ps.setString(2, category.getDbValue());
-			ps.setInt(3, paging.getEndNo());
+			ps.setInt(3, paging.getStartNo());
 			ps.setInt(4, paging.getEndNo());
 			
 			// SQL 수행 및 결과 저장
@@ -305,6 +320,7 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 			// SQL 수행 결과 처리
 			while (rs.next()) {
 				Cloth cloth = new Cloth();
+
 
 				cloth.setCloth_code(rs.getInt("cloth_code"));
 				cloth.setCloth_name(rs.getString("cloth_name"));
