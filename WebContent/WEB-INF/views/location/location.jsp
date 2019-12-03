@@ -40,9 +40,9 @@ function locationSuccess(p){
 				
 				url : '/location_get',
 	
-				data : {location_si : JSON.stringify(data.results[0].address_components[3].long_name),
-						location_gu : JSON.stringify(data.results[0].address_components[2].long_name),
-						location_dong : JSON.stringify(data.results[0].address_components[1].long_name)
+				data : {location_si : latitude,
+						location_gu : longitude
+// 						location_dong : JSON.stringify(data.results[0].address_components[1].long_name)
 						},																	
 				
 				
@@ -50,7 +50,7 @@ function locationSuccess(p){
 	
 			});
 			console.log("성공")
-// 			console.log(data);
+			console.log(data);
 // 			console.log(data.results[0].address_components[3].long_name);
 // 			console.log(data.results[0].address_components[2].long_name);
 // 			console.log(data.results[0].address_components[1].long_name);
