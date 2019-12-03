@@ -31,7 +31,6 @@ public class ClothDAOImpl implements ClothDAO{
 //		account.setAccount_no(1);
 //		List<ClothWithColor> list = dao.selectAll(account, ClothCategory.TOP);
 //		
-//		
 //		System.out.println(ClothCategory.TOP.getDbValue());
 //		System.out.println(ClothCategory.BOTTOM.getDbValue());
 //		System.out.println(ClothCategory.OUTER.getDbValue());
@@ -47,7 +46,7 @@ public class ClothDAOImpl implements ClothDAO{
 		
 		String sql = "";
 		sql += "SELECT ";
-		sql += "	, C.cloth_code";
+		sql += "	C.cloth_code";
 		sql += "	, G.cloth_category_name";
 		sql += "	, C.cloth_name";
 		sql += "	, C.cloth_link_url";
@@ -59,7 +58,7 @@ public class ClothDAOImpl implements ClothDAO{
 		sql += "	, R.color_brightness";
 		sql += " FROM account_library A, cloth C, color R, cloth_category G";
 		sql += " WHERE  A.cloth_code = C.cloth_code AND A.color_code = R.color_code";
-		sql += "  AND C.cloth_category_code = G.cloth_category_code AND A.account_no = ?";
+		sql += " AND C.cloth_category_code = G.cloth_category_code AND A.account_no = ?";
 		sql += " ORDER BY A.account_no DESC";
 
 		// 최종 결과를 저장할 List
@@ -89,7 +88,6 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setColor_saturate(rs.getDouble("color_saturate"));
 				cloth.setColor_brightness(rs.getDouble("color_brightness"));
 
-
 				list.add(cloth);
 			}
 
@@ -105,7 +103,6 @@ public class ClothDAOImpl implements ClothDAO{
 				e.printStackTrace();
 			}
 		}
-
 		// 최종 결과 반환
 		return list;
 	}
@@ -390,6 +387,7 @@ public class ClothDAOImpl implements ClothDAO{
 	}
 
 
+	
 	@Override
 	public int selectCntAll(Account account, ClothCategory category) {
 
@@ -436,82 +434,101 @@ public class ClothDAOImpl implements ClothDAO{
 		return cnt;
 	}
 
+	//test
 	
 //	public static void main(String[] args) {
-//	ClothDAOImpl dao = new ClothDAOImpl();
-//	
-//	WeatherInfo weather = new WeatherInfo();
-//
-//	weather.setWeather_name("흐림");
-//	
-//	List<Cloth> list = dao.selectAll(weather);
-//	
-//	for (Cloth cloth : list) {
-//		System.out.println(cloth);
-//	}
-//}
-
+//		ClothDAOImpl dao = new ClothDAOImpl();
+//		
+//		Account account = new Account();
+//		account.setAccount_no(1);
+//		ClothWithColor cloth = new ClothWithColor();
+//		cloth.setCloth_code(1);
+//		cloth.setColor_code(1);
+//		
+//		dao.addToLibrary(account, cloth);
+//	}	
+	
+// 	중복 SQLException 해야됨!!!
 	@Override
-	public List<Cloth> selectAll(WeatherInfo weather) {
-		
-		//TEST까지 했음
-		
-		conn = DBConn.getConnection(); // DB 연결
+	public void addToLibrary(Account account, ClothWithColor cloth) {
+
+		conn = DBConn.getConnection(); // DB 연결		
 		
 		String sql = "";
-		sql += "SELECT ";
-		sql += "	W.weather_name";
-		sql += "	, C.cloth_code";
-		sql += "	, C.cloth_name";
-		sql += "	, C.cloth_link_url";
-		sql += "	, C.cloth_img";
-		sql += "	, C.cloth_gender";
-		sql += " FROM cloth_weather CW, cloth C, weather W";
-		sql += " WHERE  CW.cloth_code = C.cloth_code AND CW.weather_code = W.weather_code";
-		sql += "  AND W.weather_name = ?";
-		sql += " ORDER BY W.weather_name DESC";
-
-		// 최종 결과를 저장할 List
-		List<Cloth> list = new ArrayList<Cloth>();		
+		sql += "INSERT INTO account_library (account_no, cloth_code, color_code)";
+		sql += " VALUES (?, ?, ?)";
 		
 		try {
-			// SQL 수행 객체
+			//SQL 수행 객체
 			ps = conn.prepareStatement(sql);
-
-			ps.setString(1, weather.getWeather_name());
 			
-			// SQL 수행 및 결과 저장
-			rs = ps.executeQuery();
-
-			// SQL 수행 결과 처리
-			while (rs.next()) {
-				ClothWithColor cloth = new ClothWithColor();
-
-				cloth.setCloth_code(rs.getInt("cloth_code"));
-				cloth.setCloth_name(rs.getString("cloth_name"));
-				cloth.setCloth_link_url(rs.getString("cloth_link_url"));
-				cloth.setCloth_img(rs.getString("cloth_img"));
-				cloth.setCloth_gender((rs.getString("cloth_gender").charAt(0)));
-
-				list.add(cloth);
-			}
-
+			ps.setInt(1, account.getAccount_no());
+			ps.setInt(2, cloth.getCloth_code());
+			ps.setInt(3, cloth.getColor_code());
+			
+			//SQL 수행 및 결과 저장
+			ps.executeUpdate();
+	
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null)
-					rs.close();
-				if (ps != null)
-					ps.close();
+				if(ps!=null)	ps.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		return list;
+	
 	}
+
+	//test
 	
+//	public static void main(String[] args) {
+//		ClothDAOImpl dao = new ClothDAOImpl();
+//		
+//		Account account = new Account();
+//		account.setAccount_no(3);
+//		ClothWithColor cloth = new ClothWithColor();
+//		cloth.setCloth_code(1);
+//		cloth.setColor_code(1);
+//		
+//		dao.removeFromLibrary(account, cloth);
+//	}
 	
+	@Override
+	public void removeFromLibrary(Account account, ClothWithColor cloth) {
+
+		conn = DBConn.getConnection(); // DB 연결		
+		
+		String sql = "";
+		sql += "DELETE account_library";
+		sql += " WHERE  account_no = ? AND cloth_code = ? AND color_code = ?";
+
+		try {
+			//SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, account.getAccount_no());
+			ps.setInt(2, cloth.getCloth_code());
+			ps.setInt(3, cloth.getColor_code());
+			
+			//SQL 수행 및 결과 저장
+			ps.executeUpdate();
+	
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	
+	}
+
+
 	
 }

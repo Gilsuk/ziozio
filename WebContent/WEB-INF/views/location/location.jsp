@@ -9,58 +9,57 @@
 <script type="text/javascript">
 window.onload = getLocation; 
 
-var latitude, longitude;
+var lat, lon;
 function getLocation(){
     if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(locationSuccess, locationError, geo_options);
+//         navigator.geolocation.getCurrentPosition(locationSuccess, locationError, geo_options);
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
     }else{
         console.log("지오 로케이션 없음")
     }
 };
 // getLocation
 // var latitude, longitude;
-var location_si, location_gu, location_dong;
+
+
+	
+
+	
 function locationSuccess(p){
-    latitude = p.coords.latitude,
-    longitude = p.coords.longitude;
+    lat = p.coords.latitude,
+    lon = p.coords.longitude;
     jQuery.ajax({
 		type: "get"
-		, url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&key=AIzaSyAYL95BQRM_FRYkiMhmioDwpan0gQ0YqLw"
-// 		, data: {
-// 			"latitude": latitude
-// 			, "longitude": longitude
-// 		}
+		, url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lon+"&key=AIzaSyAYL95BQRM_FRYkiMhmioDwpan0gQ0YqLw"
+		, data: {
+			"lat": lat
+			, "lon": lon
+		}
 		, dataType: "json" 
 		, success: function(data) {
-			location_si = data.results[0].address_components[3].long_name;
-    		location_gu = data.results[0].address_components[2].long_name;
-    		location_dong = data.results[0].address_components[1].long_name;
-			
+
+			$("#btnAlert").on( "click", function() {
     		$.ajax({
 				
 				url : '/location_get',
 	
-				data : {location_si : latitude,
-						location_gu : longitude
-// 						location_dong : JSON.stringify(data.results[0].address_components[1].long_name)
+				data : {lat : lat,
+						lon : lon
 						},																	
 				
 				
 				type : 'GET'
 	
+			})
 			});
 			console.log("성공")
-			console.log(data);
-// 			console.log(data.results[0].address_components[3].long_name);
-// 			console.log(data.results[0].address_components[2].long_name);
-// 			console.log(data.results[0].address_components[1].long_name);
-// 			$("#resultLayout").html(data)
+
 		}
 		, error: function() {
 			console.log("실패")
 		}
 	});
-    initialize();
+//     initialize();
 }
 
 // locationSuccess
@@ -73,34 +72,35 @@ function locationError(error){
     };
     var errorMsg = errorTypes[error.code];
 }
+
 // locationError
  
-var geo_options = {
-  enableHighAccuracy: true,
-  maximumAge        : 30000,
-  timeout           : 27000
-};
+// var geo_options = {
+//   enableHighAccuracy: true,
+//   maximumAge        : 30000,
+//   timeout           : 27000
+// };
 // geo_options
-var map;
-function initialize() {
-//     var myLatLng = new google.maps.LatLng(latitude, longitude);
-    var myLatLng = {lat: latitude, lng: longitude};
-    var mapOptions = {
-        zoom: 16,
-        center: myLatLng
+// var map;
+// function initialize() {
+// //     var myLatLng = new google.maps.LatLng(latitude, longitude);
+//     var myLatLng = {lat: latitude, lng: longitude};
+//     var mapOptions = {
+//         zoom: 16,
+//         center: myLatLng
         
-    };
-//     var marker = new google.maps.Marker({position: myLatLng, map: map});
+//     };
+// //     var marker = new google.maps.Marker({position: myLatLng, map: map});
     
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    var beachMarker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-//         title : location_si+location_gu+location_dong
+//     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+//     var beachMarker = new google.maps.Marker({
+//         position: myLatLng,
+//         map: map,
+// //         title : location_si+location_gu+location_dong
 
-    });
-    //html 문서안에 map-canvas 엘리먼트에 맵을 그리라고 하는 것임
-}
+//     });
+//     //html 문서안에 map-canvas 엘리먼트에 맵을 그리라고 하는 것임
+// }
 
 
  
@@ -108,7 +108,10 @@ function initialize() {
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYL95BQRM_FRYkiMhmioDwpan0gQ0YqLw&callback=initMap"></script>
 </head>
 <body>
-    <div id="map-canvas" style="width:800px;height:400px;"></div>
-    <button id = "a"></button>
+<!--     <div id="map-canvas" style="width:800px;height:400px;"></div> -->
+<!--     <button id = "a"></button> -->
+<div>
+	<button id="btnAlert">위치 전송</button>
+</div>
 </body>
 </html>

@@ -82,6 +82,7 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 	 */
 	public void addToLibrary(Account account, ClothWithColor cloth) {
 		
+		clothDao.addToLibrary(account, cloth);
 	}
 	
 	/**
@@ -92,5 +93,6 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 	 */
 	public void removeFromLibrary(Account account, ClothWithColor cloth) {
 		
+		clothDao.removeFromLibrary(account, cloth);
 	}
 }

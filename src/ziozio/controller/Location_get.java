@@ -8,18 +8,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Location;
+import ziozio.service.face.LocationService;
+import ziozio.service.impl.LocationServiceImpl;
+
 
 @WebServlet("/location_get")
 public class Location_get extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private LocationService locationService = new LocationServiceImpl();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+//		System.out.println(req.getParameter("latitude"));
+		
+		Location location = locationService.getLocation(req);
+		
+		System.out.println(location);
 	
-		System.out.println(req.getParameter("location_si"));
-		System.out.println(req.getParameter("location_gu"));
-		System.out.println(req.getParameter("location_dong"));
+		
 		
 //		System.out.println(req.getParameter("location1"));
 		
