@@ -9,10 +9,8 @@ import java.util.List;
 
 import ziozio.dao.face.ClothDAO;
 import ziozio.dto.Account;
-import ziozio.dto.Cloth;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
-import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
 
@@ -85,8 +83,8 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_gender((rs.getString("cloth_gender").charAt(0)));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
 
 				list.add(cloth);
 			}
@@ -152,8 +150,8 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_img(rs.getString("cloth_img"));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
 
 				list.add(cloth);
 			}
@@ -248,8 +246,8 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_gender((rs.getString("cloth_gender").charAt(0)));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
 				
 				list.add(cloth);
 			}
@@ -322,8 +320,8 @@ public class ClothDAOImpl implements ClothDAO{
 				cloth.setCloth_img(rs.getString("cloth_img"));
 				cloth.setColor_name(rs.getString("color_name"));
 				cloth.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
-				cloth.setColor_saturate(rs.getDouble("color_saturate"));
-				cloth.setColor_brightness(rs.getDouble("color_brightness"));
+				cloth.setColor_saturate(rs.getInt("color_saturate"));
+				cloth.setColor_brightness(rs.getInt("color_brightness"));
 				
 				list.add(cloth);
 			}
