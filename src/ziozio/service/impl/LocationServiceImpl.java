@@ -29,8 +29,9 @@ public class LocationServiceImpl implements LocationService {
 	public Location getLocation(HttpServletRequest req) {
 		
 		try {
+//			System.out.println(req.getParameter("latitude"));
 			double latitude = Double.parseDouble(req.getParameter(ReqParam.LATITUDE.toString()));
-			double longitude = Double.parseDouble(req.getParameter(ReqParam.LONGITUDE.toString()));
+			double longitude = Double.parseDouble(req.getParameter(ReqParam.LONGITUDE.toString()));			
 			return getLocation(latitude, longitude);
 		} catch (NullPointerException e) {
 			
