@@ -1,6 +1,18 @@
 package ziozio.service.impl;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import javax.servlet.http.HttpServletRequest;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import ziozio.dao.face.LocationDAO;
 import ziozio.dao.impl.LocationDAOImpl;
@@ -39,14 +51,103 @@ public class LocationServiceImpl implements LocationService {
 		return null;
 	}
 
+
+	
+	private String getJSONLocation(double latitude, double longitude) {
+		
+		String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
+		url += latitude;
+		url += ",";
+		url += longitude;
+		url += "&key=AIzaSyAYL95BQRM_FRYkiMhmioDwpan0gQ0YqLw";
+		
+		URL link = null;
+		try {
+			link = new URL(url);
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		try {
+			HttpURLConnection con = (HttpURLConnection)link.openConnection();
+			con.setRequestMethod("GET");
+			con.setRequestProperty("accept-language", "ko-KR");
+			
+
+			StringBuilder sb = new StringBuilder();
+			if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
+				//Stream을 처리해줘야 하는 귀찮음이 있음. 
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(con.getInputStream(), "utf-8"));
+				String line;
+				while ((line = br.readLine()) != null) {
+					sb.append(line).append("\n");
+				}
+				br.close();
+			} else {
+				System.out.println(con.getResponseMessage());
+			}
+			
+			return sb.toString();
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return "";
+	}
+
+//	public static void main(String[] args) {
+//		LocationServiceImpl locserv = new LocationServiceImpl();
+//		Location location = locserv.getLocation(37.4923615, 127.02928809999999);
+//		System.out.println(location);
+//		
+//		
+//		
+//	}
+		
 	/*
 	 * lat과 lon을 통해 Location을 반환한다.
 	 * 우리 DB에는 좌표 정보가 없으므로 외부 서버로부터 localname을 알아온 후,
 	 * 아래의 getLocation(String localname)을 재 호출해서 Location을 반환
 	 */
+	
 	@Override
 	public Location getLocation(double latitude, double longitude) {
-		return null;
+		
+		//TEST까지 했음
+		
+		String json = getJSONLocation(latitude, longitude);
+		
+		
+		Gson gson = new Gson();
+		JsonElement jsonElement = JsonParser.parseString(json);
+		
+		JsonObject jsonObject = jsonElement.getAsJsonObject();
+		JsonElement element = jsonObject.get("results").getAsJsonArray().get(2)
+				.getAsJsonObject().get("formatted_address");
+
+		String localname = element.getAsString();
+		StringBuilder local = new StringBuilder(localname);
+		local.delete(0, 5);
+//		System.out.println(local);
+		
+		
+//		System.out.println(jsonElement3);
+
+//		JsonParser jsonParser = new JsonParser();
+//		JsonElement jsonElement = jsonParser.parse(json);
+//		
+//		String name = jsonElement.getAsJsonObject().get("results").toString();
+//		String name = jsonElement.getAsJsonObject().get("results").toString();
+//		System.out.println(name);
+//		Location location = new Location();
+//		System.out.println(jsonElement3.getAsString());
+//		location.setLocation_name(element.getAsString());
+		
+		return getLocation(local.toString());
 	}
 
 	/*
