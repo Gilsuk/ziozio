@@ -111,7 +111,7 @@ $(document).ready(function() {
 
 
 <c:if test="${empty account }">
-	<div class="text-center"><br>
+	<div class="text-center font-dohyeon"><br>
 		<a class="btn" style="background-color: #FFF2EC" href="/account/restoresession" role="button">로그인</a>
 		<a class="btn" style="background-color: #FFF2EC" href="/account/join" role="button">회원가입</a>
 	</div>

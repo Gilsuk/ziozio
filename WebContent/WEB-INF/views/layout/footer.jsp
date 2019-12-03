@@ -11,8 +11,8 @@
          <a href="#">&emsp;개인정보처리방침&emsp;|</a>
          <a href="#">&emsp;광고문의&emsp;|</a>
          <a href="#">&emsp;고객센터</a><br><br>
-      <div class="company_info">&copy; &emsp;&emsp;&emsp;&emsp;
-      <span class="ft_copyright">&emsp; 2019 <strong>ZIOZIO</strong>&emsp;All rights reserved.
+      <div class="company_info">&copy;
+      <span class="ft_copyright"> 2019 <strong>ZIOZIO</strong>&emsp;All rights reserved.
       </span>
       </div>
    </div>
