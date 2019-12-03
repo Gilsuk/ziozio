@@ -1,5 +1,10 @@
 package ziozio.service.impl;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.face.LocationDAO;
@@ -44,8 +49,43 @@ public class LocationServiceImpl implements LocationService {
 	 * 우리 DB에는 좌표 정보가 없으므로 외부 서버로부터 localname을 알아온 후,
 	 * 아래의 getLocation(String localname)을 재 호출해서 Location을 반환
 	 */
+	public static void main(String[] args) {
+		LocationService los = new LocationServiceImpl();
+		los.getLocation(123, 321);
+		
+	}
 	@Override
 	public Location getLocation(double latitude, double longitude) {
+		try {
+			URL url = new URL("https://www.google.com");
+			HttpURLConnection con = (HttpURLConnection) url.openConnection(); 
+			con.setConnectTimeout(5000); //서버에 연결되는 Timeout 시간 설정
+			con.setReadTimeout(5000); // InputStream 읽어 오는 Timeout 시간 설정
+//			con.addRequestProperty("x-api-key", RestTestCommon.API_KEY); //key값 설정
+
+			con.setRequestMethod("GET");
+			con.setDoOutput(false); 
+
+			StringBuilder sb = new StringBuilder();
+			if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
+				//Stream을 처리해줘야 하는 귀찮음이 있음. 
+				BufferedReader br = new BufferedReader(
+						new InputStreamReader(con.getInputStream(), "utf-8"));
+				String line;
+				while ((line = br.readLine()) != null) {
+					sb.append(line).append("\n");
+				}
+				br.close();
+			} else {
+				System.out.println(con.getResponseMessage());
+			}
+			System.out.println(sb);
+
+		} catch (Exception e) {
+		}
+
+
+
 		return null;
 	}
 
