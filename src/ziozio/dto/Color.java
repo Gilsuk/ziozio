@@ -20,10 +20,10 @@ public class Color implements DTO {
 	public void setColor_code(int color_code) {
 		this.color_code = color_code;
 	}
-	public String getColot_name() {
+	public String getColor_name() {
 		return color_name;
 	}
-	public void setColot_name(String colot_name) {
+	public void setColor_name(String colot_name) {
 		this.color_name = colot_name;
 	}
 	public int getColor_hue_rotate() {
@@ -44,10 +44,10 @@ public class Color implements DTO {
 	public void setColor_brightness(int color_brightness) {
 		this.color_brightness = color_brightness;
 	}
-	public int getColot_invert() {
+	public int getColor_invert() {
 		return color_invert;
 	}
-	public void setColot_invert(int colot_invert) {
+	public void setColor_invert(int colot_invert) {
 		this.color_invert = colot_invert;
 	}
 }
