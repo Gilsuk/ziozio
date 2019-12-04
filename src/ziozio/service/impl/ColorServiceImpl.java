@@ -64,17 +64,5 @@ public class ColorServiceImpl implements ColorService {
 		.findFirst().orElse(getRandomColor());
 	}
 
-	@Override
-	public <T extends WithColor> T setColor(T t, Color color) {
-
-		t.setColor_brightness(color.getColor_brightness());
-		t.setColor_code(color.getColor_code());
-		t.setColor_hue_rotate(color.getColor_hue_rotate());
-		t.setColor_invert(color.getColor_invert());
-		t.setColor_name(color.getColor_name());
-		t.setColor_saturate(color.getColor_saturate());
-		
-		return t;
-	}
 
 }

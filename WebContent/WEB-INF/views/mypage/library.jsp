@@ -22,7 +22,7 @@
 			<h3 class="text left">TOP</h3>
 			<div class="row">
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-				<c:forEach items="${clothListTop }" var="cloth">
+				<c:forEach items="${clothlistTop }" var="cloth">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
 				</div>

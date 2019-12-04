@@ -12,9 +12,4 @@ public interface ColorService {
 	
 	Color getColorByName(Color color);
 	
-	/*
-	 * Mutable T
-	 */
-	<T extends WithColor> T setColor(T t, Color color);
-
 }

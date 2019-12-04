@@ -98,17 +98,17 @@ public class GenderClothDAOImpl implements GenderClothDAO{
 
 	
 //	public static void main(String[] args) {
-//	GenderClothDAOImpl dao = new GenderClothDAOImpl();
-//	
-//	
-//	char gender = 'F';
-//	
-//	List<Cloth> list = dao.selectAll(gender, ClothCategory.TOP);
-//	
-//	for (Cloth cloth : list) {
-//		System.out.println(cloth);
+//		GenderClothDAOImpl dao = new GenderClothDAOImpl();
+//
+//
+//		char gender = 'M';
+//
+//		List<Cloth> list = dao.selectAll(gender, ClothCategory.TOP);
+//
+//		for (Cloth cloth : list) {
+//			System.out.println(cloth);
+//		}
 //	}
-//}
 	
 	@Override
 	public List<Cloth> selectAll(Character gender, ClothCategory category) {
