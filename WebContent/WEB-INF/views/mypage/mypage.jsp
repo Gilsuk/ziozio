@@ -7,14 +7,6 @@
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
-<style type="text/css">
-
-
-
-
-
-</style>
-
 <div class="marginauto">
     <a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
 </div>

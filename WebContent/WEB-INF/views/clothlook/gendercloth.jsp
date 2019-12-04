@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -22,6 +21,7 @@
 	width: 400px;
 	height: 300px;
 }
+
 .carousel-control.right, .carousel-control.left {
  background-image: none;
 }
@@ -35,8 +35,32 @@ $( document ).ready(function() {
 
 <div class="wrap center">
 <br><br><br>
-<h2>CUSTOM</h2>
+<h2>GenDer</h2>
 <br>
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	
+		  <!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<c:forEach items="${outerList}" var="cloth">
+			<div class="item">
+				<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+			</div>
+			</c:forEach>
+		</div>
+	
+		<!-- Controls -->
+	  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+	
+	<br>
+	
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 	  <!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
@@ -81,7 +105,7 @@ $( document ).ready(function() {
 	  </a>
 	</div>
 </div>
-<br>
 
+<br>
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

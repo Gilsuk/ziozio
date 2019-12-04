@@ -28,7 +28,6 @@
     margin-left: auto;
 }
 
-
 .input{
 	background-color: #FFD2BD !important;
 	border-color: #FFD2BD !important;
@@ -41,21 +40,15 @@
 	width:100px;
 	height:40px;
 }	
-
-
 .input2{
 	background-color: #FFD2BD;
 }
-
 .color{
 	color: black ;
 }
-
-
-
 .textcolor{
 	text-color: black;
-}http://localhost:8888/qnaview
+}
 .width{
 	width: 120px !important;
 }
