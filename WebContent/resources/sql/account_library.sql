@@ -1,4 +1,4 @@
-DROP TABLE account_library;--실제 옷장
+DROP TABLE account_library CASCADE CONSTRAINT;--실제 옷장
 
 CREATE TABLE account_library (
 	account_no NUMBER,

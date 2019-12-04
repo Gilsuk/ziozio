@@ -1,6 +1,6 @@
 DROP TRIGGER cloth_on_insert_trg;
 DROP SEQUENCE cloth_seq;
-DROP TABLE cloth;
+DROP TABLE cloth CASCADE CONSTRAINT;
 
 CREATE TABLE cloth (
 	cloth_code NUMBER primary key,

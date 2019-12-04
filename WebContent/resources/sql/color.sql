@@ -1,6 +1,6 @@
 DROP TRIGGER color_on_insert_trg;
 DROP SEQUENCE color_seq;
-DROP TABLE color;
+DROP TABLE color CASCADE CONSTRAINT;
 
 CREATE TABLE color (
 	color_code NUMBER primary key,

@@ -1,4 +1,4 @@
-DROP TABLE location;
+DROP TABLE location CASCADE CONSTRAINT;
 
 CREATE TABLE location (
 	location_code NUMBER PRIMARY KEY,

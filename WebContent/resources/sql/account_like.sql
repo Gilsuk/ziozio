@@ -1,4 +1,5 @@
-DROP TABLE account_like;--하트모음옷장
+DROP TABLE account_like CASCADE CONSTRAINT;--하트모음옷장
+
 CREATE TABLE account_like (
 	account_no NUMBER,
 	cloth_set_no NUMBER,

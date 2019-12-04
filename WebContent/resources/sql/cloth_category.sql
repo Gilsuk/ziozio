@@ -1,4 +1,4 @@
-DROP TABLE cloth_category;
+DROP TABLE cloth_category CASCADE CONSTRAINT;
 
 CREATE TABLE cloth_category (
 

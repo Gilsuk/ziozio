@@ -1,4 +1,4 @@
-DROP TABLE account_style;
+DROP TABLE account_style CASCADE CONSTRAINT;
 
 CREATE TABLE account_style (
 	account_no NUMBER,

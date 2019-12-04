@@ -1,4 +1,4 @@
-DROP TABLE cloth_weather;
+DROP TABLE cloth_weather CASCADE CONSTRAINT;
 
 CREATE TABLE cloth_weather (
 	cloth_code NUMBER,

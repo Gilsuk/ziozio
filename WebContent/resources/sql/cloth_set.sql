@@ -1,4 +1,4 @@
-DROP TABLE cloth_set;--세트 조합(세개가 아니라 원피스?하나일수도)
+DROP TABLE cloth_set CASCADE CONSTRAINT;--세트 조합(세개가 아니라 원피스?하나일수도)
 
 CREATE TABLE cloth_set (
 	cloth_set_no NUMBER,

@@ -1,5 +1,5 @@
 DROP TRIGGER weather_info_on_insert_trg;
-DROP TABLE weather_info;
+DROP TABLE weather_info CASCADE CONSTRAINT;
 
 CREATE TABLE weather_info (
 	weather_info_date date,
