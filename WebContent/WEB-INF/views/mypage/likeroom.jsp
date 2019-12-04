@@ -13,17 +13,16 @@
 
 <div class="wrapper">
 <div class="con center">
-<div class="jumbotron padding" style="background-color: #FFF2EC">
-<h1 class="font-dohyeon">My Room</h1><br><br>
+<div class="jumbotron padding" >
+<h2>LIKE ROOM</h2><br><br>
 <div class="row">
-
 	<div class="col-lg-12">
 	<div class="col-lg-1"></div>
 		<div class="col-lg-10">
 			<h3 class="text left">TOP</h3>
 			<div class="row">
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-				<c:forEach items="${clothlistTop }" var="cloth">
+				<c:forEach items="${clothListTop }" var="cloth">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
 				</div>
@@ -34,9 +33,10 @@
 	<div class="col-lg-1"></div>
 	</div>
 
+	<div class="col-lg-12">
 	<div class="col-lg-1"></div>
 		<div class="col-lg-10">
-			<h3 class="text left font-dohyeon">BOTTOM</h3>
+			<h3 class="text left">BOTTOM</h3>
 			<div class="row">
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 				<c:forEach items="${clothListBottom }" var="cloth">
@@ -53,7 +53,7 @@
 	<div class="col-lg-12">
 	<div class="col-lg-1"></div>
 		<div class="col-lg-10">
-			<h3 class="text left font-dohyeon">OUTER</h3>
+			<h3 class="text left">OUTER</h3>
 			<div class="row">
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 				<c:forEach items="${clothListOuter }" var="cloth">
@@ -70,6 +70,7 @@
 <jsp:include page="/WEB-INF/views/layout/paging_library.jsp" />	
 </div>
 </div>	
+</div>
 </div>
 
 

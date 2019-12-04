@@ -50,10 +50,18 @@ public class ColorServiceImpl implements ColorService {
 		color.setColor_code(cloth.getColor_code());
 		color.setColor_hue_rotate(cloth.getColor_hue_rotate());
 		color.setColor_saturate(cloth.getColor_saturate());
-		color.setColot_invert(cloth.getColor_invert());
-		color.setColot_name(cloth.getColor_name());
+		color.setColor_invert(cloth.getColor_invert());
+		color.setColor_name(cloth.getColor_name());
 		
 		return color;
 	}
+
+	@Override
+	public Color getColorByName(Color color) {
+		return
+		colorStream.filter(x -> x.getColor_name().equals(color.getColor_name()))
+		.findFirst().orElse(getRandomColor());
+	}
+
 
 }

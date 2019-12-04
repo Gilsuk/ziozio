@@ -11,4 +11,5 @@ public interface WeatherInfoDAO {
 
 	List<WeatherInfo> selectAll(Location loc, int count);
 
+
 }
