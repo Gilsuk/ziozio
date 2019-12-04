@@ -22,21 +22,18 @@ public class StyleClothService implements ClothService<Style>{
 
 	@Override
 	public List<ClothWithColor> getClothes(Style style) {	
-		
 		return clothColorService.setRandomColor(styleclothDao.selectAll(style));
 		
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(Style style, ClothCategory category) {
-		
 		return clothColorService.setRandomColor(styleclothDao.selectAll(style, category));
 		
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(Style style, Paging paging) {
-		
 		return clothColorService.setRandomColor(styleclothDao.selectAll(style, paging));
 		
 	}
@@ -96,7 +93,7 @@ public class StyleClothService implements ClothService<Style>{
 
 	@Override
 	public List<ClothWithColor> getClothes(List<Style> selector, ClothCategory category, Paging paging) {
-		return null;
+		return clothColorService.setRandomColor(styleclothDao.selectAll(selector, category, paging));
 	}
 
 }
