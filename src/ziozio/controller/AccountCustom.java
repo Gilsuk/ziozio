@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Account;
-import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
@@ -23,7 +23,7 @@ import ziozio.service.impl.GenderClothService;
 public class AccountCustom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ClothService<Character, Cloth> clothService = new GenderClothService();
+	ClothService<Character> clothService = new GenderClothService();
 	AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
@@ -33,9 +33,9 @@ public class AccountCustom extends HttpServlet {
 		try {
 			Account account = accountService.getLoggedInAccount(req);
 
-			List<Cloth> topList = clothService.getClothes(account.getAccount_gender(), ClothCategory.TOP);
-			List<Cloth> bottomList = clothService.getClothes(account.getAccount_gender(), ClothCategory.BOTTOM);
-			List<Cloth> outerList = clothService.getClothes(account.getAccount_gender(), ClothCategory.OUTER);
+			List<ClothWithColor> topList = clothService.getClothes(account.getAccount_gender(), ClothCategory.TOP);
+			List<ClothWithColor> bottomList = clothService.getClothes(account.getAccount_gender(), ClothCategory.BOTTOM);
+			List<ClothWithColor> outerList = clothService.getClothes(account.getAccount_gender(), ClothCategory.OUTER);
 			req.setAttribute("topList", topList);
 			req.setAttribute("bottomList", bottomList);
 			req.setAttribute("outerList", outerList);

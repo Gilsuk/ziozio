@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ziozio.dao.Dao;
 import ziozio.dao.face.StyleClothDAO;
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
-import ziozio.dto.QnA;
 import ziozio.dto.Style;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
@@ -517,6 +517,65 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 		}
 		
 		return list;
+	}
+
+
+	@Override
+	public List<Cloth> selectAll(List<Style> selector, ClothCategory category, Paging paging) {
+		StringBuilder sql = new StringBuilder();
+
+		sql.append("SELECT * FROM (");
+		sql.append("SELECT rownum rnum, B.* FROM (");
+		sql.append("SELECT");
+		sql.append("	s.style_name");
+		sql.append("	, clc.cloth_category_name");
+		sql.append("	, c.cloth_name");
+		sql.append("	, c.cloth_code");
+		sql.append("	, c.cloth_link_url");
+		sql.append("	, c.cloth_gender");
+		sql.append("	, c.cloth_img");
+		sql.append("	FROM cloth_style CST");
+		sql.append("	, cloth C");
+		sql.append("	, style S");
+		sql.append("	, cloth_category CLC");
+		sql.append("	WHERE cst.cloth_code");
+		sql.append("	= c.cloth_code");
+		sql.append("	AND c.cloth_category_code");
+		sql.append("	= clc.cloth_category_code");
+		sql.append("	AND s.style_code");
+		sql.append("	= cst.style_code");
+		sql.append("	AND s.style_name IN ( ").append(selector.get(0).getStyle_name());
+		for (int i = 1; i < selector.size(); i++)
+			sql.append(", ").append(selector.get(i).getStyle_name());
+		sql.append(" )");
+		sql.append("	AND clc.cloth_category_name");
+		sql.append("	= ?");
+		sql.append("	ORDER BY s.style_name");
+		sql.append("    ) B");
+		sql.append("    ORDER BY rnum");
+		sql.append(" ) STYLE");
+		sql.append(" WHERE rnum BETWEEN ? AND ?");
+		
+		return
+		Dao.<Style, Cloth>selectList(sql.toString(), null, null, (t, u) -> {
+			t.setString(1, category.getDbValue());
+			t.setInt(2, paging.getStartNo());
+			t.setInt(3, paging.getEndNo());
+		}, this::getClothByResultSet);
+	}
+	
+	private Cloth getClothByResultSet(ResultSet rs) {
+		Cloth cloth = new Cloth();
+
+		try {
+			cloth.setCloth_name(rs.getString("cloth_name"));								
+			cloth.setCloth_code(rs.getInt("cloth_code"));								
+			cloth.setCloth_link_url(rs.getString("cloth_link_url"));								
+			cloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
+			cloth.setCloth_img(rs.getString("cloth_img"));
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		return cloth;
 	}
 
 }

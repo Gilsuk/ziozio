@@ -1,5 +1,6 @@
 package ziozio.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,39 +8,42 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.StyleClothDAO;
 import ziozio.dao.impl.StyleClothDAOImpl;
 import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.Style;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
-public class StyleClothService implements ClothService<Style, Cloth>{
+public class StyleClothService implements ClothService<Style>{
 	
 	private StyleClothDAO styleclothDao = new StyleClothDAOImpl();
+	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 
 	@Override
-	public List<Cloth> getClothes(Style style) {	
+	public List<ClothWithColor> getClothes(Style style) {	
 		
-		return styleclothDao.selectAll(style);
+		return clothColorService.setRandomColor(styleclothDao.selectAll(style));
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Style style, ClothCategory category) {
+	public List<ClothWithColor> getClothes(Style style, ClothCategory category) {
 		
-		return styleclothDao.selectAll(style, category);
-		
-	}
-
-	@Override
-	public List<Cloth> getClothes(Style style, Paging paging) {
-		
-		return styleclothDao.selectAll(style, paging);
+		return clothColorService.setRandomColor(styleclothDao.selectAll(style, category));
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Style style, ClothCategory category, Paging paging) {
-		return styleclothDao.selectAll(style, category, paging);
+	public List<ClothWithColor> getClothes(Style style, Paging paging) {
+		
+		return clothColorService.setRandomColor(styleclothDao.selectAll(style, paging));
+		
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(Style style, ClothCategory category, Paging paging) {
+		return clothColorService.setRandomColor(styleclothDao.selectAll(style, category, paging));
 	}
 
 	@Override
@@ -80,6 +84,19 @@ public class StyleClothService implements ClothService<Style, Cloth>{
 
 		return paging;
 		
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Style> selector, ClothCategory category) {
+		List<ClothWithColor> list = new ArrayList<>();
+		for (Style style : selector) 
+			list.addAll(getClothes(style, category));
+		return list;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Style> selector, ClothCategory category, Paging paging) {
+		return null;
 	}
 
 }

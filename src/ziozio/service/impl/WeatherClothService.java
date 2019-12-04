@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.WeatherClothDAO;
 import ziozio.dao.impl.WeatherClothDAOImpl;
 import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
@@ -17,28 +18,28 @@ import ziozio.service.face.ClothService;
  *
  * WeatherInfo 객체의 weather_name을 기준으로 쪼인 하여 옷을 검색한다.
  */
-public class WeatherClothService implements ClothService<WeatherInfo, Cloth>{
+public class WeatherClothService implements ClothService<WeatherInfo>{
 	
 	private WeatherClothDAO weatherclothDao = new WeatherClothDAOImpl();
 	
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo weather) {
+	public List<ClothWithColor> getClothes(WeatherInfo weather) {
 		return weatherclothDao.selectAll(weather);
 	}
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo weather, ClothCategory category) {
+	public List<ClothWithColor> getClothes(WeatherInfo weather, ClothCategory category) {
 		return weatherclothDao.selectAll(weather, category);
 	}
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo weather, Paging paging) {
+	public List<ClothWithColor> getClothes(WeatherInfo weather, Paging paging) {
 		return weatherclothDao.selectAll(weather, paging);
 	}
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo weather, ClothCategory category, Paging paging) {
+	public List<ClothWithColor> getClothes(WeatherInfo weather, ClothCategory category, Paging paging) {
 		return weatherclothDao.selectAll(weather, category, paging);
 	}
 

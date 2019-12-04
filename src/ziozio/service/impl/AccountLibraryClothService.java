@@ -1,5 +1,6 @@
 package ziozio.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.face.ClothService;
 
-public class AccountLibraryClothService implements ClothService<Account, ClothWithColor> {
+public class AccountLibraryClothService implements ClothService<Account> {
 
 	private ClothDAO clothDao = new ClothDAOImpl();
 	
@@ -81,7 +82,6 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 	 * @param cloth : cloth_code, color_code 를 활용
 	 */
 	public void addToLibrary(Account account, ClothWithColor cloth) {
-		
 		clothDao.addToLibrary(account, cloth);
 	}
 	
@@ -92,7 +92,16 @@ public class AccountLibraryClothService implements ClothService<Account, ClothWi
 	 * @param cloth : cloth_code, color_code 를 활용
 	 */
 	public void removeFromLibrary(Account account, ClothWithColor cloth) {
-		
 		clothDao.removeFromLibrary(account, cloth);
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Account> selector, ClothCategory category) {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Account> selector, ClothCategory category, Paging paging) {
+		return new ArrayList<>();
 	}
 }

@@ -7,37 +7,38 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.GenderClothDAO;
 import ziozio.dao.impl.GenderClothDAOImpl;
 import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.face.ClothService;
 
-public class GenderClothService implements ClothService<Character, Cloth> {
+public class GenderClothService implements ClothService<Character> {
 	
 	private GenderClothDAO genderclothDao = new GenderClothDAOImpl();
 
 	@Override
-	public List<Cloth> getClothes(Character gender) {
+	public List<ClothWithColor> getClothes(Character gender) {
 		
 		return genderclothDao.selectAll(gender);
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Character gender, ClothCategory category) {
+	public List<ClothWithColor> getClothes(Character gender, ClothCategory category) {
 		
 		return genderclothDao.selectAll(gender, category);
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Character gender, Paging paging) {
+	public List<ClothWithColor> getClothes(Character gender, Paging paging) {
 		
 		return genderclothDao.selectAll(gender, paging);
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Character gender, ClothCategory category, Paging paging) {
+	public List<ClothWithColor> getClothes(Character gender, ClothCategory category, Paging paging) {
 		
 		return genderclothDao.selectAll(gender, category, paging);
 		

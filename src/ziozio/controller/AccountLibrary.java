@@ -26,7 +26,7 @@ public class AccountLibrary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	private ClothService<Account, ClothWithColor> clothService = new AccountLibraryClothService();
+	private ClothService<Account> clothService = new AccountLibraryClothService();
 	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
