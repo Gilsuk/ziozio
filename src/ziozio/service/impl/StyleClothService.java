@@ -44,7 +44,6 @@ public class StyleClothService implements ClothService<Style, Cloth>{
 
 	@Override
 	public Paging getPaging(Style style, HttpServletRequest req) {
-		
 
 		//요청파라미터 curPage를 파싱한다
 		String param = req.getParameter("curPage");

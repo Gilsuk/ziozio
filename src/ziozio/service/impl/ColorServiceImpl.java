@@ -5,6 +5,7 @@ import java.util.stream.Stream;
 
 import ziozio.dao.face.ColorDAO;
 import ziozio.dao.impl.ColorDAOImpl;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Color;
 import ziozio.service.face.ColorService;
 
@@ -42,8 +43,17 @@ public class ColorServiceImpl implements ColorService {
 	}
 
 	@Override
-	public List<Color> getRandomColorList(int count) {
-		return null;
+	public Color extractColorFromClothWithColor(ClothWithColor cloth) {
+		Color color = new Color();
+		
+		color.setColor_brightness(cloth.getColor_brightness());
+		color.setColor_code(cloth.getColor_code());
+		color.setColor_hue_rotate(cloth.getColor_hue_rotate());
+		color.setColor_saturate(cloth.getColor_saturate());
+		color.setColot_invert(cloth.getColor_invert());
+		color.setColot_name(cloth.getColor_name());
+		
+		return color;
 	}
 
 }

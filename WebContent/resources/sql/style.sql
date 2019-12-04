@@ -1,4 +1,4 @@
-DROP TABLE style;
+DROP TABLE style CASCADE CONSTRAINT;
 
 CREATE TABLE style (
 	style_code NUMBER primary key,	

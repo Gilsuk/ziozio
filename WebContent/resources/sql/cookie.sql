@@ -1,4 +1,4 @@
-DROP TABLE cookie;
+DROP TABLE cookie CASCADE CONSTRAINT;
 
 CREATE TABLE cookie (
     cookie_id CHAR(8),
