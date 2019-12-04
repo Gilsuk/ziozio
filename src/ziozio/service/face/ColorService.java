@@ -2,7 +2,6 @@ package ziozio.service.face;
 
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Color;
-import ziozio.dto.WithColor;
 
 public interface ColorService {
 	

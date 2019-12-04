@@ -10,7 +10,7 @@ public interface ClothColorService<T extends Cloth> {
 	
 	ClothWithColor setRandomColor(T cloth);
 
-	ClothWithColor setRandomColor(List<T> clothes);
+	List<ClothWithColor> setRandomColor(List<T> clothes);
 	
 	ClothWithColor setColor(T cloth, Color color);
 

@@ -29,7 +29,6 @@ public class AccountCustom extends HttpServlet {
 		ClothService<Character, Cloth> clothService = new GenderClothService();
 		AccountService accountService = AccountServiceImpl.getInstance();
 
-
 		try {
 			Account account = accountService.getLoggedInAccount(req);
 
