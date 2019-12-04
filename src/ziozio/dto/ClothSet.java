@@ -1,5 +1,8 @@
 package ziozio.dto;
 
+import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.exception.ClothCategoryNotMatched;
+
 public class ClothSet implements DTO {
 	
 	private int clost_set_no;
@@ -20,20 +23,29 @@ public class ClothSet implements DTO {
 	public ClothWithColor getTop() {
 		return top;
 	}
-	public void setTop(ClothWithColor top) {
-		this.top = top;
+	public void setTop(ClothWithColor top) throws ClothCategoryNotMatched {
+		if (top.getCloth_category_name() == ClothCategory.TOP.getDbValue())
+			this.top = top;
+		else
+			throw new ClothCategoryNotMatched();
 	}
 	public ClothWithColor getBottom() {
 		return bottom;
 	}
-	public void setBottom(ClothWithColor bottom) {
-		this.bottom = bottom;
+	public void setBottom(ClothWithColor bottom) throws ClothCategoryNotMatched {
+		if (bottom.getCloth_category_name() == ClothCategory.BOTTOM.getDbValue())
+			this.bottom = bottom;
+		else
+			throw new ClothCategoryNotMatched();
 	}
 	public ClothWithColor getOuter() {
 		return outer;
 	}
-	public void setOuter(ClothWithColor outer) {
-		this.outer = outer;
+	public void setOuter(ClothWithColor outer) throws ClothCategoryNotMatched {
+		if (outer.getCloth_category_name() == ClothCategory.OUTER.getDbValue())
+			this.outer = outer;
+		else
+			throw new ClothCategoryNotMatched();
 	}
 
 }

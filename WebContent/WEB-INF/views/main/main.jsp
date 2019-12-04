@@ -101,7 +101,7 @@
 <br>
 
 <c:if test="${not empty account }">
-	<div class="text-center"><h2>${account.account_nick } 님 로그인되었습니다.</h2></div>
+	<div class="text-center font-dohyeon"><h2>${account.account_nick } 님 로그인되었습니다.</h2></div>
 </c:if>
 
 

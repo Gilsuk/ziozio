@@ -4,10 +4,7 @@ CREATE TABLE account_like (
 	cloth_category_code NUMBER,
 	CONSTRAINT account_like_to_account_fk
 	FOREIGN KEY ( account_no )
-	REFERENCES account ( account_no ),
-    CONSTRAINT account_like_to_cloth_set_fk
-	FOREIGN KEY ( cloth_set_no, cloth_category_code )
-	REFERENCES cloth_set ( cloth_set_no, cloth_category_code )
+	REFERENCES account ( account_no )
 );
 
 ALTER TABLE account_like

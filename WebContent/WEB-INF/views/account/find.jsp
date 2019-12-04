@@ -34,7 +34,7 @@
 			<div class="form-group">	
 				<a href="/account/find">
 
-					<input type="submit" class="btn btn-primory form-control input color font-dohyeon" value="다음">
+					<input type="submit" class="btn btn-primory form-control input color font-gothic" value="다음">
 
 				</a>
 			</div>	

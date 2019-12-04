@@ -84,7 +84,7 @@
 				</c:if>  --%>
 				
 				<div class="form-group" >
-					<input  type="submit" class="btn btn-primory form-control input color font-dohyeon" value="로그인" />
+					<input  type="submit" class="btn btn-primory form-control input color font-gothic" value="로그인" />
 				</div>
 			
 			</form>

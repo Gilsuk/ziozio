@@ -51,16 +51,16 @@ $(document).ready(function() {
 
 <div class="container">
 
-<h3>게시글 쓰기</h3>
+<h2 class="font-dohyeon">게시글 쓰기</h2>
 <hr>
 
 <div>
 <form action="/qnawrite" method="post" enctype="multipart/form-data">
 <table class="table table-bordered">
 
-<tr><td class="info">닉네임</td><td>${account.account_nick }</td></tr>
-<tr><td class="info">제목</td><td><input type="text" name="title" style="width:100%"/></td></tr>
-<tr><td class="info" colspan="2">본문</td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC">닉네임</td><td>${account.account_nick }</td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC">제목</td><td><input type="text" name="title" style="width:100%"/></td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC" colspan="2">본문</td></tr>
 <tr><td colspan="2"><textarea id="content" name="content"></textarea></td></tr>
 </table>
 
@@ -70,8 +70,10 @@ $(document).ready(function() {
 </div>
 
 <div class="text-center">	
-	<button type="button" id="btnWrite" class="btn btn-warning">작성</button>
-	<button type="button" id="btnCancel" class="btn btn-warning">취소</button>
+	<button type="button" id="btnWrite" class="btn" 
+	style="background-color: #FFD2BD">작성</button>
+	<button type="button" id="btnCancel" class="btn" 
+	style="background-color: #FF6060">취소</button>
 </div>
 </div>
 

@@ -1,5 +1,5 @@
 
-//개인정보 처리방침 컨트롤러
+//약관 컨트롤러 
 
 package JIOcontroller;
 
@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class personal_information_controller
+ * Servlet implementation class clause_controller
  */
-@WebServlet("/personal")
-public class personal_information_controller extends HttpServlet {
+@WebServlet("/clause")
+public class clause_controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/jio/personal_information.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/jio/clause.jsp").forward(req, resp);
 	}
 
 }
