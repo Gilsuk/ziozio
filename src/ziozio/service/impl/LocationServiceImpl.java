@@ -73,7 +73,6 @@ public class LocationServiceImpl implements LocationService {
 		try {
 			link = new URL(url);
 		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -85,7 +84,6 @@ public class LocationServiceImpl implements LocationService {
 
 			StringBuilder sb = new StringBuilder();
 			if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
-				//Stream을 처리해줘야 하는 귀찮음이 있음. 
 				BufferedReader br = new BufferedReader(
 						new InputStreamReader(con.getInputStream(), "utf-8"));
 				String line;
@@ -100,7 +98,6 @@ public class LocationServiceImpl implements LocationService {
 			return sb.toString();
 			
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
