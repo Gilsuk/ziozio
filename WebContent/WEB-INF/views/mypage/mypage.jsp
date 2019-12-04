@@ -22,7 +22,7 @@
 <div class="wrapper">
 <div class="container center">
 <div class="jumbotron padding" style="background-color: #FFF2EC">
-<h1 class="font-dohyeon">My Page</h1><br><br>
+<h1 class="font-dohyeon">MY PAGE</h1><br><br>
 <div class="row">
 <div class="col-lg-12 font-dohyeon">
 	<div class="form-inline">
@@ -36,9 +36,9 @@
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<a href="/account/join"><img src="/resources/img/test2.jpg" style="height: 160px;" alt="..."></a>
+				<a href="/account/likeroom"><img src="/resources/img/test2.jpg" style="height: 160px;" alt="..."></a>
 			<div class="caption">
-				<h3><a href="/account/join">LIKE</a></h3>
+				<h3><a href="/account/likeroom">LIKE ROOM</a></h3>
 			</div>
 			</div>
 		</div>
@@ -55,9 +55,9 @@
 	<div class="form-inline">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<a href="/account/join"><img src="/resources/img/test6.png" style="height: 160px;" alt="..."></a>
+				<a href="/account/custom"><img src="/resources/img/test6.png" style="height: 160px;" alt="..."></a>
 			<div class="caption">
-				<h3><a href="/account/join">CUSTOM</a></h3>
+				<h3><a href="/account/custom">CUSTOM</a></h3>
 			</div>
 			</div>
 		</div>

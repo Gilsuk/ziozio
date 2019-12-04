@@ -14,7 +14,7 @@
 <div class="wrapper">
 <div class="con center">
 <div class="jumbotron padding" >
-<h2>MY ROOM</h2><br><br>
+<h2>LIKE ROOM</h2><br><br>
 <div class="row">
 	<div class="col-lg-12">
 	<div class="col-lg-1"></div>
