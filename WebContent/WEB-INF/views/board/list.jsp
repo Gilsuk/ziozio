@@ -32,6 +32,10 @@ tr td:not(:first-child), tr th:not(:first-child) {
 
 </style>
 
+<div class="marginauto">
+   <a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
+</div>
+
 <div id="wrap">
 <div class="container">
 	

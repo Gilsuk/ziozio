@@ -106,9 +106,23 @@ function locationError(error){
 	</div>
 	<div style="background-color: #FFF" class="collapse navbar-collapse font-dohyeon" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="/main">메인</a></li>
-			<li><a href="/board/list">게시판</a></li>
-			<li><a href="/"><button id="btn">내위치확인</button></a></li>
+		<c:choose>
+			<c:when test="${not empty account }">
+				<li><a href="/main">메인</a></li>
+				<li><a href="/mypage">마이페이지</a></li>
+				<li><a href="/board/list">게시판</a></li>
+				<li><a href="/awarded">column</a></li>
+				<li><a href="/qnalist">QnA</a></li>
+				<li><a href="/"><button id="btn">내위치확인</button></a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="/account/join">회원가입</a></li>
+				<li><a href="/account/restoresession">로그인</a></li>
+				<li><a href="/account/find">비밀번호 찾기</a></li>
+				<li><a href="/board/list">게시판</a></li>
+				<li><a href="/awarded">column</a></li>
+			</c:otherwise>
+		</c:choose>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
@@ -118,7 +132,7 @@ function locationError(error){
 				<ul class="dropdown-menu" style="width: 200px;" >
 				<c:choose>
 					<c:when test="${not empty account }">
-					WELCOME ${account.account_nick}님<hr>
+						<li><a href="/mypage">WELCOME ${account.account_nick}님</a></li><hr>
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/awarded">column</a></li>

@@ -75,7 +75,7 @@ $(document).ready(function() {
 </div>
 </div>
 
-<jsp:include page="../layout/footer.jsp" />
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 
 
 <!-- 스마트 에디터 적용 코드 -->

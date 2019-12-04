@@ -1,4 +1,4 @@
-package ziozio.controller.qna;
+package ziozio.controller;
 
 import java.io.IOException;
 
