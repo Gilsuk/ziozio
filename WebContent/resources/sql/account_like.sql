@@ -7,11 +7,7 @@ CREATE TABLE account_like (
     -- account, cloth_combined 테이블과 외래키 연결
 	CONSTRAINT account_like_to_account_fk
 	FOREIGN KEY ( account_no )
-	REFERENCES account ( account_no ),
-    -- 외래키
-    CONSTRAINT account_like_to_cloth_set_fk
-	FOREIGN KEY ( cloth_set_no, cloth_category_code )
-	REFERENCES cloth_set ( cloth_set_no, cloth_category_code )
+	REFERENCES account ( account_no )
 );
 
 ALTER TABLE account_like
