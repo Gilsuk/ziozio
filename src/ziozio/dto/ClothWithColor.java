@@ -1,6 +1,6 @@
 package ziozio.dto;
 
-public class ClothWithColor extends Cloth {
+public class ClothWithColor extends Cloth implements DTO, WithColor {
 	private int color_code;
 	private String color_name;
 	private int color_hue_rotate;

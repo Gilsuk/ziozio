@@ -43,8 +43,8 @@ public class ColorDAOImpl implements ColorDAO {
 			color.setColor_code(rs.getInt("color_code"));
 			color.setColor_hue_rotate(rs.getInt("color_hue_rotate"));
 			color.setColor_saturate(rs.getInt("color_saturate"));
-			color.setColot_invert(rs.getInt("color_invert"));
-			color.setColot_name(rs.getString("color_name"));
+			color.setColor_invert(rs.getInt("color_invert"));
+			color.setColor_name(rs.getString("color_name"));
 		} catch (SQLException e) { e.printStackTrace(); }
 
 		return color;
