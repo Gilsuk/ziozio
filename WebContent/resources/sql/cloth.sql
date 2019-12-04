@@ -9,15 +9,15 @@ CREATE TABLE cloth (
 	cloth_link_url VARCHAR2(255) NOT NULL,
 	cloth_gender CHAR(1) NOT NULL,
 	cloth_img VARCHAR2(255) DEFAULT '/resource/img/clothes/default.png' NOT NULL,
-    
+	-- 외래키
     CONSTRAINT cloth_to_cloth_category_fk
 	FOREIGN KEY ( cloth_category_code )
 	REFERENCES cloth_category ( cloth_category_code ),
-    
+	-- 제약조건
     CONSTRAINT cloth_gender_ck
 	CHECK (cloth_gender IN('N', 'M', 'F'))
-    
 );
+
 CREATE SEQUENCE cloth_seq;
 
 CREATE OR REPLACE TRIGGER cloth_on_insert_trg
@@ -152,4 +152,3 @@ VALUES (3, '롱패딩', 'https://store.musinsa.com/app/product/detail/1094521/0'
 commit;
 
 SELECT * FROM cloth;
-rollback;

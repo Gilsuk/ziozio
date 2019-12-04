@@ -3,15 +3,14 @@ DROP TABLE cloth_weather CASCADE CONSTRAINT;
 CREATE TABLE cloth_weather (
 	cloth_code NUMBER,
 	weather_code NUMBER,
-    
+	-- 외래키
     CONSTRAINT cloth_weather_to_cloth_co_fk
 	FOREIGN KEY ( cloth_code )
 	REFERENCES cloth ( cloth_code ),
-    
+	-- 외래키
     CONSTRAINT cloth_weather_to_weather_co_fk
 	FOREIGN KEY ( weather_code )
 	REFERENCES weather ( weather_code )    
-    
 );
 
 ALTER TABLE cloth_weather

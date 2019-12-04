@@ -8,8 +8,8 @@ CREATE TABLE weather_info (
 	temperature_grade_code NUMBER NOT NULL,
 	weather_info_temperature NUMBER NOT NULL,
 	weather_info_finedust NUMBER NOT NULL
-
 );
+
 ALTER TABLE weather_info
 ADD CONSTRAINT weather_info_to_location_fk
 FOREIGN KEY ( location_code )
@@ -153,13 +153,6 @@ INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.03 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 2, 0, 0);
 
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.03 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 3, 0, 0);
-
-
-
-
 --1168091100:역삼1동 / 2019.12.04
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
@@ -256,12 +249,6 @@ VALUES (to_date('2019.12.04 22:00','yyyy.mm.dd hh24:mi'), 1168091100, 1, 34, 161
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.04 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 4, -30, 173);
-
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.04 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 4, -15, 160);
-
-
 
 --1168091100:역삼1동 / 2019.12.05
 INSERT INTO weather_info (weather_info_date, location_code,
@@ -360,12 +347,6 @@ INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.05 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 3, 43, 4);
 
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.05 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 1, 4, 7);
-
------------------------------------------------------------------------------------------
-
 --1165090200:서초2동 / 2019.12.03
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
@@ -462,12 +443,6 @@ VALUES (to_date('2019.12.03 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 4.5, 55
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.03 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, -2, 50);
-
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.03 24:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.2, 30);
-
-
 
 --1165090200:서초2동 / 2019.12.04
 INSERT INTO weather_info (weather_info_date, location_code,
@@ -566,12 +541,6 @@ INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.04 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 12, 5);
 
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.04 24:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 1, 12);
-
-
-
 --1165090200:서초2동 / 2019.12.05
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
@@ -668,9 +637,5 @@ VALUES (to_date('2019.12.05 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, -2, 130
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.05 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2, 10);
-
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.05 24:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 12, 27);
 
 SELECT * FROM weather_info;
