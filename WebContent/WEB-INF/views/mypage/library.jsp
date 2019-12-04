@@ -7,45 +7,58 @@
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
 <div class="marginauto">
-    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
+   <a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
 </div>
 
 
 <div class="wrapper">
-<div class="container center">
+<div class="con center">
 <div class="jumbotron padding" >
 <h2>My Room</h2><br><br>
 <div class="row">
 <div class="col-lg-12">
-	<h3>TOP</h3>
-	<div class="form-inline">
-	<c:forEach items="${clothListTop }" var="cloth">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
-		</div>
-	</c:forEach>
-	</div>
 
-    	
-	<h3>BOTTOM</h3>
+<div class="col-lg-12">
+	<h3 class="text left">TOP</h3>
 	<div class="form-inline">
-	<c:forEach items="${clothListBottom }" var="cloth">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+		<div class="col-lg-1"></div>
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			<c:forEach items="${clothListTop }" var="cloth">
+				<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+			</c:forEach>
 		</div>
-	</c:forEach>
+		<div class="col-lg-1"></div>
 	</div>
+</div>
 
-	
-	<h3>OUTER</h3>
+<div class="col-lg-12">    	
+	<h3 class="text left">BOTTOM</h3>
 	<div class="form-inline">
-	<c:forEach items="${clothListOuter }" var="cloth">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+		<div class="col-lg-1"></div>
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			<c:forEach items="${clothListBottom }" var="cloth">
+				<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+			</c:forEach>
 		</div>
-	</c:forEach>
-	</div>	
+		<div class="col-lg-1"></div>
+	</div>
+</div>
+
+<div class="col-lg-12">	
+	<h3 class="text left">OUTER</h3>
+	<div class="form-inline">
+		<div class="col-lg-1"></div>
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			<c:forEach items="${clothListOuter }" var="cloth">
+				<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+			</c:forEach>
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+</div>	
+<div>
 <jsp:include page="/WEB-INF/views/layout/paging_library.jsp" />	
+</div>
 </div>	
 </div>
 </div>

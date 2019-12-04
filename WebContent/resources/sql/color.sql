@@ -1,6 +1,6 @@
 DROP TRIGGER color_on_insert_trg;
 DROP SEQUENCE color_seq;
-DROP TABLE color;
+DROP TABLE color CASCADE CONSTRAINT;
 
 CREATE TABLE color (
 	color_code NUMBER primary key,
@@ -8,14 +8,9 @@ CREATE TABLE color (
 	color_hue_rotate NUMBER NOT NULL,
 	color_saturate NUMBER NOT NULL,
 	color_brightness NUMBER NOT NULL,
-    
-    CONSTRAINT color_hue_rotate_ck
-	CHECK (color_hue_rotate BETWEEN 0 AND 450),
-
-    CONSTRAINT color_saturate_ck
-	CHECK (color_saturate BETWEEN 0 AND 1)
-    
+	color_invert NUMBER NOT NULL
 );
+
 CREATE SEQUENCE color_seq;
 
 -- 아래 트리거 생성 코드는 이클립스에서 실행 안됨

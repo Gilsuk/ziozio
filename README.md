@@ -21,33 +21,32 @@
 ---------아니 오늘 회의한거 다 날려버림 왜지...죄송합니다 여러분...각자 기억력을 되살려보아요ㅜㅜ...
 - ClothDAOImpl 450행 중복처리 SQLException 해야됨!!
 ## sql 쿼리 작동 순서
-sql문 완성된 테이블은 (*) 마크를 붙임
 
 ### account
-1. account_grade*
-2. account*
-3. cookie*
+1. account_grade
+2. account
+3. cookie
 
 ### weather
-1. location*
-2. weather*
-3. temperature_grade*
-4. weather_info* (더미데이터 필요)
+1. location
+2. weather
+3. temperature_grade
+4. weather_info
 
 ### cloth
-1. cloth_category*
-2. style* (데이터 필요)
-3. cloth* (데이터 필요)
-4. color* (데이터 필요)
-5. cloth_set* (데이터 필요)
+1. cloth_category
+2. style
+3. cloth
+4. color
+5. cloth_set
 
 ### 아래 테이블들은 위 작업 이후 순서 없이 작동 가능
-- cloth_style* (데이터)
-- cloth_weather* (need more datas)
-- cloth_temperature_grade* (데이터 부족)
-- account_style*
-- account_library*
-- account_like*
+- cloth_style
+- cloth_weather
+- cloth_temperature_grade
+- account_style
+- account_library
+- account_like
 
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css

@@ -84,7 +84,7 @@ $(document).ready(function() {
 
 <div class="container ">
 	<div class="marginauto">
-  		<img class="ziozio" src='/resources/img/ZIOZIO.png' >
+  		<a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
   	</div>
 </div>
 

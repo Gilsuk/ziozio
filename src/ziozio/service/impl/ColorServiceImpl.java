@@ -53,7 +53,7 @@ public class ColorServiceImpl implements ColorService {
 		color.setColot_invert(cloth.getColor_invert());
 		color.setColot_name(cloth.getColor_name());
 		
-		return null;
+		return color;
 	}
 
 }

@@ -21,12 +21,8 @@ tr td:not(:first-child), tr th:not(:first-child) {
 </style>
 
 <div class="marginauto">
-    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
+    <a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
 </div>
-
-
-
-
 
 <div class="container bootstrap snippet">
 	<div class="row">
@@ -77,3 +73,4 @@ tr td:not(:first-child), tr th:not(:first-child) {
 		<div class="col-lg-1"></div>
 	</div>	
 </div>
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />

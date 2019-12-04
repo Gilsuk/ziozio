@@ -1,4 +1,4 @@
-DROP TABLE weather;
+DROP TABLE weather CASCADE CONSTRAINT;
 
 CREATE TABLE weather (
 	weather_code NUMBER PRIMARY KEY,

@@ -18,7 +18,15 @@
 .right{
 	text-align: right;
 }
-
+.left{
+	text-align: left;
+}
+.con{
+	padding-right: 300px !important;
+    padding-left: 300px !important;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 
 .input{

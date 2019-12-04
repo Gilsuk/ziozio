@@ -1,4 +1,4 @@
-drop table qna;
+drop table qna CASCADE CONSTRAINT;
 create table qna (
     account_no number not null, 
     qna_no number primary key,

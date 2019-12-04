@@ -1,4 +1,4 @@
-DROP TABLE temperature_grade;
+DROP TABLE temperature_grade CASCADE CONSTRAINT;
 
 CREATE TABLE temperature_grade (
 	temperature_grade_code NUMBER PRIMARY KEY,

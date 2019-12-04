@@ -1,14 +1,13 @@
-DROP TABLE cloth_style;
+DROP TABLE cloth_style CASCADE CONSTRAINT;
 
 CREATE TABLE cloth_style (
 	cloth_code NUMBER,
 	style_code NUMBER,
-	
     -- cloth, style 테이블과 외래키 연결
 	CONSTRAINT cloth_style_to_cloth_code_fk
 	FOREIGN KEY ( cloth_code )
 	REFERENCES cloth ( cloth_code ),
-    
+	-- 외래키
     CONSTRAINT cloth_style_to_style_code_fk
 	FOREIGN KEY ( style_code )
 	REFERENCES style ( style_code )	
@@ -215,8 +214,6 @@ VALUES (24, 7);
 
 INSERT INTO CLOTH_STYLE (cloth_code, style_code)
 VALUES (24, 8);
-
-
 
 commit;
 
