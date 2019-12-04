@@ -8,5 +8,7 @@ public interface ColorService {
 	Color getRandomColor();
 	
 	Color extractColorFromClothWithColor(ClothWithColor cloth);
-
+	
+	Color getColorByName(Color color);
+	
 }

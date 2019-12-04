@@ -22,26 +22,38 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 	private ResultSet rs = null;
 
 //	public static void main(String[] args) {
-//		        				 		
-//		 
+//		        		
+//		WeatherInfoDAOImpl infoDao = new WeatherInfoDAOImpl();
+//		
+//		Location loc = new Location();
+//		loc.setLocation_name("서울특별시 서초구 서초2동");
+////		loc.setLocation_code(1165090200);
+//		WeatherInfo info = infoDao.selectAll(loc);
+//		
+//		System.out.println(info);
 //	}
 	
 	@Override
 	public WeatherInfo selectAll(Location loc) {
+		
+		//TEST까지 했음
 
 		conn = DBConn.getConnection(); // DB 연결
 		
 		String sql = "";
 		sql += "SELECT ";
 		sql +="		wi.weather_info_date";
+		sql +="     , wi.temperature_grade_code";
 		sql +="     , l.location_name";
+		sql +="     , l.location_code";
 		sql +="     , w.weather_name";
 		sql +="     , wi.weather_info_temperature";
 		sql +="     , wi.weather_info_finedust";
 		sql +="     FROM location L, weather_info WI, weather W";
 		sql +="     WHERE l.location_code = wi.location_code";
 		sql +="     AND W.weather_code = wi.weather_code";
-		sql +="     AND W.weather_info_date = to_date(?, 'yyyy-mm-dd hh24')";
+		sql +="     AND L.location_name = ?";
+		sql +="     AND WI.weather_info_date = to_date(?, 'yyyy.mm.dd hh24')";
 
 		// 최종 결과를 저장할 List
 		WeatherInfo info = new WeatherInfo();		
@@ -49,10 +61,11 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 		try {
 			// SQL 수행 객체
 			ps = conn.prepareStatement(sql);
-			SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd HH");
+			SimpleDateFormat format = new SimpleDateFormat ( "yyyy.MM.dd HH");
 			String format_time = format.format (System.currentTimeMillis());
 			
-			ps.setString(1, format_time);
+			ps.setString(1, loc.getLocation_name());
+			ps.setString(2, format_time);
 			
 			// SQL 수행 및 결과 저장
 			rs = ps.executeQuery();
@@ -69,6 +82,7 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 				weather.setTemperature_grade_code(rs.getInt("temperature_grade_code"));
 
 				
+				return weather;
 			}
 
 		} catch (SQLException e) {
@@ -84,17 +98,38 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 			}
 		}
 		
-		return info;
+		return null;
 	}
 
+	
+//	public static void main(String[] args) {
+//
+//		WeatherInfoDAOImpl infoDao = new WeatherInfoDAOImpl();
+//
+//		Location loc = new Location();
+//		loc.setLocation_name("서울특별시 서초구 서초2동");
+//		List<WeatherInfo> list = infoDao.selectAll(loc, 10);
+//		
+//		for (WeatherInfo weatherInfo : list) {
+//			System.out.println(weatherInfo);
+//		}
+//
+//	}
+	
+	
 	@Override
 	public List<WeatherInfo> selectAll(Location loc, int count) {
 		
-conn = DBConn.getConnection(); // DB 연결
+		//TEST까지 했음
+		
+		conn = DBConn.getConnection(); // DB 연결
 		
 		String sql = "";
+		sql += "SELECT * FROM (";
+		sql += "SELECT rownum rnum, B.* FROM (";
 		sql += "SELECT ";
 		sql +="		wi.weather_info_date";
+		sql +="     , wi.temperature_grade_code";
 		sql +="     , l.location_name";
 		sql +="     , w.weather_name";
 		sql +="     , wi.weather_info_temperature";
@@ -102,18 +137,27 @@ conn = DBConn.getConnection(); // DB 연결
 		sql +="     FROM location L, weather_info WI, weather W";
 		sql +="     WHERE l.location_code = wi.location_code";
 		sql +="     AND W.weather_code = wi.weather_code";
-		sql +="     AND W.weather_info_date = to_date(?, 'yyyy-mm-dd hh24')";
+		sql +="     AND L.location_name = ?";
+		sql +="     AND WI.weather_info_date BETWEEN to_date( ?, 'yyyy-mm-dd hh24')";
+		sql +="     AND to_date( ?, 'yyyy-mm-dd hh24')+1";
+		sql += "    ) B";
+		sql += "    ORDER BY rnum";
+		sql += " ) WEATHER";
+		sql += " WHERE rnum <= ?";
 
 		// 최종 결과를 저장할 List
-		List<WeatherInfo> list = new ArrayList<WeatherInfo>();		
+		List<WeatherInfo> weatherinfos = new ArrayList<WeatherInfo>();		
 		
 		try {
 			// SQL 수행 객체
 			ps = conn.prepareStatement(sql);
-			SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd HH");
+			SimpleDateFormat format = new SimpleDateFormat ( "yyyy.MM.dd HH");
 			String format_time = format.format (System.currentTimeMillis());
 			
-			ps.setString(1, format_time);
+			ps.setString(1, loc.getLocation_name());
+			ps.setString(2, format_time);
+			ps.setString(3, format_time);
+			ps.setInt(4, count);
 			
 			// SQL 수행 및 결과 저장
 			rs = ps.executeQuery();
@@ -129,7 +173,7 @@ conn = DBConn.getConnection(); // DB 연결
 				weather.setWeather_info_finedust(rs.getDouble("weather_info_finedust"));
 				weather.setTemperature_grade_code(rs.getInt("temperature_grade_code"));
 
-				list.add(weather);
+				weatherinfos.add(weather);
 				
 			}
 
@@ -146,7 +190,7 @@ conn = DBConn.getConnection(); // DB 연결
 			}
 		}
 		
-		return list;
+		return weatherinfos;
 	}	
 
 }
