@@ -7,14 +7,21 @@
 
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
+<!-- MgrBoard 게시물관리화면-->
 
-<title>관리자 게시판</title>
-div#circle { 
-	background: #f00; 
+<style type="text/css">
+
+#circle { 
+	background: #b2faf3; 
 	width: 200px; 
 	height: 200px;
 	border-radius: 50; 
+	text-align: center;
 }
+</style>
+<a href></a>
+<div id="circle">게시판 관리</div>
+
 
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

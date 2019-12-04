@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/MgrBoard")
-public class MgrBoard extends HttpServlet {
+public class MgrBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
