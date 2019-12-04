@@ -114,7 +114,7 @@ function locationError(error){
 				<li><a href="/board/list">게시판</a></li>
 				<li><a href="/awarded">column</a></li>
 				<li><a href="/qnalist">QnA</a></li>
-				<li><a href="/"><button id="btn">내위치확인</button></a></li>
+				<li><a href="/">내위치확인</a></li>
 			</c:when>
 			<c:otherwise>
 				<li><a href="/account/join">회원가입</a></li>
