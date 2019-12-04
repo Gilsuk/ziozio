@@ -91,22 +91,22 @@ $(document).ready(function() {
 
 <div id="sliderbox" style="border: 1px solid #FFF;">
 	<ul id="slider">
-		<li><img src="/resources/img/look/transit_coat.png" /></li>
-		<li><img src="/resources/img/look/tteokbokki_coat.png" /></li>
-		<li><img src="/resources/img/look/leather_jacket.png" /></li>
-		<li><img src="/resources/img/look/night_trading.png" /></li>
-		<li><img src="/resources/img/look/hoodie.png" /></li>
+		<li><img src="/resources/img/look/trench_coat.png" /></li>
+		<li><img src="/resources/img/look/trucker_jacket.png" /></li>
+		<li><img src="/resources/img/look/duffle_coat.png" /></li>
+		<li><img src="/resources/img/look/baseball_jumper.png" /></li>
+		<li><img src="/resources/img/look/thin_cardigan.png" /></li>
 		<li><img src="/resources/img/look/long_padding.png" /></li>
-		<li><img src="/resources/img/look/short_padding.png" /></li>
-		<li><img src="/resources/img/look/check_muffler.png" /></li>
-		<li><img src="/resources/img/look/slacks.png" /></li>
+		<li><img src="/resources/img/look/hoodie.png" /></li>
+		<li><img src="/resources/img/look/high_west.png" /></li>
+		<li><img src="/resources/img/look/cargo.png" /></li>
 	</ul>
 </div>
 
 <br>
 
 <c:if test="${not empty account }">
-	<div class="text-center"><h2>${account.account_nick } 님 로그인되었습니다.</h2></div>
+	<div class="text-center font-dohyeon"><h2>${account.account_nick } 님 로그인되었습니다.</h2></div>
 </c:if>
 
 

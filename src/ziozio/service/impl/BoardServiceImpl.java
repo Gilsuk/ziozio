@@ -324,7 +324,7 @@ public class BoardServiceImpl implements BoardService {
 							board.setContent( item.getString("utf-8") );
 						}
 
-						board.setId(((Account) req.getSession().getAttribute("Account")).getAccount_nick());
+						board.setId(((Account) req.getSession().getAttribute("account")).getAccount_nick());
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}

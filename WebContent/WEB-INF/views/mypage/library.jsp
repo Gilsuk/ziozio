@@ -13,13 +13,13 @@
 
 <div class="wrapper">
 <div class="con center">
-<div class="jumbotron padding" >
-<h2>My Room</h2><br><br>
+<div class="jumbotron padding" style="background-color: #FFF2EC">
+<h1 class="font-dohyeon">My Room</h1><br><br>
 <div class="row">
 <div class="col-lg-12">
 
 <div class="col-lg-12">
-	<h3 class="text left">TOP</h3>
+	<h3 class="text left font-dohyeon">TOP</h3>
 	<div class="form-inline">
 		<div class="col-lg-1"></div>
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -32,7 +32,7 @@
 </div>
 
 <div class="col-lg-12">    	
-	<h3 class="text left">BOTTOM</h3>
+	<h3 class="text left font-dohyeon">BOTTOM</h3>
 	<div class="form-inline">
 		<div class="col-lg-1"></div>
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -45,7 +45,7 @@
 </div>
 
 <div class="col-lg-12">	
-	<h3 class="text left">OUTER</h3>
+	<h3 class="text left font-dohyeon">OUTER</h3>
 	<div class="form-inline">
 		<div class="col-lg-1"></div>
 		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
