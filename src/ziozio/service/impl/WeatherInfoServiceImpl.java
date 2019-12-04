@@ -31,9 +31,30 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 		return null;
 	}
 
+	public static void main(String[] args) {
+
+		WeatherInfoDAOImpl infoDao = new WeatherInfoDAOImpl();
+		WeatherInfoService infoSiv = new WeatherInfoServiceImpl();
+		
+		Location loc = new Location();
+		loc.setLocation_name("서울특별시 서초구 서초2동");
+		String str = "흐림";
+		
+		List<WeatherInfo> weatherInfos = infoSiv.getWeatherInfos(loc, 1);
+
+//		Location loc = new Location();
+//		loc.setLocation_name("서울특별시 서초구 서초2동");
+//		List<WeatherInfo> weatherinfos = infoDao.selectAll(loc, 10);
+//		
+		for (WeatherInfo weatherInfo : weatherInfos) {
+			System.out.println(weatherInfo);
+		}
+
+	}
+	
 	@Override
 	public WeatherInfo getRepresentativeWeatherInfo(List<WeatherInfo> weatherInfos) {
-		// TODO Auto-generated method stub
+				
 		return null;
 	}
 
@@ -57,7 +78,9 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 
 	@Override
 	public boolean willItBeRainOrSnow(List<WeatherInfo> weatherInfos) {
-		// TODO Auto-generated method stub
+
+	
+		
 		return false;
 	}
 
