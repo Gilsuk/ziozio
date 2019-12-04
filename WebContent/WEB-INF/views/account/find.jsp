@@ -20,21 +20,21 @@
 </div>
 
 <div id="wrap">
-<div class="container">
+<div class="container" >
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
-		<div class="jumbotron padding" >
+		<div class="jumbotron padding" style="background-color: #FFF2EC">
 			<form name="loginInfo" method="post" action="/account/find" onsubmit="return checkValue()">
-				<h3 class="center">비밀번호 찾기</h3><br>
+				<h3 class="center font-dohyeon">비밀번호 찾기</h3><br>
 				<div class="form-group">
-					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" name="account_email" maxlength="50"/>
+					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" class="font-gothic" name="account_email" maxlength="50"/>
 				</div>
 				
 			</form>
 			<div class="form-group">	
 				<a href="/account/find">
 
-					<input type="submit" class="btn btn-primory form-control input color" value="다음">
+					<input type="submit" class="btn btn-primory form-control input color font-dohyeon" value="다음">
 
 				</a>
 			</div>	

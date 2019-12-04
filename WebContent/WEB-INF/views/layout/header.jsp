@@ -108,7 +108,7 @@ function locationError(error){
 		<ul class="nav navbar-nav">
 			<li><a href="/main">메인</a></li>
 			<li><a href="/board/list">게시판</a></li>
-			<li><a href="/"><button id="btn">내위치확인</button></a></li>
+			<li><a href="/">내위치확인</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">

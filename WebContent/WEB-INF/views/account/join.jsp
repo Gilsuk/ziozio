@@ -109,30 +109,30 @@
 <div class="container">
 	<div class="col-lg-3"></div>
 	<div class="col-lg-6">
-		<div class="jumbotron padding" >
+		<div class="jumbotron padding" style="background-color: #FFF2EC" >
 			<form name="loginInfo" method="post" action="/account/join" onsubmit="Freturn checkValue()">
-				<h3 class="center">회원가입</h3><br>
+				<h2 class="center font-dohyeon">회원가입</h2><br>
 				<div class="form-group">
 					<div class="form-inline" >
-						<input type="email" class="form-control" style="width: 330px;" placeholder="아이디(이메일)" name="account_email" id="account_email" maxlength="100"/>
-						<button class="btn tn-primary input" onclick="emailCheckFunction();" type="button">중복체크</button>
+						<input type="email" class="form-control font-gothic" style="width: 330px;" placeholder="아이디(이메일)" name="account_email" id="account_email" maxlength="100"/>
+						<button class="btn tn-primary input font-gothic" onclick="emailCheckFunction();" type="button">중복체크</button>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw" id="account_pw" maxlength="50"/>
+					<input type="password" class="form-control font-gothic" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw" id="account_pw" maxlength="50"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw2" id="account_pw2" maxlength="50"/>
+					<input type="password" class="form-control font-gothic" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw2" id="account_pw2" maxlength="50"/>
 				<h5 style="color: red;" id="pwCheckMessage"></h5> 
 				</div>
 				<div class="form-group">
 					<div class="form-inline" >
-						<input type="text" class="form-control" style="width: 330px;" placeholder="닉네임" name="account_nick" id="account_nick" maxlength="50"/>
-						<button class="btn tn-primary input" onclick="nickCheckFunction();" type="button">중복체크</button>
+						<input type="text" class="form-control font-gothic" style="width: 330px;" placeholder="닉네임" name="account_nick" id="account_nick" maxlength="50"/>
+						<button class="btn tn-primary input font-gothic" onclick="nickCheckFunction();" type="button">중복체크</button>
 					</div>
 				</div>
 				<div class="form-group center" >
-					<div class="btn-group " data-toggle="buttons">
+					<div class="btn-group font-gothic" data-toggle="buttons">
 						<label class="btn active input" >
 							<input type="radio" name="account_gender"  autocomplete="off" value="M" checked />남자
 						</label>
@@ -146,13 +146,13 @@
 				</div>
 				
 				<div class="form-group">
-					<input type="submit" class="btn btn-primory form-control input color"  value="회원 가입하기" />
+					<input type="submit" class="btn btn-primory form-control input color font-gothic"  value="회원 가입하기" />
 					
 				</div>
 			</form>
 			<div class="form-group">
 				<a href="/">
-					<input type="submit" class="btn btn-primory form-control input color" value="가입취소" />
+					<input type="submit" class="btn btn-primory form-control input color font-gothic" value="가입취소" />
 				</a>
 			</div>
 		</div>	

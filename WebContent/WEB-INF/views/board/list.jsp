@@ -36,13 +36,13 @@ tr td:not(:first-child), tr th:not(:first-child) {
 <div class="container">
 	
 	<div class="col-lg-12">
-		<div class="jumbotron padding" >
+		<div class="jumbotron padding" style="background-color: #FFF2EC">
 
 <h1 class="font-dohyeon">공지사항     <small>게시판</small></h1>
 <hr>
 
 <table class="table table-hover table-condensed table-striped">
-<tr style="background-color: #FFF2EC;" class="font-gothic">
+<tr style="background-color: #FFD2BD;" class="font-gothic">
 	<th style="width: 10%">글번호</th>
 	<th style="width: 50%">제목</th>
 	<th style="width: 15%">아이디</th>
@@ -72,7 +72,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 				<option value="3">제목  + 내용</option>
 			</select>
    			<input type="text" class="form-control" style="width:300px;" name="search" placeholder="공지사항 검색">
-	    	<button type="submit" class="btn" style="background-color: #FFF2EC">검색</button>
+	    	<button type="submit" class="btn" style="background-color: #FFD2BD">검색</button>
 		</div>
 	</div>
 	</form>

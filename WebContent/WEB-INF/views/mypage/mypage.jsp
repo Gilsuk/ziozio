@@ -21,10 +21,10 @@
 	
 <div class="wrapper">
 <div class="container center">
-<div class="jumbotron padding" >
-<h2>My Page</h2><br><br>
+<div class="jumbotron padding" style="background-color: #FFF2EC">
+<h1 class="font-dohyeon">My Page</h1><br><br>
 <div class="row">
-<div class="col-lg-12">
+<div class="col-lg-12 font-dohyeon">
 	<div class="form-inline">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 			<div class="thumbnail">
