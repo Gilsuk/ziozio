@@ -7,7 +7,6 @@ import ziozio.dao.face.ColorDAO;
 import ziozio.dao.impl.ColorDAOImpl;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Color;
-import ziozio.dto.WithColor;
 import ziozio.service.face.ColorService;
 
 public class ColorServiceImpl implements ColorService {

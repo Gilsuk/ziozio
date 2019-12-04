@@ -11,14 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="container">
 	<br>
-		<h2>
+		<h2 class="font-nanum">
 			탈퇴 안내 <br> <small>회원탈퇴를 신청하기 전에 <mark>안내 사항</mark>을 꼭
 			확인해주세요.</small>
 		</h2>
 	<hr>
 
 	<ur>
-		<div class="jumbotron">
+		<div class="jumbotron font-gothic">
 			<div><li>탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.</li></div>
 			<div><li>회원정보 및 메일, 블로그, 주소록 등 개인형 서비스 이용기록은 모두 삭제되며, 삭제된 데이터는 복구되지
 					않습니다. 삭제되는 내용을 확인하시고 필요한 데이터는 미리 백업을 해주세요.</li></div>
@@ -53,11 +53,11 @@
 	
 	<hr>
 	
-	<input type="checkbox" name="chk_info" value="HTML"> <strong><u><em>안내
+	<input type="checkbox" name="chk_info" value="HTML" class="font-gothic"> <strong><u><em>안내
 				사항을 모두 확인하였으며, 이에 동의합니다.</em></u></strong> <br>
 
 	<div class="text-center">
-		<button type="button" class="btn btn-danger">확인</button>
+		<button type="button" class="btn" style="background-color: #FF6060">확인</button>
 	</div>
 
 </div>

@@ -4,21 +4,19 @@ import java.util.List;
 
 import ziozio.dto.Account;
 import ziozio.dto.ClothSet;
-import ziozio.dto.ClothWithColor;
-import ziozio.dto.enumeration.ClothCategory;
 
 public interface ClothSetLikeService {
 	
+	//insert
 	void like(Account account, ClothSet set);
 	
+	//delete
 	void unlike(Account account, ClothSet set);
 	
+	//select
 	List<ClothSet> getLikedList(Account account);
 	
+	//select
 	int getLikeCount(ClothSet set);
 
-	ClothSet dressUp(ClothWithColor cloth, ClothCategory category);
-
-	ClothSet dressUp(ClothWithColor cloth);
-	
 }

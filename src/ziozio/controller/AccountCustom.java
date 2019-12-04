@@ -30,7 +30,6 @@ public class AccountCustom extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 
-
 		try {
 			Account account = accountService.getLoggedInAccount(req);
 

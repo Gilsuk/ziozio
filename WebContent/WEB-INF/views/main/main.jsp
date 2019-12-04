@@ -73,12 +73,14 @@
   </a>
 </div>
 
+
 <c:if test="${!empty account }">
 <div class="text-center font-dohyeon center"><br>
 	<a class="btn input" href="/weather/cloth" role="button">날씨 추천 옷</a>&nbsp;&nbsp;
 	<a class="btn input" href="/temperature/cloth" role="button">온도 추천 옷</a>&nbsp;&nbsp;
 	<a class="btn input" href="/gender/cloth" role="button">성별 추천 옷</a>
 </div>
+
 </c:if>
 
 <c:if test="${empty account }">

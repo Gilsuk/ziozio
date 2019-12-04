@@ -1,12 +1,11 @@
 package ziozio.service.face;
 
-import java.util.List;
-
 import ziozio.dto.ClothSet;
-import ziozio.dto.Paging;
+import ziozio.dto.ClothWithColor;
 
-public interface ClothSetService<T> {
+public interface ClothSetService {
 
-	public List<ClothSet> getClothSets(T selector, Paging paging);
+	ClothSet dressUp(ClothWithColor cloth, ClothSet set);
 
+	ClothSet dressUp(ClothWithColor cloth);
 }
