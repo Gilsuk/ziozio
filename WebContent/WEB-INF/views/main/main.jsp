@@ -54,7 +54,7 @@
     </div>
     
     <div class="item">
-      <img src="/resources/img/look/night_trading" alt="...">
+      <img src="/resources/img/look/night_trading.png" alt="...">
     </div>
 
     <div class="item">
