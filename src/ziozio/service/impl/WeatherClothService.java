@@ -19,10 +19,19 @@ import ziozio.service.face.ClothService;
  *
  * WeatherInfo 객체의 weather_name을 기준으로 쪼인 하여 옷을 검색한다.
  */
-public class WeatherClothService implements ClothService<WeatherInfo>{
+public class WeatherClothService implements ClothService<WeatherInfo> {
 	
-	private WeatherClothDAO weatherclothDao = new WeatherClothDAOImpl();
+	private WeatherClothDAO weatherclothDao = WeatherClothDAOImpl.getInstance();
 	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
+
+	/*
+	 * Singleton
+	 */
+	private WeatherClothService() { }
+    private static class Factory {
+        public static final ClothService<WeatherInfo> INSTANCE = new WeatherClothService();
+    }
+    public static ClothService<WeatherInfo> getInstance() { return Factory.INSTANCE; }
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo weather) {

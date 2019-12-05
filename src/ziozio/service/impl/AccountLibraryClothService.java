@@ -15,7 +15,20 @@ import ziozio.service.face.ClothService;
 
 public class AccountLibraryClothService implements ClothService<Account> {
 
-	private ClothDAO clothDao = new ClothDAOImpl();
+	/*
+	 * Fields
+	 */
+	private ClothDAO clothDao = ClothDAOImpl.getInstance();
+
+	/*
+	 * Singleton
+	 */
+	private AccountLibraryClothService() { }
+    private static class Factory {
+        public static final ClothService<Account> INSTANCE = new AccountLibraryClothService();
+    }
+    public static ClothService<Account> getInstance() { return Factory.INSTANCE; }
+
 	
 	@Override
 	public List<ClothWithColor> getClothes(Account account) {

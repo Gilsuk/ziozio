@@ -23,6 +23,15 @@ public class LocationServiceImpl implements LocationService {
 
 	private LocationDAO locDao = LocationDAOImpl.getInstance();
 
+	/*
+	 * Singleton
+	 */
+	private LocationServiceImpl() { }
+    private static class Factory {
+        public static final LocationService INSTANCE = new LocationServiceImpl();
+    }
+    public static LocationService getInstance() { return Factory.INSTANCE; }
+
 	@Override
 	public Location getLocation(HttpServletRequest req) {
 		

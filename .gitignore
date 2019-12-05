@@ -172,8 +172,7 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
-# imgs
-*.png
+# img
 *.jpg
 *.bmp
 *.svg

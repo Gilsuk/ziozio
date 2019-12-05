@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Account;
+import ziozio.service.face.ClothService;
 import ziozio.service.impl.AccountLibraryClothService;
 
 
@@ -15,7 +17,7 @@ import ziozio.service.impl.AccountLibraryClothService;
 public class AccountLibraryDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private AccountLibraryClothService accountLibraryClothService = new AccountLibraryClothService();
+	private ClothService<Account> accountLibraryClothService = AccountLibraryClothService.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

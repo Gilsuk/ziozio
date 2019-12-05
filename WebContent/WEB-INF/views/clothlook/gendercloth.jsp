@@ -42,6 +42,10 @@ $( document ).ready(function() {
 	${cloth.style_name }
 	</c:forEach>
 	
+	<c:forEach items="${clothset}" var="set">
+	<h1>${set.top.cloth_name }</h1>
+	</c:forEach>
+
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		  <!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">

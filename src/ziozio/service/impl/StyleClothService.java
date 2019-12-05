@@ -14,10 +14,19 @@ import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
-public class StyleClothService implements ClothService<Style>{
+public class StyleClothService implements ClothService<Style> {
 	
-	private StyleClothDAO styleclothDao = new StyleClothDAOImpl();
+	private StyleClothDAO styleclothDao = StyleClothDAOImpl.getInstance();
 	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
+
+	/*
+	 * Singleton
+	 */
+	private StyleClothService() { }
+    private static class Factory {
+        public static final ClothService<Style> INSTANCE = new StyleClothService();
+    }
+    public static ClothService<Style> getInstance() { return Factory.INSTANCE; }
 
 	@Override
 	public List<ClothWithColor> getClothes(Style style) {	
