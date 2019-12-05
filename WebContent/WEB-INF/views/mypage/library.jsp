@@ -12,9 +12,9 @@
 
 
 <div class="wrapper font-dohyeon">
-<div class="con center">
-<div class="jumbotron padding" style="background-color: #FFF2EC">
-<h1 class="font-dohyeon">My Room</h1><br><br>
+<div class="con center font-dohyeon">
+<div class="jumbotron padding input" >
+<h1 class="">My Room</h1><br><br>
 <div class="row">
 
 	<div class="col-lg-12">
@@ -37,6 +37,7 @@
 	<div class="col-lg-1"></div>
 	</div>
 
+	<div class="col-lg-12">
 	<div class="col-lg-1"></div>
 		<div class="col-lg-10">
 
@@ -54,6 +55,7 @@
 		</div>
 	<div class="col-lg-1"></div>
 	</div>
+	
 	
 	<div class="col-lg-12">
 	<div class="col-lg-1"></div>
@@ -78,7 +80,7 @@
 </div>
 </div>	
 </div>
-
+</div>
 
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

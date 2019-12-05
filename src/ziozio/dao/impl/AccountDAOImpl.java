@@ -9,6 +9,7 @@ import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
+import ziozio.dto.Cookie;
 import ziozio.utils.param.exception.InvalidParamException;
 
 public class AccountDAOImpl implements AccountDAO {
@@ -116,4 +117,7 @@ public class AccountDAOImpl implements AccountDAO {
 		});
 	}
 
+
+
+	
 }
