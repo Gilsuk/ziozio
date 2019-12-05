@@ -11,6 +11,7 @@ import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
 /**
@@ -21,26 +22,27 @@ import ziozio.service.face.ClothService;
  */
 public class TemperatureClothService implements ClothService<WeatherInfo>{
 
-	TemperatureClothDAO temperatureClothDao = new TemperatureClothDAOImpl();
+	private TemperatureClothDAO temperatureClothDao = new TemperatureClothDAOImpl();
+	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 	
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo selector) {
-		return temperatureClothDao.selectAll(selector);
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector));
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo selector, ClothCategory category) {
-		return temperatureClothDao.selectAll(selector, category);
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector, category));
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo selector, Paging paging) {
-		return temperatureClothDao.selectAll(selector, paging);
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector, paging));
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo selector, ClothCategory category, Paging paging) {
-		return temperatureClothDao.selectAll(selector, category, paging);
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector, category, paging));
 	}
 
 	@Override
@@ -79,6 +81,16 @@ public class TemperatureClothService implements ClothService<WeatherInfo>{
 		Paging paging = new Paging(totalCount, curPage);
 		
 		return paging;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<WeatherInfo> selector, ClothCategory category) {
+		return null;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<WeatherInfo> selector, ClothCategory category, Paging paging) {
+		return null;
 	}
 
 }

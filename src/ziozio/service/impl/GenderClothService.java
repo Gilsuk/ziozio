@@ -10,37 +10,35 @@ import ziozio.dto.Cloth;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
 public class GenderClothService implements ClothService<Character> {
 	
 	private GenderClothDAO genderclothDao = new GenderClothDAOImpl();
+	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 
 	@Override
 	public List<ClothWithColor> getClothes(Character gender) {
-		
-		return genderclothDao.selectAll(gender);
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender));
 		
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(Character gender, ClothCategory category) {
-		
-		return genderclothDao.selectAll(gender, category);
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender, category));
 		
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(Character gender, Paging paging) {
-		
-		return genderclothDao.selectAll(gender, paging);
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender, paging));
 		
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(Character gender, ClothCategory category, Paging paging) {
-		
-		return genderclothDao.selectAll(gender, category, paging);
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender, category, paging));
 		
 	}
 
@@ -81,6 +79,16 @@ public class GenderClothService implements ClothService<Character> {
 		Paging paging = new Paging(totalCount, curPage);
 
 		return paging;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Character> selector, ClothCategory category) {
+		return null;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Character> selector, ClothCategory category, Paging paging) {
+		return null;
 	}
 
 }

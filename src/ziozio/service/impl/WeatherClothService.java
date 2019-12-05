@@ -10,6 +10,7 @@ import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
 /**
@@ -21,26 +22,26 @@ import ziozio.service.face.ClothService;
 public class WeatherClothService implements ClothService<WeatherInfo>{
 	
 	private WeatherClothDAO weatherclothDao = new WeatherClothDAOImpl();
-	
+	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo weather) {
-		return weatherclothDao.selectAll(weather);
+		return clothColorService.setRandomColor(weatherclothDao.selectAll(weather));
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo weather, ClothCategory category) {
-		return weatherclothDao.selectAll(weather, category);
+		return clothColorService.setRandomColor(weatherclothDao.selectAll(weather, category));
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo weather, Paging paging) {
-		return weatherclothDao.selectAll(weather, paging);
+		return clothColorService.setRandomColor(weatherclothDao.selectAll(weather, paging));
 	}
 
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo weather, ClothCategory category, Paging paging) {
-		return weatherclothDao.selectAll(weather, category, paging);
+		return clothColorService.setRandomColor(weatherclothDao.selectAll(weather, category, paging));
 	}
 
 	@Override
@@ -79,5 +80,15 @@ public class WeatherClothService implements ClothService<WeatherInfo>{
 		Paging paging = new Paging(totalCount, curPage);
 		
 		return paging;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<WeatherInfo> selector, ClothCategory category) {
+		return null;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<WeatherInfo> selector, ClothCategory category, Paging paging) {
+		return null;
 	}
 }

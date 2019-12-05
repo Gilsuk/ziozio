@@ -1,6 +1,5 @@
 package ziozio.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -85,10 +84,7 @@ public class StyleClothService implements ClothService<Style>{
 
 	@Override
 	public List<ClothWithColor> getClothes(List<Style> selector, ClothCategory category) {
-		List<ClothWithColor> list = new ArrayList<>();
-		for (Style style : selector) 
-			list.addAll(getClothes(style, category));
-		return list;
+		return clothColorService.setRandomColor(styleclothDao.selectAll(selector, category));
 	}
 
 	@Override
