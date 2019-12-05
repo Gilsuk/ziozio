@@ -15,7 +15,18 @@ public class ClothSetDAOImpl implements ClothSetDAO{
 	private Connection conn = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;	
-
+	
+	
+	/*
+	 * Singleton
+	 */
+	private ClothSetDAOImpl() { }
+    private static class Factory {
+        public static final ClothSetDAO INSTANCE = new ClothSetDAOImpl();
+    }
+    public static ClothSetDAO getInstance() { return Factory.INSTANCE; }
+	
+	
 	@Override
 	public void insert(Account account, ClothSet set) {
 

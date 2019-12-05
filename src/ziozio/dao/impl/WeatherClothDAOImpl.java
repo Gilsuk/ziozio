@@ -21,6 +21,15 @@ public class WeatherClothDAOImpl implements WeatherClothDAO{
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;	
 
+	/*
+	 * Singleton
+	 */
+	private WeatherClothDAOImpl() { }
+    private static class Factory {
+        public static final WeatherClothDAO INSTANCE = new WeatherClothDAOImpl();
+    }
+    public static WeatherClothDAO getInstance() { return Factory.INSTANCE; }
+
 	//test
 //	public static void main(String[] args) {
 	//	WeatherClothDAOImpl dao = new WeatherClothDAOImpl();

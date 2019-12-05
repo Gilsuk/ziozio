@@ -21,6 +21,15 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 
+	/*
+	 * Singleton
+	 */
+	private WeatherInfoDAOImpl() { }
+    private static class Factory {
+        public static final WeatherInfoDAO INSTANCE = new WeatherInfoDAOImpl();
+    }
+    public static WeatherInfoDAO getInstance() { return Factory.INSTANCE; }
+
 //	public static void main(String[] args) {
 //		        		
 //		WeatherInfoDAOImpl infoDao = new WeatherInfoDAOImpl();

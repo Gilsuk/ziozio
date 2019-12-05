@@ -22,7 +22,7 @@ import ziozio.service.impl.GenderClothService;
 public class GenderCloth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ClothService<Character> clothService = new GenderClothService();
+	ClothService<Character> clothService = GenderClothService.getInstance();
 	AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override

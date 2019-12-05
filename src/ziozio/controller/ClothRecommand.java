@@ -27,7 +27,7 @@ import ziozio.service.impl.StyleServiceImpl;
 public class ClothRecommand extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private StyleService styleService = new StyleServiceImpl();
+	private StyleService styleService = StyleServiceImpl.getInstance();
 	private AccountService accountService = AccountServiceImpl.getInstance();
 //	private ClothService<Style, Cloth> clothService = new StyleClothService();
 	

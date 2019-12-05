@@ -15,9 +15,21 @@ import ziozio.service.face.ClothService;
 
 public class GenderClothService implements ClothService<Character> {
 	
-	private GenderClothDAO genderclothDao = new GenderClothDAOImpl();
+	private GenderClothDAO genderclothDao = GenderClothDAOImpl.getInstance();
 	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 
+	/*
+	 * Singleton
+	 */
+	private GenderClothService() { }
+    private static class Factory {
+        public static final ClothService<Character> INSTANCE = new GenderClothService();
+    }
+    public static ClothService<Character> getInstance() { return Factory.INSTANCE; }
+    
+    /*
+     * implements
+     */
 	@Override
 	public List<ClothWithColor> getClothes(Character gender) {
 		return clothColorService.setRandomColor(genderclothDao.selectAll(gender));
