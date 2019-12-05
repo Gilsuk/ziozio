@@ -18,7 +18,6 @@ import ziozio.service.face.AccountService;
 import ziozio.service.face.ClothService;
 import ziozio.service.impl.AccountLibraryClothService;
 import ziozio.service.impl.AccountServiceImpl;
-import ziozio.utils.param.exception.InvalidParamException;
 
 
 @WebServlet("/account/library")
@@ -26,7 +25,7 @@ public class AccountLibrary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	private ClothService<Account> clothService = new AccountLibraryClothService();
+	private ClothService<Account> clothService = AccountLibraryClothService.getInstance();
 	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override

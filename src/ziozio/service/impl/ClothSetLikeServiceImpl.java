@@ -10,7 +10,19 @@ import ziozio.service.face.ClothSetLikeService;
 
 public class ClothSetLikeServiceImpl implements ClothSetLikeService {
 	
-	private ClothSetDAO clothsetlikeDao = new ClothSetDAOImpl();
+	/*
+	 * Fields
+	 */
+	private ClothSetDAO clothsetlikeDao = ClothSetDAOImpl.getInstance();
+
+	/*
+	 * Singleton
+	 */
+	private ClothSetLikeServiceImpl() { }
+    private static class Factory {
+        public static final ClothSetLikeService INSTANCE = new ClothSetLikeServiceImpl();
+    }
+    public static ClothSetLikeService getInstance() { return Factory.INSTANCE; }
 
 	@Override
 	public void like(Account account, ClothSet set) {

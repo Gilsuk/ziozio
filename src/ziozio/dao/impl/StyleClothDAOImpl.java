@@ -21,6 +21,14 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 
+	/*
+	 * Singleton
+	 */
+	private StyleClothDAOImpl() { }
+    private static class Factory {
+        public static final StyleClothDAO INSTANCE = new StyleClothDAOImpl();
+    }
+    public static StyleClothDAO getInstance() { return Factory.INSTANCE; }
 	
 //	public static void main(String[] args) {
 //		StyleClothDAOImpl dao = new StyleClothDAOImpl();

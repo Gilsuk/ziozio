@@ -11,7 +11,16 @@ import ziozio.service.face.WeatherInfoService;
 
 public class WeatherInfoServiceImpl implements WeatherInfoService {
 	
-	private WeatherInfoDAO weatherinfoDao = new WeatherInfoDAOImpl();
+	private WeatherInfoDAO weatherinfoDao = WeatherInfoDAOImpl.getInstance();
+
+	/*
+	 * Singleton
+	 */
+	private WeatherInfoServiceImpl() { }
+    private static class Factory {
+        public static final WeatherInfoService INSTANCE = new WeatherInfoServiceImpl();
+    }
+    public static WeatherInfoService getInstance() { return Factory.INSTANCE; }
 
 	@Override
 	public WeatherInfo getCurrentWeatherInfo(Location loc) {

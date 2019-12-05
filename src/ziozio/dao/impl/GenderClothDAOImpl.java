@@ -20,6 +20,15 @@ public class GenderClothDAOImpl implements GenderClothDAO{
 	private ResultSet rs = null;
 
 	
+	/*
+	 * Singleton
+	 */
+	private GenderClothDAOImpl() { }
+    private static class Factory {
+        public static final GenderClothDAO INSTANCE = new GenderClothDAOImpl();
+    }
+    public static GenderClothDAO getInstance() { return Factory.INSTANCE; }
+
 //	public static void main(String[] args) {
 //	GenderClothDAOImpl dao = new GenderClothDAOImpl();
 //	

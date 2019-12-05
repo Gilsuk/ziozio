@@ -41,7 +41,9 @@ public class AccountServiceImpl implements AccountService {
 	public Account getLoggedInAccount(HttpServletRequest req) throws AccountNotFountException {
 		
 		try {
-			return (Account) req.getSession().getAttribute("account");
+			Object account = req.getSession().getAttribute("account");
+			if (account == null) throw new NullPointerException();
+			return (Account) account;
 		} catch (NullPointerException e) {
 			throw new AccountNotFountException();
 		} catch (ClassCastException e) {
