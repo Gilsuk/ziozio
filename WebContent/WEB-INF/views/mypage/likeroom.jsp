@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="wrapper">
+<div class="wrapper font-dohyeon">
 <div class="con center">
 <div class="jumbotron padding" >
 <h2>LIKE ROOM</h2><br><br>

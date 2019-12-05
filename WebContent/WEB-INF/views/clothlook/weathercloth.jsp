@@ -21,6 +21,10 @@
 	width: 400px;
 	height: 300px;
 }
+
+.carousel-control.right, .carousel-control.left {
+ background-image: none;
+}
 </style>
 
 <script type="text/javascript">
@@ -29,16 +33,22 @@ $( document ).ready(function() {
 });
 </script>
 
-<div class="wrap center">
+<div class="wrap center font-dohyeon">
+
+
 <br><br><br>
-<h2>CUSTOM</h2>
+<h2>Weather</h2>
 <br>
+
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-	  <!-- Wrapper for slides -->
+		  <!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-			<c:forEach items="${topList}" var="cloth">
+			<c:forEach items="${outerList}" var="cloth">
 			<div class="item">
-				<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+				<img style="filter: hue-rotate(${cloth.color_hue_rotate}deg) 
+							saturate(${cloth.color_saturate }%) invert(${cloth.color_invert }%) 
+							brightness(${cloth.color_brightness }%);"
+							 src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
 			</div>
 			</c:forEach>
 		</div>
@@ -59,14 +69,17 @@ $( document ).ready(function() {
 	<div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
 	  <!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-			<c:forEach items="${bottomList}" var="cloth">
+			<c:forEach items="${topList}" var="cloth">
 			<div class="item">
-				<img src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+				<img style="filter: hue-rotate(${cloth.color_hue_rotate}deg) 
+							saturate(${cloth.color_saturate }%) invert(${cloth.color_invert }%) 
+							brightness(${cloth.color_brightness }%);"
+							 src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
 			</div>
 			</c:forEach>
 		</div>
 	
-	  <!-- Controls -->
+		<!-- Controls -->
 	  <a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
 	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 	    <span class="sr-only">Previous</span>
@@ -76,7 +89,35 @@ $( document ).ready(function() {
 	    <span class="sr-only">Next</span>
 	  </a>
 	</div>
+	
+	<br>
+	
+	<div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
+	  <!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<c:forEach items="${bottomList}" var="cloth">
+			<div class="item">
+				<img style="filter: hue-rotate(${cloth.color_hue_rotate}deg) 
+							saturate(${cloth.color_saturate }%) invert(${cloth.color_invert }%) 
+							brightness(${cloth.color_brightness }%);"
+							 src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+			</div>
+			</c:forEach>
+		</div>
+	
+	  <!-- Controls -->
+	  <a class="left carousel-control" href="#carousel-example-generic2" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#carousel-example-generic2" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
 </div>
+
+
 <br>
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

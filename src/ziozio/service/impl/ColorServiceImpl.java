@@ -1,6 +1,7 @@
 package ziozio.service.impl;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 import ziozio.dao.face.ColorDAO;
@@ -16,6 +17,7 @@ public class ColorServiceImpl implements ColorService {
 	 */
 	private ColorDAO dao;
 	private List<Color> colorList;
+	private Random random = new Random();
 	
 	/*
 	 * Singleton
@@ -42,7 +44,7 @@ public class ColorServiceImpl implements ColorService {
      */
 	@Override
 	public Color getRandomColor() {
-		return getColorStream().findAny().get();
+		return getColorStream().skip(random.nextInt(colorList.size()-1)).findAny().get();
 	}
 
 	@Override

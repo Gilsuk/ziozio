@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="wrapper">
+<div class="wrapper font-dohyeon">
 <div class="con center">
 <div class="jumbotron padding" style="background-color: #FFF2EC">
 <h1 class="font-dohyeon">My Room</h1><br><br>
