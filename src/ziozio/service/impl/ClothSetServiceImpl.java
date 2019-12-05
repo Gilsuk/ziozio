@@ -53,33 +53,32 @@ public class ClothSetServiceImpl implements ClothSetService {
 	public List<ClothSet> makeSets(List<ClothWithColor> tops, List<ClothWithColor> bottoms,
 			List<ClothWithColor> outers) {
 		
-		List<ClothWithColor> max = tops;
-		max = max.size() < bottoms.size() ? bottoms : max;
-		max = max.size() < outers.size() ? outers : max;
+		int max = tops.size();
+		max = bottoms.size() > max ? bottoms.size() : max;
+		max = outers.size() > max ? outers.size() : max;
 		
 		stretchListLengthByMaxWidth(tops, max);
 		stretchListLengthByMaxWidth(bottoms, max);
 		stretchListLengthByMaxWidth(outers, max);
 		
 		List<ClothSet> list = new ArrayList<>();
-		for (int i = 0; i < list.size(); i++) {
+		for (int i = 0; i < max; i++) {
 			ClothSet set = new ClothSet();
 			try {
 				set.setTop(tops.get(i));
 				set.setBottom(bottoms.get(i));
 				set.setOuter(outers.get(i));
 			} catch (ClothCategoryNotMatched e) { e.printStackTrace(); }
+			list.add(set);
 		}
 		
 		return list;
 	}
 
-	private void stretchListLengthByMaxWidth(List<ClothWithColor> list, List<ClothWithColor> max) {
-		if (list != max) {
-			for (int i = 0; i < max.size() - list.size(); i++) {
-				Cloth cloth = list.get(random.nextInt(list.size()));
-				list.add(clothColorService.setRandomColor(cloth));
-			}
+	private void stretchListLengthByMaxWidth(List<ClothWithColor> list, int max) {
+		while (list.size() < max) {
+			Cloth cloth = list.get(random.nextInt(list.size()));
+			list.add(clothColorService.setRandomColor(cloth));
 		}
 	}
 

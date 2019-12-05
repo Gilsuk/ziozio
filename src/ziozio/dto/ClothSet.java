@@ -1,6 +1,5 @@
 package ziozio.dto;
 
-import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.exception.ClothCategoryNotMatched;
 
 public class ClothSet implements DTO {
@@ -24,28 +23,28 @@ public class ClothSet implements DTO {
 		return top;
 	}
 	public void setTop(ClothWithColor top) throws ClothCategoryNotMatched {
-		if (top.getCloth_category_name() == ClothCategory.TOP.getDbValue())
+//		if (top.getCloth_category_name() == ClothCategory.TOP.getDbValue())
 			this.top = top;
-		else
-			throw new ClothCategoryNotMatched();
+//		else
+//			throw new ClothCategoryNotMatched();
 	}
 	public ClothWithColor getBottom() {
 		return bottom;
 	}
 	public void setBottom(ClothWithColor bottom) throws ClothCategoryNotMatched {
-		if (bottom.getCloth_category_name() == ClothCategory.BOTTOM.getDbValue())
+//		if (bottom.getCloth_category_name() == ClothCategory.BOTTOM.getDbValue())
 			this.bottom = bottom;
-		else
-			throw new ClothCategoryNotMatched();
+//		else
+//			throw new ClothCategoryNotMatched();
 	}
 	public ClothWithColor getOuter() {
 		return outer;
 	}
 	public void setOuter(ClothWithColor outer) throws ClothCategoryNotMatched {
-		if (outer.getCloth_category_name() == ClothCategory.OUTER.getDbValue())
+//		if (outer.getCloth_category_name() == ClothCategory.OUTER.getDbValue())
 			this.outer = outer;
-		else
-			throw new ClothCategoryNotMatched();
+//		else
+//			throw new ClothCategoryNotMatched();
 	}
 
 }
