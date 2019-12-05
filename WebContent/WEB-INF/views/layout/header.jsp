@@ -106,12 +106,16 @@ function locationError(error){
 		<ul class="nav navbar-nav">
 		<c:choose>
 			<c:when test="${not empty account }">
-				<li><a href="/main">메인</a></li>
 				<li><a href="/mypage">마이페이지</a></li>
 				<li><a href="/board/list">게시판</a></li>
 				<li><a href="/awarded">column</a></li>
 				<li><a href="/qnalist">QnA</a></li>
 				<li><a href="/">내위치확인</a></li>
+				<li>${defaultLocation.location_name }</li>
+				<li>${temperature.weather_info_temperature }</li>
+				<li>${weather.weather_name }</li>
+				
+				
 			</c:when>
 			<c:otherwise>
 				<li><a href="/account/join">회원가입</a></li>
@@ -122,7 +126,7 @@ function locationError(error){
 			</c:otherwise>
 		</c:choose>
 		</ul>
-		
+
 		<ul class="nav navbar-nav navbar-right">
 			<li>
 				<c:if test="${not empty account }">

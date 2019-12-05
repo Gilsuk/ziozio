@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Account;
 import ziozio.dto.ClothWithColor;
+import ziozio.dto.Style;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
 import ziozio.service.face.ClothService;
+import ziozio.service.face.StyleService;
 import ziozio.service.impl.AccountServiceImpl;
 import ziozio.service.impl.GenderClothService;
+import ziozio.service.impl.StyleServiceImpl;
 
 @WebServlet("/gender/cloth")
 public class GenderCloth extends HttpServlet {
@@ -29,7 +32,10 @@ public class GenderCloth extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
+		StyleService styleService = new StyleServiceImpl();
 
+		List<Style> allStyles = styleService.getAllStyles();
+		req.setAttribute("allStyles", allStyles);
 	
 		try {
 			Account account = accountService.getLoggedInAccount(req);
