@@ -15,23 +15,26 @@ public class ColorServiceImpl implements ColorService {
 	 * fields
 	 */
 	private ColorDAO dao;
-	private Stream<Color> colorStream;
+	private List<Color> colorList;
 	
 	/*
 	 * Singleton
 	 */
 	private ColorServiceImpl() {
 		this.dao = ColorDAOImpl.getInstance();
-		this.colorStream = getColorStream();
+		this.colorList = getColorList();
 	}
 	private static class Factory {
         public static final ColorService INSTANCE = new ColorServiceImpl();
     }
     public static ColorService getInstance() { return Factory.INSTANCE; }
     
+    private List<Color> getColorList() {
+    	return dao.selectAll();
+    }
+
     private Stream<Color> getColorStream() {
-    	List<Color> list = dao.selectAll();
-		return list.stream();
+		return colorList.stream();
 	}
 
     /*
@@ -39,7 +42,7 @@ public class ColorServiceImpl implements ColorService {
      */
 	@Override
 	public Color getRandomColor() {
-		return colorStream.findAny().get();
+		return getColorStream().findAny().get();
 	}
 
 	@Override
@@ -59,7 +62,7 @@ public class ColorServiceImpl implements ColorService {
 	@Override
 	public Color getColorByName(Color color) {
 		return
-		colorStream.filter(x -> x.getColor_name().equals(color.getColor_name()))
+		getColorStream().filter(x -> x.getColor_name().equals(color.getColor_name()))
 		.findFirst().orElse(getRandomColor());
 	}
 
