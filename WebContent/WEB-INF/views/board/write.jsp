@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 <div class="text-center">	
 	<button type="button" id="btnWrite" class="btn" style="background-color: #FFD2BD">작성</button>
-	<button type="button" id="btnCancel" class="btn" style="background-color: #FFD2BD">취소</button>
+	<button type="button" id="btnCancel" class="btn" style="background-color: #FF6060">취소</button>
 </div>
 </div>
 
