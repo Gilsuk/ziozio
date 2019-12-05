@@ -57,18 +57,19 @@ public class ClothSetServiceImpl implements ClothSetService {
 		max = bottoms.size() > max ? bottoms.size() : max;
 		max = outers.size() > max ? outers.size() : max;
 		
-		stretchListLengthByMaxWidth(tops, max);
-		stretchListLengthByMaxWidth(bottoms, max);
-		stretchListLengthByMaxWidth(outers, max);
-		
+		if (tops.size() == 0) tops = null; else stretchListLengthByMaxWidth(tops, max);
+		if (bottoms.size() == 0) bottoms = null; else stretchListLengthByMaxWidth(bottoms, max);
+		if (outers.size() == 0) outers = null; else stretchListLengthByMaxWidth(outers, max);
+
 		List<ClothSet> list = new ArrayList<>();
 		for (int i = 0; i < max; i++) {
 			ClothSet set = new ClothSet();
 			try {
-				set.setTop(tops.get(i));
-				set.setBottom(bottoms.get(i));
-				set.setOuter(outers.get(i));
+				if (tops != null) set.setTop(tops.get(i));
+				if (bottoms != null) set.setBottom(bottoms.get(i));
+				if (outers != null) set.setOuter(outers.get(i));
 			} catch (ClothCategoryNotMatched e) { e.printStackTrace(); }
+
 			list.add(set);
 		}
 		
