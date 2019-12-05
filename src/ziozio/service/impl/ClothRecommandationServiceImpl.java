@@ -10,6 +10,15 @@ import ziozio.service.face.ClothRecommandationService;
 
 public class ClothRecommandationServiceImpl implements ClothRecommandationService {
 
+	/*
+	 * Singleton
+	 */
+	private ClothRecommandationServiceImpl() { }
+    private static class Factory {
+        public static final ClothRecommandationService INSTANCE = new ClothRecommandationServiceImpl();
+    }
+    public static ClothRecommandationService getInstance() { return Factory.INSTANCE; }
+
 	@Override
 	public List<ClothSet> recommandClothSets(HttpServletRequest req, Paging paging) {
 		

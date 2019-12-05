@@ -22,9 +22,21 @@ import ziozio.service.face.ClothService;
  */
 public class TemperatureClothService implements ClothService<WeatherInfo>{
 
-	private TemperatureClothDAO temperatureClothDao = new TemperatureClothDAOImpl();
+	/*
+	 * Fields
+	 */
+	private TemperatureClothDAO temperatureClothDao = TemperatureClothDAOImpl.getInstance();
 	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 	
+	/*
+	 * Singleton
+	 */
+	private TemperatureClothService() { }
+    private static class Factory {
+        public static final ClothService<WeatherInfo> INSTANCE = new TemperatureClothService();
+    }
+    public static ClothService<WeatherInfo> getInstance() { return Factory.INSTANCE; }
+
 	@Override
 	public List<ClothWithColor> getClothes(WeatherInfo selector) {
 		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector));

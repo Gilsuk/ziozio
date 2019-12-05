@@ -15,8 +15,17 @@ import ziozio.service.face.StyleService;
 
 public class StyleServiceImpl implements StyleService {
 	
-	private StyleDAO styleDao = new StyleDAOImpl();
+	private StyleDAO styleDao = StyleDAOImpl.getInstance();
 	private AccountService accountService = AccountServiceImpl.getInstance();
+
+	/*
+	 * Singleton
+	 */
+	private StyleServiceImpl() { }
+    private static class Factory {
+        public static final StyleService INSTANCE = new StyleServiceImpl();
+    }
+    public static StyleService getInstance() { return Factory.INSTANCE; }
 
 	@Override
 	public List<Style> getAllStyles() {
@@ -50,11 +59,13 @@ public class StyleServiceImpl implements StyleService {
 		String[] values = req.getParameterValues("style");
 		List<Style> list = new ArrayList<>();
 		
-		
-		
-		
-		
-		return null;
+		for (String style_name : values) {
+			Style style = new Style();
+			style.setStyle_name(style_name);
+			list.add(style);
+		}
+
+		return list;
 	}
 
 }

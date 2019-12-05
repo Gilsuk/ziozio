@@ -18,6 +18,15 @@ public class StyleDAOImpl implements StyleDAO {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	
+	/*
+	 * Singleton
+	 */
+	private StyleDAOImpl() { }
+    private static class Factory {
+        public static final StyleDAO INSTANCE = new StyleDAOImpl();
+    }
+    public static StyleDAO getInstance() { return Factory.INSTANCE; }
+
 //	public static void main(String[] args) {
 //		StyleDAOImpl styleDao = new StyleDAOImpl();
 //				

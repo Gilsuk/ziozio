@@ -17,7 +17,7 @@ import ziozio.service.impl.LocationServiceImpl;
 public class Location_get extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private LocationService locationService = new LocationServiceImpl();
+	private LocationService locationService = LocationServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

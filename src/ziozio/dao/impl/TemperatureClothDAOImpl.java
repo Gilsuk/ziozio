@@ -21,6 +21,15 @@ public class TemperatureClothDAOImpl implements TemperatureClothDAO{
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 	
+	/*
+	 * Singleton
+	 */
+	private TemperatureClothDAOImpl() { }
+    private static class Factory {
+        public static final TemperatureClothDAO INSTANCE = new TemperatureClothDAOImpl();
+    }
+    public static TemperatureClothDAO getInstance() { return Factory.INSTANCE; }
+
 	//test
 //	public static void main(String[] args) {
 //		TemperatureClothDAOImpl dao = new TemperatureClothDAOImpl();

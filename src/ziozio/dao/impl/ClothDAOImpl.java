@@ -20,6 +20,15 @@ public class ClothDAOImpl implements ClothDAO{
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;	
 	
+	/*
+	 * Singleton
+	 */
+	private ClothDAOImpl() { }
+    private static class Factory {
+        public static final ClothDAO INSTANCE = new ClothDAOImpl();
+    }
+    public static ClothDAO getInstance() { return Factory.INSTANCE; }
+
 	//test
 	
 //	public static void main(String[] args) {
