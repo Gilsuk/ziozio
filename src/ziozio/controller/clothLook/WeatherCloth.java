@@ -25,9 +25,9 @@ import ziozio.service.impl.WeatherInfoServiceImpl;
 public class WeatherCloth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ClothService<WeatherInfo> clothService = new WeatherClothService();
-	WeatherInfoService weatherInfoService = new WeatherInfoServiceImpl();
-	LocationService locationService = new LocationServiceImpl();
+	ClothService<WeatherInfo> clothService = WeatherClothService.getInstance();
+	WeatherInfoService weatherInfoService = WeatherInfoServiceImpl.getInstance();
+	LocationService locationService = LocationServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

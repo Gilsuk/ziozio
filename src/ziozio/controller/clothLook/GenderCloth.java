@@ -32,7 +32,7 @@ public class GenderCloth extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		
-		StyleService styleService = new StyleServiceImpl();
+		StyleService styleService = StyleServiceImpl.getInstance();
 
 		List<Style> allStyles = styleService.getAllStyles();
 		req.setAttribute("allStyles", allStyles);
