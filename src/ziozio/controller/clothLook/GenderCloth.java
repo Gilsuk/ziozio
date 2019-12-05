@@ -1,4 +1,4 @@
-package ziozio.controller;
+package ziozio.controller.clothLook;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,9 +18,8 @@ import ziozio.service.face.ClothService;
 import ziozio.service.impl.AccountServiceImpl;
 import ziozio.service.impl.GenderClothService;
 
-
-@WebServlet("/account/custom")
-public class AccountCustom extends HttpServlet {
+@WebServlet("/gender/cloth")
+public class GenderCloth extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	ClothService<Character> clothService = new GenderClothService();
@@ -28,8 +27,10 @@ public class AccountCustom extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		
 
+	
 		try {
 			Account account = accountService.getLoggedInAccount(req);
 
@@ -40,12 +41,10 @@ public class AccountCustom extends HttpServlet {
 			req.setAttribute("bottomList", bottomList);
 			req.setAttribute("outerList", outerList);
 			
-			req.getRequestDispatcher("/WEB-INF/views/mypage/custom.jsp").forward(req,resp);
+			req.getRequestDispatcher("/WEB-INF/views/clothlook/gendercloth.jsp").forward(req,resp);
 		} catch (AccountNotFountException e) {
 			resp.sendRedirect("/account/login");
 		}
-		
-		
 	}
 	
 }

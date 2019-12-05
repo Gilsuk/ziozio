@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.TemperatureClothDAO;
 import ziozio.dao.impl.TemperatureClothDAOImpl;
 import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
 /**
@@ -18,28 +20,29 @@ import ziozio.service.face.ClothService;
  *
  * WeatherInfo 객체에서 temperature_grade_code를 얻어서 옷을 조회한다.
  */
-public class TemperatureClothService implements ClothService<WeatherInfo, Cloth>{
+public class TemperatureClothService implements ClothService<WeatherInfo>{
 
-	TemperatureClothDAO temperatureClothDao = new TemperatureClothDAOImpl();
+	private TemperatureClothDAO temperatureClothDao = new TemperatureClothDAOImpl();
+	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 	
 	@Override
-	public List<Cloth> getClothes(WeatherInfo selector) {
-		return temperatureClothDao.selectAll(selector);
+	public List<ClothWithColor> getClothes(WeatherInfo selector) {
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector));
 	}
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo selector, ClothCategory category) {
-		return temperatureClothDao.selectAll(selector, category);
+	public List<ClothWithColor> getClothes(WeatherInfo selector, ClothCategory category) {
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector, category));
 	}
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo selector, Paging paging) {
-		return temperatureClothDao.selectAll(selector, paging);
+	public List<ClothWithColor> getClothes(WeatherInfo selector, Paging paging) {
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector, paging));
 	}
 
 	@Override
-	public List<Cloth> getClothes(WeatherInfo selector, ClothCategory category, Paging paging) {
-		return temperatureClothDao.selectAll(selector, category, paging);
+	public List<ClothWithColor> getClothes(WeatherInfo selector, ClothCategory category, Paging paging) {
+		return clothColorService.setRandomColor(temperatureClothDao.selectAll(selector, category, paging));
 	}
 
 	@Override
@@ -78,6 +81,16 @@ public class TemperatureClothService implements ClothService<WeatherInfo, Cloth>
 		Paging paging = new Paging(totalCount, curPage);
 		
 		return paging;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<WeatherInfo> selector, ClothCategory category) {
+		return null;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<WeatherInfo> selector, ClothCategory category, Paging paging) {
+		return null;
 	}
 
 }

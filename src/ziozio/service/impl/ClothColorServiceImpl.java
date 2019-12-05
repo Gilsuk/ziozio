@@ -13,6 +13,18 @@ public class ClothColorServiceImpl implements ClothColorService<Cloth> {
 
 	private ColorService colorService = ColorServiceImpl.getInstance();
 
+	/*
+	 * Singleton
+	 */
+    private ClothColorServiceImpl() { }
+    private static class Factory {
+        public static final ClothColorService<Cloth> INSTANCE = new ClothColorServiceImpl();
+    }
+    public static ClothColorService<Cloth> getInstance() { return Factory.INSTANCE; }
+    
+    /*
+     * implements
+     */
 	@Override
 	public ClothWithColor setRandomColor(Cloth cloth) {
 		return setColor(cloth, colorService.getRandomColor());

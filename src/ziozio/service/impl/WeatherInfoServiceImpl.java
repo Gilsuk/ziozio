@@ -6,6 +6,7 @@ import ziozio.dao.face.WeatherInfoDAO;
 import ziozio.dao.impl.WeatherInfoDAOImpl;
 import ziozio.dto.Location;
 import ziozio.dto.WeatherInfo;
+import ziozio.dto.enumeration.Weather;
 import ziozio.service.face.WeatherInfoService;
 
 public class WeatherInfoServiceImpl implements WeatherInfoService {
@@ -27,60 +28,47 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 
 	@Override
 	public List<WeatherInfo> getWeatherInfosToday(Location loc) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static void main(String[] args) {
-
-		WeatherInfoDAOImpl infoDao = new WeatherInfoDAOImpl();
-		WeatherInfoService infoSiv = new WeatherInfoServiceImpl();
-		
-		Location loc = new Location();
-		loc.setLocation_name("서울특별시 서초구 서초2동");
-		String str = "흐림";
-		
-		List<WeatherInfo> weatherInfos = infoSiv.getWeatherInfos(loc, 1);
-
-//		Location loc = new Location();
-//		loc.setLocation_name("서울특별시 서초구 서초2동");
-//		List<WeatherInfo> weatherinfos = infoDao.selectAll(loc, 10);
-//		
-		for (WeatherInfo weatherInfo : weatherInfos) {
-			System.out.println(weatherInfo);
-		}
-
-	}
-	
-	@Override
-	public WeatherInfo getRepresentativeWeatherInfo(List<WeatherInfo> weatherInfos) {
-				
-		return null;
+		return getWeatherInfos(loc, 16);
 	}
 
 	@Override
 	public double getHighTemperature(List<WeatherInfo> weatherInfos) {
-		// TODO Auto-generated method stub
-		return 0;
+		double max = -100;
+		for (WeatherInfo weatherInfo : weatherInfos) {
+			double temp = weatherInfo.getWeather_info_temperature();
+			max = temp > max ? temp : max;
+		}
+		return max;
 	}
 
 	@Override
 	public double getLowTemperature(List<WeatherInfo> weatherInfos) {
-		// TODO Auto-generated method stub
-		return 0;
+		double low = 100;
+		for (WeatherInfo weatherInfo : weatherInfos) {
+			double temp = weatherInfo.getWeather_info_temperature();
+			low = temp < low ? temp : low;
+		}
+		return low;
 	}
 
 	@Override
 	public double getFineDust(List<WeatherInfo> weatherInfos) {
-		// TODO Auto-generated method stub
-		return 0;
+		double max = -100;
+		for (WeatherInfo weatherInfo : weatherInfos) {
+			double temp = weatherInfo.getWeather_info_finedust();
+			max = temp > max ? temp : max;
+		}
+		return max;
 	}
 
 	@Override
 	public boolean willItBeRainOrSnow(List<WeatherInfo> weatherInfos) {
 
-	
-		
+		for (WeatherInfo weatherInfo : weatherInfos) {
+			String name = weatherInfo.getWeather_name();
+			if (name == Weather.RAIN.toString() || name == Weather.SNOW.toString())
+				return true;
+		}
 		return false;
 	}
 

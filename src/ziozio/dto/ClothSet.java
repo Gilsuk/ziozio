@@ -5,38 +5,47 @@ import ziozio.service.exception.ClothCategoryNotMatched;
 
 public class ClothSet implements DTO {
 	
-	private Cloth top;
-	private Cloth bottom;
-	private Cloth outer;
+	private int clost_set_no;
+	private ClothWithColor top;
+	private ClothWithColor bottom;
+	private ClothWithColor outer;
 	@Override
 	public String toString() {
-		return "ClothSet [top=" + top + ", bottom=" + bottom + ", outer=" + outer + "]";
+		return "ClothSet [clost_set_no=" + clost_set_no + ", top=" + top + ", bottom=" + bottom + ", outer=" + outer
+				+ "]";
 	}
-	public Cloth getTop() {
+	public int getClost_set_no() {
+		return clost_set_no;
+	}
+	public void setClost_set_no(int clost_set_no) {
+		this.clost_set_no = clost_set_no;
+	}
+	public ClothWithColor getTop() {
 		return top;
 	}
-	public void setTop(Cloth top) throws ClothCategoryNotMatched {
+	public void setTop(ClothWithColor top) throws ClothCategoryNotMatched {
 		if (top.getCloth_category_name() == ClothCategory.TOP.getDbValue())
 			this.top = top;
 		else
 			throw new ClothCategoryNotMatched();
 	}
-	public Cloth getBottom() {
+	public ClothWithColor getBottom() {
 		return bottom;
 	}
-	public void setBottom(Cloth bottom) throws ClothCategoryNotMatched {
+	public void setBottom(ClothWithColor bottom) throws ClothCategoryNotMatched {
 		if (bottom.getCloth_category_name() == ClothCategory.BOTTOM.getDbValue())
 			this.bottom = bottom;
 		else
 			throw new ClothCategoryNotMatched();
 	}
-	public Cloth getOuter() {
+	public ClothWithColor getOuter() {
 		return outer;
 	}
-	public void setOuter(Cloth outer) throws ClothCategoryNotMatched {
+	public void setOuter(ClothWithColor outer) throws ClothCategoryNotMatched {
 		if (outer.getCloth_category_name() == ClothCategory.OUTER.getDbValue())
 			this.outer = outer;
 		else
 			throw new ClothCategoryNotMatched();
 	}
+
 }

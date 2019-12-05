@@ -1,5 +1,6 @@
 package ziozio.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ public class StyleServiceImpl implements StyleService {
 	}
 
 	@Override
-	public List<Style> getStyles(HttpServletRequest req) {
+	public List<Style> getAccountStyles(HttpServletRequest req) {
 		
 		Account loggedInAccount = null;
 		try {
@@ -45,7 +46,13 @@ public class StyleServiceImpl implements StyleService {
 	}
 
 	@Override
-	public Style getStyle(HttpServletRequest req) {
+	public List<Style> getSelectedStyles(HttpServletRequest req) {
+		String[] values = req.getParameterValues("style");
+		List<Style> list = new ArrayList<>();
+		
+		
+		
+		
 		
 		return null;
 	}

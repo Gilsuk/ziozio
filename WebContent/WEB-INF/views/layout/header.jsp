@@ -95,8 +95,6 @@ function locationError(error){
 </script>
  </head>
  
-
- 
 <body>
 
  <div id="header">
@@ -106,7 +104,6 @@ function locationError(error){
 	</div>
 	<div style="background-color: #FFF" class="collapse navbar-collapse font-dohyeon" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-
 		<c:choose>
 			<c:when test="${not empty account }">
 				<li><a href="/main">메인</a></li>
@@ -124,9 +121,14 @@ function locationError(error){
 				<li><a href="/awarded">column</a></li>
 			</c:otherwise>
 		</c:choose>
-
 		</ul>
+		
 		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<c:if test="${not empty account }">
+					<a href="/mypage">${account.account_nick } 님 로그인 OK</a>
+				</c:if>
+			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -156,10 +158,4 @@ function locationError(error){
 	</div>
 </nav>
 </div>
-
-
-
-
-
-
 

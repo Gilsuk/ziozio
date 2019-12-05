@@ -522,8 +522,8 @@ public class QnADAOImpl implements QnADAO{
 
 		// 다음 게시글 번호 조회 쿼리
 		String sql = "";
-		sql += "SELECT account_nick FROM account.account_no = qna.account_no";
-		sql += " WHERE account_nick = ?";
+		sql += "SELECT account_nick FROM account, qna";
+		sql += " WHERE account.account_no = qna.account_no AND account_nick = ?";
 
 		// DB 객체
 		PreparedStatement ps = null;

@@ -7,39 +7,38 @@ import javax.servlet.http.HttpServletRequest;
 import ziozio.dao.face.GenderClothDAO;
 import ziozio.dao.impl.GenderClothDAOImpl;
 import ziozio.dto.Cloth;
+import ziozio.dto.ClothWithColor;
 import ziozio.dto.Paging;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.face.ClothColorService;
 import ziozio.service.face.ClothService;
 
-public class GenderClothService implements ClothService<Character, Cloth> {
+public class GenderClothService implements ClothService<Character> {
 	
 	private GenderClothDAO genderclothDao = new GenderClothDAOImpl();
+	private ClothColorService<Cloth> clothColorService = ClothColorServiceImpl.getInstance();
 
 	@Override
-	public List<Cloth> getClothes(Character gender) {
-		
-		return genderclothDao.selectAll(gender);
+	public List<ClothWithColor> getClothes(Character gender) {
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender));
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Character gender, ClothCategory category) {
-		
-		return genderclothDao.selectAll(gender, category);
-		
-	}
-
-	@Override
-	public List<Cloth> getClothes(Character gender, Paging paging) {
-		
-		return genderclothDao.selectAll(gender, paging);
+	public List<ClothWithColor> getClothes(Character gender, ClothCategory category) {
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender, category));
 		
 	}
 
 	@Override
-	public List<Cloth> getClothes(Character gender, ClothCategory category, Paging paging) {
+	public List<ClothWithColor> getClothes(Character gender, Paging paging) {
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender, paging));
 		
-		return genderclothDao.selectAll(gender, category, paging);
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(Character gender, ClothCategory category, Paging paging) {
+		return clothColorService.setRandomColor(genderclothDao.selectAll(gender, category, paging));
 		
 	}
 
@@ -80,6 +79,16 @@ public class GenderClothService implements ClothService<Character, Cloth> {
 		Paging paging = new Paging(totalCount, curPage);
 
 		return paging;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Character> selector, ClothCategory category) {
+		return null;
+	}
+
+	@Override
+	public List<ClothWithColor> getClothes(List<Character> selector, ClothCategory category, Paging paging) {
+		return null;
 	}
 
 }

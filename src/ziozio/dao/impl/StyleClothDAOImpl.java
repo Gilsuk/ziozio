@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ziozio.dao.Dao;
 import ziozio.dao.face.StyleClothDAO;
 import ziozio.dto.Cloth;
 import ziozio.dto.Paging;
-import ziozio.dto.QnA;
 import ziozio.dto.Style;
 import ziozio.dto.enumeration.ClothCategory;
 import ziozio.utils.db.oracle.DBConn;
@@ -517,6 +517,81 @@ public class StyleClothDAOImpl implements StyleClothDAO {
 		}
 		
 		return list;
+	}
+
+
+//	public static void main(String[] args) {
+//		List<Style> list = new ArrayList<>();
+//		Style style1 = new Style();
+//		Style style2 = new Style();
+//		Paging paging = new Paging(10);
+//		style1.setStyle_name("캐쥬얼");
+//		style2.setStyle_name("비즈니스");
+//		list.add(style1);
+//		list.add(style2);
+//		
+//		StyleClothDAO dao = new StyleClothDAOImpl();
+//		List<Cloth> selectAll = dao.selectAll(list, ClothCategory.TOP, paging);
+//		
+//		for (Cloth cloth : selectAll) {
+//			System.out.println(cloth);
+//		}
+//		
+//	}
+
+	@Override
+	public List<Cloth> selectAll(List<Style> selector, ClothCategory category, Paging paging) {
+		StringBuilder sql = new StringBuilder();
+
+		sql.append("SELECT * FROM (");
+		sql.append(" SELECT C.cloth_name,");
+		sql.append(" C.cloth_code, C.cloth_link_url, C.cloth_gender, C.cloth_img");
+		sql.append(" FROM cloth_style CS");
+		sql.append(" INNER JOIN cloth C ON CS.cloth_code = C.cloth_code");
+		sql.append(" INNER JOIN style S ON S.style_code = CS.style_code");
+		sql.append(" INNER JOIN cloth_category CC ON CC.cloth_category_code = C.cloth_category_code");
+		sql.append(" WHERE S.style_name IN (");
+		insertKeywordsIntoSql(sql, selector);
+		sql.append(" )");
+		sql.append(" AND CC.cloth_category_name = ?");
+		sql.append(" ORDER BY DBMS_RANDOM.RANDOM");
+		sql.append(" ) where rownum BETWEEN ? AND ?");
+
+		return
+		Dao.<Style, Cloth>selectList(sql.toString(), null, null, (t, u) -> {
+			t.setString(1, category.getDbValue());
+			t.setInt(2, paging.getStartNo());
+			t.setInt(3, paging.getEndNo());
+		}, this::getClothByResultSet);
+	}
+	
+	private void insertKeywordsIntoSql(StringBuilder sql, List<Style> selector) {
+		for (int i = 0; i < selector.size(); i++)
+			if (i == 0) 
+				sql.append("'").append(selector.get(0).getStyle_name()).append("'");
+			else
+				sql.append(",'").append(selector.get(i).getStyle_name()).append("'");
+	}
+
+
+	private Cloth getClothByResultSet(ResultSet rs) {
+		Cloth cloth = new Cloth();
+
+		try {
+			cloth.setCloth_name(rs.getString("cloth_name"));								
+			cloth.setCloth_code(rs.getInt("cloth_code"));								
+			cloth.setCloth_link_url(rs.getString("cloth_link_url"));								
+			cloth.setCloth_gender(rs.getString("cloth_gender").charAt(0));	
+			cloth.setCloth_img(rs.getString("cloth_img"));
+		} catch (SQLException e) { e.printStackTrace(); }
+
+		return cloth;
+	}
+
+
+	@Override
+	public List<Cloth> selectAll(List<Style> selector, ClothCategory category) {
+		return null;
 	}
 
 }

@@ -45,6 +45,10 @@ public interface StyleClothDAO {
 	
 	List<Cloth> selectAll(Style style, ClothCategory category, Paging paging);
 
+	List<Cloth> selectAll(List<Style> selector, ClothCategory category, Paging paging);
+
+	List<Cloth> selectAll(List<Style> selector, ClothCategory category);
+
 	
 
 }
