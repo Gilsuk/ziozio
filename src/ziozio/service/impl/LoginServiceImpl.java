@@ -1,5 +1,8 @@
 package ziozio.service.impl;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -78,5 +81,11 @@ public class LoginServiceImpl implements LoginService {
 		return account == null ? false : true;
 	}
 
+	@Override
+	public void loginAndRedirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String path = req.getServletPath();
+		req.setAttribute("originurl", path);
+		req.getRequestDispatcher("/account/login").forward(req, resp);
+	}
 
 }

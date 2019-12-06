@@ -40,7 +40,8 @@ public class AccountLibrary extends HttpServlet {
 		try {
 			account = accountService.getLoggedInAccount(req);
 		} catch (AccountNotFountException e) {
-			e.printStackTrace();
+			accountService.loginAndRedirect(req, resp);
+			return;
 		}
 
 		

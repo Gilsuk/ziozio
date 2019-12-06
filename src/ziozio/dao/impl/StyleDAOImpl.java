@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ziozio.dao.Dao;
 import ziozio.dao.face.StyleDAO;
 import ziozio.dto.Account;
 import ziozio.dto.Style;
@@ -186,6 +187,52 @@ public class StyleDAOImpl implements StyleDAO {
 		}
 		
 		return list;
+		
+	}
+
+	@Override
+	public int insert(Account account, List<Style> styles) throws SQLException {
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO account_style");
+		sql.append(" (account_no, style_code)");
+		sql.append(" VALUES (?, ?)");
+		
+		return
+		Dao.<Style>massUpdate(sql.toString(), styles, (t, u) -> {
+			t.setInt(1, account.getAccount_no());
+			t.setInt(2, u.getStyle_code());
+		});
+	}
+
+	@Override
+	public List<Style> selectAll(List<Style> styles) {
+		
+		if (styles == null || styles.size() == 0)
+			return new ArrayList<>();
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM style");
+		sql.append(" WHERE style_name IN (");
+		for (int i = 0; i < styles.size(); i++)
+			if (i == 0)
+				sql.append("'").append(styles.get(i).getStyle_name()).append("'");
+			else
+				sql.append(",'").append(styles.get(i).getStyle_name()).append("'");
+		sql.append(")");
+		
+		return
+		Dao.<Style>selectList(sql.toString(), null, null, this::getStyleFromResultSet);
+	}
+	
+	private Style getStyleFromResultSet(ResultSet rs) {
+		Style style = new Style();
+		
+		try {
+			style.setStyle_code(rs.getInt("style_code"));
+			style.setStyle_name(rs.getString("style_name"));
+		} catch (SQLException e) { e.printStackTrace(); }
+		
+		return style;
 		
 	}
 

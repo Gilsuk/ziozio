@@ -1,5 +1,6 @@
 package ziozio.service.impl;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,22 +42,18 @@ public class StyleServiceImpl implements StyleService {
 	}
 
 	@Override
-	public List<Style> getAccountStyles(HttpServletRequest req) {
+	public List<Style> getAccountStyles(HttpServletRequest req) throws AccountNotFountException {
 		
 		Account loggedInAccount = null;
-		try {
 			loggedInAccount = accountService.getLoggedInAccount(req);
 			return getStylesByAccount(loggedInAccount);
 			
-		} catch (AccountNotFountException e) {
-			return  getAllStyles();
-		}
 		
 	}
 
 	@Override
 	public List<Style> getSelectedStyles(HttpServletRequest req) {
-		String[] values = req.getParameterValues("style");
+		String[] values = req.getParameterValues("styles[]");
 		List<Style> list = new ArrayList<>();
 		
 		for (String style_name : values) {
@@ -66,6 +63,27 @@ public class StyleServiceImpl implements StyleService {
 		}
 
 		return list;
+	}
+
+	@Override
+	public int addStylesToAccount(Account account, List<Style> styles) {
+		/*
+		 * 미-완-성
+		 */
+		if (styles.size() <= 0) return 0;
+		try {
+			styleDao.insert(account, styleDao.selectAll(styles));
+		} catch (SQLException e) {
+			styles.remove(0);
+		}
+//		else {
+//			int count = styleDao.insert(account, styleDao.selectAll(styles)); 
+//			System.out.println(count + " size:" + styles.size());
+//			for (int i = 0; i < count; i++) {
+//				styles.remove(0);
+//			}
+			return addStylesToAccount(account, styles);
+//		}
 	}
 
 }
