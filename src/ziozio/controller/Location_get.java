@@ -27,20 +27,14 @@ public class Location_get extends HttpServlet {
 		Location location = locationService.getLocation(req);
 		
 		System.out.println(location);
-	
-//		resp.sendRedirect("weather_get");
+		
+		
+//	
+//		resp.sendRedirect("/weather_get");
 		
 //		System.out.println(req.getParameter("location1"));
 		
 		
 	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		resp.sendRedirect("weather_get");
-		
-	}
-
 
 }
