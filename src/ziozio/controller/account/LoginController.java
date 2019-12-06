@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
 	
 	private void redirectByParam(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String url = req.getParameter("originurl");
-		if (url == null) resp.sendRedirect("/main");
+		if (url == null || url.equals("null") || url.equals("")) resp.sendRedirect("/main");
 		else resp.sendRedirect(url);
 	}
 	
@@ -70,6 +70,7 @@ public class LoginController extends HttpServlet {
 			loginService.login(req, resp);
 			// 로그인 성공시 처리
 			redirectByParam(req, resp);
+			return;
 		} catch (InvalidParamException e) {
 			// 사용자가 입력한 값이 잘못됐을 때 처리
 			resp.getWriter().println("Invalid Param");

@@ -114,7 +114,7 @@ $( document ).ready(function() {
 	  </a>
 	</div><br>
 <a href="/mypage">
-	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic" value="돌아가기" /></a>
+	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic font-gothic" value="돌아가기" /></a>
 </div>
 <br>
 

@@ -54,7 +54,7 @@ $(document).ready(function() {
 				<div class="form-group">
 					<div class="form-inline">
 					
-						<div class="form-group"  name="category" id="category">
+						<div class="form-group font-gothic"  name="category" id="category">
 							<label class="sr-only" for="category"></label>
 							<select id="category" class="form-control width1"  >
 								<option value="3">OUTER</option>
@@ -63,7 +63,7 @@ $(document).ready(function() {
 							</select>
 						</div>
 						
-						<div class="form-group" name="style" id="style">
+						<div class="form-group font-gothic" name="style" id="style">
 							<label class="sr-only" for="style"></label>
 							<select id="style" class="form-control width1"  >
 								<option value="1">페미닌</option>
@@ -78,7 +78,7 @@ $(document).ready(function() {
 							</select>
 						</div>
 						
-						<div class="form-group" name="color" id="color">
+						<div class="form-group font-gothic" name="color" id="color">
 							<label class="sr-only" for="color"></label>
 							<select id="style" class="form-control width1" >
 								<option value="01">빨강</option>
@@ -104,8 +104,10 @@ $(document).ready(function() {
 								<option value="21">아이보리</option>
 							</select>
 						</div>
+						
 						<div class="form-group">
-							<input  id="btncalc" type="submit" class="btn btn-primory form-control input width color font-gothic" value="선택완료" />
+							<input  id="btncalc" type="submit" 
+							class="btn btn-primory form-control input width color font-gothic" value="선택완료" />
 						</div>
 					</div>
 				</div>
@@ -117,7 +119,9 @@ $(document).ready(function() {
 
 
 <a href="/mypage">
-	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic" value="돌아가기" /></a>	
+	<input type="submit" 
+	class="btn btn-primory form-control input width1 color font-gothic" 
+	value="돌아가기" /></a>	
 
 <jsp:include page="/WEB-INF/views/layout/paging_library.jsp" />	
 </div>
