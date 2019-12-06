@@ -16,7 +16,7 @@ $(document).ready(function() {
 			, url: "/cloth/select/ok"
 			, data: {
 				"category" : $("#category").val()
-				, "style" : $("#style").val()
+				, "cloth" : $("#cloth").val()
 				, "color" : $("#color").val()
 			}
 
@@ -63,8 +63,8 @@ $(document).ready(function() {
 							</select>
 						</div>
 						
-						<div class="form-group font-gothic" name="style" id="style">
-							<label class="sr-only" for="style"></label>
+						<div class="form-group font-gothic" name="cloth" id="cloth">
+							<label class="sr-only" for="cloth"></label>
 							<select id="style" class="form-control width1"  >
 								<option value="1">페미닌</option>
 								<option value="2">시크</option>

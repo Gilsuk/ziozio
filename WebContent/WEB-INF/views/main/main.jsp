@@ -37,8 +37,9 @@
   	</div>
 </div>
 
+
+
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
   
     <div class="item active">
@@ -58,7 +59,39 @@
     </div>
 
     <div class="item">
-      <img src="/resources/img/look/check_muffler.png" alt="...">
+      <img src="/resources/img/look/sleeveless.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/sweater.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/tennis_skirt.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/trench_coat.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/trucker_jacket.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/vest_padding.png" alt="...">
+    </div>  
+   
+    <div class="item">
+      <img src="/resources/img/look/sleeveless_shirt_man.png" alt="...">
+    </div>  
+   
+    <div class="item">
+      <img src="/resources/img/look/short_sleeved_woman.png" alt="...">
+    </div>  
+   
+    <div class="item">
+      <img src="/resources/img/look/long_sleeved_dress.png" alt="...">
     </div>  
   </div>
 
