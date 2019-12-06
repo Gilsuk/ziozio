@@ -7,7 +7,9 @@ import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.Account;
 import ziozio.service.exception.AccountNotFountException;
+import ziozio.service.exception.CookieNotFoundException;
 import ziozio.service.face.AccountService;
+import ziozio.service.face.CookieService;
 
 public class AccountServiceImpl implements AccountService {
 
@@ -15,6 +17,7 @@ public class AccountServiceImpl implements AccountService {
 	 * Fields
 	 */
 	private AccountDAO accountDao = AccountDAOImpl.getInstance();
+	private CookieService cookieServ = CookieServiceImpl.getInstance();
 	
 	/*
 	 * Singleton
@@ -45,8 +48,16 @@ public class AccountServiceImpl implements AccountService {
 			if (account == null) throw new NullPointerException();
 			return (Account) account;
 		} catch (NullPointerException e) {
+
+			try {
+				cookieServ.restoreSessionAccount(req, null);
+				return getLoggedInAccount(req);
+			} catch (SelectResultException e1) {
+				throw new AccountNotFountException();
+			} catch (CookieNotFoundException e1) {
+				throw new AccountNotFountException();
+			}
 			
-			throw new AccountNotFountException();
 		} catch (ClassCastException e) {
 			// session attribute에 account라는 이름으로 다른 객체가 들어있는 경우
 			// 발생하면 안되는 심각한 에러
