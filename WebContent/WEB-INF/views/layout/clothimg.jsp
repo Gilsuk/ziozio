@@ -8,8 +8,8 @@
 <div class="row">
 <div class="col-lg-12">
 	<c:forEach items="${clothset}" var="set">
+		<div class="jumbotron clothset-con1 input" >
 		<div class="clothset-con" >
-		
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<c:if test="${not empty set.top }">
 				<img style="filter: hue-rotate(${set.top.color_hue_rotate}deg) 
@@ -36,6 +36,7 @@
 							 src="${set.outer.cloth_img }" alt="${set.outer.cloth_name }" class="img-thumbnail">
 			</c:if>
 			</div>
+		</div>
 		</div>
 	</c:forEach>
 </div>

@@ -27,7 +27,7 @@ public class Weather_get extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
+
 //		Location location = null;
 		Location location = locationService.getLocation(req);
 		System.out.println(location);
@@ -36,6 +36,7 @@ public class Weather_get extends HttpServlet {
 		req.setAttribute("locweatherList", locweatherList);
 		
 		req.getRequestDispatcher("/WEB-INF/views/weather/locationweather.jsp").forward(req, resp);
+
 
 		
 	}

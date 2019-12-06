@@ -64,7 +64,7 @@
 <div class="container ">
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
-		<div class="jumbotron padding" style="background-color: #FFF2EC">
+		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/login" onsubmit="return checkValue()">
 				<h2 class="center font-dohyeon">로그인</h2><br>
 				<div class="form-group">
@@ -83,6 +83,7 @@
  					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
 				</c:if>  --%>
 				
+				<input type="text" hidden="hidden" name="originurl" value="<%= (String)request.getAttribute("originurl") %>" />
 				<div class="form-group" >
 					<input  type="submit" class="btn btn-primory form-control input color font-gothic" value="로그인" />
 				</div>

@@ -9,23 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ziozio.dto.Location;
+import ziozio.dto.Account;
 import ziozio.dto.Style;
-import ziozio.dto.WeatherInfo;
-import ziozio.service.face.LocationService;
+import ziozio.service.exception.AccountNotFountException;
+import ziozio.service.face.AccountService;
 import ziozio.service.face.StyleService;
-import ziozio.service.face.WeatherInfoService;
-import ziozio.service.impl.LocationServiceImpl;
+import ziozio.service.impl.AccountServiceImpl;
 import ziozio.service.impl.StyleServiceImpl;
-import ziozio.service.impl.WeatherInfoServiceImpl;
 
 
 @WebServlet("/stylecheck")
 public class StyleCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	WeatherInfoService weatherInfoService = WeatherInfoServiceImpl.getInstance();
-	LocationService locationService = LocationServiceImpl.getInstance();
+	private StyleService styleService = StyleServiceImpl.getInstance();
+	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,8 +35,14 @@ public class StyleCheck extends HttpServlet {
 //		req.setAttribute("weather", weather);
 //		req.setAttribute("temperature", temperature);
 		
-		StyleService styleService = StyleServiceImpl.getInstance();
 
+		try {
+			List<Style> userStyles = styleService.getAccountStyles(req);
+			req.setAttribute("userStyles", userStyles);
+		} catch (AccountNotFountException e) {
+			accountService.loginAndRedirect(req, resp);
+			return;
+		}
 		List<Style> allStyles = styleService.getAllStyles();
 		req.setAttribute("allStyles", allStyles);
 		
@@ -49,14 +53,19 @@ public class StyleCheck extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		req.setCharacterEncoding("UTF-8");
 		
-		String[] parameterValues = req.getParameterValues("styles[]");
-		for (String string : parameterValues) {
-			System.out.println(string);
+		List<Style> styles = styleService.getSelectedStyles(req);
 
-		
+		try {
+			Account account = accountService.getLoggedInAccount(req);
+			styleService.addStylesToAccount(account, styles);
+			resp.sendRedirect("/mypage");
+
+		} catch (AccountNotFountException e) {
+			accountService.loginAndRedirect(req, resp);
 		}
+
+
 	}
 }

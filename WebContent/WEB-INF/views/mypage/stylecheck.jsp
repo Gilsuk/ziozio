@@ -13,7 +13,7 @@
 
 <div class="wrapper font-dohyeon fon1">
 <div class="con center">
-<div class="jumbotron padding input" >
+<div class="jumbotron padding" >
 <h1 class="">Style Check</h1><br><br>
 
 
@@ -21,16 +21,18 @@
 	<div class="checkbox">
 		<c:forEach items="${allStyles}" var="style" >
 		<label>
-			<input type="checkbox" name="styles[]" value="${style.style_name }">
+			<input type="checkbox" name="styles[]" value="${style.style_name }" />
 			${style.style_name }
 		</label>
 		</c:forEach>
 	</div>
-	
+	<br>
 	<div class="form-group">
 		<input type="submit" class="btn form-control input width1 color font-gothic"  value="확인" />
 	</div>
 </form>
+<a href="/mypage">
+	<input type="submit" class="btn  form-control input width1 color font-gothic" value="돌아가기" /></a>
 
 </div>
 </div>

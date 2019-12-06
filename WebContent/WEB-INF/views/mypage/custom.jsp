@@ -112,9 +112,12 @@ $( document ).ready(function() {
 	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	    <span class="sr-only">Next</span>
 	  </a>
-	</div>
+	</div><br>
+<a href="/mypage">
+	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic" value="돌아가기" /></a>
 </div>
 <br>
+
 
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />

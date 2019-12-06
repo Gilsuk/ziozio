@@ -92,14 +92,22 @@ function locationError(error){
     var errorMsg = errorTypes[error.code];
 }
 </script>
+
+<style type="text/css">
+.navbar-default{
+	background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+}
+
+</style>
+
  </head>
  
 <body>
 
 
-<div id="header">
+<div id="header" class="font-dohyeon">
 <nav class="navbar navbar-default navbar-static-top">
-	<div class="container">
+	<div class="container" style="background-color: #FFF">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -115,6 +123,7 @@ function locationError(error){
 				<c:choose>
 					<c:when test="${not empty account }">
 						<li><a href="/mypage">마이페이지</a></li>
+						<li><a href="/cloth/select">옷 둘러보기</a></li>
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/awarded">column</a></li>
 						<li><a href="/qnalist">QnA</a></li>
@@ -148,6 +157,7 @@ function locationError(error){
 								<li><a href="/mypage">WELCOME ${account.account_nick}님</a></li>
 								<li class="divider"></li>
 								<li><a href="/mypage">마이페이지</a></li>
+								<li><a href="/cloth/select">옷 둘러보기</a></li>
 								<li><a href="/board/list">게시판</a></li>
 								<li><a href="/awarded">column</a></li>
 								<li><a href="/qnalist">QnA</a></li>

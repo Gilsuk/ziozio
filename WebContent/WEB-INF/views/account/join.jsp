@@ -75,9 +75,7 @@
 		$.ajax({
 			type : "GET",
 			url : "/account/duplicatecheck/nick",
-			data : {
-				account_nick : account_nick
-			},
+			data : {account_nick : account_nick},
 			success : function(result) {
 				$("#checkMessage").html(result);
 				$("#checkType").attr("class", "modal-content panel-success");
@@ -89,12 +87,24 @@
 	function pwCheckFunction() {
 		var account_pw = $("#account_pw").val();
 		var account_pw2 = $("#account_pw2").val();
+        var check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$/.test(account_pw);   //영문,숫자
+        var check2 = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,15}$/.test(account_pw);  //영문,특수문자
+        var check3 = /^(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,15}$/.test(account_pw);  //특수문자, 숫자
+       
+        if(!(check1||check2||check3)){
+           warningModal("비밀번호는 숫자, 대/소문자, 특수문자 중 2가지 이상을 조합한 8~15 자리가 가능합니다");
+
+           $('#account_pw').focus();
+           return false;
+		}
 		if (account_pw != account_pw2) {
 			$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
 		} else {
 			$("#pwCheckMessage").html("");
 		}
 	}
+	
+
 </script>
 
 
@@ -109,7 +119,7 @@
 <div class="container">
 	<div class="col-lg-3"></div>
 	<div class="col-lg-6">
-		<div class="jumbotron padding" style="background-color: #FFF2EC" >
+		<div class="jumbotron padding"  >
 			<form name="loginInfo" method="post" action="/account/join" onsubmit="Freturn checkValue()">
 				<h2 class="center font-dohyeon">회원가입</h2><br>
 				<div class="form-group">
