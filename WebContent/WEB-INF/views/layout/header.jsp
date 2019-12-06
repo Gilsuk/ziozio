@@ -112,9 +112,10 @@ function locationError(error){
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 				aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="/">ZIOZIO</a>
 		</div>
@@ -127,11 +128,9 @@ function locationError(error){
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/awarded">column</a></li>
 						<li><a href="/qnalist">QnA</a></li>
-						<li><a id="location" href="/">내위치확인</a></li>
+						<li><a id="location" href="#">내위치확인</a></li>
 						<li><a href="/weather">날씨</a></li>
-						<li><a href="#">${location_name }</a></li>
-						<li><a href="#">${weather_info_temperature }</a></li>
-						<li><a href="#">${weather_name }</a></li>
+
 					</c:when>
 					<c:otherwise>
 						<li><a href="/account/join">회원가입</a></li>
