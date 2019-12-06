@@ -155,7 +155,7 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public void insert(Verification veri) {
+	public void insert(Verification veri) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO verification (verification_type, account_no, verification_code)");
 		sql.append(" VALUES (?, ?, ?)");
@@ -165,6 +165,37 @@ public class AccountDAOImpl implements AccountDAO {
 				t.setString(1, String.valueOf(u.getVerification_type()));
 				t.setInt(2, u.getAccount_no());
 				t.setString(3, u.getVerification_code());
+			});
+		} catch (SQLException e) { throw e; }
+	}
+
+	@Override
+	public boolean selectCount(Verification veri) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT count(*) FROM verification");
+		sql.append(" WHERE account_no = ?");
+		sql.append(" AND verification_code = ?");
+
+
+		int cnt = 
+		Dao.<Verification>count(sql.toString(), veri, (t, u) -> {
+			t.setInt(1, u.getAccount_no());
+			t.setString(2, u.getVerification_code());
+		});
+		
+		return cnt == 1 ? true : false;
+	}
+
+	@Override
+	public void updatePw(AccountWithPw account) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE account SET account_pw = ?");
+		sql.append(" WHERE account_no = ?");
+		
+		try {
+			Dao.<AccountWithPw>update(sql.toString(), account, (t, u) -> {
+				t.setString(1, u.getAccount_pw());
+				t.setInt(2, u.getAccount_no());
 			});
 		} catch (SQLException e) { e.printStackTrace(); }
 	}

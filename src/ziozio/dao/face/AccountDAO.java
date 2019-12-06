@@ -15,6 +15,8 @@ public interface AccountDAO {
 	int selectCountByNick(Account account);
 	void updateToVerify(Account account);
 	Account selectByEmail(Account account) throws SelectResultException;
-	void insert(Verification veri);
+	void insert(Verification veri) throws SQLException;
+	boolean selectCount(Verification veri);
+	void updatePw(AccountWithPw account);
 
 }

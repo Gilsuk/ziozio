@@ -1,6 +1,7 @@
 package ziozio.controller.account;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,14 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dao.exception.SelectResultException;
 import ziozio.dto.Account;
+import ziozio.enumeration.VerificationType;
 import ziozio.service.face.AccountService;
+import ziozio.service.face.VerificationService;
 import ziozio.service.impl.AccountServiceImpl;
+import ziozio.service.impl.VerificationServiceImpl;
 
 
 @WebServlet("/account/find")
 public class FindAccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AccountService accountService = AccountServiceImpl.getInstance();
+	private VerificationService verificationService = VerificationServiceImpl.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,8 +37,15 @@ public class FindAccountController extends HttpServlet {
 		try {
 			account = accountService.getAccountByEmail(account);
 			accountService.generateKey(account);
-		} catch (SelectResultException e) { } 
+		}  catch (SQLException e) {
 
-		resp.sendRedirect("/main");
+		} 
+		try {
+			String queryString = verificationService.getQueryString(account, VerificationType.FIND);
+			resp.getWriter().println("/account/verify?" + queryString);
+		} catch (SelectResultException e) {
+			resp.sendRedirect("/main");
+		}
+
 	}
 }
