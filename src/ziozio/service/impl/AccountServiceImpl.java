@@ -77,6 +77,8 @@ public class AccountServiceImpl implements AccountService {
 		req.getRequestDispatcher("/account/login").forward(req, resp);
 	}
 
-
-
+	@Override
+	public void verify(Account account) {
+		accountDao.updateToVerify(account);
+	}
 }
