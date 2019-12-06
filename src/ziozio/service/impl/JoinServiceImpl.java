@@ -9,12 +9,14 @@ import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dto.AccountWithPw;
 import ziozio.service.exception.AccountDuplicateException;
 import ziozio.service.face.JoinService;
+import ziozio.service.face.VerificationService;
 import ziozio.utils.param.ParamCaster;
 import ziozio.utils.param.exception.InvalidParamException;
 
 public class JoinServiceImpl implements JoinService {
 	
 	private AccountDAO accountDao = AccountDAOImpl.getInstance();
+	private VerificationService verificationService = VerificationServiceImpl.getInstance();
 	
 	private JoinServiceImpl() { }
     private static class Factory {
@@ -25,8 +27,10 @@ public class JoinServiceImpl implements JoinService {
 	@Override
 	public void join(HttpServletRequest req) throws InvalidParamException, AccountDuplicateException {
 		AccountWithPw account = getAccountWithPwFromParams(req);
+
 		try {
 			accountDao.insert(account);
+			verificationService.generateKey(account);
 		} catch (SQLException e) { throw new AccountDuplicateException(); }
 	}
 
