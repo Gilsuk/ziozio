@@ -35,26 +35,23 @@ public class GenderCloth extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
 		StyleService styleService = StyleServiceImpl.getInstance();
 
 		List<Style> allStyles = styleService.getAllStyles();
 		req.setAttribute("allStyles", allStyles);
-	
+
 		try {
 			Account account = accountService.getLoggedInAccount(req);
 
 			List<ClothWithColor> topList = clothService.getClothes(account.getAccount_gender(), ClothCategory.TOP);
 			List<ClothWithColor> bottomList = clothService.getClothes(account.getAccount_gender(), ClothCategory.BOTTOM);
 			List<ClothWithColor> outerList = clothService.getClothes(account.getAccount_gender(), ClothCategory.OUTER);
-			
+
 			List<ClothSet> clothset = setService.makeSets(topList, bottomList, outerList);
 			
 			req.setAttribute("clothset", clothset);
-			req.setAttribute("topList", topList);
-			req.setAttribute("bottomList", bottomList);
-			req.setAttribute("outerList", outerList);
-			
+
+
 			req.getRequestDispatcher("/WEB-INF/views/clothlook/gendercloth.jsp").forward(req,resp);
 		} catch (AccountNotFountException e) {
 			resp.sendRedirect("/account/restoresession");

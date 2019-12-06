@@ -20,17 +20,9 @@
 	<div class="form-inline">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<a href="/account/join"><img src="/resources/img/mypage_pictures/change.png" style="height: 160px;" alt="..."></a>
+				<a href="/account/update"><img src="/resources/img/mypage_pictures/change.png" style="height: 160px;" alt="..."></a>
 			<div class="caption ">
-				<h3><a href="/account/modify">회원정보 변경</a></h3>
-			</div>
-			</div>
-		</div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<div class="thumbnail">
-				<a href="/account/likeroom"><img src="/resources/img/mypage_pictures/preference.png" style="height: 160px;" alt="..."></a>
-			<div class="caption">
-				<h3><a href="/account/likeroom">LIKE ROOM</a></h3>
+				<h3><a href="/account/update">회원정보 변경</a></h3>
 			</div>
 			</div>
 		</div>
@@ -39,6 +31,14 @@
 				<a href="/account/library"><img src="/resources/img/mypage_pictures/closet.png" style="height: 160px;" alt="..."></a>
 			<div class="caption">
 				<h3><a href="/account/library">MY ROOM</a></h3>
+			</div>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="thumbnail">
+				<a href="/stylecheck"><img src="/resources/img/mypage_pictures/preference.png" style="height: 160px;" alt="..."></a>
+			<div class="caption">
+				<h3><a href="/stylecheck">STYLE CHECK</a></h3>
 			</div>
 			</div>
 		</div>

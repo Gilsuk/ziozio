@@ -97,55 +97,32 @@ function locationError(error){
  
 <body>
 
- <div id="header">
-<nav class="navbar navbar-default font-dohyeon">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="/">ZIOZIO</a>
-	</div>
-	<div style="background-color: #FFF" class="collapse navbar-collapse font-dohyeon" id="bs-example-navbar-collapse-1">
-		<ul class="nav navbar-nav">
-		<c:choose>
-			<c:when test="${not empty account }">
-				<li><a href="/mypage">마이페이지</a></li>
-				<li><a href="/board/list">게시판</a></li>
-				<li><a href="/awarded">column</a></li>
-				<li><a href="/qnalist">QnA</a></li>
-				<li><a href="/">내위치확인</a></li>
-				<li>${defaultLocation.location_name }</li>
-				<li>${temperature.weather_info_temperature }</li>
-				<li>${weather.weather_name }</li>
-				
-				
-			</c:when>
-			<c:otherwise>
-				<li><a href="/account/join">회원가입</a></li>
-				<li><a href="/account/restoresession">로그인</a></li>
-				<li><a href="/account/find">비밀번호 찾기</a></li>
-				<li><a href="/board/list">게시판</a></li>
-				<li><a href="/awarded">column</a></li>
-			</c:otherwise>
-		</c:choose>
-		</ul>
 
-		<ul class="nav navbar-nav navbar-right">
-			<li>
-				<c:if test="${not empty account }">
-					<a href="/mypage">${account.account_nick } 님 로그인 OK</a>
-				</c:if>
-			</li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">메뉴<span class="caret"></span></a>
-				<ul class="dropdown-menu" style="width: 200px;" >
+<div id="header">
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">ZIOZIO</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
 				<c:choose>
 					<c:when test="${not empty account }">
-						<li><a href="/mypage">WELCOME ${account.account_nick}님</a></li><hr>
 						<li><a href="/mypage">마이페이지</a></li>
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/awarded">column</a></li>
 						<li><a href="/qnalist">QnA</a></li>
-						<li><a href="/account/logout">로그아웃</a></li>
+						<li><a href="/">내위치확인</a></li>
+						<li><a href="#">${location_name }</a></li>
+						<li><a href="#">${weather_info_temperature }</a></li>
+						<li><a href="#">${weather_name }</a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="/account/join">회원가입</a></li>
@@ -155,10 +132,38 @@ function locationError(error){
 						<li><a href="/awarded">column</a></li>
 					</c:otherwise>
 				</c:choose>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><c:if test="${not empty account }">
+						<a href="/mypage">${account.account_nick } 님 로그인 OK</a>
+					</c:if></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">메뉴<span class="caret"></span></a>
+					<ul class="dropdown-menu" style="width: 200px;">
+						<c:choose>
+							<c:when test="${not empty account }">
+								<li><a href="/mypage">WELCOME ${account.account_nick}님</a></li>
+								<li class="divider"></li>
+								<li><a href="/mypage">마이페이지</a></li>
+								<li><a href="/board/list">게시판</a></li>
+								<li><a href="/awarded">column</a></li>
+								<li><a href="/qnalist">QnA</a></li>
+								<li><a href="/account/logout">로그아웃</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/account/join">회원가입</a></li>
+								<li><a href="/account/restoresession">로그인</a></li>
+								<li><a href="/account/find">비밀번호 찾기</a></li>
+								<li><a href="/board/list">게시판</a></li>
+								<li><a href="/awarded">column</a></li>
+							</c:otherwise>
+						</c:choose>
 
-				</ul>
-			</li>
-		</ul>
+					</ul>
+				</li>
+			</ul>
+		</div>
 	</div>
 </nav>
 </div>

@@ -17,7 +17,7 @@ import ziozio.service.impl.AccountLibraryClothService;
 public class AccountLibraryDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private ClothService<Account> accountLibraryClothService = AccountLibraryClothService.getInstance();
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
