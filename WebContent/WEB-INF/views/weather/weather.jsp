@@ -67,6 +67,11 @@ $( document ).ready(function() {
 
 					</div>
 				</c:forEach>
+				
+				
+				<h3>날씨</h3>
+				
+				
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic"

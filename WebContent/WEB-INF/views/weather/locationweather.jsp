@@ -65,10 +65,15 @@ $( document ).ready(function() {
 						<br>
 						<c:out value="미세먼지 ${weatherinfo.weather_info_finedust}"></c:out>
 						<br>
-
-					</div>
+					</div>			
 				</c:forEach>
+<%-- 				<c:forEach items="${locweatherList}" var="weatherinfo"> --%>
+<!-- 				<select> -->
+<%-- 					<option><c:out value="날씨 ${weatherinfo.weather_name}"><br></c:out></option> --%>
+<!-- 					</select> -->
+<%-- 				</c:forEach> --%>
 			</div>
+			
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic"
 				role="button" data-slide="prev"> <span
@@ -81,7 +86,29 @@ $( document ).ready(function() {
 			</a>
 
 		</div>
+<form action="">
+<h4>날씨</h4>
+<select name="sel">
+	<option value="0" selected="selected">선택안함</option>
+	<option>맑음</option>
+	<option>흐림</option>
+	<option>비</option>
+	<option>눈</option>
+</select>
+<h4>온도</h4>
+<select name="sel">
+	<option value="0" selected="selected">선택안함</option>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	<option>6</option>
+	<option>7</option>
+	<option>8</option>
+</select>
 
+</form>
 </div>
 
 
