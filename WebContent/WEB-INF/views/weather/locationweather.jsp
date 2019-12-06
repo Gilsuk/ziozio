@@ -44,12 +44,13 @@ $( document ).ready(function() {
 	<br>
 	<h2>WEATHER INFO</h2>
 	<br>
+
 		<div id="carousel-example-generic" class="carousel slide">
 			<!-- 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel"> -->
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<!-- 		<div class="carousel-inner"> -->
-				<c:forEach items="${weatherList}" var="weatherinfo">
+				<c:forEach items="${locweatherList}" var="weatherinfo">
 					<div class="item">
 						<%-- 			<fmt:formatDate value="${weatherinfo.weahter_info_date}" pattern="yyyy-MM-dd HH" /><br> --%>
 						<%-- 				<c:out value="${weatherinfo.weahter_info_date}"></c:out><br> --%>

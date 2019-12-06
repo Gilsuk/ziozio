@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -82,8 +83,7 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 			// SQL 수행 결과 처리
 			while (rs.next()) {
 				WeatherInfo weather = new WeatherInfo();
-
-				weather.setWeahter_info_date(rs.getDate("weather_info_date"));
+				weather.setWeahter_info_date(new java.util.Date(rs.getDate("weather_info_date").getTime()));
 				weather.setLocation_name(rs.getString("location_name"));
 				weather.setWeather_name(rs.getString("weather_name"));
 				weather.setWeather_info_temperature(rs.getDouble("weather_info_temperature"));
@@ -143,12 +143,14 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 		sql +="     , w.weather_name";
 		sql +="     , wi.weather_info_temperature";
 		sql +="     , wi.weather_info_finedust";
+		sql +="     , to_char(wi.weather_info_date, 'yyyy-mm-dd hh24') weather_info_date_str ";
 		sql +="     FROM location L, weather_info WI, weather W";
 		sql +="     WHERE l.location_code = wi.location_code";
 		sql +="     AND W.weather_code = wi.weather_code";
 		sql +="     AND L.location_name = ?";
 		sql +="     AND WI.weather_info_date BETWEEN to_date( ?, 'yyyy-mm-dd hh24')";
 		sql +="     AND to_date( ?, 'yyyy-mm-dd hh24')+1";
+		sql += "    ORDER BY wi.weather_info_date";
 		sql += "    ) B";
 		sql += "    ORDER BY rnum";
 		sql += " ) WEATHER";
@@ -161,8 +163,8 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 			// SQL 수행 객체
 			ps = conn.prepareStatement(sql);
 			SimpleDateFormat format = new SimpleDateFormat ( "yyyy.MM.dd HH");
-			String format_time = format.format (System.currentTimeMillis());
-			
+			String format_time = format.format(System.currentTimeMillis());
+//			System.out.println(format_time);
 			ps.setString(1, loc.getLocation_name());
 			ps.setString(2, format_time);
 			ps.setString(3, format_time);
@@ -181,8 +183,12 @@ public class WeatherInfoDAOImpl implements WeatherInfoDAO {
 				weather.setWeather_info_temperature(rs.getDouble("weather_info_temperature"));
 				weather.setWeather_info_finedust(rs.getDouble("weather_info_finedust"));
 				weather.setTemperature_grade_code(rs.getInt("temperature_grade_code"));
+				weather.setWeahter_info_date_str(rs.getString("weather_info_date_str")); //날짜, 시간 (JSP 출력하기 위해 추가됨)
+				
 
 				weatherinfos.add(weather);
+//				System.out.println( weather.getWeahter_info_date());
+//				System.out.println( weather.getWeahter_info_date_str() );
 				
 			}
 

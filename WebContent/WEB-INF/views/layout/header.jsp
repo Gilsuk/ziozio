@@ -32,7 +32,7 @@
 <!-- 내위치정보 -->
 <script type="text/javascript">
 window.onload = getLocation; 
-
+// var location;
 var lat, lon;
 function getLocation(){
     if(navigator.geolocation){
@@ -55,10 +55,9 @@ function locationSuccess(p){
 		, dataType: "json" 
 		, success: function(data) {
 			var $btnOk = $("<button id='btnOk'>확인</button>");
-			$("#btn").on( "click", function() {
+			$("#location").on( "click", function() {
 				alert("");
-				
-				$btnOk.prependTo($("div"));
+
     		$.ajax({
 				
 				url : '/location_get',
@@ -128,7 +127,8 @@ function locationError(error){
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/awarded">column</a></li>
 						<li><a href="/qnalist">QnA</a></li>
-						<li><a href="/">내위치확인</a></li>
+						<li><a id="location" href="/">내위치확인</a></li>
+						<li><a href="/weather">날씨</a></li>
 						<li><a href="#">${location_name }</a></li>
 						<li><a href="#">${weather_info_temperature }</a></li>
 						<li><a href="#">${weather_name }</a></li>
@@ -138,6 +138,8 @@ function locationError(error){
 						<li><a href="/account/restoresession">로그인</a></li>
 						<li><a href="/account/find">비밀번호 찾기</a></li>
 						<li><a href="/board/list">게시판</a></li>
+<!-- 						<li><a id="location">내위치</a></li> -->
+						<li><a href="/weather">날씨</a></li>
 						<li><a href="/awarded">column</a></li>
 					</c:otherwise>
 				</c:choose>
