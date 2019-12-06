@@ -39,7 +39,7 @@ public class VerificationDAOImpl implements VerificationDAO {
 		try {
 			veri.setAccount_no(rs.getInt("account_no"));
 			veri.setVerification_code(rs.getString("verification_code"));
-			veri.setVerification_type(rs.getString("verification_type").charAt(1));
+			veri.setVerification_type(rs.getString("verification_type").charAt(0));
 		} catch (SQLException e) { e.printStackTrace(); }
 		
 		return veri;

@@ -53,9 +53,9 @@ public class VerificationServiceImpl implements VerificationService {
 	public VerificationType getType(HttpServletRequest request) throws TypeNotAllowedException {
 		String type = request.getParameter("t");
 		
-		if (type.equals("m"))
+		if (type.equals("M"))
 			return VerificationType.EMAIL;
-		else if (type.equals("f"))
+		else if (type.equals("F"))
 			return VerificationType.FIND;
 		else throw new TypeNotAllowedException();
 	}

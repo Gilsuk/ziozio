@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import ziozio.dao.exception.SelectResultException;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
+import ziozio.dto.Verification;
 
 public interface AccountDAO {
 	void insert(AccountWithPw account) throws SQLException;
@@ -13,5 +14,7 @@ public interface AccountDAO {
 	int selectCountByEmail(Account account);
 	int selectCountByNick(Account account);
 	void updateToVerify(Account account);
+	Account selectByEmail(Account account) throws SelectResultException;
+	void insert(Verification veri);
 
 }
