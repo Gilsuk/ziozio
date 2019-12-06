@@ -93,14 +93,22 @@ function locationError(error){
     var errorMsg = errorTypes[error.code];
 }
 </script>
+
+<style type="text/css">
+.navbar-default{
+	background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+}
+
+</style>
+
  </head>
  
 <body>
 
 
-<div id="header">
+<div id="header" class="font-dohyeon">
 <nav class="navbar navbar-default navbar-static-top">
-	<div class="container">
+	<div class="container" style="background-color: #FFF">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
