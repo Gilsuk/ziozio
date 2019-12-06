@@ -30,14 +30,8 @@
 					<input type="email" class="form-control" placeholder="가입한 이메일을 입력하세요" class="font-gothic" name="account_email" maxlength="50"/>
 				</div>
 				
+					<input type="submit" class="btn btn-primory form-control input color font-gothic" value="찾기" />
 			</form>
-			<div class="form-group">	
-				<a href="/account/find">
-
-					<input type="submit" class="btn btn-primory form-control input color font-gothic" value="다음">
-
-				</a>
-			</div>	
 			
 			
 			
