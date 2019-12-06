@@ -42,7 +42,7 @@ public class AccountCustom extends HttpServlet {
 			
 			req.getRequestDispatcher("/WEB-INF/views/mypage/custom.jsp").forward(req,resp);
 		} catch (AccountNotFountException e) {
-			resp.sendRedirect("/account/login");
+			accountService.loginAndRedirect(req, resp);
 		}
 		
 		

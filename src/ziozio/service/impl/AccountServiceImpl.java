@@ -1,6 +1,10 @@
 package ziozio.service.impl;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
@@ -64,6 +68,13 @@ public class AccountServiceImpl implements AccountService {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	@Override
+	public void loginAndRedirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String path = req.getServletPath();
+		req.setAttribute("originurl", path);
+		req.getRequestDispatcher("/account/login").forward(req, resp);
 	}
 
 
