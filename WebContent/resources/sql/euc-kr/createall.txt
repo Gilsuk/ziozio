@@ -17,3 +17,4 @@
 @account_style.sql
 @account_library.sql
 @account_like.sql
+@verification.sql
