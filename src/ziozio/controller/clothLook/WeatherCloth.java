@@ -55,7 +55,7 @@ public class WeatherCloth extends HttpServlet {
 		
 
 		List<ClothSet> clothset = setService.makeSets(topList, bottomList, outerList);
-		System.out.println(weather);
+	
 		
 		req.setAttribute("clothset", clothset);
 		

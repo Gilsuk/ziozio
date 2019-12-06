@@ -20,9 +20,9 @@
 	<div class="form-inline">
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<a href="/account/update"><img src="/resources/img/mypage_pictures/change.png" style="height: 160px;" alt="..."></a>
+				<a href="/account/changepw"><img src="/resources/img/mypage_pictures/change.png" style="height: 160px;" alt="..."></a>
 			<div class="caption ">
-				<h3><a href="/account/update">회원정보 변경</a></h3>
+				<h3><a href="/account/changepw">비밀번호 변경</a></h3>
 			</div>
 			</div>
 		</div>

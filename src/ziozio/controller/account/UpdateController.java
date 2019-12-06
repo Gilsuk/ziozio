@@ -42,7 +42,8 @@ public class UpdateController extends HttpServlet {
 
 		
 	     resp.setContentType("text/html; charset=UTF-8");
-	      
+	     req.setCharacterEncoding("UTF-8");
+	     
 	      HttpSession session = req.getSession();
 	   
 	      Account pw = null;
@@ -55,28 +56,13 @@ public class UpdateController extends HttpServlet {
 			e.printStackTrace();
 		}
 	      
-	      
-	      System.out.println(pw);
-	      
-//	      boolean curpw = accountService.
-//	      
-//	      if(curpw) { // 비밀번호가 일치하면
-//	    	 pw.setAccount_pw(req.getParameter("account_pw1")); //파라미터(req) pw값 수정할 비밀번호로 바꿔주기
-//	         accountService.(pw); // 새로운비밀번호
-//	         System.out.println();         
-//	         resp.sendRedirect("/mypage");
-//	      } else {
-//	         // 비밀번호가 일치하지 않는다면
-//	         
-//	     
-//		
-//
-//	
-//		req.setCharacterEncoding("UTF-8");
-//	
-//		resp.sendRedirect("/account/main");	
-//	}
 
-
+	
+		
+	
+		resp.sendRedirect("/account/main");	
 	}
+
+
+	
 }

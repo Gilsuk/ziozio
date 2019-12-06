@@ -7,25 +7,13 @@
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
 <style type="text/css">
-.slide {
-	width: 400px;
-	height: 300px;
-	border: 1px solid #ccc;
-	text-align: center;
-	
- 	overflow: hidden; /* div영역을 벗어난 부분을 안보이게 처리 */  
-/*   overflow: visible;  div영역을 전부 보이게 처리   */
-	margin: 0 auto; /* div영역을 중앙으로 정렬(외부 정렬) */
-}
+
 
 .carousel-inner {
 	font-size: 20px;
 }
 
-.slide img {
-	width: 400px;
-	height: 300px;
-}
+
 .carousel-control.right, .carousel-control.left {
  background-image: none;
 }
@@ -38,12 +26,19 @@ $( document ).ready(function() {
 });
 </script>
 
-<div class="wrap center font-dohyeon">
-	<br>
-	<br>
-	<br>
-	<h2>WEATHER INFO</h2>
-	<br>
+<!-- 이미지 -->
+<div class="marginauto">
+    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
+</div>
+
+
+<div id="wrap">
+<div class="container center">
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
+		<div class="jumbotron padding"  >
+<h2 class="">WEATHER INFO</h2><br><br>
+
 		<div id="carousel-example-generic" class="carousel slide">
 			<!-- 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel"> -->
 			<!-- Wrapper for slides -->
@@ -54,16 +49,16 @@ $( document ).ready(function() {
 						<%-- 			<fmt:formatDate value="${weatherinfo.weahter_info_date}" pattern="yyyy-MM-dd HH" /><br> --%>
 						<%-- 				<c:out value="${weatherinfo.weahter_info_date}"></c:out><br> --%>
 						<c:out value="${weatherinfo.weahter_info_date_str }시"></c:out>
-						<br>
+						<br><br>
 						<c:out value="${weatherinfo.location_name}"></c:out>
-						<br>
+						<br><br>
 						<c:out value="날씨 ${weatherinfo.weather_name}"></c:out>
-						<br>
+						<br><br>
 						<%-- 				<c:out value="${weatherinfo.temperature_grade_code}"></c:out><br> --%>
 						<c:out value="온도 ${weatherinfo.weather_info_temperature}"></c:out>
-						<br>
+						<br><br>
 						<c:out value="미세먼지 ${weatherinfo.weather_info_finedust}"></c:out>
-						<br>
+						<br><br>
 
 					</div>
 				</c:forEach>
@@ -76,19 +71,20 @@ $( document ).ready(function() {
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel-example-generic"
 				role="button" data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
+				class="glyphicon glyphicon-chevron-left"></span>
+				
 			</a> <a class="right carousel-control" href="#carousel-example-generic"
 				role="button" data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
+				class="glyphicon glyphicon-chevron-right" ></span>
+				
 			</a>
 
 		</div>
-
 </div>
-
-
+</div>
+<div class="col-lg-3"></div>
+</div>
+</div>
 
 
 

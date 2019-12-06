@@ -37,4 +37,10 @@ public class Location_get extends HttpServlet {
 		
 	}
 
+//	@Override
+//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		
+//		resp.sendRedirect("weather_get");
+
+
 }
