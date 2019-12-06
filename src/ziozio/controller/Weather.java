@@ -43,7 +43,7 @@ public class Weather extends HttpServlet {
 		Location location = null;
 		HttpSession session = null;
 		session=req.getSession();
-//		System.out.println("세션확인"+session.getAttribute("location"));
+		System.out.println("세션확인"+session.getAttribute("location"));
 		if(!(session.getAttribute("location")==null)) {
 			location=(Location)session.getAttribute("location");
 		}
@@ -59,14 +59,11 @@ public class Weather extends HttpServlet {
 		
 		} else {
 			
-			
 			location = locationService.getLocation(req);
 //			System.out.println(location);
 			List<WeatherInfo> locweatherList = weatherinfoService.getWeatherInfosToday(location);
 			
 			req.setAttribute("locweatherList", locweatherList);
-			
-//			resp.sendRedirect("/weather_get");
 			
 			req.getRequestDispatcher("/WEB-INF/views/weather/locationweather.jsp").forward(req, resp);
 			
@@ -77,7 +74,25 @@ public class Weather extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-//		req.getParameter(")
+//		Location location = null;
+//		HttpSession session = null;
+//		session=req.getSession();
+//		System.out.println("세션확인"+session.getAttribute("location"));
+//		if(!(session.getAttribute("location")==null)) {
+//			location=(Location)session.getAttribute("location");
+//		
+//		System.out.println(location);
+//		
+//		if(req.getParameter("date").equals("1")) {
+//			System.out.println(req.getParameter("date"));
+//			int date = 1;
+//			List<WeatherInfo> locweatherList = weatherinfoService.getWeatherInfos(location, date);
+//			
+//			req.getRequestDispatcher("/WEB-INF/views/weather/locationweather.jsp");
+//		}
+		
+//		}
+		
 		
 	}
 
