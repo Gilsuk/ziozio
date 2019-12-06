@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ziozio.dto.Location;
 import ziozio.dto.WeatherInfo;
@@ -40,7 +41,12 @@ public class Weather extends HttpServlet {
 //		req.getRequestDispatcher("/WEB-INF/views/weather/weather.jsp").forward(req, resp);
 		
 		Location location = null;
-		
+		HttpSession session = null;
+		session=req.getSession();
+//		System.out.println("세션확인"+session.getAttribute("location"));
+		if(!(session.getAttribute("location")==null)) {
+			location=(Location)session.getAttribute("location");
+		}
 		if(location == null) {
 			
 		location = locationService.getDefaultLocation();
@@ -51,19 +57,20 @@ public class Weather extends HttpServlet {
 		
 		req.getRequestDispatcher("/WEB-INF/views/weather/weather.jsp").forward(req, resp);
 		
-		}
-//		} else {
-//			
-//			
-//			location = locationService.getLocation(req);
+		} else {
+			
+			
+			location = locationService.getLocation(req);
 //			System.out.println(location);
-//			List<WeatherInfo> locweatherList = weatherinfoService.getWeatherInfosToday(location);
-//			
-//			req.setAttribute("weatherList", locweatherList);
-//			
-//			resp.sendRedirect("/WEB-INF/views/weather/locationweather.jsp");
-//			
-//		}
+			List<WeatherInfo> locweatherList = weatherinfoService.getWeatherInfosToday(location);
+			
+			req.setAttribute("locweatherList", locweatherList);
+			
+//			resp.sendRedirect("/weather_get");
+			
+			req.getRequestDispatcher("/WEB-INF/views/weather/locationweather.jsp").forward(req, resp);
+			
+		}
 		
 	}
 
