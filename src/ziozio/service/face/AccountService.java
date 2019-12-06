@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dao.exception.SelectResultException;
 import ziozio.dto.Account;
 import ziozio.service.exception.AccountNotFountException;
 
@@ -18,5 +19,11 @@ public interface AccountService {
 	void loginAndRedirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 
 	void verify(Account account);
+
+	Account getAccountByEmail(Account account) throws SelectResultException;
+
+	Account getAccountByEmail(String account_email);
+
+	void generateKey(Account account);
 
 }

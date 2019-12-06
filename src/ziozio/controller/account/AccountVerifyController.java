@@ -42,9 +42,11 @@ public class AccountVerifyController extends HttpServlet {
 				if (type == VerificationType.EMAIL) {
 					accountService.verify(account);
 					response.sendRedirect("/main");
+					return;
 				} else if (type == VerificationType.FIND) {
 					request.getRequestDispatcher("/WEB-INF/views/account/changepw.jsp")
 					.forward(request, response);
+					return;
 				}
 			}
 		} catch (SelectResultException e) {
