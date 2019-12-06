@@ -40,7 +40,8 @@ public class StyleCheck extends HttpServlet {
 			List<Style> userStyles = styleService.getAccountStyles(req);
 			req.setAttribute("userStyles", userStyles);
 		} catch (AccountNotFountException e) {
-			resp.sendRedirect("/account/restoresession");
+			accountService.loginAndRedirect(req, resp);
+			return;
 		}
 		List<Style> allStyles = styleService.getAllStyles();
 		req.setAttribute("allStyles", allStyles);
@@ -59,10 +60,10 @@ public class StyleCheck extends HttpServlet {
 		try {
 			Account account = accountService.getLoggedInAccount(req);
 			styleService.addStylesToAccount(account, styles);
-			resp.sendRedirect("/stylecheck");
+			resp.sendRedirect("/mypage");
 
 		} catch (AccountNotFountException e) {
-			resp.sendRedirect("/account/restoresession");
+			accountService.loginAndRedirect(req, resp);
 		}
 
 
