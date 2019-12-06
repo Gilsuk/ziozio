@@ -191,20 +191,17 @@ public class StyleDAOImpl implements StyleDAO {
 	}
 
 	@Override
-	public void insert(Account account, List<Style> styles) {
+	public int insert(Account account, List<Style> styles) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO account_style");
 		sql.append(" (account_no, style_code)");
 		sql.append(" VALUES (?, ?)");
 		
-		try {
-			Dao.<Style>massUpdate(sql.toString(), styles, (t, u) -> {
-				t.setInt(1, account.getAccount_no());
-				t.setInt(2, u.getStyle_code());
-			});
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		return
+		Dao.<Style>massUpdate(sql.toString(), styles, (t, u) -> {
+			t.setInt(1, account.getAccount_no());
+			t.setInt(2, u.getStyle_code());
+		});
 	}
 
 	@Override
@@ -218,9 +215,9 @@ public class StyleDAOImpl implements StyleDAO {
 		sql.append(" WHERE style_name IN (");
 		for (int i = 0; i < styles.size(); i++)
 			if (i == 0)
-				sql.append("'").append(styles.get(i)).append("'");
+				sql.append("'").append(styles.get(i).getStyle_name()).append("'");
 			else
-				sql.append(",'").append(styles.get(i)).append("'");
+				sql.append(",'").append(styles.get(i).getStyle_name()).append("'");
 		sql.append(")");
 		
 		return

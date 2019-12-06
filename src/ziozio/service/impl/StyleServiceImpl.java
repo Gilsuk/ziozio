@@ -1,5 +1,6 @@
 package ziozio.service.impl;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,8 +66,24 @@ public class StyleServiceImpl implements StyleService {
 	}
 
 	@Override
-	public void addStylesToAccount(Account account, List<Style> styles) {
-		styleDao.insert(account, styleDao.selectAll(styles));
+	public int addStylesToAccount(Account account, List<Style> styles) {
+		/*
+		 * 미-완-성
+		 */
+		if (styles.size() <= 0) return 0;
+		try {
+			styleDao.insert(account, styleDao.selectAll(styles));
+		} catch (SQLException e) {
+			styles.remove(0);
+		}
+//		else {
+//			int count = styleDao.insert(account, styleDao.selectAll(styles)); 
+//			System.out.println(count + " size:" + styles.size());
+//			for (int i = 0; i < count; i++) {
+//				styles.remove(0);
+//			}
+			return addStylesToAccount(account, styles);
+//		}
 	}
 
 }

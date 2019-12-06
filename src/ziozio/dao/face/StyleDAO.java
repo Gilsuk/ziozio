@@ -1,5 +1,6 @@
 package ziozio.dao.face;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import ziozio.dto.Account;
@@ -21,7 +22,7 @@ public interface StyleDAO {
 	 */
 	public List<Style> accountSelectAll(Account account);
 
-	public void insert(Account account, List<Style> styles);
+	public int insert(Account account, List<Style> styles) throws SQLException;
 
 	public List<Style> selectAll(List<Style> styles);
 	

@@ -21,7 +21,7 @@
 	<div class="checkbox">
 		<c:forEach items="${allStyles}" var="style" >
 		<label>
-			<input type="checkbox" name="styles[]" value="${style.style_name }">
+			<input type="checkbox" name="styles[]" value="${style.style_name }" />
 			${style.style_name }
 		</label>
 		</c:forEach>

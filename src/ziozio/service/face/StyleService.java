@@ -30,5 +30,5 @@ public interface StyleService {
 	
 	List<Style> getSelectedStyles(HttpServletRequest req);
 	
-	void addStylesToAccount(Account account, List<Style> styles);
+	int addStylesToAccount(Account account, List<Style> styles);
 }
