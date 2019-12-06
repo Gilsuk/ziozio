@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="text-center" >
-	<ul class="pagination pagination-sm" >
+	<ul class="pagination pagination-sm font-gothic" >
 	
 	
 	<!-- 처음으로 가기 -->

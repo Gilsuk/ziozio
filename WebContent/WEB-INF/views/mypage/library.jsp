@@ -76,7 +76,7 @@
 	<div class="col-lg-1"></div>
 	</div>
 <a href="/mypage">
-	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic" value="돌아가기" /></a>	
+	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic font-dohyeon" value="돌아가기" /></a>	
 
 <jsp:include page="/WEB-INF/views/layout/paging_library.jsp" />	
 </div>
