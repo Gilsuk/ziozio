@@ -18,7 +18,7 @@
 
 
 <form action="/stylecheck" method="post">
-	<div class="checkbox">
+	<div class="checkbox font-gothic">
 		<c:forEach items="${allStyles}" var="style" >
 		<label>
 			<input type="checkbox" name="styles[]" value="${style.style_name }" />
@@ -28,11 +28,11 @@
 	</div>
 	<br>
 	<div class="form-group">
-		<input type="submit" class="btn form-control input width1 color font-gothic font-dohyeon"  value="확인" />
+		<input type="submit" class="btn form-control input width1 color font-gothic font-gothic"  value="확인" />
 	</div>
 </form>
 <a href="/mypage">
-	<input type="submit" class="btn  form-control input width1 color font-gothic font-dohyeon" value="돌아가기" /></a>
+	<input type="submit" class="btn  form-control input width1 color font-gothic font-gothic" value="돌아가기" /></a>
 
 </div>
 </div>

@@ -107,7 +107,7 @@ $(document).ready(function() {
 						
 						<div class="form-group">
 							<input  id="btncalc" type="submit" 
-							class="btn btn-primory form-control input width color font-dohyeon" value="선택완료" />
+							class="btn btn-primory form-control input width color font-gothic" value="선택완료" />
 						</div>
 					</div>
 				</div>
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
 <a href="/mypage">
 	<input type="submit" 
-	class="btn btn-primory form-control input width1 color font-dohyeon" 
+	class="btn btn-primory form-control input width1 color font-gothic" 
 	value="돌아가기" /></a>	
 
 <jsp:include page="/WEB-INF/views/layout/paging_library.jsp" />	
