@@ -6,6 +6,7 @@ import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.VerificationDAO;
 import ziozio.dao.impl.VerificationDAOImpl;
 import ziozio.dto.Account;
+import ziozio.dto.AccountWithPw;
 import ziozio.dto.Verification;
 import ziozio.enumeration.VerificationType;
 import ziozio.service.exception.TypeNotAllowedException;
@@ -58,6 +59,10 @@ public class VerificationServiceImpl implements VerificationService {
 		else if (type.equals("F"))
 			return VerificationType.FIND;
 		else throw new TypeNotAllowedException();
+	}
+
+	@Override
+	public void generateKey(AccountWithPw account) {
 	}
 
 }
