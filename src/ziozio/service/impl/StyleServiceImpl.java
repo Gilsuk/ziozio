@@ -41,22 +41,18 @@ public class StyleServiceImpl implements StyleService {
 	}
 
 	@Override
-	public List<Style> getAccountStyles(HttpServletRequest req) {
+	public List<Style> getAccountStyles(HttpServletRequest req) throws AccountNotFountException {
 		
 		Account loggedInAccount = null;
-		try {
 			loggedInAccount = accountService.getLoggedInAccount(req);
 			return getStylesByAccount(loggedInAccount);
 			
-		} catch (AccountNotFountException e) {
-			return  getAllStyles();
-		}
 		
 	}
 
 	@Override
 	public List<Style> getSelectedStyles(HttpServletRequest req) {
-		String[] values = req.getParameterValues("style");
+		String[] values = req.getParameterValues("styles[]");
 		List<Style> list = new ArrayList<>();
 		
 		for (String style_name : values) {
@@ -66,6 +62,11 @@ public class StyleServiceImpl implements StyleService {
 		}
 
 		return list;
+	}
+
+	@Override
+	public void addStylesToAccount(Account account, List<Style> styles) {
+		styleDao.insert(account, styleDao.selectAll(styles));
 	}
 
 }

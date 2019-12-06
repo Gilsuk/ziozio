@@ -20,6 +20,10 @@ public interface StyleDAO {
 	 * @return List - 사용자 선호 스타일 목록
 	 */
 	public List<Style> accountSelectAll(Account account);
+
+	public void insert(Account account, List<Style> styles);
+
+	public List<Style> selectAll(List<Style> styles);
 	
 
 }

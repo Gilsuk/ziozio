@@ -45,6 +45,7 @@ public class AccountServiceImpl implements AccountService {
 			if (account == null) throw new NullPointerException();
 			return (Account) account;
 		} catch (NullPointerException e) {
+			
 			throw new AccountNotFountException();
 		} catch (ClassCastException e) {
 			// session attribute에 account라는 이름으로 다른 객체가 들어있는 경우
