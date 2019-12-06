@@ -116,6 +116,7 @@ function locationError(error){
 				<c:choose>
 					<c:when test="${not empty account }">
 						<li><a href="/mypage">마이페이지</a></li>
+						<li><a href="/cloth/select">옷 둘러보기</a></li>
 						<li><a href="/board/list">게시판</a></li>
 						<li><a href="/awarded">column</a></li>
 						<li><a href="/qnalist">QnA</a></li>
@@ -146,6 +147,7 @@ function locationError(error){
 								<li><a href="/mypage">WELCOME ${account.account_nick}님</a></li>
 								<li class="divider"></li>
 								<li><a href="/mypage">마이페이지</a></li>
+								<li><a href="/cloth/select">옷 둘러보기</a></li>
 								<li><a href="/board/list">게시판</a></li>
 								<li><a href="/awarded">column</a></li>
 								<li><a href="/qnalist">QnA</a></li>

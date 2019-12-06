@@ -64,7 +64,7 @@
 <div class="container ">
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
-		<div class="jumbotron padding" style="background-color: #FFF2EC">
+		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/login" onsubmit="return checkValue()">
 				<h2 class="center font-dohyeon">로그인</h2><br>
 				<div class="form-group">

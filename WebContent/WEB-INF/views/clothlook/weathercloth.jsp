@@ -13,9 +13,11 @@
 
 <jsp:include page="/WEB-INF/views/layout/clothimg.jsp" /> 
 
-<a href="/weather/cloth">
-	<input type="submit" class="btn btn-primory form-control input width color font-gothic" value="새로고침" /></a>
 
+<a href="/weather/cloth">
+	<input type="submit" class="btn btn-primory form-control input width color font-gothic" value="새로고침" /></a>&nbsp;
+<a href="/main">
+	<input type="submit" class="btn btn-primory form-control input width color font-gothic" value="돌아가기" /></a>
 </div>
 
 <jsp:include page="/WEB-INF/views/layout/footer.jsp" />
