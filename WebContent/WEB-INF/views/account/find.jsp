@@ -23,7 +23,7 @@
 <div class="container" >
 	<div class="col-lg-3 "></div>
 	<div class="col-lg-6 ">
-		<div class="jumbotron padding" style="background-color: #FFF2EC">
+		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/find" onsubmit="return checkValue()">
 				<h3 class="center font-dohyeon">비밀번호 찾기</h3><br>
 				<div class="form-group">

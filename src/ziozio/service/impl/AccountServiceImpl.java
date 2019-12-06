@@ -77,6 +77,4 @@ public class AccountServiceImpl implements AccountService {
 		req.getRequestDispatcher("/account/login").forward(req, resp);
 	}
 
-
-
 }

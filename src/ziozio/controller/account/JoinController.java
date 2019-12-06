@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.service.exception.AccountDuplicateException;
 import ziozio.service.face.JoinService;
+import ziozio.service.face.LoginService;
 import ziozio.service.impl.JoinServiceImpl;
+import ziozio.service.impl.LoginServiceImpl;
 import ziozio.utils.param.exception.InvalidParamException;
 
 /**
@@ -20,10 +22,14 @@ import ziozio.utils.param.exception.InvalidParamException;
 public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private JoinService joinService = JoinServiceImpl.getInstance();
+	private LoginService loginService = LoginServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/account/join.jsp").forward(req, resp);
+		if (loginService.isLoggedIn(req))
+			resp.sendRedirect("/main");
+		else
+			req.getRequestDispatcher("/WEB-INF/views/account/join.jsp").forward(req, resp);
 	}
 	
 	@Override

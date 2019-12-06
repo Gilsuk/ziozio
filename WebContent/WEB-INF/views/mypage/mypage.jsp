@@ -36,12 +36,14 @@
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<a href="/stylecheck"><img src="/resources/img/mypage_pictures/preference.png" style="height: 160px;" alt="..."></a>
+				<a href="/cloth/select"><img src="/resources/img/mypage_pictures/writing.png" style="height: 160px;" alt="..."></a>
 			<div class="caption">
-				<h3><a href="/stylecheck">STYLE CHECK</a></h3>
+				<h3><a href="/cloth/select">옷 둘러보기</a></h3>
 			</div>
 			</div>
 		</div>
+
+
 
 			
 	<div class="form-inline">
@@ -53,11 +55,11 @@
 			</div>
 			</div>
 		</div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div class="thumbnail">
-				<a href="/qnalist"><img src="/resources/img/mypage_pictures/writing.png" style="height: 160px;" alt="..."></a>
+				<a href="/stylecheck"><img src="/resources/img/mypage_pictures/preference.png" style="height: 160px;" alt="..."></a>
 			<div class="caption">
-				<h3><a href="/qnalist">QnA</a></h3>
+				<h3><a href="/stylecheck">STYLE CHECK</a></h3>
 			</div>
 			</div>
 		</div>

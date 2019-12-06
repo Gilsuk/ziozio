@@ -13,8 +13,8 @@
 
 <div class="wrapper font-dohyeon">
 <div class="con center font-dohyeon">
-<div class="jumbotron padding input" >
-<h1 class="">My Room</h1><br><br>
+<div class="jumbotron padding" >
+<h2 class="">My Room</h2><br><br>
 <div class="row">
 
 	<div class="col-lg-12">
@@ -75,7 +75,9 @@
 		</div>
 	<div class="col-lg-1"></div>
 	</div>
-	
+<a href="/mypage">
+	<input type="submit" class="btn btn-primory form-control input width1 color font-gothic" value="돌아가기" /></a>	
+
 <jsp:include page="/WEB-INF/views/layout/paging_library.jsp" />	
 </div>
 </div>	

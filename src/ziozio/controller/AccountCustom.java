@@ -23,8 +23,8 @@ import ziozio.service.impl.GenderClothService;
 public class AccountCustom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ClothService<Character> clothService = GenderClothService.getInstance();
-	AccountService accountService = AccountServiceImpl.getInstance();
+	private ClothService<Character> clothService = GenderClothService.getInstance();
+	private AccountService accountService = AccountServiceImpl.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

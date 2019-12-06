@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/weather_get")
-public class Weather_get extends HttpServlet {
+@WebServlet("/cloth/select")
+public class ClothSelect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
+	req.getRequestDispatcher("/WEB-INF/views/mypage/clothselect.jsp").forward(req,resp);
+	
 	}
-
+	
 }

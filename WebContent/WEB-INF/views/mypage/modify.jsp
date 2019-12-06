@@ -102,11 +102,12 @@
 <div class="container">
 	<div class="col-lg-3"></div>
 	<div class="col-lg-6">
-		<div class="jumbotron padding" style="background-color: #FFF2EC" >
+		<div class="jumbotron padding"  >
 			<form name="loginInfo" method="post" action="/account/update" onsubmit="Freturn checkValue()">
 				<h2 class="center font-dohyeon">회원정보 변경</h2><br>
 				
 				<div class="form-group">
+				
 					<input type="password" class="form-control font-gothic" placeholder="새로운 비밀번호" onkeyup="pwCheckFunction();" name="account_pw" id="account_pw" maxlength="50"/>
 				</div>
 				<div class="form-group">
