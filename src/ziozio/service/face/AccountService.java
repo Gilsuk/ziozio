@@ -17,4 +17,6 @@ public interface AccountService {
 
 	void loginAndRedirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 
+	void verify(Account account);
+
 }
