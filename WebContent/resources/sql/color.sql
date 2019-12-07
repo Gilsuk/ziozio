@@ -30,8 +30,7 @@ VALUES ('빨강', 0, 1, 1, 0);
 --INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness)
 --VALUES ('최대', 0~360deg, 100%(제한ㄴ), 50%(제한ㄴ), 100%);
 
-INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
-VALUES ('흰', 0, 0, 100, 100);
+
 
 INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
 VALUES ('검정', 0, 0, 100, 0);

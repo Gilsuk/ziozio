@@ -33,7 +33,7 @@ public class RecommandationDAOImpl implements RecommandationDAO {
 		sql.append(" INNER JOIN weather W ON CW.weather_code = W.weather_code");
 		sql.append(" WHERE W.weather_name = ?");
 		sql.append(" AND CT.temperature_grade_code = ?");
-		sql.append(" AND CC.category_name = ?");
+		sql.append(" AND CC.cloth_category_name = ?");
 		sql.append(" AND S.style_name IN (");
 		insertKeywordsIntoSql(sql, recmd.getStyles());
 		sql.append(" )");
@@ -58,7 +58,7 @@ public class RecommandationDAOImpl implements RecommandationDAO {
 		sql.append(" INNER JOIN weather W ON CW.weather_code = W.weather_code");
 		sql.append(" WHERE W.weather_name = ?");
 		sql.append(" AND CT.temperature_grade_code = ?");
-		sql.append(" AND CC.category_name = ?");
+		sql.append(" AND CC.cloth_category_name = ?");
 		sql.append(" AND S.style_name IN (");
 		insertKeywordsIntoSql(sql, recmd.getStyles());
 		sql.append(" )");
