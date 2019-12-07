@@ -42,28 +42,28 @@ $(document).ready(function() {
 
 <hr>
 
-<table class="table table-bordered">
+<table class="table table-bordered ">
 <tr>
-<td class="info">글번호</td><td colspan="3">${viewQna.qna_no }</td>
+<td class="font-gothic input2">글번호</td><td colspan="3">${viewQna.qna_no }</td>
 </tr>
 
 <tr>
-<td class="info">제목</td><td colspan="3">${viewQna.qna_title }</td>
+<td class="font-gothic input2">제목</td><td colspan="3">${viewQna.qna_title }</td>
 </tr>
 
 <tr>
 
-<td class="info">닉네임</td><td colspan="3">${account.account_nick }</td>
+<td class="font-gothic input2">닉네임</td><td colspan="3">${viewQna.account_nick }</td>
 </tr>
 
 <tr>
-<td class="info">작성일</td><td colspan="3">${viewQna.qna_writtendate }</td>
+<td class="font-gothic input2">작성일</td><td colspan="3">${viewQna.qna_writtendate }</td>
 </tr>
 
-<tr><td class="info"  colspan="4">문의내용</td></tr>
+<tr><td class="font-gothic input2"  colspan="4">문의내용</td></tr>
 
 
-<tr><td colspan="4">${viewQna.qna_content }</td></tr>
+<tr><td class="font-gothic" colspan="4">${viewQna.qna_content }</td></tr>
 
 </table>
 
@@ -72,12 +72,10 @@ $(document).ready(function() {
 </div>
 
 <div class="text-center">	
-	<button id="btnList" class="btn btn-warning">목록</button>
-	<c:if test="${account.account_email eq Qna.account_nick }">
+	<button id="btnList" class="btn input">목록</button>
+	<button id="btnUpdate" class="btn input">수정</button>
+	<button id="btnDelete" class="btn input">삭제</button>
 	
-	<button id="btnUpdate" class="btn btn-warning">수정</button>
-	<button id="btnDelete" class="btn btn-warning">삭제</button>
-	</c:if>
 </div>
 
 <hr>

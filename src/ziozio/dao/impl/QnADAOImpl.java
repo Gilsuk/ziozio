@@ -376,7 +376,7 @@ public class QnADAOImpl implements QnADAO{
 			while (rs.next()) {
 
 				viewQna.setQna_no(rs.getInt("qna_no"));
-				viewQna.setQna_title(rs.getString("qna_itle"));
+				viewQna.setQna_title(rs.getString("qna_title"));
 				viewQna.setAccount_nick(rs.getString("account_nick"));
 				viewQna.setQna_content(rs.getString("qna_content"));
 				viewQna.setQna_writtendate(rs.getDate("qna_writtendate"));

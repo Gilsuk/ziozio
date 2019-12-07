@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.QnA;
+import ziozio.dto.QnAFile;
 import ziozio.service.face.QnAService;
 import ziozio.service.impl.QnAServiceImpl;
 
@@ -29,8 +30,10 @@ public class QnAView extends HttpServlet {
 		req.setAttribute("viewQna", viewQna);
 		
 		
-//		QnaFile qnaFile = qnaService.viewFile(viewQna);
+		QnAFile qnaFile = qnaService.viewFile(viewQna);
+		req.setAttribute("qnaFile", qnaFile);
 		
+		//닉네임 전달
 		req.setAttribute("nick", qnaService.getNick(viewQna));
 		
 		
