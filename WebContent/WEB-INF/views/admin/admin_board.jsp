@@ -7,7 +7,7 @@
 
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
-<!-- MgrBoard 게시물관리화면-->
+<!-- 게시물관리화면-->
 
 
 
