@@ -55,3 +55,5 @@ height: 400px;padding-top: 96px;padding-left: 0px;width: 955px;">
 
 </div>
 <hr>
+
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
