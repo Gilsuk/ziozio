@@ -30,8 +30,13 @@ public class JoinServiceImpl implements JoinService {
 
 		try {
 			accountDao.insert(account);
-			verificationService.generateKey(account);
 		} catch (SQLException e) { throw new AccountDuplicateException(); }
+
+		try {
+			verificationService.generateKey(account);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private AccountWithPw getAccountWithPwFromParams(

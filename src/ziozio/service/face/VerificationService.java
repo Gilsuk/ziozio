@@ -1,5 +1,7 @@
 package ziozio.service.face;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.exception.SelectResultException;
@@ -16,7 +18,7 @@ public interface VerificationService {
 
 	VerificationType getType(HttpServletRequest request) throws TypeNotAllowedException;
 
-	void generateKey(AccountWithPw account);
+	void generateKey(AccountWithPw account) throws SQLException;
 	
 	
 
