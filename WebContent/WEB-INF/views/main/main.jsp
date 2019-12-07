@@ -30,6 +30,11 @@
  background-image: none;
 }
 </style>
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".carousel-inner .item:first-child").addClass("active");
+});
+</script>
 
 <div class="container ">
 	<div class="marginauto">
@@ -42,58 +47,16 @@
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
   
-    <div class="item active">
-      <img src="/resources/img/look/hoodie.png" alt="...">
-    </div>
-    
-    <div class="item">
-      <img src="/resources/img/look/short_padding.png" alt="...">
-    </div>
-    
-    <div class="item">
-      <img src="/resources/img/look/long_padding.png" alt="...">
-    </div>
-    
-    <div class="item">
-      <img src="/resources/img/look/night_trading.png" alt="...">
-    </div>
-
-    <div class="item">
-      <img src="/resources/img/look/sleeveless.png" alt="...">
-    </div>  
-    
-    <div class="item">
-      <img src="/resources/img/look/sweater.png" alt="...">
-    </div>  
-    
-    <div class="item">
-      <img src="/resources/img/look/tennis_skirt.png" alt="...">
-    </div>  
-    
-    <div class="item">
-      <img src="/resources/img/look/trench_coat.png" alt="...">
-    </div>  
-    
-    <div class="item">
-      <img src="/resources/img/look/trucker_jacket.png" alt="...">
-    </div>  
-    
-    <div class="item">
-      <img src="/resources/img/look/vest_padding.png" alt="...">
-    </div>  
-   
-    <div class="item">
-      <img src="/resources/img/look/sleeveless_shirt_man.png" alt="...">
-    </div>  
-   
-    <div class="item">
-      <img src="/resources/img/look/short_sleeved_woman.png" alt="...">
-    </div>  
-   
-    <div class="item">
-      <img src="/resources/img/look/long_sleeved_dress.png" alt="...">
-    </div>  
-  </div>
+		<div class="carousel-inner" role="listbox">
+			<c:forEach items="${allList}" var="cloth">
+			<div class="item">
+				<img style="filter: hue-rotate(${cloth.color_hue_rotate}deg) 
+							saturate(${cloth.color_saturate }%) invert(${cloth.color_invert }%) 
+							brightness(${cloth.color_brightness }%);"
+							 src="${cloth.cloth_img }" alt="${cloth.cloth_name }" class="img-thumbnail">
+			</div>
+			</c:forEach>
+		</div>
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -104,6 +67,7 @@
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+  </div>
 </div>
 
 

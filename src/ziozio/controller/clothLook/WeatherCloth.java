@@ -41,7 +41,7 @@ public class WeatherCloth extends HttpServlet {
 
 
 		Location defaultLocation = locationService.getDefaultLocation();
-		WeatherInfo weather = weatherInfoService.getCurrentWeatherInfo(defaultLocation);
+		WeatherInfo weather = weatherInfoService.getCurrentWeatherInfo(req, defaultLocation);
 
 		
 		StyleService styleService = StyleServiceImpl.getInstance();
