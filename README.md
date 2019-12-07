@@ -70,3 +70,4 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 - [클래스 다이어그램](https://drive.google.com/file/d/1REHZqw83wSpMwfWqOtHbWFYzI6dvh_42/view?usp=sharing)
 - [ERD](https://www.erdcloud.com/d/Q64TqaoEg9LXLE9xH)
 - [스토리보드](https://docs.google.com/presentation/d/1nyAoGdxpssrEMZWDgQZHmT5UBk-hUczQGKG47H1k50o/edit#slide=id.p)
+- [PPT](https://docs.google.com/presentation/d/10GNNdodSdTYIknBfWRB4bIGemAVfRBo2uIFuJVGLdUs/edit)
