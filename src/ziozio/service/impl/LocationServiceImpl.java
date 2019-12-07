@@ -39,9 +39,10 @@ public class LocationServiceImpl implements LocationService {
 			return getLocationFromParamLatAndLon(req);
 		} catch (NullPointerException e) {
 			return getLocationFromSession(req);
-		} catch (ClassCastException e) { e.printStackTrace(); }
+		} catch (ClassCastException e) { 
+			return getDefaultLocation();
+		}
 
-		return null;
 	}
 
 
@@ -49,12 +50,16 @@ public class LocationServiceImpl implements LocationService {
 	private Location getLocationFromSession(HttpServletRequest req) {
 		try {
 			// 세션에 저장된 Location을 반환
-			return (Location) req.getSession().getAttribute(SessionAttr.LOCATION.toString());
+			Object object = req.getSession().getAttribute(SessionAttr.LOCATION.toString());
+			if(object == null)
+				throw new NullPointerException();
+			return (Location) object;
 		} catch (NullPointerException e) {
 			return getDefaultLocation();
-		} catch (ClassCastException e) { e.printStackTrace(); }
+		} catch (ClassCastException e) {
+			return getDefaultLocation();
+		}
 
-		return null;
 	}
 
 
