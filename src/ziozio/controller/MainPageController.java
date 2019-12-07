@@ -9,23 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Account;
 import ziozio.dto.ClothSet;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Location;
 import ziozio.dto.Style;
 import ziozio.dto.WeatherInfo;
 import ziozio.dto.enumeration.ClothCategory;
+import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
-import ziozio.service.face.ClothService;
+import ziozio.service.face.ClothRecommandationService;
 import ziozio.service.face.ClothSetService;
 import ziozio.service.face.LocationService;
 import ziozio.service.face.StyleService;
 import ziozio.service.face.WeatherInfoService;
 import ziozio.service.impl.AccountServiceImpl;
+import ziozio.service.impl.ClothRecommandationServiceImpl;
 import ziozio.service.impl.ClothSetServiceImpl;
 import ziozio.service.impl.LocationServiceImpl;
 import ziozio.service.impl.StyleServiceImpl;
-import ziozio.service.impl.WeatherClothService;
 import ziozio.service.impl.WeatherInfoServiceImpl;
 
 
@@ -33,28 +35,36 @@ import ziozio.service.impl.WeatherInfoServiceImpl;
 public class MainPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	ClothService<WeatherInfo> clothService = WeatherClothService.getInstance();
-	WeatherInfoService weatherInfoService = WeatherInfoServiceImpl.getInstance();
-	LocationService locationService = LocationServiceImpl.getInstance();
-	ClothSetService setService = ClothSetServiceImpl.getInstance();
-	AccountService accountService = AccountServiceImpl.getInstance();
+	private WeatherInfoService weatherInfoService = WeatherInfoServiceImpl.getInstance();
+	private LocationService locationService = LocationServiceImpl.getInstance();
+	private ClothSetService setService = ClothSetServiceImpl.getInstance();
+	private AccountService accountService = AccountServiceImpl.getInstance();
+	private StyleService styleService = StyleServiceImpl.getInstance();
+	private ClothRecommandationService rcmdService = ClothRecommandationServiceImpl.getInstance();
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		Location defaultLocation = locationService.getDefaultLocation();
-		WeatherInfo weather = weatherInfoService.getCurrentWeatherInfo(defaultLocation);
+		Location location = locationService.getLocation(req);
+		WeatherInfo weather = weatherInfoService.getCurrentWeatherInfo(req, location);
+		List<Style> styles = null;
+		Account account = null;
 
-		StyleService styleService = StyleServiceImpl.getInstance();
+		try {
+			// 로그인 된 사용자 처리
+			account = accountService.getLoggedInAccount(req);
+			styles = styleService.getStylesByAccount(account);
+		} catch (AccountNotFountException e) {
+			// 비 로그인 사용자 처리
+			styles = styleService.getAllStyles();
+		}
 
-		List<Style> allStyles = styleService.getAllStyles();
-		req.setAttribute("allStyles", allStyles);
 		
-		List<ClothWithColor> topList = clothService.getClothes(weather, ClothCategory.TOP);
-		List<ClothWithColor> bottomList = clothService.getClothes(weather,ClothCategory.BOTTOM);
-		List<ClothWithColor> outerList = clothService.getClothes(weather, ClothCategory.OUTER);
+		List<ClothWithColor> topList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
+		List<ClothWithColor> bottomList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
+		List<ClothWithColor> outerList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
 		
-
 		List<ClothSet> clothset = setService.makeSets(topList, bottomList, outerList);
 		
 		req.setAttribute("clothset", clothset);

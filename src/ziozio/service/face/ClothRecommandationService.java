@@ -2,13 +2,14 @@ package ziozio.service.face;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
-import ziozio.dto.ClothSet;
-import ziozio.dto.Paging;
+import ziozio.dto.Account;
+import ziozio.dto.ClothWithColor;
+import ziozio.dto.Style;
+import ziozio.dto.WeatherInfo;
+import ziozio.dto.enumeration.ClothCategory;
 
 public interface ClothRecommandationService {
 	
-	List<ClothSet> recommandClothSets(HttpServletRequest req, Paging paging);
+	List<ClothWithColor> getClothes(Account account, WeatherInfo weather, List<Style> styles, ClothCategory category);
 
 }

@@ -16,6 +16,7 @@ import ziozio.dto.AccountWithPw;
 import ziozio.dto.Verification;
 import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.exception.CookieNotFoundException;
+import ziozio.service.exception.ParamNotAllowedException;
 import ziozio.service.face.AccountService;
 import ziozio.service.face.CookieService;
 import ziozio.utils.hash.HashConverter;
@@ -120,13 +121,17 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Verification getVerificationFromParam(HttpServletRequest req) {
-		int accno = Integer.parseInt(req.getParameter("account_no"));
-		String code = req.getParameter("verification_code");
-		Verification veri = new Verification();
-		veri.setAccount_no(accno);
-		veri.setVerification_code(code);
-		return veri;
+	public Verification getVerificationFromParam(HttpServletRequest req) throws ParamNotAllowedException {
+		try {
+			int accno = Integer.parseInt(req.getParameter("account_no"));
+			String code = req.getParameter("verification_code");
+			Verification veri = new Verification();
+			veri.setAccount_no(accno);
+			veri.setVerification_code(code);
+			return veri;
+		} catch (Exception e) {
+			throw new ParamNotAllowedException();
+		}
 	}
 
 	@Override
