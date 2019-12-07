@@ -94,7 +94,7 @@ tr td:not(:first-child), tr th:not(:first-child) {
 </div><!-- .container -->
 
 
-<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
+
 
 
 

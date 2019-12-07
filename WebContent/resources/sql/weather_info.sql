@@ -567,96 +567,99 @@ VALUES (to_date('2019.12.06 00:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 12.5, 2
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 01:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 98);
+VALUES (to_date('2019.12.06 00:01','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 98);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 02:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 1.7, 100);
+VALUES (to_date('2019.12.06 00:02','yyyy.mm.dd hh24:mi'), 1165090200, 2, 1.7, 100);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 03:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4, 341);
+VALUES (to_date('2019.12.06 00:03','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4, 341);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 04:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3, 45);
+VALUES (to_date('2019.12.06 00:04','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 05:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3.3, 34);
+VALUES (to_date('2019.12.06 00:05','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3.3, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 06:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 2, 98);
+VALUES (to_date('2019.12.06 00:06','yyyy.mm.dd hh24:mi'), 1165090200, 3, 2, 98);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 07:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 13.7, 78);
+VALUES (to_date('2019.12.06 00:07','yyyy.mm.dd hh24:mi'), 1165090200, 1, 13.7, 78);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 08:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4.5, 134);
+VALUES (to_date('2019.12.06 00:08','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4.5, 134);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 09:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 31.8, 85);
+VALUES (to_date('2019.12.06 00:09','yyyy.mm.dd hh24:mi'), 1165090200, 1, 31.8, 85);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 10:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 34);
+VALUES (to_date('2019.12.06 00:10','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 11:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 11.5, 234);
+VALUES (to_date('2019.12.06 00:11','yyyy.mm.dd hh24:mi'), 1165090200, 3, 11.5, 234);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 12:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 12, 46);
+VALUES (to_date('2019.12.06 00:12','yyyy.mm.dd hh24:mi'), 1165090200, 3, 12, 46);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 13:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -14.5, 98);
+VALUES (to_date('2019.12.06 00:13','yyyy.mm.dd hh24:mi'), 1165090200, 4, -14.5, 98);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 14:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8, 0);
+VALUES (to_date('2019.12.06 00:14','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8, 0);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 15:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -16.8, 45);
+VALUES (to_date('2019.12.06 00:15','yyyy.mm.dd hh24:mi'), 1165090200, 4, -16.8, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 16:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 24.3, 1);
+VALUES (to_date('2019.12.06 00:16','yyyy.mm.dd hh24:mi'), 1165090200, 2, 24.3, 1);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 17:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 34);
+VALUES (to_date('2019.12.06 00:17','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 18:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 32.9, 8);
+VALUES (to_date('2019.12.06 00:18','yyyy.mm.dd hh24:mi'), 1165090200, 1, 32.9, 8);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 19:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 12.4, 234);
+VALUES (to_date('2019.12.06 00:19','yyyy.mm.dd hh24:mi'), 1165090200, 2, 12.4, 234);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 20:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 5, 65);
+VALUES (to_date('2019.12.06 00:20','yyyy.mm.dd hh24:mi'), 1165090200, 3, 5, 65);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 21:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -7.4, 23);
+VALUES (to_date('2019.12.06 00:21','yyyy.mm.dd hh24:mi'), 1165090200, 4, -7.4, 23);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8.1, 1);
+VALUES (to_date('2019.12.06 00:22','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8.1, 1);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5, 0);
+VALUES (to_date('2019.12.06 00:23','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5, 0);
 
+INSERT INTO weather_info (weather_info_date, location_code,
+weather_code, weather_info_temperature, weather_info_finedust)
+VALUES (to_date('2019.12.06 00:24','yyyy.mm.dd hh24:mi'), 1165090200, 2, 9.7, 234);
 
 
 
@@ -669,96 +672,99 @@ VALUES (to_date('2019.12.07 00:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 34.7, 3
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 01:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2.8, 67);
+VALUES (to_date('2019.12.07 00:01','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2.8, 67);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 02:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 6, 43);
+VALUES (to_date('2019.12.07 00:02','yyyy.mm.dd hh24:mi'), 1165090200, 2, 6, 43);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 03:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 4.7, 98);
+VALUES (to_date('2019.12.07 00:03','yyyy.mm.dd hh24:mi'), 1165090200, 3, 4.7, 98);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 04:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2, 199);
+VALUES (to_date('2019.12.07 00:04','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2, 199);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 05:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 7, 34);
+VALUES (to_date('2019.12.07 00:05','yyyy.mm.dd hh24:mi'), 1165090200, 2, 7, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 06:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8.4, 100);
+VALUES (to_date('2019.12.07 00:06','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8.4, 100);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 07:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 12, 45);
+VALUES (to_date('2019.12.07 00:07','yyyy.mm.dd hh24:mi'), 1165090200, 2, 12, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 08:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -16.8, 101);
+VALUES (to_date('2019.12.07 00:08','yyyy.mm.dd hh24:mi'), 1165090200, 4, -16.8, 101);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 09:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -9, 54);
+VALUES (to_date('2019.12.07 00:09','yyyy.mm.dd hh24:mi'), 1165090200, 4, -9, 54);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 10:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 32.6, 24);
+VALUES (to_date('2019.12.07 00:10','yyyy.mm.dd hh24:mi'), 1165090200, 3, 32.6, 24);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 11:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -24, 6);
+VALUES (to_date('2019.12.07 00:11','yyyy.mm.dd hh24:mi'), 1165090200, 4, -24, 6);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 12:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 2, 65);
+VALUES (to_date('2019.12.07 00:12','yyyy.mm.dd hh24:mi'), 1165090200, 3, 2, 65);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 13:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8.5, 87);
+VALUES (to_date('2019.12.07 00:13','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8.5, 87);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 14:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4, 98);
+VALUES (to_date('2019.12.07 00:14','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4, 98);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 15:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.5, 45);
+VALUES (to_date('2019.12.07 00:15','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.5, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 16:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8, 56);
+VALUES (to_date('2019.12.07 00:16','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8, 56);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 17:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.2, 85);
+VALUES (to_date('2019.12.07 00:17','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.2, 85);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 18:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -27.7, 45);
+VALUES (to_date('2019.12.07 00:18','yyyy.mm.dd hh24:mi'), 1165090200, 4, -27.7, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 19:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 46);
+VALUES (to_date('2019.12.07 00:19','yyyy.mm.dd hh24:mi'), 1165090200, 2, 32, 46);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 20:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 34.9, 324);
+VALUES (to_date('2019.12.07 00:20','yyyy.mm.dd hh24:mi'), 1165090200, 1, 34.9, 324);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 21:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2, 45);
+VALUES (to_date('2019.12.07 00:21','yyyy.mm.dd hh24:mi'), 1165090200, 1, 2, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 7.3, 1);
+VALUES (to_date('2019.12.07 00:22','yyyy.mm.dd hh24:mi'), 1165090200, 2, 7.3, 1);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 5, 6);
+VALUES (to_date('2019.12.07 00:23','yyyy.mm.dd hh24:mi'), 1165090200, 3, 5, 6);
 
+INSERT INTO weather_info (weather_info_date, location_code,
+weather_code, weather_info_temperature, weather_info_finedust)
+VALUES (to_date('2019.12.07 00:24','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5, 34);
 
 
 
@@ -770,96 +776,99 @@ VALUES (to_date('2019.12.08 00:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 6, 23);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 01:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 12.5, 5);
+VALUES (to_date('2019.12.08 00:01','yyyy.mm.dd hh24:mi'), 1165090200, 3, 12.5, 5);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 02:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 24, 1);
+VALUES (to_date('2019.12.08 00:02','yyyy.mm.dd hh24:mi'), 1165090200, 1, 24, 1);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 03:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 36.8, 245);
+VALUES (to_date('2019.12.08 00:03','yyyy.mm.dd hh24:mi'), 1165090200, 1, 36.8, 245);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 04:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -4.5, 78);
+VALUES (to_date('2019.12.08 00:04','yyyy.mm.dd hh24:mi'), 1165090200, 4, -4.5, 78);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 05:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.8, 87);
+VALUES (to_date('2019.12.08 00:05','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.8, 87);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 06:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, -3.9, 43);
+VALUES (to_date('2019.12.08 00:06','yyyy.mm.dd hh24:mi'), 1165090200, 3, -3.9, 43);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 07:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8, 23);
+VALUES (to_date('2019.12.08 00:07','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8, 23);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 08:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5, 43);
+VALUES (to_date('2019.12.08 00:08','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5, 43);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 09:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.3, 21);
+VALUES (to_date('2019.12.08 00:09','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.3, 21);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 10:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8, 43);
+VALUES (to_date('2019.12.08 00:10','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8, 43);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 11:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 9.7, 213);
+VALUES (to_date('2019.12.08 00:11','yyyy.mm.dd hh24:mi'), 1165090200, 1, 9.7, 213);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 12:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -23.3, 43);
+VALUES (to_date('2019.12.08 00:12','yyyy.mm.dd hh24:mi'), 1165090200, 4, -23.3, 43);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 13:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 4, 32);
+VALUES (to_date('2019.12.08 00:13','yyyy.mm.dd hh24:mi'), 1165090200, 3, 4, 32);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 14:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 7, 0);
+VALUES (to_date('2019.12.08 00:14','yyyy.mm.dd hh24:mi'), 1165090200, 1, 7, 0);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 15:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4.7, 23);
+VALUES (to_date('2019.12.08 00:15','yyyy.mm.dd hh24:mi'), 1165090200, 1, 4.7, 23);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 16:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -9, 32);
+VALUES (to_date('2019.12.08 00:16','yyyy.mm.dd hh24:mi'), 1165090200, 4, -9, 32);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 17:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 10.4, 87);
+VALUES (to_date('2019.12.08 00:17','yyyy.mm.dd hh24:mi'), 1165090200, 3, 10.4, 87);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 18:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0.7, 78);
+VALUES (to_date('2019.12.08 00:18','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0.7, 78);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 19:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 0, 109);
+VALUES (to_date('2019.12.08 00:19','yyyy.mm.dd hh24:mi'), 1165090200, 2, 0, 109);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 20:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0.6, 45);
+VALUES (to_date('2019.12.08 00:20','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0.6, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 21:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 34.2, 47);
+VALUES (to_date('2019.12.08 00:21','yyyy.mm.dd hh24:mi'), 1165090200, 2, 34.2, 47);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5, 24);
+VALUES (to_date('2019.12.08 00:22','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5, 24);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3, 187);
+VALUES (to_date('2019.12.08 00:23','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3, 187);
 
+INSERT INTO weather_info (weather_info_date, location_code,
+weather_code, weather_info_temperature, weather_info_finedust)
+VALUES (to_date('2019.12.08 00:24','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.7, 324);
 
 
 
@@ -871,96 +880,99 @@ VALUES (to_date('2019.12.09 00:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 7.4, 32
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 01:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0, 8);
+VALUES (to_date('2019.12.09 00:01','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0, 8);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 02:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 23, 16);
+VALUES (to_date('2019.12.09 00:02','yyyy.mm.dd hh24:mi'), 1165090200, 3, 23, 16);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 03:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -12.5, 28);
+VALUES (to_date('2019.12.09 00:03','yyyy.mm.dd hh24:mi'), 1165090200, 4, -12.5, 28);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 04:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 11, 32);
+VALUES (to_date('2019.12.09 00:04','yyyy.mm.dd hh24:mi'), 1165090200, 1, 11, 32);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 05:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 22.6, 48);
+VALUES (to_date('2019.12.09 00:05','yyyy.mm.dd hh24:mi'), 1165090200, 1, 22.6, 48);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 06:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 33, 5);
+VALUES (to_date('2019.12.09 00:06','yyyy.mm.dd hh24:mi'), 1165090200, 2, 33, 5);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 07:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 42.3, 45);
+VALUES (to_date('2019.12.09 00:07','yyyy.mm.dd hh24:mi'), 1165090200, 2, 42.3, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 08:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8, 90);
+VALUES (to_date('2019.12.09 00:08','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8, 90);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 09:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3, 194);
+VALUES (to_date('2019.12.09 00:09','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3, 194);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 10:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.7, 45);
+VALUES (to_date('2019.12.09 00:10','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.7, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 11:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.6, 23);
+VALUES (to_date('2019.12.09 00:11','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.6, 23);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 12:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5, 87);
+VALUES (to_date('2019.12.09 00:12','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5, 87);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 13:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8.2, 34);
+VALUES (to_date('2019.12.09 00:13','yyyy.mm.dd hh24:mi'), 1165090200, 2, 8.2, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 14:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 9, 81);
+VALUES (to_date('2019.12.09 00:14','yyyy.mm.dd hh24:mi'), 1165090200, 3, 9, 81);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 15:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.6, 72);
+VALUES (to_date('2019.12.09 00:15','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3.6, 72);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 16:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 6, 104);
+VALUES (to_date('2019.12.09 00:16','yyyy.mm.dd hh24:mi'), 1165090200, 2, 6, 104);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 17:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -4.4, 34);
+VALUES (to_date('2019.12.09 00:17','yyyy.mm.dd hh24:mi'), 1165090200, 4, -4.4, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 18:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 3, 74);
+VALUES (to_date('2019.12.09 00:18','yyyy.mm.dd hh24:mi'), 1165090200, 3, 3, 74);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 19:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.7, 34);
+VALUES (to_date('2019.12.09 00:19','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.7, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 20:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 8.4, 74);
+VALUES (to_date('2019.12.09 00:20','yyyy.mm.dd hh24:mi'), 1165090200, 1, 8.4, 74);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 21:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5.6, 87);
+VALUES (to_date('2019.12.09 00:21','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5.6, 87);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 9.3, 105);
+VALUES (to_date('2019.12.09 00:22','yyyy.mm.dd hh24:mi'), 1165090200, 1, 9.3, 105);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 19.7, 142);
+VALUES (to_date('2019.12.09 00:23','yyyy.mm.dd hh24:mi'), 1165090200, 2, 19.7, 142);
 
+INSERT INTO weather_info (weather_info_date, location_code,
+weather_code, weather_info_temperature, weather_info_finedust)
+VALUES (to_date('2019.12.09 00:24','yyyy.mm.dd hh24:mi'), 1165090200, 4, -34, 12);
 
 
 
@@ -972,97 +984,99 @@ VALUES (to_date('2019.12.10 00:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 3, 0);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 01:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 5.5, 23);
+VALUES (to_date('2019.12.10 00:01','yyyy.mm.dd hh24:mi'), 1165090200, 3, 5.5, 23);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 02:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5.6, 76);
+VALUES (to_date('2019.12.10 00:02','yyyy.mm.dd hh24:mi'), 1165090200, 1, 5.6, 76);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 03:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3, 34);
+VALUES (to_date('2019.12.10 00:03','yyyy.mm.dd hh24:mi'), 1165090200, 4, -3, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 04:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -8, 239);
+VALUES (to_date('2019.12.10 00:04','yyyy.mm.dd hh24:mi'), 1165090200, 4, -8, 239);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 05:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -34.1, 0);
+VALUES (to_date('2019.12.10 00:05','yyyy.mm.dd hh24:mi'), 1165090200, 4, -34.1, 0);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 06:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 34, 2);
+VALUES (to_date('2019.12.10 00:06','yyyy.mm.dd hh24:mi'), 1165090200, 1, 34, 2);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 07:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 3, 6);
+VALUES (to_date('2019.12.10 00:07','yyyy.mm.dd hh24:mi'), 1165090200, 2, 3, 6);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 08:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 8.5, 45);
+VALUES (to_date('2019.12.10 00:08','yyyy.mm.dd hh24:mi'), 1165090200, 1, 8.5, 45);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 09:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 9, 6);
+VALUES (to_date('2019.12.10 00:09','yyyy.mm.dd hh24:mi'), 1165090200, 1, 9, 6);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 10:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0, 245);
+VALUES (to_date('2019.12.10 00:10','yyyy.mm.dd hh24:mi'), 1165090200, 3, 0, 245);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 11:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 3.5, 56);
+VALUES (to_date('2019.12.10 00:11','yyyy.mm.dd hh24:mi'), 1165090200, 3, 3.5, 56);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 12:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -1, 98);
+VALUES (to_date('2019.12.10 00:12','yyyy.mm.dd hh24:mi'), 1165090200, 4, -1, 98);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 13:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.8, 99);
+VALUES (to_date('2019.12.10 00:13','yyyy.mm.dd hh24:mi'), 1165090200, 4, -5.8, 99);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 14:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.5, 33);
+VALUES (to_date('2019.12.10 00:14','yyyy.mm.dd hh24:mi'), 1165090200, 2, 5.5, 33);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 15:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 4.6, 65);
+VALUES (to_date('2019.12.10 00:15','yyyy.mm.dd hh24:mi'), 1165090200, 2, 4.6, 65);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 16:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8.9, 88);
+VALUES (to_date('2019.12.10 00:16','yyyy.mm.dd hh24:mi'), 1165090200, 3, 8.9, 88);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 17:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 19, 34);
+VALUES (to_date('2019.12.10 00:17','yyyy.mm.dd hh24:mi'), 1165090200, 1, 19, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 18:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 45.4, 2);
+VALUES (to_date('2019.12.10 00:18','yyyy.mm.dd hh24:mi'), 1165090200, 1, 45.4, 2);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 19:00','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3, 5);
+VALUES (to_date('2019.12.10 00:19','yyyy.mm.dd hh24:mi'), 1165090200, 1, 3, 5);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 20:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -6.5, 0);
+VALUES (to_date('2019.12.10 00:20','yyyy.mm.dd hh24:mi'), 1165090200, 4, -6.5, 0);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 21:00','yyyy.mm.dd hh24:mi'), 1165090200, 4, -9, 34);
+VALUES (to_date('2019.12.10 00:21','yyyy.mm.dd hh24:mi'), 1165090200, 4, -9, 34);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 22:00','yyyy.mm.dd hh24:mi'), 1165090200, 3, 20.5, 76);
+VALUES (to_date('2019.12.10 00:22','yyyy.mm.dd hh24:mi'), 1165090200, 3, 20.5, 76);
 
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 23:00','yyyy.mm.dd hh24:mi'), 1165090200, 2, 25, 78);
+VALUES (to_date('2019.12.10 00:23','yyyy.mm.dd hh24:mi'), 1165090200, 2, 25, 78);
 
-
+INSERT INTO weather_info (weather_info_date, location_code,
+weather_code, weather_info_temperature, weather_info_finedust)
+VALUES (to_date('2019.12.10 00:24','yyyy.mm.dd hh24:mi'), 1165090200, 2, 10.1, 100);
 
 
 SELECT * FROM weather_info;
