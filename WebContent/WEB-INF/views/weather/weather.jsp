@@ -45,6 +45,7 @@ $( document ).ready(function() {
 			<div class="carousel-inner" role="listbox">
 				<!-- 		<div class="carousel-inner"> -->
 				<c:forEach items="${weatherList}" var="weatherinfo">
+				<c:if test="${weatherinfo.weather_name == '흐림'}"></c:if>
 					<div class="item">
 						<%-- 			<fmt:formatDate value="${weatherinfo.weahter_info_date}" pattern="yyyy-MM-dd HH" /><br> --%>
 						<%-- 				<c:out value="${weatherinfo.weahter_info_date}"></c:out><br> --%>

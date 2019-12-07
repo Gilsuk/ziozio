@@ -1,6 +1,8 @@
 package ziozio.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -54,10 +56,14 @@ public class MainPageController extends HttpServlet {
 		List<ClothWithColor> bottomList = clothService.getClothes(weather,ClothCategory.BOTTOM);
 		List<ClothWithColor> outerList = clothService.getClothes(weather, ClothCategory.OUTER);
 		
+		List<ClothWithColor> allList = new ArrayList<>(topList);
+		allList.addAll(bottomList);
+		allList.addAll(outerList);
+		Collections.shuffle(allList);
 
-		List<ClothSet> clothset = setService.makeSets(topList, bottomList, outerList);
 		
-		req.setAttribute("clothset", clothset);
+		
+		req.setAttribute("allList", allList);
 		
 		req.getRequestDispatcher("/WEB-INF/views/main/main.jsp").forward(req, resp);
 	}

@@ -21,6 +21,13 @@ public class ChangePWController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private AccountService accountService = AccountServiceImpl.getInstance();
 	
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	req.getRequestDispatcher("/WEB-INF/views/account/changepw.jsp").forward(req,resp);
+	}
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //		verification_code
