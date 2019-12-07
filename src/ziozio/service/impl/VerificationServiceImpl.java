@@ -1,9 +1,14 @@
 package ziozio.service.impl;
 
+import java.sql.SQLException;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.exception.SelectResultException;
+import ziozio.dao.face.AccountDAO;
 import ziozio.dao.face.VerificationDAO;
+import ziozio.dao.impl.AccountDAOImpl;
 import ziozio.dao.impl.VerificationDAOImpl;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
@@ -11,10 +16,13 @@ import ziozio.dto.Verification;
 import ziozio.enumeration.VerificationType;
 import ziozio.service.exception.TypeNotAllowedException;
 import ziozio.service.face.VerificationService;
+import ziozio.utils.hash.HashConverter;
+import ziozio.utils.hash.SHA256;
 
 public class VerificationServiceImpl implements VerificationService {
 	
 	private VerificationDAO dao = VerificationDAOImpl.getInstance();
+	private AccountDAO accountDao = AccountDAOImpl.getInstance();
 
 	/*
 	 * Singleton
@@ -62,7 +70,18 @@ public class VerificationServiceImpl implements VerificationService {
 	}
 
 	@Override
-	public void generateKey(AccountWithPw account) {
+	public void generateKey(AccountWithPw account) throws SQLException {
+
+		Verification veri = new Verification();
+		veri.setAccount_no(account.getAccount_no());
+		veri.setVerification_type('M');
+		
+		UUID uuid = UUID.randomUUID();
+		HashConverter converter = new SHA256(uuid.toString());
+		veri.setVerification_code(converter.toHash());
+
+		accountDao.insert(veri);
+
 	}
 
 }
