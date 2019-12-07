@@ -39,7 +39,7 @@ public class TemperatureCloth extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Location defaultLocation = locationService.getDefaultLocation();
-		WeatherInfo temperature = weatherInfoService.getCurrentWeatherInfo(defaultLocation);
+		WeatherInfo temperature = weatherInfoService.getCurrentWeatherInfo(req, defaultLocation);
 		
 		StyleService styleService = StyleServiceImpl.getInstance();
 

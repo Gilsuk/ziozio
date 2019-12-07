@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.AccountWithPw;
 import ziozio.dto.Verification;
+import ziozio.service.exception.AccountNotFountException;
+import ziozio.service.exception.ParamNotAllowedException;
 import ziozio.service.face.AccountService;
 import ziozio.service.impl.AccountServiceImpl;
 
@@ -29,15 +31,25 @@ public class ChangePWController extends HttpServlet {
 	}
 	
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			accountService.getLoggedInAccount(req);
+			req.getRequestDispatcher("/WEB-INF/views/account/changepw.jsp").forward(req, resp);
+		} catch (AccountNotFountException e) {
+			resp.sendRedirect("/main");
+		}
+	}
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		verification_code
-//		account_no
-//		pw
-		Verification veri = accountService.getVerificationFromParam(req);
-		AccountWithPw account = accountService.getAccountByPwNo(req);
-		if (accountService.verify(veri)) {
-			accountService.setpw(account);
-			
+
+		try {
+			Verification veri = accountService.getVerificationFromParam(req);
+			AccountWithPw account = accountService.getAccountByPwNo(req);
+			if (accountService.verify(veri)) {
+				accountService.setpw(account);
+			}
+		} catch (ParamNotAllowedException e) {
 		}
 		
 		resp.sendRedirect("/main");

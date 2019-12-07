@@ -2,6 +2,8 @@ package ziozio.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import ziozio.dao.face.WeatherInfoDAO;
 import ziozio.dao.impl.WeatherInfoDAOImpl;
 import ziozio.dto.Location;
@@ -23,9 +25,15 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
     public static WeatherInfoService getInstance() { return Factory.INSTANCE; }
 
 	@Override
-	public WeatherInfo getCurrentWeatherInfo(Location loc) {
-		
-		return weatherinfoDao.selectAll(loc);
+	public WeatherInfo getCurrentWeatherInfo(HttpServletRequest req, Location loc) {
+		Object weatherinfo = req.getSession().getAttribute("weatherinfo");
+
+		if (weatherinfo != null)
+			return (WeatherInfo) weatherinfo;
+
+		WeatherInfo weather = weatherinfoDao.selectAll(loc);
+		setWeatherToSession(req, weather);
+		return weather;
 		
 	}
 
@@ -79,6 +87,10 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 				return true;
 		}
 		return false;
+	}
+	
+	private void setWeatherToSession(HttpServletRequest req, WeatherInfo weather) {
+		req.getSession().setAttribute("weatherinfo", weather);
 	}
 
 }

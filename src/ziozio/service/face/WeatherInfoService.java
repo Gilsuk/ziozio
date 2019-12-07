@@ -2,6 +2,8 @@ package ziozio.service.face;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import ziozio.dto.Location;
 import ziozio.dto.WeatherInfo;
 
@@ -16,7 +18,7 @@ public interface WeatherInfoService {
 	/*
 	 * 지역정보에 기반한 현재 날씨를 WeatherInfo 형태로 반환한다.
 	 */
-	WeatherInfo getCurrentWeatherInfo(Location loc);
+//	WeatherInfo getCurrentWeatherInfo(Location loc);
 
 	/*
 	 * 지역정보에 기반한 현재 날씨 + count 만큼의 향후 날씨를 List로 반환한다.
@@ -52,5 +54,7 @@ public interface WeatherInfoService {
 	 * 전달된 WeatherInfo 리스트 비, 또는 눈 소식이 있다면 true, 없으면 false를 반환
 	 */
 	boolean willItBeRainOrSnow(List<WeatherInfo> weatherInfos);
+
+	WeatherInfo getCurrentWeatherInfo(HttpServletRequest req, Location loc);
 
 }
