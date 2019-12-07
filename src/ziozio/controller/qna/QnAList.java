@@ -9,8 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ziozio.dto.Account;
 import ziozio.dto.Paging;
+import ziozio.dto.QnA;
+import ziozio.service.exception.AccountNotFountException;
+import ziozio.service.face.AccountService;
 import ziozio.service.face.QnAService;
+import ziozio.service.impl.AccountServiceImpl;
 import ziozio.service.impl.QnAServiceImpl;
 
 @WebServlet("/qnalist")
@@ -19,20 +24,26 @@ public class QnAList extends HttpServlet {
 
 	
 	private QnAService qnaService = new QnAServiceImpl();
-	
+	private AccountService accountService = AccountServiceImpl.getInstance();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		Paging paging = qnaService.getPaging(req);
-//		System.out.println("QnAList - " + paging);
+		Account account = null;
+		try {
+			account = accountService.getLoggedInAccount(req);
+		} catch (AccountNotFountException e) {
+			e.printStackTrace();
+		}
 		
-		req.setAttribute("paging", paging);
+		Paging pagingAll = qnaService.getPaging(req);
+		Paging pagingAccount = qnaService.getPaging(account, req);
 		
-		List list = qnaService.getList(paging);
+		List<QnA> listAll = qnaService.getListAll(pagingAll);
+		List<QnA> listAccount = qnaService.getListAccount(account, pagingAccount);
 		
-		req.setAttribute("list", list);
-		req.setAttribute("search", paging.getSearch());
-		req.setAttribute("category", paging.getCategory());
+		req.setAttribute("listAll", listAll);
+		req.setAttribute("listAccount", listAccount);
+
 		
 		req.getRequestDispatcher("/WEB-INF/views/qna/qnalist.jsp")
 			.forward(req, resp);

@@ -1,4 +1,4 @@
-DROP TABLE account_grade;
+DROP TABLE account_grade CASCADE CONSTRAINT;
 
 CREATE TABLE account_grade (
 	account_grade_code NUMBER PRIMARY KEY,

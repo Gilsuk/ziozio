@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 <div class="container">
 
-<h3>게시글 쓰기</h3>
+<h2 class="font-dohyeon">게시글 쓰기</h2>
 <hr>
 
 <div>
@@ -46,24 +46,24 @@ $(document).ready(function() {
 <input type="hidden" name="boardno" value="${viewBoard.boardno }" />
 
 <table class="table table-bordered">
-<tr><td class="info">아이디</td><td>${account.account_email }</td></tr>
-<tr><td class="info">닉네임</td><td>${account.account_nick }</td></tr>
-<tr><td class="info">제목</td><td><input type="text" name="title" style="width:100%" value="${viewBoard.title }"/></td></tr>
-<tr><td class="info" colspan="2">본문</td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC">아이디</td><td>${account.account_email }</td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC">닉네임</td><td>${account.account_nick }</td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC">제목</td><td><input type="text" name="title" style="width:100%" value="${viewBoard.title }"/></td></tr>
+<tr><td class="info font-gothic" style="background-color: #FFF2EC" colspan="2">본문</td></tr>
 <tr><td colspan="2">
 	<textarea id="content" name="content" rows="10" cols="100">${viewBoard.content }</textarea>
 </td></tr>
 </table>
 
-<label>기존 첨부파일 : </label>${boardFile.originName }<br>
-<label>첨부파일 : <input type="file" name="file" /></label>
+<label class="font-gothic">기존 첨부파일 : </label>${boardFile.originName }<br>
+<label class="font-gothic">첨부파일 : <input type="file" name="file" /></label>
 
 </form>
 </div>
 
 <div class="text-center">	
-	<button type="button" id="btnUpdate" class="btn btn-info">수정 적용</button>
-	<button type="button" id="btnCancel" class="btn btn-danger">취소</button>
+	<button type="button" id="btnUpdate" class="btn" style="background-color: #7286FF">수정 적용</button>
+	<button type="button" id="btnCancel" class="btn" style="background-color: #FF6060">취소</button>
 </div>
 </div>
 

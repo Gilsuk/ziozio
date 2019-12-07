@@ -21,7 +21,12 @@ public class BoardDeleteController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		//로그인한 사람의 글이 아니면 중단하고 목록으로 리다이렉트
+		if( !boardService.checkId(req) ) {
+			resp.sendRedirect("/board/list");
+			return;
+		}
+		
 		Board board = boardService.getBoardno(req);
 
 		boardService.delete(board);

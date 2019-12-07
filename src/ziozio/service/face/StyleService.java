@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dto.Account;
 import ziozio.dto.Style;
+import ziozio.service.exception.AccountNotFountException;
 
 public interface StyleService {
 
@@ -25,5 +26,9 @@ public interface StyleService {
 	 * 비로그인 사용자라면 모든 스타일을 가져오도록 구현한다.
 	 * 위에 구현한 두 메소드를 가져다 사용하기만 하면 된다.
 	 */
-	List<Style> getStyles(HttpServletRequest req);
+	List<Style> getAccountStyles(HttpServletRequest req) throws AccountNotFountException;
+	
+	List<Style> getSelectedStyles(HttpServletRequest req);
+	
+	int addStylesToAccount(Account account, List<Style> styles);
 }

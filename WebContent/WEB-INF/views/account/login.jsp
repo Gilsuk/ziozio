@@ -57,7 +57,7 @@
 
 <!-- 이미지 -->
 <div class="marginauto">
-    <img src='/resources/img/ZIOZIO.png'  >
+    <img class="ziozio" src='/resources/img/ZIOZIO.png'  >
 </div>
 
 <div id="wrap">
@@ -66,12 +66,12 @@
 	<div class="col-lg-6 ">
 		<div class="jumbotron padding" >
 			<form name="loginInfo" method="post" action="/account/login" onsubmit="return checkValue()">
-				<h3 class="center">로그인</h3><br>
+				<h2 class="center font-dohyeon">로그인</h2><br>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
+					<input type="text" class="form-control font-gothic" placeholder="아이디(email)" name="account_email" id="account_email"maxlength="100"/>
 				</div>
 				<div class="form-group">
-					<input type="pas0sword" class="form-control" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
+					<input type="password" class="form-control font-gothic" placeholder="비밀번호" name="account_pw" id="account_pw"maxlength="20"/>
 				</div>
 				 <div class="checkbox">
     				<label>
@@ -83,18 +83,19 @@
  					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
 				</c:if>  --%>
 				
+				<input type="text" hidden="hidden" name="originurl" value="<%= (String)request.getAttribute("originurl") %>" />
 				<div class="form-group" >
-					<input  type="submit" class="btn btn-primory form-control input color" value="로그인" />
+					<input  type="submit" class="btn btn-primory form-control input color font-gothic" value="로그인" />
 				</div>
 			
 			</form>
 			
 			<a href="/account/join">
-				<input  type="submit" class="btn btn-primory form-control input color" value="회원가입" />
+				<input  type="submit" class="btn btn-primory form-control input color font-gothic" value="회원가입" />
 			</a>
 			<br><br>
 			<a href="/account/find">
-				<input  type="submit" class="btn btn-primory form-control input color" value="비밀번호 찾기" />
+				<input  type="submit" class="btn btn-primory form-control input color font-gothic" value="비밀번호 찾기" />
 			</a>
 		</div>	
 	</div>

@@ -1,4 +1,4 @@
-DROP TABLE location;
+DROP TABLE location CASCADE CONSTRAINT;
 
 CREATE TABLE location (
 	location_code NUMBER PRIMARY KEY,
@@ -8,21 +8,7 @@ CREATE TABLE location (
 commit;
 -- 여기 까지
 
-INSERT INTO location VALUES (1100000000, '서울특별시');
-INSERT INTO location VALUES (1111000000, '서울특별시 종로구');
-INSERT INTO location VALUES (1111010100, '서울특별시 종로구 청운동');
-INSERT INTO location VALUES (1111010200, '서울특별시 종로구 신교동');
-INSERT INTO location VALUES (1111010300, '서울특별시 종로구 궁정동');
-INSERT INTO location VALUES (1111010400, '서울특별시 종로구 효자동');
-INSERT INTO location VALUES (1111010500, '서울특별시 종로구 창성동');
-INSERT INTO location VALUES (1111010600, '서울특별시 종로구 통의동');
-INSERT INTO location VALUES (1111010700, '서울특별시 종로구 적선동');
-INSERT INTO location VALUES (1111010800, '서울특별시 종로구 통인동');
-INSERT INTO location VALUES (1111010900, '서울특별시 종로구 누상동');
-INSERT INTO location VALUES (1111011000, '서울특별시 종로구 누하동');
-INSERT INTO location VALUES (1111011100, '서울특별시 종로구 옥인동');
-INSERT INTO location VALUES (1111011200, '서울특별시 종로구 체부동');
-INSERT INTO location VALUES (1111011300, '서울특별시 종로구 필운동');
+
 INSERT INTO location VALUES (1111011400, '서울특별시 종로구 내자동');
 INSERT INTO location VALUES (1111011500, '서울특별시 종로구 사직동');
 INSERT INTO location VALUES (1111011600, '서울특별시 종로구 도렴동');

@@ -34,14 +34,6 @@ public interface WeatherInfoService {
 	List<WeatherInfo> getWeatherInfosToday(Location loc);
 
 	/*
-	 * 리스트로 뽑은 날씨의 나열이 아닌, 딱 하나로 대표되는 그 날의 날씨를 반환한다.
-	 * 예를 들어 '오늘 비와?' 라고 물었을 때 '온다' '안온다' 로 나뉠 수 있는 값을 반환하면 된다.
-	 * '12시부터 15시까지 비 온 후 갠다' 같이 장황한거 말고,
-	 * 오늘 '덥다', 오늘 '미세먼지 심하다' 같이 표현할 수 있는 내용을 담는 하나의 WeatherInfo 객체만 반환한다.
-	 */
-	WeatherInfo getRepresentativeWeatherInfo(List<WeatherInfo> weatherInfos);
-
-	/*
 	 * 전달된 WeatherInfo 리스트 중 가장 높은 기온을 반환
 	 */
 	double getHighTemperature(List<WeatherInfo> weatherInfos);

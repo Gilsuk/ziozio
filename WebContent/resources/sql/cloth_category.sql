@@ -1,10 +1,8 @@
-DROP TABLE cloth_category;
+DROP TABLE cloth_category CASCADE CONSTRAINT;
 
 CREATE TABLE cloth_category (
-
 	cloth_category_code NUMBER primary key,
 	cloth_category_name VARCHAR2(50) NOT NULL
-	
 );
 
 INSERT INTO CLOTH_CATEGORY (cloth_category_code, cloth_category_name)

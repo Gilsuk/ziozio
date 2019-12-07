@@ -6,117 +6,123 @@
 
 <jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
 
+
+
 <style type="text/css">
 
-div#sliderbox {
-	width: 600px;
+#carousel-example-generic {
+	width: 700px;
 	height: 500px;
 	border: 1px solid #ccc;
+	text-align: center;
 	
  	overflow: hidden; /* div영역을 벗어난 부분을 안보이게 처리 */  
 /*   overflow: visible;  div영역을 전부 보이게 처리   */
 	margin: 0 auto; /* div영역을 중앙으로 정렬(외부 정렬) */
 }
-ul#slider {
-	/* ul태그의 기본 스타일 없애기 */
-	padding: 0; /*내부여백 삭제*/
-	margin: 0; /*외부여백 삭제*/
-	list-style: none; /*리스트스타일 없음 */
-	position: relative;
-}
-ul#slider li {
-	position: absolute;
-}
-ul#slider li img {
-	width: 600px;
+
+#carousel-example-generic img {
+	width: 700px;
 	height: 500px;
+}
+
+.carousel-control.right, .carousel-control.left {
+ background-image: none;
 }
 </style>
 
-<script type="text/javascript">
-$(document).ready(function() {
-	//모든 이미지 리스트
-	var $slider_list = $("ul#slider li");
-	
-	//모든 이미지를  "left: 600px"로 보내기(숨기기)
-// 	$slider_list.css("left", "600px"); //아래와 동일
- 	$slider_list.css("left", $("div#sliderbox").css("width"));
- 	
- 	//-------------------------------------------------------
- 	
- 	//첫번째 이미지를 div 안쪽으로 보내기
- 	//첫 이미지 보여주기
- 	
- 	$slider_list.eq(0).css("left",0);
- 	
-//  $("ul#slider li:first-child").css("left",0);
- 	
- 	//-------------------------------------------------------
- 	// 2초 마다 이미지 변경 하기 -image slide
- 	
- 	var curSlide = 0; //현재 슬라이드(이미지) 인덱스
- 	setInterval(function() {
-// 		console.log("clicked");
- 		 
- 		//다음에 보여질 이미지의 인덱스
- 		var nextSlide = curSlide+1;
- 		nextSlide %= $slider_list.length;//보정
-// 		nextSlide = nextSlide % $slider_list.length;//보정
-
-		//보여져야 할 이미지를 오른쪽으로 보내주기
-		$slider_list.eq(nextSlide).css("left","600px");
-
-		//현재 이미지 숨기기 : curSlide
-		$slider_list.eq(curSlide).animate({"left":"-=600px"});
-		
-		//다음 이미지 보여주기 : nextSlide
-		$slider_list.eq(nextSlide).animate({"left": "-=600px"});
-		
- 		//순환구조 만들기
- 		curSlide++;
- 		curSlide %= $slider_list.length;//보정
- //		curSlide = curSlide % $slider_list.length;//보정
- 	
- 	},2000);
- 	
-});
-</script>
-
 <div class="container ">
-	<div class="marginauto ">
-  		<img src='/resources/img/ZIOZIO.png' >
+	<div class="marginauto">
+  		<a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
   	</div>
 </div>
 
 
-<div id="sliderbox">
-	<ul id="slider">
-		<li><img src="/resources/img/look/A_line_skirt.png" /></li>
-		<li><img src="/resources/img/look/Flitz_skirt.png" /></li>
-		<li><img src="/resources/img/look/H_line_skirt.png" /></li>
-		<li><img src="/resources/img/look/Knit.png" /></li>
-		<li><img src="/resources/img/look/Leggings.png" /></li>
-		<li><img src="/resources/img/look/Lightweight_long_padding.png" /></li>
-		<li><img src="/resources/img/look/Lightweight_vest_padding.png" /></li>
-		<li><img src="/resources/img/look/long_padding.png" /></li>
-		<li><img src="/resources/img/look/long_skirt.png" /></li>
-		<li><img src="/resources/img/look/Long_sleeve_shirts.png" /></li>
-	</ul>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+  
+    <div class="item active">
+      <img src="/resources/img/look/hoodie.png" alt="...">
+    </div>
+    
+    <div class="item">
+      <img src="/resources/img/look/short_padding.png" alt="...">
+    </div>
+    
+    <div class="item">
+      <img src="/resources/img/look/long_padding.png" alt="...">
+    </div>
+    
+    <div class="item">
+      <img src="/resources/img/look/night_trading.png" alt="...">
+    </div>
+
+    <div class="item">
+      <img src="/resources/img/look/sleeveless.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/sweater.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/tennis_skirt.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/trench_coat.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/trucker_jacket.png" alt="...">
+    </div>  
+    
+    <div class="item">
+      <img src="/resources/img/look/vest_padding.png" alt="...">
+    </div>  
+   
+    <div class="item">
+      <img src="/resources/img/look/sleeveless_shirt_man.png" alt="...">
+    </div>  
+   
+    <div class="item">
+      <img src="/resources/img/look/short_sleeved_woman.png" alt="...">
+    </div>  
+   
+    <div class="item">
+      <img src="/resources/img/look/long_sleeved_dress.png" alt="...">
+    </div>  
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
-<br>
 
-<c:if test="${not empty account }">
-	<div class="text-center"><h2>${account.account_nick } 님 로그인되었습니다.</h2></div>
+<c:if test="${!empty account }">
+<div class="text-center font-dohyeon center"><br>
+	<a class="btn input" href="/weather/cloth" role="button">날씨/기온에 맞는 옷</a>&nbsp;&nbsp;
+	<!-- <a class="btn input" href="/temperature/cloth" role="button">기온별 옷 보기</a>&nbsp;&nbsp; -->
+	<a class="btn input" href="/gender/cloth" role="button">성별 옷 보기</a>
+</div>
+
 </c:if>
-
 
 <c:if test="${empty account }">
-	<div class="text-center"><br>
-		<a class="btn btn-warning" href="/account/restoresession" role="button">로그인</a>
-		<a class="btn btn-warning " href="/account/join" role="button">회원가입</a>
+	<div class="text-center font-dohyeon"><br>
+		<a class="btn input"  href="/account/restoresession" role="button">로그인</a>&nbsp;&nbsp;
+		<a class="btn input"  href="/account/join" role="button">회원가입</a>
 	</div>
 </c:if>
+
 
 
 

@@ -27,15 +27,26 @@ public class QnAServiceImpl implements QnAService {
 	
 	
 	@Override
-	public List getList() {
+	public List<QnA> getListAll() {
 		return qnaDAO.selectAll();
 	}
 
 	@Override
-	public List getList(Paging paging) {
+	public List<QnA> getListAll(Paging paging) {
 		return qnaDAO.selectAll(paging);
 	}
 
+	@Override
+	public List<QnA> getListAccount(Account account) {
+		return qnaDAO.selectAccount(account);
+	}
+
+	@Override
+	public List<QnA> getListAccount(Account account, Paging paging) {
+		return qnaDAO.selectAccount(account, paging);
+	}
+
+	
 	@Override
 	public Paging getPaging(HttpServletRequest req) {
 		
@@ -52,11 +63,28 @@ public class QnAServiceImpl implements QnAService {
 		// Paging 객체 생성 
 		Paging paging = new Paging(totalCount, curPage, 20);
 		
-
-
 		return paging;
 	}
 
+	@Override
+	public Paging getPaging(Account account, HttpServletRequest req) {
+
+		//요청파라미터 curPage를 파싱한다
+		String param = req.getParameter("curPage");
+		int curPage = 0;
+		if( param!=null && !"".equals(param) ) {
+			curPage = Integer.parseInt(param);
+		}		
+		
+		//Board TB와 curPage 값을 이용한 Paging 객체를 생성하고 반환
+		int totalCount = qnaDAO.selectCntAccount(account); // DB는 쿼리스트링형태?
+		
+		// Paging 객체 생성 
+		Paging paging = new Paging(totalCount, curPage, 20);
+		
+		return paging;
+	}
+	
 	@Override
 	public QnA getQna_no(HttpServletRequest req) {
 	
@@ -157,9 +185,6 @@ public class QnAServiceImpl implements QnAService {
 					e.printStackTrace();
 				}
 				
-				//작성자id 처리
-				qna.setAccount_nick(((Account) req.getSession().getAttribute("account")).getAccount_nick());
-				
 			} else { //파일 처리
 				UUID uuid = UUID.randomUUID();
 				String u = uuid.toString().split("-")[4];
@@ -197,11 +222,16 @@ public class QnAServiceImpl implements QnAService {
 		if(qna != null) {
 			qna.setQna_no(qna_no); //게시글 번호 입력
 			
+			//작성자id 처리
+			qna.setAccount_nick(((Account) req.getSession().getAttribute("account")).getAccount_nick());
+			qna.setAccount_no(((Account) req.getSession().getAttribute("account")).getAccount_no());
+			
 			//게시글 제목 없을 경우 처리
 			if(qna.getQna_title()==null || "".equals(qna.getQna_title())) {
 				qna.setQna_title("(제목없음)");
 			}
 
+			System.out.println(qna);
 			qnaDAO.insert(qna); //게시글 삽입
 		}
 		
@@ -289,7 +319,7 @@ public class QnAServiceImpl implements QnAService {
 							qna.setQna_content( item.getString("utf-8") );
 						}
 
-						qna.setAccount_nick(((Account) req.getSession().getAttribute("Account")).getAccount_nick());
+						qna.setAccount_nick(((Account) req.getSession().getAttribute("account")).getAccount_nick());
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
@@ -370,10 +400,6 @@ public class QnAServiceImpl implements QnAService {
 		return true;
 
 	}
-
-
-
-
 
 
 

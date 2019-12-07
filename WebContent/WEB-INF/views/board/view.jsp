@@ -50,7 +50,7 @@ $(document).ready(function() {
 			$("<input>").attr({
 				type:"hidden",
 				name:"userid",
-				value:"${sessionScope.userid }"
+				value:"${sessionScope.account.account_nick }"
 			})
 		).append(
 			$("<textarea>")
@@ -93,7 +93,7 @@ function deleteComment(commentNo) {
 
 <div class="container">
 
-<h3 class="pull-left">공지사항     <small>게시판</small></h3>
+<h2 class="pull-left container font-dohyeon">공지사항     <small>게시판</small></h2>
 
 
 
@@ -107,24 +107,31 @@ function deleteComment(commentNo) {
 
 <table class="table table-bordered">
 <tr>
-<td class="info">글번호</td><td colspan="3">${viewBoard.boardno }</td>
+<td class="info font-gothic" 
+style="background-color: #FFF2EC">글번호</td><td colspan="3">${viewBoard.boardno }</td>
 </tr>
 
 <tr>
-<td class="info">제목</td><td colspan="3">${viewBoard.title }</td>
+<td class="info font-gothic"
+style="background-color: #FFF2EC">제목</td><td colspan="3">${viewBoard.title }</td>
 </tr>
 
 <tr>
-<td class="info">아이디</td><td>${viewBoard.id }</td>
-<td class="info">닉네임</td><td>${account.account_nick }</td>
+<td class="info font-gothic"
+style="background-color: #FFF2EC">아이디</td><td>${viewBoard.id }</td>
+<td class="info font-gothic"
+style="background-color: #FFF2EC">닉네임</td><td>${account.account_nick }</td>
 </tr>
 
 <tr>
-<td class="info">조회수</td><td>${viewBoard.hit }</td>
-<td class="info">작성일</td><td colspan="3">${viewBoard.writtendate }</td>
+<td class="info font-gothic"
+style="background-color: #FFF2EC">조회수</td><td>${viewBoard.hit }</td>
+<td class="info font-gothic"
+style="background-color: #FFF2EC">작성일</td><td colspan="3">${viewBoard.writtendate }</td>
 </tr>
 
-<tr><td class="info"  colspan="4">공지내용</td></tr>
+<tr><td class="info font-gothic" colspan="4"
+style="background-color: #FFF2EC">공지내용</td></tr>
 
 
 <tr><td colspan="4">${viewBoard.content }</td></tr>
@@ -136,19 +143,20 @@ function deleteComment(commentNo) {
 </div>
 
 <div class="text-center">	
-	<button id="btnList" class="btn btn-primary">목록</button>
-	<c:if test="${account.account_email eq viewBoard.id }">
-	<button id="btnUpdate" class="btn btn-info">수정</button>
-	<button id="btnDelete" class="btn btn-danger">삭제</button>
+	<button id="btnList" class="btn" style="background-color: #FFD2BD">목록</button>
+	<c:if test="${sessionScope.account.account_nick eq viewBoard.id }">
+	<button id="btnUpdate" class="btn" style="background-color: #7286FF">수정</button>
+	<button id="btnDelete" class="btn" style="background-color: #FF6060">삭제</button>
 	</c:if>
 </div>
 
 <hr>
 <!-- 댓글 작성 -->
 <div class="form-inline text-center">
-	<input type="text" size="10" class="form-control" id="commentWriter" value="${account.account_nick }" readonly="readonly"/>
+	<input type="text" size="10" class="form-control" id="commentWriter" 
+	value="${account.account_nick }" readonly="readonly" style="background-color: #FFF2EC"/>
 	<input type="text" class="form-control" style="width:600px;" id="commentContent" name="commentContent" placeholder="댓글입력">
-	<button id="btnCommInsert" class="btn">입력</button>
+	<button id="btnCommInsert" class="btn font-gothic" style="background-color: #FFD2BD">입력</button>
 </div>
 
 <!-- 댓글 처리 -->
@@ -160,23 +168,23 @@ function deleteComment(commentNo) {
 <table class="table table-striped table-hover table-condensed">
 <thead>
 <tr>
-	<th style="width: 5%;">번호</th>
-	<th style="width: 10%;">작성자</th>
-	<th style="width: 50%;">댓글</th>
-	<th style="width: 20%;">작성일</th>
-	<th style="width: 5%;"></th>
+	<th style="width: 5%;" class="font-gothic">번호</th>
+	<th style="width: 10%;" class="font-gothic">작성자</th>
+	<th style="width: 50%;" class="font-gothic">댓글</th>
+	<th style="width: 20%;" class="font-gothic">작성일</th>
+	<th style="width: 5%;" class="font-gothic"></th>
 </tr>
 </thead>
 <tbody id="commentBody">
 <c:forEach items="${commentList }" var="comment">
 <tr data-commentno="${comment.commentNo }">
-	<td>${comment.rnum }</td>
-	<td>${comment.userid }</td><!-- 닉네임으로 해도 좋음 -->
-	<td>${comment.content }</td>
-	<td><fmt:formatDate value="${comment.writtenDate }" pattern="yy-MM-dd hh:mm:ss" /></td>
-	<td>
-		<c:if test="${sessionScope.userid eq comment.userid }">
-		<button class="btn btn-default btn-xs"
+	<td class="font-gothic" style="background-color: #FFF">${comment.rnum }</td>
+	<td class="font-gothic" style="background-color: #FFF">${comment.userid }</td><!-- 닉네임으로 해도 좋음 -->
+	<td class="font-gothic" style="background-color: #FFF">${comment.content }</td>
+	<td class="font-gothic" style="background-color: #FFF"><fmt:formatDate value="${comment.writtenDate }" pattern="yy-MM-dd" /></td>
+	<td class="font-gothic" style="background-color: #FFF">
+		<c:if test="${sessionScope.account.account_nick eq comment.userid }">
+		<button class="btn btn-xs" style="background-color: #FFD2BD"
 			onclick="deleteComment(${comment.commentNo });">삭제</button>
 		</c:if>
 	</td>

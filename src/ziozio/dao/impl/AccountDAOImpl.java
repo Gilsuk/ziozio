@@ -9,6 +9,7 @@ import ziozio.dao.exception.SelectResultException;
 import ziozio.dao.face.AccountDAO;
 import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
+import ziozio.dto.Verification;
 import ziozio.utils.param.exception.InvalidParamException;
 
 public class AccountDAOImpl implements AccountDAO {
@@ -116,4 +117,86 @@ public class AccountDAOImpl implements AccountDAO {
 		});
 	}
 
+	@Override
+	public void updateToVerify(Account account) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE account SET account_verified = 'T'");
+		sql.append(" WHERE account_no = ?");
+		
+		try {
+			Dao.<Account>update(sql.toString(), account, (t, u) -> {
+				t.setInt(1, account.getAccount_no());
+			});
+		} catch (SQLException e) { e.printStackTrace(); }
+	}
+
+	@Override
+	public Account selectByEmail(Account account) throws SelectResultException {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT account_no FROM account");
+		sql.append(" WHERE account_email = ?");
+		
+		return
+		Dao.<Account>select(sql.toString(), account, (t, u) -> {
+			t.setString(1, account.getAccount_email());
+		}, this::getAccountnoFromResultSet);
+	}
+	
+	private Account getAccountnoFromResultSet(ResultSet rs) {
+		Account account = new Account();
+		try {
+			account.setAccount_no(rs.getInt("account_no"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return account;
+
+	}
+
+	@Override
+	public void insert(Verification veri) throws SQLException {
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO verification (verification_type, account_no, verification_code)");
+		sql.append(" VALUES (?, ?, ?)");
+		
+		try {
+			Dao.<Verification>update(sql.toString(), veri, (t, u) -> {
+				t.setString(1, String.valueOf(u.getVerification_type()));
+				t.setInt(2, u.getAccount_no());
+				t.setString(3, u.getVerification_code());
+			});
+		} catch (SQLException e) { throw e; }
+	}
+
+	@Override
+	public boolean selectCount(Verification veri) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT count(*) FROM verification");
+		sql.append(" WHERE account_no = ?");
+		sql.append(" AND verification_code = ?");
+
+
+		int cnt = 
+		Dao.<Verification>count(sql.toString(), veri, (t, u) -> {
+			t.setInt(1, u.getAccount_no());
+			t.setString(2, u.getVerification_code());
+		});
+		
+		return cnt == 1 ? true : false;
+	}
+
+	@Override
+	public void updatePw(AccountWithPw account) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE account SET account_pw = ?");
+		sql.append(" WHERE account_no = ?");
+		
+		try {
+			Dao.<AccountWithPw>update(sql.toString(), account, (t, u) -> {
+				t.setString(1, u.getAccount_pw());
+				t.setInt(2, u.getAccount_no());
+			});
+		} catch (SQLException e) { e.printStackTrace(); }
+	}
 }

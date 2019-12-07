@@ -18,36 +18,45 @@
 - 회원탈퇴 기능
 - 메세지 알림기능(표시, 읽음, 안읽음 기능)
 - 이메일 계정 인증 & 계정 찾기
----------아니 오늘 회의한거 다 날려버림 왜지...죄송합니다 여러분...각자 기억력을 되살려보아요ㅜㅜ...
+- ClothDAOImpl 450행 중복처리 SQLException 해야됨!!
+- QnA write, update, view 오류 처리해야함. 글쓰기에서 작성누르면 에러..
+- style 별 옷 리스트 출력시 다중선택 가능하게
+- StyleServiceImpl에서 파라미터 분석 메서드 미구현
+- ~유저가 자신이 선호하는 스타일을 등록할 수 있게~
+- 자신이 설정한 스타일 삭제
+- 내 옷장
+- 메인페이지 추천
+- 미세먼지 등급
+- 날짜 전환, 지역 전환 기능
+1(최고): 0\~15/ 2(좋음): 16\~30/ 3(양호): 31\~40/ 4(보통): 41\~50/ 5(나쁨): 51\~75/ 6(쫌나쁨): 76\~100/ 7(매우 나쁨): 101\~150/ 8(최악):151이상
 
 ## sql 쿼리 작동 순서
-sql문 완성된 테이블은 (*) 마크를 붙임
 
 ### account
-1. account_grade*
-2. account*
-3. cookie*
+1. account_grade
+2. account
+3. cookie
 
 ### weather
-1. location*
-2. weather*
-3. temperature_grade*
-4. weather_info* (더미데이터 필요)
+1. location
+2. weather
+3. temperature_grade
+4. weather_info
 
 ### cloth
-1. cloth_category*
-2. style* (데이터 필요)
-3. cloth* (데이터 필요)
-4. color* (데이터 필요)
-5. cloth_set* (데이터 필요)
+1. cloth_category
+2. style
+3. cloth
+4. color
+5. cloth_set
 
 ### 아래 테이블들은 위 작업 이후 순서 없이 작동 가능
-- cloth_style* (데이터)
-- cloth_weather* (need more datas)
-- cloth_temperature_grade* (데이터 부족)
-- account_style*
-- account_library*
-- account_like*
+- cloth_style
+- cloth_weather
+- cloth_temperature_grade
+- account_style
+- account_library
+- account_like
 
 ## 개발환경
 windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javascript, html, css
@@ -58,6 +67,6 @@ windows 10, apache-tomcat v9.0.27, eclipse EE 2019-9, openjdk-11, oracle, javasc
 ## 설계서
 - [요구사항 정의서](https://docs.google.com/spreadsheets/d/1oa3t7seEsTh60JEOmgY0olRsSnVOR4yWjhi9Btae1Qk/edit#gid=0)
 - [요구사항 명세서](https://docs.google.com/spreadsheets/d/1oa3t7seEsTh60JEOmgY0olRsSnVOR4yWjhi9Btae1Qk/edit#gid=1204896733)
-- [클래스 다이어그램](https://www.draw.io/?state=%7B%22ids%22:%5B%221REHZqw83wSpMwfWqOtHbWFYzI6dvh_42%22%5D,%22action%22:%22open%22,%22userId%22:%22112892481326909512500%22%7D#G1REHZqw83wSpMwfWqOtHbWFYzI6dvh_42)
+- [클래스 다이어그램](https://drive.google.com/file/d/1REHZqw83wSpMwfWqOtHbWFYzI6dvh_42/view?usp=sharing)
 - [ERD](https://www.erdcloud.com/d/F7wreMfCbCMhmc2H5)
 - [스토리보드](https://docs.google.com/presentation/d/1nyAoGdxpssrEMZWDgQZHmT5UBk-hUczQGKG47H1k50o/edit#slide=id.p)

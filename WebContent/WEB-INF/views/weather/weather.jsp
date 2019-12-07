@@ -1,66 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-    $(function() {        
-        // Geolocation API에 액세스할 수 있는지를 확인
-        if (navigator.geolocation) {
-            //위치 정보를 얻기
-            navigator.geolocation.getCurrentPosition (function(pos) {
-                
-                var lat = pos.coords.latitude;
-                var lon = pos.coords.longitude;
-                var weather = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=b8c85273ee67f6a0a8805a795092e25e";
-                
-                jQuery.ajax({
-                    url: weather,
-                    type: 'GET',
-                       success: function(weatherResult){
-                    	   
-//                     	   console.log(weatherResult);                       
-//                     	   console.log(weatherResult.main);                       
-//                     	   console.log(weatherResult.weather[0]);
-                    	   
-                    	   $.ajax({
-								
-								url : '/weather_get',
-					
-								data : {temp : JSON.stringify(weatherResult.main.temp-273.15),
-										humidity : JSON.stringify(weatherResult.main.humidity),
-										tempMax : JSON.stringify(weatherResult.main.temp_max-273.15),
-										tempMin : JSON.stringify(weatherResult.main.temp_min-273.15),
-										weather : JSON.stringify(weatherResult.weather[0].description)										
-										},	
-										
-								type : 'GET',
-					
-					
-							});
-                        }
-                });
-                         
-            });
-            
-        } else {
-            alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-        }
-	});
-    
-    
+<jsp:include page="/WEB-INF/views/layout/header.jsp" /> 
+
+<style type="text/css">
+
+
+.carousel-inner {
+	font-size: 20px;
+}
+
+
+.carousel-control.right, .carousel-control.left {
+ background-image: none;
+}
+</style>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$(".carousel-inner .item:first-child").addClass("active");
+
+});
 </script>
-</head>
-<body>  
+
+<!-- 이미지 -->
+<div class="marginauto">
+    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
+</div>
 
 
-<p id="message"></p>
+<div id="wrap">
+<div class="container center">
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
+		<div class="jumbotron padding"  >
+<h2 class="">WEATHER INFO</h2><br><br>
+
+		<div id="carousel-example-generic" class="carousel slide">
+			<!-- 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel"> -->
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<!-- 		<div class="carousel-inner"> -->
+				<c:forEach items="${weatherList}" var="weatherinfo">
+					<div class="item">
+						<%-- 			<fmt:formatDate value="${weatherinfo.weahter_info_date}" pattern="yyyy-MM-dd HH" /><br> --%>
+						<%-- 				<c:out value="${weatherinfo.weahter_info_date}"></c:out><br> --%>
+						<c:out value="${weatherinfo.weahter_info_date_str }시"></c:out>
+						<br><br>
+						<c:out value="${weatherinfo.location_name}"></c:out>
+						<br><br>
+						<c:out value="날씨 ${weatherinfo.weather_name}"></c:out>
+						<br><br>
+						<%-- 				<c:out value="${weatherinfo.temperature_grade_code}"></c:out><br> --%>
+						<c:out value="온도 ${weatherinfo.weather_info_temperature}"></c:out>
+						<br><br>
+						<c:out value="미세먼지 ${weatherinfo.weather_info_finedust}"></c:out>
+						<br><br>
+
+					</div>
+				</c:forEach>
+				
+				
+				<h3>날씨</h3>
+				
+				
+			</div>
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left"></span>
+				
+			</a> <a class="right carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" ></span>
+				
+			</a>
+
+		</div>
+</div>
+</div>
+<div class="col-lg-3"></div>
+</div>
+</div>
 
 
-   
-</body>
-</html>
+
+
+<jsp:include page="/WEB-INF/views/layout/footer.jsp" />

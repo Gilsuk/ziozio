@@ -75,9 +75,7 @@
 		$.ajax({
 			type : "GET",
 			url : "/account/duplicatecheck/nick",
-			data : {
-				account_nick : account_nick
-			},
+			data : {account_nick : account_nick},
 			success : function(result) {
 				$("#checkMessage").html(result);
 				$("#checkType").attr("class", "modal-content panel-success");
@@ -89,12 +87,24 @@
 	function pwCheckFunction() {
 		var account_pw = $("#account_pw").val();
 		var account_pw2 = $("#account_pw2").val();
+        var check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$/.test(account_pw);   //영문,숫자
+        var check2 = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,15}$/.test(account_pw);  //영문,특수문자
+        var check3 = /^(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,15}$/.test(account_pw);  //특수문자, 숫자
+       
+        if(!(check1||check2||check3)){
+           warningModal("비밀번호는 숫자, 대/소문자, 특수문자 중 2가지 이상을 조합한 8~15 자리가 가능합니다");
+
+           $('#account_pw').focus();
+           return false;
+		}
 		if (account_pw != account_pw2) {
 			$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
 		} else {
 			$("#pwCheckMessage").html("");
 		}
 	}
+	
+
 </script>
 
 
@@ -102,37 +112,37 @@
 
 <!-- 이미지 -->
 <div class="marginauto">
-    <img src='/resources/img/ZIOZIO.png' >
+    <img class="ziozio" src='/resources/img/ZIOZIO.png' >
 </div>
 
 <div id="wrap">
 <div class="container">
 	<div class="col-lg-3"></div>
 	<div class="col-lg-6">
-		<div class="jumbotron padding" >
+		<div class="jumbotron padding"  >
 			<form name="loginInfo" method="post" action="/account/join" onsubmit="Freturn checkValue()">
-				<h3 class="center">회원가입</h3><br>
+				<h2 class="center font-dohyeon">회원가입</h2><br>
 				<div class="form-group">
 					<div class="form-inline" >
-						<input type="email" class="form-control" style="width: 330px;" placeholder="아이디(이메일)" name="account_email" id="account_email" maxlength="100"/>
-						<button class="btn tn-primary input" onclick="emailCheckFunction();" type="button">중복체크</button>
+						<input type="email" class="form-control font-gothic" style="width: 330px;" placeholder="아이디(이메일)" name="account_email" id="account_email" maxlength="100"/>
+						<button class="btn tn-primary input font-gothic" onclick="emailCheckFunction();" type="button">중복체크</button>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw" id="account_pw" maxlength="50"/>
+					<input type="password" class="form-control font-gothic" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw" id="account_pw" maxlength="50"/>
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw2" id="account_pw2" maxlength="50"/>
+					<input type="password" class="form-control font-gothic" placeholder="비밀번호" onkeyup="pwCheckFunction();" name="account_pw2" id="account_pw2" maxlength="50"/>
 				<h5 style="color: red;" id="pwCheckMessage"></h5> 
 				</div>
 				<div class="form-group">
 					<div class="form-inline" >
-						<input type="text" class="form-control" style="width: 330px;" placeholder="닉네임" name="account_nick" id="account_nick" maxlength="50"/>
-						<button class="btn tn-primary input" onclick="nickCheckFunction();" type="button">중복체크</button>
+						<input type="text" class="form-control font-gothic" style="width: 330px;" placeholder="닉네임" name="account_nick" id="account_nick" maxlength="50"/>
+						<button class="btn tn-primary input font-gothic" onclick="nickCheckFunction();" type="button">중복체크</button>
 					</div>
 				</div>
 				<div class="form-group center" >
-					<div class="btn-group " data-toggle="buttons">
+					<div class="btn-group font-gothic" data-toggle="buttons">
 						<label class="btn active input" >
 							<input type="radio" name="account_gender"  autocomplete="off" value="M" checked />남자
 						</label>
@@ -146,13 +156,13 @@
 				</div>
 				
 				<div class="form-group">
-					<input type="submit" class="btn btn-primory form-control input color"  value="회원 가입하기" />
+					<input type="submit" class="btn btn-primory form-control input color font-gothic"  value="회원 가입하기" />
 					
 				</div>
 			</form>
 			<div class="form-group">
 				<a href="/">
-					<input type="submit" class="btn btn-primory form-control input color" value="가입취소" />
+					<input type="submit" class="btn btn-primory form-control input color font-gothic" value="가입취소" />
 				</a>
 			</div>
 		</div>	
@@ -177,7 +187,7 @@
 <div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="vertical-alignment-helper">
 		<div class="modal-dialog vertical-align-center">
-			<div class="modal-content" <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
+			<div class="modal-content " <% if(messageType.equals("오류메세지")) out.println("panel-warning"); else out.println("panel-success"); %>>
 				<div class="modal-header panel-heading">
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span>

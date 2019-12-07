@@ -32,13 +32,21 @@ tr td:not(:first-child), tr th:not(:first-child) {
 
 </style>
 
-<div class="container">
+<div class="marginauto">
+   <a href="/main"><img class="ziozio" src='/resources/img/ZIOZIO.png' ></a>
+</div>
 
-<h3>공지사항     <small>게시판</small></h3>
+<div id="wrap">
+<div class="container">
+	
+	<div class="col-lg-12">
+		<div class="jumbotron padding" style="background-color: #FFF2EC">
+
+<h1 class="font-dohyeon">공지사항     <small>게시판</small></h1>
 <hr>
 
 <table class="table table-hover table-condensed table-striped">
-<tr style="background-color: #ffead3;">
+<tr style="background-color: #FFD2BD;" class="font-gothic">
 	<th style="width: 10%">글번호</th>
 	<th style="width: 50%">제목</th>
 	<th style="width: 15%">아이디</th>
@@ -62,26 +70,27 @@ tr td:not(:first-child), tr th:not(:first-child) {
 	<form action="/board/list" method="get">
 	<div class="form-group">
 		<div class="form-inline">
-			<select class="form-control" name="category">
+			<select class="form-control" name="category" >
 				<option value="1">제목</option>
 				<option value="2">내용</option>
 				<option value="3">제목  + 내용</option>
 			</select>
    			<input type="text" class="form-control" style="width:300px;" name="search" placeholder="공지사항 검색">
-	    	<button type="submit" class="btn btn-default">검색</button>
+	    	<button type="submit" class="btn" style="background-color: #FFD2BD">검색</button>
 		</div>
 	</div>
 	</form>
 </div>
 
-
-
-
-
-<div id="btnBox" class="text-right">
-	<button id="btnWrite" class="btn btn-primary">글쓰기</button>
+<c:if test="${account.account_grade_code == 1 }">
+	<div id="btnBox" class="text-right">
+		<button id="btnWrite" class="btn btn-Warning font-gothic"
+		style="background-color: #FFD2BD">글쓰기</button>
+	</div>
+</c:if>
 </div>
-
+</div>
+</div>
 </div><!-- .container -->
 
 
