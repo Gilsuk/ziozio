@@ -13,8 +13,8 @@ import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
 import ziozio.service.impl.AccountServiceImpl;
 
-@WebServlet("/Mgr")
-public class MgrBoardController extends HttpServlet {
+@WebServlet("/admin")
+public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private AccountService accountService= AccountServiceImpl.getInstance();
 	
@@ -35,7 +35,7 @@ public class MgrBoardController extends HttpServlet {
 //			System.out.println("관리자");
 //		}
 		//관리자 권한으로만 로그인 가능하게...관리자 페이지 로그인해서 board, member로 넘기기
-		req.getRequestDispatcher("/WEB-INF/views/mgr/mgr.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/admin/admin_login.jsp").forward(req, resp);
 
 		}
 

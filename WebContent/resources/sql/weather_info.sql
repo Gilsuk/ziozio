@@ -153,10 +153,6 @@ INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.06 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 3, 23, 35);
 
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.06 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 1, 3, 3);
-
 
 
 --1168091100:역삼1동 / 2019.12.07
@@ -255,10 +251,6 @@ VALUES (to_date('2019.12.07 22:00','yyyy.mm.dd hh24:mi'), 1168091100, 3, 0.6, 34
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.07 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 4, -3, 64);
-
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.07 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 4, -5, 34);
 
 
 
@@ -359,10 +351,6 @@ INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.08 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 2, 6, 34);
 
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.08 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 3, 4.5, 12);
-
 
 
 --1168091100:역삼1동 / 2019.12.09
@@ -462,10 +450,6 @@ INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.09 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 3, -1.2, 29);
 
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.09 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 1, 32.6, 34);
-
 
 
 --1168091100:역삼1동 / 2019.12.10
@@ -564,11 +548,6 @@ VALUES (to_date('2019.12.10 22:00','yyyy.mm.dd hh24:mi'), 1168091100, 2, 32.4, 3
 INSERT INTO weather_info (weather_info_date, location_code,
 weather_code, weather_info_temperature, weather_info_finedust)
 VALUES (to_date('2019.12.10 23:00','yyyy.mm.dd hh24:mi'), 1168091100, 1, 29.8, 65);
-
-INSERT INTO weather_info (weather_info_date, location_code,
-weather_code, weather_info_temperature, weather_info_finedust)
-VALUES (to_date('2019.12.10 24:00','yyyy.mm.dd hh24:mi'), 1168091100, 1, 23.9, 32);
-
 
 
 
