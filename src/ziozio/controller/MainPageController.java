@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ziozio.dto.Account;
-import ziozio.dto.ClothSet;
 import ziozio.dto.ClothWithColor;
 import ziozio.dto.Location;
 import ziozio.dto.Style;
@@ -21,13 +20,11 @@ import ziozio.dto.enumeration.ClothCategory;
 import ziozio.service.exception.AccountNotFountException;
 import ziozio.service.face.AccountService;
 import ziozio.service.face.ClothRecommandationService;
-import ziozio.service.face.ClothSetService;
 import ziozio.service.face.LocationService;
 import ziozio.service.face.StyleService;
 import ziozio.service.face.WeatherInfoService;
 import ziozio.service.impl.AccountServiceImpl;
 import ziozio.service.impl.ClothRecommandationServiceImpl;
-import ziozio.service.impl.ClothSetServiceImpl;
 import ziozio.service.impl.LocationServiceImpl;
 import ziozio.service.impl.StyleServiceImpl;
 import ziozio.service.impl.WeatherInfoServiceImpl;
@@ -39,7 +36,6 @@ public class MainPageController extends HttpServlet {
 	
 	private WeatherInfoService weatherInfoService = WeatherInfoServiceImpl.getInstance();
 	private LocationService locationService = LocationServiceImpl.getInstance();
-	private ClothSetService setService = ClothSetServiceImpl.getInstance();
 	private AccountService accountService = AccountServiceImpl.getInstance();
 	private StyleService styleService = StyleServiceImpl.getInstance();
 	private ClothRecommandationService rcmdService = ClothRecommandationServiceImpl.getInstance();
