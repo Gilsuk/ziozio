@@ -22,9 +22,6 @@ VALUES ('ª°∞≠', 0, 1, 1, 0);
 -----------------------------------
 
 INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
-VALUES ('»Ú', 0, 0, 100, 100);
-
-INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
 VALUES ('∞À¡§', 0, 0, 100, 0);
 
 INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
