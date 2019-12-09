@@ -87,7 +87,7 @@
 	function pwCheckFunction() {
 		var account_pw = $("#account_pw").val();
 		var account_pw2 = $("#account_pw2").val();
-        var check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$/.test(account_pw);   //영문,숫자
+/*         var check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$/.test(account_pw);   //영문,숫자
         var check2 = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,15}$/.test(account_pw);  //영문,특수문자
         var check3 = /^(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,15}$/.test(account_pw);  //특수문자, 숫자
        
@@ -96,7 +96,7 @@
 
            $('#account_pw').focus();
            return false;
-		}
+		} */
 		if (account_pw != account_pw2) {
 			$("#pwCheckMessage").html("비밀번호가 일치하지 않습니다");
 		} else {

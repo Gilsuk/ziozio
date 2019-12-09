@@ -17,17 +17,6 @@ create table qna (
 DROP SEQUENCE qna_seq;
 CREATE SEQUENCE qna_seq;
 
----- 아래 트리거 생성 코드는 이클립스에서 실행 안됨
----- SQL Developer로 실행 할 것
---CREATE OR REPLACE TRIGGER qna_on_insert_trg
---  BEFORE INSERT ON qna
---  FOR EACH ROW
---BEGIN
---  :new.qna_no := qna_seq.nextval;
---END;
---/
-
-
 
 
 commit;
