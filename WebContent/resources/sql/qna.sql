@@ -5,8 +5,6 @@ create table qna (
     qna_title varchar(100) not null,
     qna_content varchar(500) not null,
     qna_writtendate DATE DEFAULT sysdate not null,
-    
-    	-- account 테이블과 외래키 연결
 	CONSTRAINT qna_to_account_fk
 	FOREIGN KEY ( account_no )
 	REFERENCES account ( account_no )

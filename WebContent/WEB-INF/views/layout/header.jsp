@@ -137,7 +137,7 @@ function locationError(error){
 						<li><a href="/account/restoresession">로그인</a></li>
 						<li><a href="/account/find">비밀번호 찾기</a></li>
 						<li><a href="/board/list">게시판</a></li>
-<!-- 						<li><a id="location">내위치</a></li> -->
+						<li><a id="location">내위치</a></li>
 						<li><a href="/weather">날씨</a></li>
 						<li><a href="/awarded">column</a></li>
 					</c:otherwise>

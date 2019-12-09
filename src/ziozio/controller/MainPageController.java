@@ -59,18 +59,22 @@ public class MainPageController extends HttpServlet {
 		}
 
 		
-		List<ClothWithColor> topList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
-		List<ClothWithColor> bottomList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
-		List<ClothWithColor> outerList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
+//		List<ClothWithColor> topList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
+//		List<ClothWithColor> bottomList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
+//		List<ClothWithColor> outerList = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
 		
 
-		List<ClothWithColor> allList = new ArrayList<>(topList);
-		allList.addAll(bottomList);
-		allList.addAll(outerList);
+		List<ClothWithColor> allList  = rcmdService.getClothes(account, weather, styles, ClothCategory.TOP);
+//		allList.addAll(bottomList);
+//		allList.addAll(outerList);
 		Collections.shuffle(allList);
 
 
 		
+		for (ClothWithColor clothWithColor : allList) {
+			System.out.println(clothWithColor);
+			
+		}
 		
 		req.setAttribute("allList", allList);
 		

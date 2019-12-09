@@ -66,6 +66,7 @@ public class CookieServiceImpl implements CookieService {
 
 	private String getCookieValue(HttpServletRequest req, String cookieName) throws CookieNotFoundException {
 		Cookie[] cookies = req.getCookies();
+		if (cookies != null)
 		for (Cookie cookie : cookies)
 			if (cookie.getName().equals(cookieName))
 				return cookie.getValue();

@@ -76,7 +76,7 @@ INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightnes
 VALUES ('고동', 1, 9, 100, 0);
 
 INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
-VALUES ('코토리베이지', 407, 7, 200, 0);
+VALUES ('코토베이지', 407, 7, 200, 0);
 
 INSERT INTO color (color_name, color_hue_rotate, color_saturate, color_brightness, color_invert)
 VALUES ('아이보리', 0, 1, 1, 0);

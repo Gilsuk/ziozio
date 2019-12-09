@@ -18,7 +18,8 @@ public interface VerificationService {
 
 	VerificationType getType(HttpServletRequest request) throws TypeNotAllowedException;
 
-	void generateKey(AccountWithPw account) throws SQLException;
+
+	void generateKey(Account account) throws SQLException;
 	
 	
 

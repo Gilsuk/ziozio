@@ -38,10 +38,11 @@ public class AccountVerifyController extends HttpServlet {
 
 		try {
 			String queryString = verificationService.getQueryString(account, type);
+			System.out.println(queryString);
 			if (queryString.equals(request.getQueryString())) {
 				if (type == VerificationType.EMAIL) {
 					accountService.verify(account);
-					response.sendRedirect("/main");
+					response.getWriter().println("verified");
 					return;
 				} else if (type == VerificationType.FIND) {
 					request.getRequestDispatcher("/WEB-INF/views/account/changepw.jsp")

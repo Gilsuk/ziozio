@@ -43,7 +43,6 @@ public class Weather extends HttpServlet {
 		Location location = null;
 		HttpSession session = null;
 		session=req.getSession();
-		System.out.println("세션확인"+session.getAttribute("location"));
 		
 		
 		if(!(session.getAttribute("location")==null)) {
