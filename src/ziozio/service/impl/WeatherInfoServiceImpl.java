@@ -34,7 +34,7 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 
 		WeatherInfo weather = weatherinfoDao.selectAll(loc);
 		
-		if (weather.getWeahter_info_date() == null)
+		if (weather == null)
 			weather = getDefaultWeather();
 		
 		setWeatherToSession(req, weather);
