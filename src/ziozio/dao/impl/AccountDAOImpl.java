@@ -120,7 +120,7 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public void updateToVerify(Account account) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("UPDATE account SET account_verified = 'T'");
+		sql.append("UPDATE account SET account_verified = 1");
 		sql.append(" WHERE account_no = ?");
 		
 		try {

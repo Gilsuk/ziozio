@@ -24,41 +24,43 @@ public class RecommandationDAOImpl implements RecommandationDAO {
 	public List<Cloth> select(Recmd recmd) {
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM cloth C");
+		sql.append("SELECT DISTINCT C.cloth_name, C.cloth_code, C.cloth_link_url, C.cloth_gender, C.cloth_img FROM cloth C");
 		sql.append(" INNER JOIN cloth_temperature_grade CT ON C.cloth_code = CT.cloth_code");
 		sql.append(" INNER JOIN cloth_style CS ON C.cloth_code = CS.cloth_code");
 		sql.append(" INNER JOIN style S ON CS.style_code = S.style_code");
 		sql.append(" INNER JOIN cloth_weather CW ON C.cloth_code = CW.cloth_code");
-		sql.append(" INNER JOIN cloth_category CC ON C.cloth_category_code = CC.cloth_category_code");
+//		sql.append(" INNER JOIN cloth_category CC ON C.cloth_category_code = CC.cloth_category_code");
 		sql.append(" INNER JOIN weather W ON CW.weather_code = W.weather_code");
 		sql.append(" WHERE W.weather_name = ?");
 		sql.append(" AND CT.temperature_grade_code = ?");
-		sql.append(" AND CC.cloth_category_name = ?");
+//		sql.append(" AND CC.cloth_category_name = ?");
 		sql.append(" AND S.style_name IN (");
 		insertKeywordsIntoSql(sql, recmd.getStyles());
 		sql.append(" )");
 		sql.append(" ORDER BY DBMS_RANDOM.RANDOM");
 		
+		System.out.println(sql);
+		
 		return
 		Dao.<Recmd, Cloth>selectList(sql.toString(), null, null, (t, u) -> {
 			t.setString(1, recmd.getWeather().getWeather_name());
 			t.setInt(2, recmd.getWeather().getTemperature_grade_code());
-			t.setString(3, recmd.getCategory().getDbValue());
+//			t.setString(3, recmd.getCategory().getDbValue());
 		}, this::getClothByResultSet);
 	}
 	@Override
 	public List<Cloth> selectByAccount(Recmd recmd) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM cloth C");
+		sql.append("SELECT DISTINCT C.cloth_name, C.cloth_code, C.cloth_link_url, C.cloth_gender, C.cloth_img FROM cloth C");
 		sql.append(" INNER JOIN cloth_temperature_grade CT ON C.cloth_code = CT.cloth_code");
 		sql.append(" INNER JOIN cloth_style CS ON C.cloth_code = CS.cloth_code");
 		sql.append(" INNER JOIN style S ON CS.style_code = S.style_code");
 		sql.append(" INNER JOIN cloth_weather CW ON C.cloth_code = CW.cloth_code");
-		sql.append(" INNER JOIN cloth_category CC ON C.cloth_category_code = CC.cloth_category_code");
+//		sql.append(" INNER JOIN cloth_category CC ON C.cloth_category_code = CC.cloth_category_code");
 		sql.append(" INNER JOIN weather W ON CW.weather_code = W.weather_code");
 		sql.append(" WHERE W.weather_name = ?");
 		sql.append(" AND CT.temperature_grade_code = ?");
-		sql.append(" AND CC.cloth_category_name = ?");
+//		sql.append(" AND CC.cloth_category_name = ?");
 		sql.append(" AND S.style_name IN (");
 		insertKeywordsIntoSql(sql, recmd.getStyles());
 		sql.append(" )");
@@ -66,11 +68,11 @@ public class RecommandationDAOImpl implements RecommandationDAO {
 		sql.append(" ORDER BY DBMS_RANDOM.RANDOM");
 		
 		return
-		Dao.<Recmd, Cloth>selectList(sql.toString(), null, null, (t, u) -> {
+		Dao.<Recmd, Cloth>selectList(sql.toString(), recmd, null, (t, u) -> {
 			t.setString(1, recmd.getWeather().getWeather_name());
 			t.setInt(2, recmd.getWeather().getTemperature_grade_code());
-			t.setString(3, recmd.getCategory().getDbValue());
-			t.setString(4, String.valueOf(recmd.getGender()));
+//			t.setString(3, recmd.getCategory().getDbValue());
+			t.setString(3, String.valueOf(recmd.getGender()));
 		}, this::getClothByResultSet);
 	}
 	

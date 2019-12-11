@@ -1,5 +1,6 @@
 package ziozio.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,9 +33,27 @@ public class WeatherInfoServiceImpl implements WeatherInfoService {
 			return (WeatherInfo) weatherinfo;
 
 		WeatherInfo weather = weatherinfoDao.selectAll(loc);
+		
+		if (weather == null)
+			weather = getDefaultWeather();
+		
 		setWeatherToSession(req, weather);
 		return weather;
 		
+	}
+
+	private WeatherInfo getDefaultWeather() {
+		WeatherInfo weather = new WeatherInfo();
+		
+		weather.setLocation_name("대한민국");
+		weather.setTemperature_grade_code(4);
+		weather.setWeahter_info_date(new Date(System.currentTimeMillis()));
+		weather.setWeahter_info_date_str(weather.getWeahter_info_date().toString());
+		weather.setWeather_info_finedust(50.0);
+		weather.setWeather_info_temperature(18.5);
+		weather.setWeather_name("맑음");
+		
+		return weather;
 	}
 
 	@Override

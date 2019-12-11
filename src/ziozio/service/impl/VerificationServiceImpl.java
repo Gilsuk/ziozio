@@ -70,7 +70,7 @@ public class VerificationServiceImpl implements VerificationService {
 	}
 
 	@Override
-	public void generateKey(AccountWithPw account) throws SQLException {
+	public void generateKey(Account account) throws SQLException {
 
 		Verification veri = new Verification();
 		veri.setAccount_no(account.getAccount_no());

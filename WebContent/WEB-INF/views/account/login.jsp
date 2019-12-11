@@ -79,9 +79,9 @@
    					 </label>
    				 </div>
 
-              <%--	<c:if test="${!empty result && !result}"> 
+              	<c:if test="${!empty result && !result}"> 
  					<h5 style="color: red;">비밀번호를 확인 해주세요</h5> 
-				</c:if>  --%>
+				</c:if> 
 				
 				<input type="text" hidden="hidden" name="originurl" value="<%= (String)request.getAttribute("originurl") %>" />
 				<div class="form-group" >

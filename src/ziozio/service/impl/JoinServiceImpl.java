@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import ziozio.dao.face.AccountDAO;
 import ziozio.dao.impl.AccountDAOImpl;
+import ziozio.dto.Account;
 import ziozio.dto.AccountWithPw;
 import ziozio.service.exception.AccountDuplicateException;
 import ziozio.service.face.JoinService;
@@ -33,7 +34,8 @@ public class JoinServiceImpl implements JoinService {
 		} catch (SQLException e) { throw new AccountDuplicateException(); }
 
 		try {
-			verificationService.generateKey(account);
+			Account select = accountDao.select(account);
+			verificationService.generateKey(select);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
